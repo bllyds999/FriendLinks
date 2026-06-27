@@ -50,6 +50,18 @@ export function rgbToHex(r: number, g: number, b: number) {
 }
 
 /**
+ * 按百分比调亮/调暗 hex 颜色
+ */
+export function adjustHex(hex: string, percent: number) {
+  const [r, g, b] = hexToRgb(hex);
+  const amt = Math.round(255 * (percent / 100));
+  const nr = Math.max(0, Math.min(255, r + amt));
+  const ng = Math.max(0, Math.min(255, g + amt));
+  const nb = Math.max(0, Math.min(255, b + amt));
+  return rgbToHex(nr, ng, nb);
+}
+
+/**
  * 根据基础色生成 emissive 发光色
  * 将颜色调亮并增加饱和度，用于 Three.js MeshStandardMaterial.emissive
  */
