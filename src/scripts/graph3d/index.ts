@@ -263,15 +263,12 @@ export function init3d(graphData: GraphData) {
   });
 
   // ── 9. 交互事件 ──────────────────────────────────────────────────
-  Graph.onNodeClick((n: any, e: MouseEvent) => {
-    // 右键点击：聚焦该节点
-    if (e.button === 2) {
-      e.preventDefault();
-      focusNodeById(n.id);
-      return;
-    }
-    // 左键点击：打开链接
+  Graph.onNodeClick((n: any) => {
     if (n.url) window.open(n.url, "_blank");
+  });
+
+  Graph.onNodeRightClick((n: any) => {
+    focusNodeById(n.id);
   });
 
   Graph.onNodeHover((n: any) => {
