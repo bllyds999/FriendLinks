@@ -5,6 +5,7 @@
 
 import ForceGraph3D from "3d-force-graph";
 import Fuse from "fuse.js";
+import * as THREE from "three";
 import { PALETTE, hashToIndex, degreeToSize, adjustHex } from "./utils";
 import type { GraphData } from "../../../types/graph";
 
@@ -60,6 +61,21 @@ function getBaseColor(node: any): string {
 
 function themedColor(base: string, isDark: boolean): string {
   return isDark ? adjustHex(base, 20) : base;
+}
+
+// 创建发光圈纹理
+function createGlowTexture(color: string): THREE.CanvasTexture {
+  const canvas = document.createElement("canvas");
+  canvas.width = 64;
+  canvas.height = 64;
+  const ctx = canvas.getContext("2d")!;
+  const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+  gradient.addColorStop(0, color + "00"); // 中心透明
+  gradient.addColorStop(0.4, color + "40"); // 中间半透明
+  gradient.addColorStop(1, color + "00"); // 边缘透明
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 64, 64);
+  return new THREE.CanvasTexture(canvas);
 }
 
 // ─── 3D 初始化 ──────────────────────────────────────────────────────────
@@ -120,18 +136,7 @@ export function init3d(graphData: GraphData) {
   let lastFocusedId: string | null = null;
 
   function refreshColors() {
-    Graph.nodeColor((n: any) => {
-      const id = n.id;
-      const base = getBaseColor(n);
-      // 聚焦节点：最强高亮
-      if (focusedId === id) return adjustHex(base, 60);
-      // 悬停节点：中等高亮
-      if (hoveredId === id) return adjustHex(base, 40);
-      // 高亮组内节点：轻微高亮
-      if (highlightedSet.size > 0 && highlightedSet.has(id)) return adjustHex(base, 20);
-      // 高亮组外节点：保持原色（不变灰）
-      return themedColor(base, isDarkRef.value);
-    });
+    Graph.refresh();
   }
 
   // ── 6. Tooltip ──────────────────────────────────────────────────
@@ -145,21 +150,41 @@ export function init3d(graphData: GraphData) {
     .width(container.clientWidth)
     .height(container.clientHeight)
     .nodeLabel(null) // 关闭内置标签，使用自定义 tooltip
-    .nodeColor((n: any) => {
+    .nodeThreeObject((n: any) => {
       const id = n.id;
-      const base = getBaseColor(n);
-      // 聚焦节点：最强高亮
-      if (focusedId === id) return adjustHex(base, 60);
-      // 悬停节点：中等高亮
-      if (hoveredId === id) return adjustHex(base, 40);
-      // 高亮组内节点：轻微高亮
-      if (highlightedSet.size > 0 && highlightedSet.has(id)) return adjustHex(base, 20);
-      // 高亮组外节点：保持原色（不变灰）
-      return themedColor(base, isDarkRef.value);
-    })
-    .nodeVal((n: any) => {
-      const deg = degreeMap[n.id] || 0;
-      return degreeToSize(deg, maxDegree);
+      const baseColor = themedColor(getBaseColor(n), isDarkRef.value);
+      const isHighlighted = focusedId === id || hoveredId === id || (highlightedSet.size > 0 && highlightedSet.has(id));
+      const highlightLevel = focusedId === id ? 3 : hoveredId === id ? 2 : highlightedSet.has(id) ? 1 : 0;
+      
+      const group = new THREE.Group();
+      
+      // 主体球体
+      const size = degreeToSize(degreeMap[id] || 0, maxDegree);
+      const geometry = new THREE.SphereGeometry(size, 8, 8);
+      const material = new THREE.MeshLambertMaterial({
+        color: isHighlighted ? adjustHex(baseColor, highlightLevel * 20) : baseColor,
+        transparent: true,
+        opacity: 1.0,
+      });
+      const mesh = new THREE.Mesh(geometry, material);
+      group.add(mesh);
+      
+      // 发光圈（仅高亮节点显示）
+      if (isHighlighted) {
+        const glowSize = size * (2 + highlightLevel * 0.5);
+        const glowTexture = createGlowTexture(baseColor);
+        const glowMaterial = new THREE.SpriteMaterial({
+          map: glowTexture,
+          transparent: true,
+          opacity: 0.6 + highlightLevel * 0.1,
+          blending: THREE.AdditiveBlending,
+        });
+        const glowSprite = new THREE.Sprite(glowMaterial);
+        glowSprite.scale.set(glowSize * 2, glowSize * 2, 1);
+        group.add(glowSprite);
+      }
+      
+      return group;
     })
     .linkColor(() =>
       isDarkRef.value ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)",
