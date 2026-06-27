@@ -123,11 +123,13 @@ export function init3d(graphData: GraphData) {
     Graph.nodeColor((n: any) => {
       const id = n.id;
       const base = getBaseColor(n);
-      if (focusedId === id) return adjustHex(base, 50);
-      if (hoveredId === id) return adjustHex(base, 30);
-      if (highlightedSet.size > 0) {
-        return highlightedSet.has(id) ? adjustHex(base, 30) : isDarkRef.value ? "#2a2a2a" : "#e0e0e0";
-      }
+      // 聚焦节点：最强高亮
+      if (focusedId === id) return adjustHex(base, 60);
+      // 悬停节点：中等高亮
+      if (hoveredId === id) return adjustHex(base, 40);
+      // 高亮组内节点：轻微高亮
+      if (highlightedSet.size > 0 && highlightedSet.has(id)) return adjustHex(base, 20);
+      // 高亮组外节点：保持原色（不变灰）
       return themedColor(base, isDarkRef.value);
     });
   }
@@ -146,11 +148,13 @@ export function init3d(graphData: GraphData) {
     .nodeColor((n: any) => {
       const id = n.id;
       const base = getBaseColor(n);
-      if (focusedId === id) return adjustHex(base, 50);
-      if (hoveredId === id) return adjustHex(base, 30);
-      if (highlightedSet.size > 0) {
-        return highlightedSet.has(id) ? adjustHex(base, 30) : isDarkRef.value ? "#2a2a2a" : "#e0e0e0";
-      }
+      // 聚焦节点：最强高亮
+      if (focusedId === id) return adjustHex(base, 60);
+      // 悬停节点：中等高亮
+      if (hoveredId === id) return adjustHex(base, 40);
+      // 高亮组内节点：轻微高亮
+      if (highlightedSet.size > 0 && highlightedSet.has(id)) return adjustHex(base, 20);
+      // 高亮组外节点：保持原色（不变灰）
       return themedColor(base, isDarkRef.value);
     })
     .nodeVal((n: any) => {
