@@ -1,5 +1,6 @@
 import { loadSites } from "../utils/load-sites";
 import type { GraphNode, GraphLink, GraphCategory } from "../types/graph";
+import { forceSimulation, forceLink, forceManyBody, forceCenter } from "d3-force-3d";
 
 function getHost(u: string): string {
   try {
@@ -129,7 +130,48 @@ export async function GET() {
     });
   }
 
-  const graph = { nodes, links: linksArr, categories };
+  // ── 构建时 3D 力导布局 ────────────────────────────────────────
+  // 为每个节点生成初始随机位置
+  const simNodes = nodes.map((n, i) => ({
+    ...n,
+    // 球面初始分布，避免全从原点开始
+    x: Math.sin(i) * 200,
+    y: Math.cos(i * 1.3) * 200,
+    z: Math.sin(i * 0.7) * 200,
+  }));
+
+  const simLinks = linksArr.map((l) => ({
+    source: typeof l.source === "string" ? l.source : (l as any).source,
+    target: typeof l.target === "string" ? l.target : (l as any).target,
+  }));
+
+  // 运行 3D 力导仿真
+  const simulation = forceSimulation(simNodes as any)
+    .force("link", forceLink(simLinks as any).id((d: any) => d.id).distance(40))
+    .force("charge", forceManyBody().strength(-60))
+    .force("center", forceCenter(0, 0, 0))
+    .alphaDecay(0.02)
+    .velocityDecay(0.3);
+
+  // 跑足够多的 ticks 让布局收敛
+  for (let i = 0; i < 300; i++) {
+    simulation.tick();
+  }
+  simulation.stop();
+
+  // 提取计算后的位置
+  const positionedNodes = simNodes.map((n: any) => ({
+    id: n.id,
+    name: n.name,
+    url: n.url,
+    favicon: n.favicon,
+    desc: n.desc,
+    x: n.x,
+    y: n.y,
+    z: n.z,
+  }));
+
+  const graph = { nodes: positionedNodes, links: linksArr, categories };
   return new Response(JSON.stringify(graph, null, 2), {
     headers: { "Content-Type": "application/json" },
   });
