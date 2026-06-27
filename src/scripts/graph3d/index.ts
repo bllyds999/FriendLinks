@@ -171,7 +171,7 @@ export function init3d(graphData: GraphData) {
       
       // 发光圈（仅高亮节点显示）
       if (isHighlighted) {
-        const glowSize = size * (2 + highlightLevel * 0.5);
+        const glowSize = size * 3; // 光圈半径为节点的三倍
         const glowTexture = createGlowTexture(baseColor);
         const glowMaterial = new THREE.SpriteMaterial({
           map: glowTexture,
