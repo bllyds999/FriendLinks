@@ -167,6 +167,7 @@ export function init3d(graphData: GraphData) {
     .backgroundColor(isDarkRef.value ? "#0f1115" : "#ffffff")
     .enableNodeDrag(true)
     .enableNavigationControls(true)
+    .nodeOpacity(1.0)
     .warmupTicks(0)          // 位置已在构建时算好，客户端直接从那儿开始
     .cooldownTicks(200)
     .cooldownTime(20000)
