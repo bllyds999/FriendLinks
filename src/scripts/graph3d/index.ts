@@ -5,7 +5,8 @@
 
 import ForceGraph3D from "3d-force-graph";
 import Fuse from "fuse.js";
-import { PALETTE, hashToIndex, degreeToSize, adjustHex } from "./utils";
+import * as THREE from "three";
+import { PALETTE, hashToIndex, degreeToSize, adjustHex, getEmissiveColor } from "./utils";
 import type { GraphData } from "../../../types/graph";
 
 // ─── Tooltip ─────────────────────────────────────────────────────────────
@@ -53,6 +54,71 @@ function createTooltip(): TooltipApi {
 // ─── Color state ─────────────────────────────────────────────────────────
 
 type ThemeRef = { value: boolean }; // true = dark
+
+// 节点视觉状态
+type NodeVisualState = {
+  scale: number;        // 尺寸放大倍数
+  emissiveIntensity: number;  // 发光强度
+  opacity: number;       // 透明度
+};
+
+// 材质缓存，避免重复创建
+const materialCache = new Map<string, THREE.MeshStandardMaterial>();
+
+function getNodeMaterial(
+  baseColor: string,
+  state: NodeVisualState,
+  isDark: boolean
+): THREE.MeshStandardMaterial {
+  const cacheKey = `${baseColor}-${state.scale}-${state.emissiveIntensity}-${state.opacity}-${isDark}`;
+  if (materialCache.has(cacheKey)) {
+    return materialCache.get(cacheKey)!;
+  }
+
+  const emissiveColor = state.emissiveIntensity > 0
+    ? getEmissiveColor(baseColor, state.emissiveIntensity)
+    : "#000000";
+
+  const material = new THREE.MeshStandardMaterial({
+    color: baseColor,
+    emissive: emissiveColor,
+    emissiveIntensity: state.emissiveIntensity,
+    transparent: state.opacity < 1,
+    opacity: state.opacity,
+    roughness: 0.4,
+    metalness: 0.1,
+  });
+
+  materialCache.set(cacheKey, material);
+  return material;
+}
+
+// 计算节点视觉状态
+function getNodeVisualState(
+  nodeId: string,
+  hoveredId: string | null,
+  focusedId: string | null,
+  highlightedSet: Set<string>
+): NodeVisualState {
+  // 聚焦节点：最强发光 + 最大尺寸
+  if (focusedId === nodeId) {
+    return { scale: 2.0, emissiveIntensity: 1.2, opacity: 1 };
+  }
+  // 悬停节点：轻微发光 + 轻微放大
+  if (hoveredId === nodeId) {
+    return { scale: 1.3, emissiveIntensity: 0.5, opacity: 1 };
+  }
+  // 高亮组内节点：中等发光 + 中等放大
+  if (highlightedSet.size > 0 && highlightedSet.has(nodeId)) {
+    return { scale: 1.5, emissiveIntensity: 0.8, opacity: 1 };
+  }
+  // 高亮组外节点：保持原色但降低透明度
+  if (highlightedSet.size > 0) {
+    return { scale: 1.0, emissiveIntensity: 0, opacity: 0.4 };
+  }
+  // 默认状态
+  return { scale: 1.0, emissiveIntensity: 0, opacity: 1 };
+}
 
 function getBaseColor(node: any): string {
   return (node as any).palColor || PALETTE[hashToIndex(node.id)] || "#888";
@@ -119,40 +185,22 @@ export function init3d(graphData: GraphData) {
   // 记录上次聚焦节点以便恢复颜色
   let lastFocusedId: string | null = null;
 
-  // 颜色访问器（每次重新绑定触发重绘）
-  function makeColorAccessor() {
-    return (n: any) => {
-      const id = n.id;
-      const base = getBaseColor(n);
-
-      // 聚焦节点：高亮
-      if (focusedId === id) return adjustHex(base, 50);
-      // 悬停节点：轻微提亮
-      if (hoveredId === id) return adjustHex(base, 30);
-      // 如果正在高亮一组节点
-      if (highlightedSet.size > 0) {
-        return highlightedSet.has(id)
-          ? adjustHex(base, 30)
-          : isDarkRef.value
-            ? "#2a2a2a"
-            : "#e0e0e0";
-      }
-      // 默认主题色
-      return themedColor(base, isDarkRef.value);
-    };
-  }
-
-  let currentColorAccessor = makeColorAccessor();
-
   function refreshColors() {
-    currentColorAccessor = makeColorAccessor();
-    Graph.nodeColor(currentColorAccessor);
+    materialCache.clear();
+    Graph.refresh();
   }
 
   // ── 6. Tooltip ──────────────────────────────────────────────────
   const tooltip = createTooltip();
 
   // ── 7. 创建 3D 图 ────────────────────────────────────────────────
+  // 基础尺寸映射
+  const baseSizeMap = new Map<string, number>();
+  for (const n of nodes) {
+    const deg = degreeMap[n.id] || 0;
+    baseSizeMap.set(n.id, degreeToSize(deg, maxDegree));
+  }
+
   const Graph = ForceGraph3D()(container, {
     controlType: "orbit",
   })
@@ -160,10 +208,18 @@ export function init3d(graphData: GraphData) {
     .width(container.clientWidth)
     .height(container.clientHeight)
     .nodeLabel(null) // 关闭内置标签，使用自定义 tooltip
-    .nodeColor(currentColorAccessor)
-    .nodeVal((n: any) => {
-      const deg = degreeMap[n.id] || 0;
-      return degreeToSize(deg, maxDegree);
+    .nodeThreeObject((n: any) => {
+      const id = n.id;
+      const baseColor = getBaseColor(n);
+      const state = getNodeVisualState(id, hoveredId, focusedId, highlightedSet);
+      const baseSize = baseSizeMap.get(id) || 1;
+      const size = baseSize * state.scale;
+
+      const geometry = new THREE.SphereGeometry(size, 16, 16);
+      const material = getNodeMaterial(baseColor, state, isDarkRef.value);
+
+      const mesh = new THREE.Mesh(geometry, material);
+      return mesh;
     })
     .linkColor(() =>
       isDarkRef.value ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)",
