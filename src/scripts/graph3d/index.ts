@@ -191,11 +191,15 @@ export function init3d(graphData: GraphData) {
     .enableNodeDrag(true)
     .enableNavigationControls(true)
     .nodeOpacity(1.0)
-    .warmupTicks(0)    // 位置已由 ngraph 预计算，客户端不再跑仿真
+    .warmupTicks(0)
     .cooldownTicks(0)
-    .cooldownTime(20000)
-    .d3AlphaDecay(0.02)
-    .d3VelocityDecay(0.3);
+    .cooldownTime(0)
+    .d3AlphaDecay(1)
+    .d3VelocityDecay(1);
+
+  // 禁用所有默认力——位置已由 ngraph 预计算，d3 不要再动
+  Graph.d3Force("charge", null);
+  Graph.d3Force("center", null);
 
   // 渲染后自动适配视角
   requestAnimationFrame(() => {
