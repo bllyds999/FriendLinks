@@ -569,7 +569,8 @@ export function init3d(graphData: GraphData) {
       }) ?? [];
 
     if (matched.length > 0) {
-      highlightNodesAndNeighbors(matched.map((n: any) => n.id));
+      // 只聚焦搜索到的节点，不点亮所有邻居（否则节点密密麻麻一团乱麻）
+      clearHighlights();
       focusNodeById(matched[0].id);
     }
   }
