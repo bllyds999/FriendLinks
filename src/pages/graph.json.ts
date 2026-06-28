@@ -129,9 +129,32 @@ export async function GET() {
     });
   }
 
-  // 节点不带位置，客户端 3d-force-graph 从随机位置自然跑力导
-  const graph = { nodes, links: linksArr, categories };
-  return new Response(JSON.stringify(graph), {
+  // ── 列式紧凑输出（无位置，客户端自行跑力导） ─────────────────
+  const nid: string[] = [];
+  const nnm: string[] = [];
+  const nur: string[] = [];
+  const nfa: string[] = [];
+  const nde: string[] = [];
+  for (const n of nodes) {
+    nid.push(n.id);
+    nnm.push(n.name);
+    nur.push(n.url);
+    nfa.push(n.favicon ?? "");
+    nde.push(n.desc ?? "");
+  }
+
+  const idIndex = new Map<string, number>();
+  nid.forEach((id, i) => idIndex.set(id, i));
+  const ls: number[] = [];
+  const lt: number[] = [];
+  for (const l of linksArr) {
+    const si = idIndex.get(l.source);
+    const ti = idIndex.get(l.target);
+    if (si != null && ti != null) { ls.push(si); lt.push(ti); }
+  }
+
+  const compact = { nid, nnm, nur, nfa, nde, ls, lt, c: categories };
+  return new Response(JSON.stringify(compact), {
     headers: { "Content-Type": "application/json" },
   });
 }

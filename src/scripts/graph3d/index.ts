@@ -482,11 +482,30 @@ export function init3d(graphData: GraphData) {
   return api;
 }
 
+// ─── 紧凑格式展开 ─────────────────────────────────────────────────────────
+
+function expandCompact(c: any): GraphData {
+  const { nid, nnm, nur, nfa, nde } = c;
+  const nodes = nid.map((_id: string, i: number) => ({
+    id: nid[i],
+    name: nnm[i],
+    url: nur[i],
+    favicon: nfa[i],
+    desc: nde[i],
+  }));
+  const links = (c.ls || []).map((s: number, i: number) => ({
+    source: nid[s],
+    target: nid[c.lt[i]],
+  }));
+  return { nodes, links, categories: c.c || [] };
+}
+
 // ─── 从 URL 加载 ─────────────────────────────────────────────────────────
 
 export async function init3dFromUrl(url: string) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`获取图数据失败: ${res.status}`);
-  const data = (await res.json()) as GraphData;
+  const raw = await res.json();
+  const data = raw.nid ? expandCompact(raw) : (raw as GraphData);
   return init3d(data);
 }
