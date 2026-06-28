@@ -66,3 +66,29 @@ site:
 | 高亮组外 | 深色 `#2a2a2a` / 浅色 `#e0e0e0` |
 
 **注意**：节点渲染使用 `nodeColor` + `nodeVal`，不使用自定义 `nodeThreeObject`，以保持默认的饱满立体效果。
+
+## 开发规范
+
+### 包管理器
+
+**本项目强制使用 Bun 作为唯一的包管理器。**
+
+- 禁止使用 `npm`（包括 `npm install`、`npm run` 等）
+- 禁止使用 `yarn`
+- 禁止使用 `pnpm`
+- 统一使用 `bun` 命令：
+  - `bun install` 安装依赖
+  - `bun run <script>` 运行脚本
+  - `bun update --latest` 更新依赖
+
+**原因**：
+- 项目已移除 `package-lock.json`，不存在 npm 锁定文件
+- Astro 内置 Vite 8 采用 Rolldown（Rust 编写的 Rollup 替代），Bun 运行时与此架构更匹配
+- 避免多包管理器导致的锁定文件冲突和依赖不一致
+
+> 如果你本地没有安装 Bun，请先安装：https://bun.sh/
+
+# currentDate
+Today's date is 2026-06-28.
+
+IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
