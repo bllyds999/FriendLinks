@@ -1,0 +1,14 @@
+site:
+  name: "ifwww.com"
+  description: "友情链接"
+  url: "https://ifwww.com/"
+  links: "/link"
+  friends:
+    - name: "https://ifwww.com"
+      url: "https://ifwww.com/"
+    - name: "https://ifwww.com/img/god.png"
+      url: "https://ifwww.com/img/god.png"
+    - name: "Markdown Guide"
+      url: "https://guides.github.com/features/mastering-markdown/"
+    - name: "Waline"
+      url: "https://github.com/walinejs/waline"
