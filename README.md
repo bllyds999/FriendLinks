@@ -1,12 +1,7 @@
-**本项目由阿里云ESA提供加速、计算和保护**
-
-![阿里云加速](aliyun.png)
-
-**\#阿里云ESA Pages** **\#阿里云云工开物话题**
-
-# VIBE CODE
-
 # 博客友链网 — 3D 球状网络图
+
+[![Deploy with EdgeOne Pages](https://cdn.jsdelivr.net/npm/edgeone-pages-deploy-button@1.0.1/dist/edgeone.svg)](https://edgeone.ai/pages/deploy?repo=https://github.com/xingwangzhe/FriendLinks)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/xingwangzhe/FriendLinks)
 
 **法律合规说明：** 网站所有者和投稿者必须确保其发布内容及网站运营遵守中华人民共和国以及适用情况下的美利坚合众国法律法规（包括但不限于版权、隐私、网络安全与信息内容方面的法律）。
 
@@ -68,11 +63,11 @@ site:
 # 安装依赖
 bun install
 
-# 启动开发服务器（自动打包客户端 + 启动 Astro）
-npm run dev
+# 启动开发服务器
+bun run dev
 
 # 构建生产版本
-npm run build
+bun run build
 ```
 
 开发模式下，修改 `links/*.yml` 后**直接刷新浏览器**即可看到效果，无需手动运行脚本。JSON 数据通过 Astro 端点（`src/pages/*.json.ts`）实时生成。
