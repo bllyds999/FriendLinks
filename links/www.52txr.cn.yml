@@ -2,6 +2,7 @@ site:
   name: 陶小桃的博客
   description: 以网站建设、Linux、VPS、云主机、网站优化与博客心得为主的个人站长博客。
   url: https://www.52txr.cn/
+  links: /Friends.html
   friends:
     - name: imydl
       url: https://www.imydl.com/

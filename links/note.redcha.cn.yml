@@ -2,6 +2,7 @@ site:
   name: 彬红茶日记
   description: 我的个人笔记📒
   url: https://note.redcha.cn
+  links: /friends
   friends:
     - name: 小束
       url: https://blog.insmtr.cn/

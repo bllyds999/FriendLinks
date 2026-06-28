@@ -2,6 +2,7 @@ site:
   name: 时雨小栈
   description: Asurin 的个人博客
   url: https://tokiame.cn/
+  links: /friends
   friends:
     - name: MYW
       url: https://crazywong.com/

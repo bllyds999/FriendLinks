@@ -2,6 +2,7 @@ site:
   name: 贰猹
   description: 一只热爱前端的咸鱼
   url: https://noionion.top/
+  links: /link
   friends:
     - name: 【冰】小冰博客
       url: https://zfe.space/

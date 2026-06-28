@@ -2,6 +2,7 @@ site:
   name: Qeem
   description: 阿巴阿巴…
   url: http://itstarqeem.space/
+  links: /friends
   friends:
     - name: 徐乔年
       url: https://hsuqnian.top/

@@ -2,6 +2,7 @@ site:
   name: EmnasopBlog
   description: "我是谁？我在哪？这是我的签名？"
   url: https://emnasop.cn
+  links: /
   friends:
     - name: 雪球Bqiu的小破站
       url: https://www.bqiu.top/

@@ -1,6 +1,7 @@
 site:
   name: 网笙久久的博客
   url: https://www.wsjj.top
+  links: /links
   description: 一件事情是幸福还是不幸，关键是你怎么去看。
   friends:
     - name: B站主页
