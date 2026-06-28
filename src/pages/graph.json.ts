@@ -1,5 +1,6 @@
 import { loadSites } from "../utils/load-sites";
 import type { GraphNode, GraphLink, GraphCategory } from "../types/graph";
+import { forceSimulation, forceLink, forceManyBody, forceCenter } from "d3-force-3d";
 
 function getHost(u: string): string {
   try {
@@ -129,18 +130,49 @@ export async function GET() {
     });
   }
 
-  // ── 列式紧凑输出（无位置，客户端自行跑力导） ─────────────────
+  // ── 构建时力导预计算（与客户端参数一致，停在暂态） ──────────
+  const simNodes = nodes.map((n) => ({
+    ...n,
+    // 与 3d-force-graph 默认初始化一致：[-5, 5] 立方体随机
+    x: (Math.random() - 0.5) * 10,
+    y: (Math.random() - 0.5) * 10,
+    z: (Math.random() - 0.5) * 10,
+  }));
+
+  const simLinks = linksArr.map((l) => ({
+    source: typeof l.source === "string" ? l.source : (l as any).source,
+    target: typeof l.target === "string" ? l.target : (l as any).target,
+  }));
+
+  const simulation = forceSimulation(simNodes as any)
+    .force("link", forceLink(simLinks as any).id((d: any) => d.id).distance(30))
+    .force("charge", forceManyBody().strength(-60))
+    .force("center", forceCenter(0, 0, 0))
+    .velocityDecay(0.3)
+    .alphaDecay(0.02);
+
+  // 与客户端 cooldownTicks(200) 一致
+  for (let i = 0; i < 200; i++) simulation.tick();
+  simulation.stop();
+
+  // ── 列式紧凑输出（含预计算的位置） ──────────────────────────
   const nid: string[] = [];
   const nnm: string[] = [];
   const nur: string[] = [];
   const nfa: string[] = [];
   const nde: string[] = [];
-  for (const n of nodes) {
+  const nx: number[] = [];
+  const ny: number[] = [];
+  const nz: number[] = [];
+  for (const n of simNodes) {
     nid.push(n.id);
     nnm.push(n.name);
     nur.push(n.url);
     nfa.push(n.favicon ?? "");
     nde.push(n.desc ?? "");
+    nx.push(n.x);
+    ny.push(n.y);
+    nz.push(n.z);
   }
 
   const idIndex = new Map<string, number>();
@@ -153,7 +185,7 @@ export async function GET() {
     if (si != null && ti != null) { ls.push(si); lt.push(ti); }
   }
 
-  const compact = { nid, nnm, nur, nfa, nde, ls, lt, c: categories };
+  const compact = { nid, nnm, nur, nfa, nde, nx, ny, nz, ls, lt, c: categories };
   return new Response(JSON.stringify(compact), {
     headers: { "Content-Type": "application/json" },
   });
