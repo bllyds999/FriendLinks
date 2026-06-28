@@ -191,7 +191,7 @@ export function init3d(graphData: GraphData) {
     .enableNodeDrag(true)
     .enableNavigationControls(true)
     .nodeOpacity(1.0)
-    .warmupTicks(0) // 位置已在构建时算好，客户端直接从那儿开始
+    .warmupTicks(0)
     .cooldownTicks(200)
     .cooldownTime(20000)
     .d3AlphaDecay(0.02)
