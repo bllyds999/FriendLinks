@@ -159,21 +159,27 @@ export function init3d(graphData: GraphData) {
   linkGeom.setAttribute("position", new THREE.BufferAttribute(linkPosArr, 3));
   linkGeom.setAttribute("color", new THREE.BufferAttribute(linkColArr, 3));
 
+  // 精确背景色（16进制 → 归一化）
+  const BG_HEX: Record<string, [number, number, number]> = {
+    dark: [0x0f / 255, 0x11 / 255, 0x15 / 255],   // #0f1115
+    light: [1, 1, 1],                                // #ffffff
+  };
+
   const linkMat = new THREE.LineBasicMaterial({
     vertexColors: true,
-    transparent: false,
+    transparent: true,
+    opacity: 1,
   });
 
   const linkSegments = new THREE.LineSegments(linkGeom, linkMat);
   let linkObjCreated = false;
 
   // 7b ─ 颜色刷新函数 ──────────────────────────────────────────
-  // 未激活线 = 背景色（融入背景不可见）
-  // 激活线   = 高亮色（明显可见）
+  /** 未激活线 = 背景色精确 match，完完全全不可见 */
   function refreshLinkColors() {
     const dark = isDarkRef.value;
     const col = linkGeom.attributes.color.array;
-    const bg = dark ? [0.06, 0.07, 0.08] : [1.0, 1.0, 1.0];
+    const [br, bg, bb] = dark ? BG_HEX.dark : BG_HEX.light;
 
     for (let i = 0; i < links.length; i++) {
       const srcStr = typeof links[i].source === "object" ? links[i].source.id : links[i].source;
@@ -189,26 +195,23 @@ export function init3d(graphData: GraphData) {
       if (isConnectedToFocus) {
         r = 1.0; g = dark ? 0.86 : 0.71; b = dark ? 0.31 : 0.12;
       } else if (isConnectedToHover && !focusedId) {
-        r = 0.8; g = 0.8; b = 0.8;
+        r = 0.95; g = 0.95; b = 0.95;
       } else if (isConnectedToHighlight) {
-        r = 0.7; g = 0.7; b = 0.7;
+        r = 0.9; g = 0.9; b = 0.9;
       } else {
-        r = bg[0]; g = bg[1]; b = bg[2];
+        // 精确背景色 → 完完全全不可见
+        r = br; g = bg; b = bb;
       }
 
       const idx = i * 6;
-      for (let j = 0; j < 6; j++) {
-        col[idx + j] = [r, g, b][j % 3];
-      }
+      col[idx] = r; col[idx + 1] = g; col[idx + 2] = b;
+      col[idx + 3] = r; col[idx + 4] = g; col[idx + 5] = b;
     }
 
     linkGeom.attributes.color.needsUpdate = true;
   }
 
-  // 初始颜色
-  refreshLinkColors();
-
-  // 7c ─ 创建 Graph ─────────────────────────────────────────────
+  // 7c ─ 创建 Graph（颜色在 graphData 之后设置）───────────────
   const Graph = ForceGraph3D()(container, {
     controlType: "orbit",
   })
@@ -245,6 +248,9 @@ export function init3d(graphData: GraphData) {
     .cooldownTime(0)
     .d3AlphaDecay(0.02)
     .d3VelocityDecay(0.3);
+
+  // 初始颜色（必须在 graphData 之后调用，否则框架会重置）
+  refreshLinkColors();
 
   // 位置已由构建时预计算，cooldownTicks(0) 冻结仿真
 
