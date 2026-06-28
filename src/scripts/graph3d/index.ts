@@ -168,17 +168,32 @@ export function init3d(graphData: GraphData) {
   const linkMat = new THREE.LineBasicMaterial({
     vertexColors: true,
     transparent: true,
-    opacity: 1,
+    opacity: 0, // 默认全透明，视线图干干净净
   });
 
   const linkSegments = new THREE.LineSegments(linkGeom, linkMat);
   let linkObjCreated = false;
 
+  // 是否有任何激活态（focus / hover / highlight）
+  function hasActiveState(): boolean {
+    return !!(focusedId || hoveredId || highlightedSet.size > 0);
+  }
+
   // 7b ─ 颜色刷新函数 ──────────────────────────────────────────
-  /** 未激活线 = 背景色精确 match，完完全全不可见 */
+  /** 仅在有激活态时显示连线，其余全透明 */
   function refreshLinkColors() {
     const dark = isDarkRef.value;
     const col = linkGeom.attributes.color.array;
+    const active = hasActiveState();
+
+    // 控制整体显隐
+    linkMat.opacity = active ? 1 : 0;
+
+    if (!active) {
+      linkGeom.attributes.color.needsUpdate = true;
+      return;
+    }
+
     const [br, bg, bb] = dark ? BG_HEX.dark : BG_HEX.light;
 
     for (let i = 0; i < links.length; i++) {
@@ -199,7 +214,6 @@ export function init3d(graphData: GraphData) {
       } else if (isConnectedToHighlight) {
         r = 0.9; g = 0.9; b = 0.9;
       } else {
-        // 精确背景色 → 完完全全不可见
         r = br; g = bg; b = bb;
       }
 
