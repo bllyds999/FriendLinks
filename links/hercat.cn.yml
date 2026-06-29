@@ -1,0 +1,14 @@
+'site':
+  'name': 'hercat.cn'
+  'url': 'https://hercat.cn/'
+  'description': '友情链接'
+  'links': '/links'
+  'friends':
+    - 'name': '萌博客'
+      'url': 'https://moe.blog/'
+    - 'name': '废物作家'
+      'url': 'https://woc.xyz'
+    - 'name': 'Oyiso''s Blog'
+      'url': 'https://oyiso.cn'
+    - 'name': '鹰瑶の Blog'
+      'url': 'https://www.ayao.ltd'
