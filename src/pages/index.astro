@@ -112,49 +112,43 @@ import "../css/modal.css";
           <h4>操作说明</h4>
           <ul>
             <li><strong>左键点击节点</strong>：在新标签页打开对应网站</li>
-            <li><strong>右键点击节点</strong>：聚焦该节点（相机拉近、节点放大 1.5 倍、连线高亮金色）</li>
-            <li><strong>悬停节点</strong>：显示站点名称、描述和链接</li>
+            <li><strong>右键点击节点</strong>：聚焦该节点（相机拉近、节点放大 1.5 倍、金色粗管荧光连线）</li>
+            <li><strong>悬停节点</strong>：显示站点名称/描述/链接，白色荧光连线</li>
             <li><strong>鼠标拖拽</strong>：旋转 3D 视角</li>
             <li><strong>滚轮</strong>：缩放视图</li>
             <li><strong>搜索框</strong>：模糊搜索站点名或域名</li>
+            <li><strong>「连线设置」按钮</strong>：调整基础线网透明度</li>
           </ul>
           <h4>聚焦效果说明</h4>
           <p>右键点击节点后，会触发以下视觉效果：</p>
           <ul>
             <li>节点半径<strong>放大 1.5 倍</strong></li>
             <li>节点颜色<strong>调亮 60%</strong></li>
-            <li>相连连线变为<strong>亮金色</strong>（2.5 倍粗、高不透明）</li>
+            <li>相连连线变为<strong>亮金色粗管</strong>，带荧光光晕</li>
             <li>相机自动将节点移动到视野中心</li>
             <li>邻居节点轻微高亮（调亮 20%）</li>
           </ul>
           <h4>添加你的博客</h4>
           <p>在 <code>links/&#123;yoursite&#125;.yml</code> 中填写你的站点信息，示例格式如下：</p>
           <pre><code class="yaml">site:
-	  name: 我的博客
-	  description: 分享编程和技术相关的文章
-	  url: https://example.com
-	  links: /links          # 友链页面路由（必填）
-	  friends:
-	    - name: 编程小站
-	      url: https://codehub.example.com
-	    - name: 技术前沿
-	      url: https://techfrontier.example.com</code></pre>
+  name: 我的博客
+  description: 分享编程和技术相关的文章
+  url: https://example.com
+  color: "#ff6600"  # 可选，自定义节点颜色
+  links: /links     # 友链页面路由（必填）
+  friends:
+    - name: 编程小站
+      url: https://codehub.example.com</code></pre>
           <h4>URL 聚焦查询（自动高亮）</h4>
-          <p>你可以通过在页面地址中添加查询参数来自动聚焦并高亮指定站点节点。支持以下格式：</p>
+          <p>通过在页面地址中添加 <code>?local=域名</code> 参数即可自动定位到指定节点。</p>
           <ul>
-            <li>使用域名（hostname）匹配：<code>?local=example.com</code></li>
-            <li>使用完整 URL：<code>?local=https://example.com</code> 或 <code>?local=http://example.com/path</code></li>
-          </ul>
-          <p>匹配规则（弱匹配，大小写不敏感）：</p>
-          <ul>
-            <li>优先匹配节点的 <code>url</code> 的 hostname；</li>
-            <li>如果未解析出 hostname，则尝试在节点的 <code>url</code> 中进行包含匹配；</li>
-            <li>成功匹配后页面会尝试把目标节点移动到屏幕中心并进行高亮。</li>
+            <li><code>?local=example.com</code> — 按域名匹配</li>
+            <li><code>?local=https://example.com</code> — 按完整 URL 匹配</li>
           </ul>
           <h4>如何贡献</h4>
           <ol>
             <li>Fork 本仓库并创建新分支用于改动。</li>
-            <li>在 <code>links/</code> 下添加或更新你的 <code>blog.yml</code> 文件，<strong>必须填写 <code>links</code> 字段</strong>（友链页面路由，如 <code>/links</code>、<code>/link</code>、<code>/friends</code> 等，不含末尾斜杠），格式见上方示例或 <code>AGENTS.md</code> 说明。</li>
+            <li>在 <code>links/</code> 下添加或更新你的 <code>blog.yml</code> 文件，<strong>必须填写 <code>links</code> 字段</strong>（友链页面路由如 <code>/links</code>、<code>/link</code>、<code>/friends</code> 等），可选的 <code>color</code> 字段可自定义节点颜色。</li>
             <li>提交改动并提 PR，之后会审查并合并入主干。</li>
           </ol>
           <div style="margin-top: 12px; display:flex; gap:8px; flex-wrap:wrap;">

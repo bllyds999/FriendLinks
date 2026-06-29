@@ -2,13 +2,14 @@
 
 ## 核心概念
 
-links/\*.yml中
+`links/*.yml` 中
 
 ```yml
 site:
   name: 我的博客
   description: 分享编程和技术相关的文章
   url: https://example.com
+  color: "#ff6600"       # 可选，自定义节点颜色
   links: /links          # 可选，友链页面路由，如 /links /link /friends /friend 等
   friends:
     - name: 编程小站
@@ -17,57 +18,76 @@ site:
       url: https://techfrontier.example.com
 ```
 
-这里的**yml**名字同时也是`site`的`url` 我们叫作**核心节点**
+这里的 **yml 文件名**同时也是 `site` 的 `url`，我们叫作**核心节点**。
 
-`friends`里面的节点数组我们统称**友链节点**
+`friends` 里面的节点数组我们统称**友链节点**。
 
-由于可能存在核心节点互相成为友链节点，所以在总统计时，需要排重
+由于可能存在核心节点互相成为友链节点，所以在总统计时，需要排重。
 
 ## 添加友链
 
-添加你的博客及其友链（建议为博客），汇聚到这个巨大的网络中吧！
-
-在 `links/{yoursite}.yml` 中填写
-
-格式：
+在 `links/{yoursite}.yml` 中填写：
 
 ```yml
 site:
   name: 我的博客
   description: 分享编程和技术相关的文章
   url: https://example.com
-  links: /links          # 可选，友链页面路由，如 /links /link /friends /friend 等
+  color: "#ff6600"
+  links: /links
   friends:
     - name: 编程小站
       url: https://codehub.example.com
-    - name: 技术前沿
-      url: https://techfrontier.example.com
 ```
 
-## 3D 节点样式规范
+## 自定义颜色
 
-当前 3D 友链网络图使用 `3d-force-graph` 默认节点渲染，具体配置如下：
+可在 `site` 层级添加 `color` 字段指定节点颜色，值需为完整 6 位 16 进制色：
 
-| 属性     | 值                             | 说明                           |
-| -------- | ------------------------------ | ------------------------------ |
-| 几何体   | `SphereGeometry`               | 球体，默认 8 段细分            |
-| 材质     | `MeshLambertMaterial`          | Lambert 漫反射材质，有光照阴影 |
-| 不透明度 | `1.0`                          | 完全不透明                     |
-| 尺寸计算 | `degreeToSize(deg, maxDegree)` | 基于节点度数动态计算           |
-| 颜色计算 | `PALETTE[hashToIndex(id)]`     | 基于 ID 哈希从调色板取色       |
-| 主题适配 | `adjustHex(base, 20)` (dark)   | 深色主题下调亮 20%             |
+```yml
+site:
+  ...
+  color: "#ff6600"
+```
 
-### 高亮状态
+不指定则从默认 12色调色板按域名哈希分配。
 
-| 状态     | 颜色处理                        |
-| -------- | ------------------------------- |
-| 默认     | 主题适配后的调色板颜色          |
-| 悬停     | `adjustHex(base, 30)` 调亮 30%  |
-| 聚焦     | `adjustHex(base, 50)` 调亮 50%  |
-| 高亮组内 | `adjustHex(base, 30)` 调亮 30%  |
+## 3D 渲染规范
+
+当前使用 `3d-force-graph` + Three.js，节点用 `MeshLambertMaterial` 球体。
+
+| 属性 | 值 | 说明 |
+|------|-----|------|
+| 几何体 | `SphereGeometry` (8段) | 球体 |
+| 材质 | `LambertMaterial` | 漫反射，有光照阴影 |
+| 尺寸 | `degreeToSize(deg, maxDegree)` | 基于度数动态计算 |
+| 颜色 | `n.color \|\| PALETTE[hashToIndex(id)]` | 自定义色或调色板 |
+| 主题适配 | `adjustHex(base, 20)` | 深色模式调亮 20% |
+
+### 交互状态颜色
+
+| 状态 | 颜色 |
+|------|------|
+| 默认 | 调色板颜色（自定义或哈希） |
+| 悬停 | `adjustHex(base, 40)` 调亮 40% |
+| 聚焦 | `adjustHex(base, 60)` 调亮 60%，节点 1.5x |
+| 高亮组内 | `adjustHex(base, 20)` 调亮 20% |
 | 高亮组外 | 深色 `#2a2a2a` / 浅色 `#e0e0e0` |
 
-**注意**：节点渲染使用 `nodeColor` + `nodeVal`，不使用自定义 `nodeThreeObject`，以保持默认的饱满立体效果。
+### 连线渲染
+
+| 层 | 说明 |
+|----|------|
+| 基础线网 | `LineSegments`，始终可见，透明度由滑块控制 |
+| 叠加线网 (hover) | 白色粗管 + 荧光光晕 |
+| 叠加线网 (focus) | 金色粗管 + 荧光光晕 |
+
+## 数据端点
+
+| 端点 | 格式 | 用途 |
+|------|------|------|
+| `/graph.bin` | msgpack 二进制 | 3D 图数据（客户端加载） |
+| `/all.json` | JSON | 完整站点数据（外部使用） |
 
 ## 开发规范
 
@@ -75,22 +95,24 @@ site:
 
 **本项目强制使用 Bun 作为唯一的包管理器。**
 
-- 禁止使用 `npm`（包括 `npm install`、`npm run` 等）
-- 禁止使用 `yarn`
-- 禁止使用 `pnpm`
-- 统一使用 `bun` 命令：
-  - `bun install` 安装依赖
-  - `bun run <script>` 运行脚本
-  - `bun update --latest` 更新依赖
+- 禁止使用 `npm`、`yarn`、`pnpm`
+- `bun install` 安装依赖
+- `bun run <script>` 运行脚本
+- `bun run lint` / `bun run fmt` 代码检查与格式化
 
-**原因**：
-- 项目已移除 `package-lock.json`，不存在 npm 锁定文件
-- Astro 内置 Vite 8 采用 Rolldown（Rust 编写的 Rollup 替代），Bun 运行时与此架构更匹配
-- 避免多包管理器导致的锁定文件冲突和依赖不一致
+**原因**：Astro 内置 Vite 8 采用 Rolldown（Rust 编写），Bun 运行时与此架构更匹配。
 
-> 如果你本地没有安装 Bun，请先安装：https://bun.sh/
+### 代码风格
 
-# currentDate
-Today's date is 2026-06-28.
+- 使用 `oxlint` 检查代码，`oxfmt` 自动格式化
+- 提交前务必 `bun run lint && bun run fmt`
 
-IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.
+### 清理脚本
+
+`scripts/cleanup-junk.ts` 用于剔除友链中的垃圾条目（备案号、主题框架、社交链接、站内页面等）：
+
+```bash
+bun run scripts/cleanup-junk.ts
+```
+
+空文件会被自动删除。垃圾规则定义在 `JUNK_NAME_PATTERNS` / `JUNK_URL_PATTERNS` / `nonBlogDomains` 中。
