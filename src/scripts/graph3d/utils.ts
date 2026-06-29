@@ -134,7 +134,7 @@ export function createNodeLOD(baseColor: string): THREE.LOD {
   // 远层：点精灵 — 单顶点，无几何体开销，始终面向相机
   const pointFar = new THREE.Points(
     getSharedPointGeom(),
-    new THREE.PointsMaterial({ color, size: 1.8, sizeAttenuation: true }),
+    new THREE.PointsMaterial({ color, size: 3.0, sizeAttenuation: true }),
   );
 
   const lod = new THREE.LOD();
