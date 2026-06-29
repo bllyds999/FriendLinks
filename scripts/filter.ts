@@ -102,7 +102,7 @@ const JUNK_NAME_PATTERNS: RegExp[] = [
   // 视频/社交平台
   /^(抖音|Youtube|YouTube)$/i,
   // 购物/营销
-  /^(微信红包|红包|封面|优惠|促销|购物)$/i,
+  /^(微信红包|红包|封面|优惠|促销|购物|淘宝|天猫|京东|拼多多|闲鱼|转转|商城|店铺|商店|下单|购买)/i,
   // 借贷/金融
   /^(借款|贷款|借贷|金融|理财|投资|信用贷|网贷)/i,
   // 迷信/测试/算卦
@@ -230,9 +230,15 @@ const NON_BLOG_DOMAINS = [
   "steampowered.com", "store.steampowered.com",
   "steamcommunity.com", "www.steamcommunity.com",
   "epicgames.com", "www.epicgames.com",
-  // 游戏/娱乐
-  "ibb22.com", "www.ibb22.com",
-  "pgg33.com", "www.pgg33.com",
+      // 游戏/娱乐
+      "ibb22.com", "www.ibb22.com",
+      "pgg33.com", "www.pgg33.com",
+      // 网上商城
+      "taobao.com", "www.taobao.com",
+      "tmall.com", "www.tmall.com",
+      "jd.com", "www.jd.com",
+      "pinduoduo.com", "www.pinduoduo.com",
+      "linkwhisper.com", "www.linkwhisper.com",
   // 商业服务
   "mzswpco.com", "www.mzswpco.com",
   // 论坛
