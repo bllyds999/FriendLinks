@@ -4,10 +4,6 @@
   'url': 'https://blog.imsyy.top'
   'links': '/'
   'friends':
-    - 'name': '博客镜像站'
-      'url': 'https://blog-backup.imsyy.top/'
-    - 'name': '今日热榜'
-      'url': 'https://hot.imsyy.top/'
     - 'name': '反馈投诉'
       'url': 'https://eqnxweimkr5.feishu.cn/share/base/form/shrcnCXCPmxCKKJYI3RKUfefJre'
     - 'name': '张洪 Heo'
@@ -16,7 +12,3 @@
       'url': 'https://xaoxuu.com/'
     - 'name': 'DIYgod'
       'url': 'https://diygod.cc/'
-    - 'name': '無名'
-      'url': 'https://www.imsyy.top'
-    - 'name': '又拍云'
-      'url': 'https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'

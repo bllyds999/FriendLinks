@@ -1,8 +1,0 @@
-'site':
-  'name': '贝贝吧'
-  'url': 'https://hibbba.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '服务器推荐'
-      'url': 'https://www.aliyun.com/daily-act/ecs/activity_selection?userCode=tirl9a8q'

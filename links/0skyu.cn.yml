@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'HAO'
-      'url': 'https://hao.0skyu.cn/'
     - 'name': '我爱你任静静我爱你'
       'url': 'https://任静静.我爱你/'
     - 'name': '空零备用站空中有零备用网站'

@@ -1,8 +1,0 @@
-'site':
-  'name': '二月初二'
-  'url': 'https://chenliss.cn/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 'CC BY-NC-SA 4.0'
-      'url': 'https://creativecommons.org/licenses/by-nc-sa/4.0/'

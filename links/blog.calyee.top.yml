@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'ChatGPT'
       'url': 'https://chat.calyee-blog.top/'
-    - 'name': '个人首页'
-      'url': 'https://www.calyee.top/'
     - 'name': '阿里巴巴图标库'
       'url': 'https://www.iconfont.cn/'
     - 'name': '草料二维码'
@@ -94,9 +92,3 @@
       'url': 'https://blog.joker2yue.com'
     - 'name': 'CIK人生如逆旅，我亦是行人，但求步履从容，不负光阴~'
       'url': 'https://blog.cikcc.com'
-    - 'name': 'Hexo快速、简单且强大的网站框架'
-      'url': 'https://hexo.io/zh-tw/'
-    - 'name': '51la统计'
-      'url': 'https://v6.51.la/'
-    - 'name': '博客框架为Hexo_v5.4.0'
-      'url': 'https://hexo.io/'

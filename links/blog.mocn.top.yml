@@ -4,8 +4,6 @@
   'url': 'https://blog.mocn.top/'
   'links': '/link'
   'friends':
-    - 'name': '音乐馆'
-      'url': 'https://music.mocn.top'
     - 'name': 'Luminous’ Home'
       'url': 'https://luotianyi.vc'
     - 'name': '未知狐的笔记'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '相册'
-      'url': 'https://time.photo'
     - 'name': '播客'
       'url': 'https://boboji.org'
     - 'name': '生辰八字算命'

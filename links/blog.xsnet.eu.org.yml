@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '由 Hexo 强力驱动'
-      'url': 'https://hexo.io'
     - 'name': '中文博客列表'
       'url': 'https://zhblogs.ohyee.cc/'

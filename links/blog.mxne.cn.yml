@@ -4,10 +4,6 @@
   'url': 'https://blog.mxne.cn/'
   'links': '/link'
   'friends':
-    - 'name': '音乐'
-      'url': 'https://music.lmx0.top/'
-    - 'name': '每日新闻'
-      'url': 'https://news.lmx0.top/'
     - 'name': '安知鱼`Blog'
       'url': 'https://blog.anheyu.com/'
     - 'name': '唐志远の博客'
@@ -106,7 +102,3 @@
       'url': 'https://blog.june-pj.cn/'
     - 'name': 'Aohui'
       'url': 'https://aohuiliu.fun'
-    - 'name': '抖音'
-      'url': 'https://www.douyin.com/user/MS4wLjABAAAAdqWLLeZbDyaywWhOMyrbt-dBnN0cHxPZ0mA0l3ItOeE'
-    - 'name': '51la统计'
-      'url': 'https://v6.51.la/'

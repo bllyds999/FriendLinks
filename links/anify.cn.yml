@@ -4,13 +4,7 @@
   'url': 'https://anify.cn/'
   'links': '/link'
   'friends':
-    - 'name': 'WuWang'
-      'url': 'http://blog.anify.cn'
     - 'name': '搬砖的码农'
       'url': 'https://refblogs.com'
     - 'name': '葱苓sama'
       'url': 'https://blog.ciraos.top'
-    - 'name': 'Youtube'
-      'url': 'https://www.youtube.com/'
-    - 'name': '百度统计'
-      'url': 'https://tongji.baidu.com/main/overview/10000601682/overview/index?siteId=20022476'

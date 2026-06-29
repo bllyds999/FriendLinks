@@ -4,9 +4,7 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "张洪Heo\n            分享设计与科技生活"
+    - 'name': '张洪Heo 分享设计与科技生活'
       'url': 'https://blog.zhheo.com/'
-    - 'name': "Mai Icy\n            Mai的博客"
+    - 'name': 'Mai Icy Mai的博客'
       'url': 'https://www.maiicy.top/'
-    - 'name': "Fluid Blog\n            主题博客"
-      'url': 'https://hexo.fluid-dev.com/'

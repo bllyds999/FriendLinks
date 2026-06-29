@@ -4,11 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '百度'
-      'url': 'https://www.baidu.com/'
-    - 'name': '又拍云联盟'
-      'url': 'https://www.upyun.com/league'
     - 'name': '陌子夕生活录'
       'url': 'https://mozixi.com'
-    - 'name': '51la网站统计'
-      'url': 'https://v6.51.la/land/3H4vjfk1eqW9hL2K'

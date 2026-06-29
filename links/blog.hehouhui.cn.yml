@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '瞬间'
-      'url': 'https://moments.hehouhui.cn/'
     - 'name': '青萍叙事一个懂技术的产品汪🐶技术类创作类'
       'url': 'https://blog.lusyoe.com'
     - 'name': 'Mycpen这是一个有趣的博客创作类'
@@ -40,9 +38,7 @@
       'url': 'https://blog.deepchirp.com'
     - 'name': '李锋镝的博客星光不问赶路人，时光不负有心人。技术类'
       'url': 'https://www.lifengdi.com'
-    - 'name': '落羽日记灯光永不暗淡，梦想永不凋零
-
-        是期望与和解，也是相遇与告别生活类'
+    - 'name': '落羽日记灯光永不暗淡，梦想永不凋零 是期望与和解，也是相遇与告别生活类'
       'url': 'https://www.junluoyu.cn/'
     - 'name': '猫普的精神世界一个独立开发者的精神自留地技术类'
       'url': 'https://maplezz.com/'

@@ -4,21 +4,9 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "Now\n              now.singee.me"
-      'url': 'https://now.singee.me'
-    - 'name': "我的碎碎念\n              x.singee.me"
-      'url': 'https://x.singee.me'
-    - 'name': "我的博客\n              blog.singee.me"
-      'url': 'https://blog.singee.me'
-    - 'name': "我的知识库\n                kb.singee.site"
+    - 'name': '我的知识库 kb.singee.site'
       'url': 'https://kb.singee.site'
-    - 'name': "我的笔记\n              notes.singee.me"
-      'url': 'https://notes.singee.me'
-    - 'name': "auv.tools
-
-        \                a collection of useful tools"
+    - 'name': 'auv.tools a collection of useful tools'
       'url': 'https://auv.tools'
-    - 'name': "SurfingKit
-
-        \              surfingkit.app"
+    - 'name': 'SurfingKit surfingkit.app'
       'url': 'https://surfingkit.app'

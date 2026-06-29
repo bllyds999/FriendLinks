@@ -109,10 +109,10 @@ site:
 
 ### 清理脚本
 
-`scripts/cleanup-junk.ts` 用于剔除友链中的垃圾条目（备案号、主题框架、社交链接、站内页面等）：
+`scripts/prune-irrelevant.ts` 用于剔除友链中的无关条目（备案号、主题框架、社交链接、站内页面等）：
 
 ```bash
-bun run scripts/cleanup-junk.ts
+bun run scripts/prune-irrelevant.ts
 ```
 
-空文件会被自动删除。垃圾规则定义在 `JUNK_NAME_PATTERNS` / `JUNK_URL_PATTERNS` / `nonBlogDomains` 中。
+空文件会被自动删除。

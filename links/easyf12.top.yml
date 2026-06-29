@@ -6,9 +6,5 @@
   'friends':
     - 'name': 'Artalk'
       'url': 'https://artalk.js.org'
-    - 'name': '又拍云'
-      'url': 'https://www.upyun.com/'
     - 'name': '无畏云'
       'url': 'https://su.sctes.com/'
-    - 'name': 'CC BY-NC-SA 4.0'
-      'url': 'https://creativecommons.org/licenses/by-nc-sa/4.0/'

@@ -1,8 +1,0 @@
-'site':
-  'name': 'YFun'
-  'url': 'https://blog.yfun.top/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '又拍云'
-      'url': 'https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'

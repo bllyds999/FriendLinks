@@ -4,8 +4,6 @@
   'url': 'https://blog.linux-qitong.top/'
   'links': '/link'
   'friends':
-    - 'name': 'deepin'
-      'url': 'https://bbs.deepin.org/user/292516'
     - 'name': '张洪'
       'url': 'https://blog.zhheo.com'
     - 'name': '青桔气球'

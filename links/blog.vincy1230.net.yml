@@ -4,12 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'douyin'
-      'url': 'https://v.douyin.com/8qeJ5M8/'
-    - 'name': '点击这里查看我的友链信息'
-      'url': 'https://a.vincy1230.net/blogroll/index.html'
-    - 'name': '☆我的个人主站这里是一切故事的开端.'
-      'url': 'http://vincy1230.net/'
     - 'name': 'Amiya MioSoftware Engineer'
       'url': 'https://win7.win/'
     - 'name': 'Bluemangoo我很可爱，请来看看'
@@ -116,5 +110,3 @@
       'url': 'https://cwcu.com.cn/'
     - 'name': '零叁的个人博客凡心所向，素履以往。生如逆旅，一苇以航'
       'url': 'https://baihw.cn/'
-    - 'name': 'by Fuukei'
-      'url': 'https://docs.fuukei.org/'

@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'HP'
-      'url': 'https://yomi.moe'
     - 'name': 'Dream Blue'
       'url': 'https://www.pixiv.net/artworks/129563571'

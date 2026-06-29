@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "爱发电
-
-        \                            请我喝杯咖啡"
+    - 'name': '爱发电 请我喝杯咖啡'
       'url': 'https://afdian.com/a/memxb'

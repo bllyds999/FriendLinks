@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'Valine'
       'url': 'https://valine.js.org'
-    - 'name': 'Hexo 7.3.0'
-      'url': 'https://hexo.io'

@@ -4,8 +4,6 @@
   'url': 'https://blog.marquis.eu.org/'
   'links': '/link'
   'friends':
-    - 'name': '个人主页'
-      'url': 'https://marquis.eu.org/'
     - 'name': 'Akilar'
       'url': 'https://akilar.top/'
     - 'name': '张洪Heo'
@@ -22,5 +20,3 @@
       'url': 'https://blog.yesord.top/'
     - 'name': 'Kaggle'
       'url': 'https://www.kaggle.com/marquis03'
-    - 'name': '51la统计'
-      'url': 'https://v6.51.la/'

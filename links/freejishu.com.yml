@@ -4,10 +4,6 @@
   'url': 'https://freejishu.com/'
   'links': '/friends'
   'friends':
-    - 'name': 'PicHost'
-      'url': 'https://pic.freejishu.com/'
-    - 'name': 'freejishu FM'
-      'url': 'http://fm.freejishu.com/'
     - 'name': 'ephen'
       'url': 'http://ephen.me'
     - 'name': '雪糕博客'

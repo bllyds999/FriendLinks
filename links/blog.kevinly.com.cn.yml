@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'T-ATOM'
-      'url': 'https://www.kevinly.com.cn'
     - 'name': 'Hui-Shao''s Blog'
       'url': 'https://hui-shao.com'
     - 'name': '博采众长'

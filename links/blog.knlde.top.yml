@@ -4,27 +4,17 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "天翔TNXGの空间站
-
-        \                明日尚未到来，希望凝于心上"
+    - 'name': '天翔TNXGの空间站 明日尚未到来，希望凝于心上'
       'url': 'https://tnxgmoe.com/'
-    - 'name': "Redish101 Blog
-
-        \                学生，人，活的"
+    - 'name': 'Redish101 Blog 学生，人，活的'
       'url': 'https://blog.redish101.top/'
-    - 'name': "葱苓语畔
-
-        \                Don't worry, be happy."
+    - 'name': '葱苓语畔 Don''t worry, be happy.'
       'url': 'https://blog.ciraos.top/'
-    - 'name': "LiuShen's Blog
-
-        \                柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜"
+    - 'name': 'LiuShen''s Blog 柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜'
       'url': 'https://blog.liushen.fun/'
-    - 'name': "Snowykami\n                轻思若水，雪化生香。"
+    - 'name': 'Snowykami 轻思若水，雪化生香。'
       'url': 'https://sfkm.me/'
-    - 'name': "世上云川\n                若有韶月熹微，愿作流萤徂岁。"
+    - 'name': '世上云川 若有韶月熹微，愿作流萤徂岁。'
       'url': 'https://blog.ssyc.me/'
-    - 'name': 'Post on Bluesky'
-      'url': 'https://bsky.app/intent/compose?text=Links+https://blog.knlde.top/links/'
     - 'name': 'Blowfish'
       'url': 'https://blowfish.page/'

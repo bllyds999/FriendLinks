@@ -4,8 +4,6 @@
   'url': 'https://515code.com/'
   'links': '/link'
   'friends':
-    - 'name': '生活'
-      'url': 'https://zlife.515code.com/'
     - 'name': 'IPADSSJTU-并行与分布式系统研究所'
       'url': 'https://ipads.se.sjtu.edu.cn/zh/'
     - 'name': '张洪Heo分享设计与科技生活'

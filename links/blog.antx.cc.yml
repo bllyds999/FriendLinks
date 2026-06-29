@@ -4,19 +4,9 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "成烁BLOG
-
-        \                                        致一锦程  探索不停"
+    - 'name': '成烁BLOG 致一锦程 探索不停'
       'url': 'https://blog.chengshuo.top'
-    - 'name': "韩小韩博客
-
-        \                                        运气是计划之外的东西."
+    - 'name': '韩小韩博客 运气是计划之外的东西.'
       'url': 'https://www.vvhan.com'
-    - 'name': "Georgeの小窝
-
-        \                                        Georgeの小窝"
+    - 'name': 'Georgeの小窝 Georgeの小窝'
       'url': 'https://www.george-blog.top/'
-    - 'name': 'Halo Pro'
-      'url': 'https://halo.run/'
-    - 'name': '云服务商'
-      'url': 'https://www.aliyun.com'

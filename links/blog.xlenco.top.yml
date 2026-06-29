@@ -1,8 +1,0 @@
-'site':
-  'name': '希乐'
-  'url': 'https://blog.xlenco.top/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '主题灵感源自Stellar'
-      'url': 'https://blog.zhilu.cyou/theme'

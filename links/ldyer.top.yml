@@ -4,49 +4,37 @@
   'url': 'https://ldyer.top/'
   'links': '/link'
   'friends':
-    - 'name': "Xuan's blog\n      分享技术教程和学习笔记"
+    - 'name': 'Xuan''s blog 分享技术教程和学习笔记'
       'url': 'https://blog.ybyq.wang/'
-    - 'name': "哈喽！林墨白\n      沉墨满纸，一笑若白。"
+    - 'name': '哈喽！林墨白 沉墨满纸，一笑若白。'
       'url': 'https://blog.lmb.blue/'
-    - 'name': "林子浩博客\n      小舟从此逝，江海寄余生！"
+    - 'name': '林子浩博客 小舟从此逝，江海寄余生！'
       'url': 'https://lin.vin/'
-    - 'name': "Raining\n      Raining的小站"
+    - 'name': 'Raining Raining的小站'
       'url': 'https://raining.me/'
-    - 'name': "yanyun\n      某人的博客"
+    - 'name': 'yanyun 某人的博客'
       'url': 'https://www.kongroo.cn/blog'
-    - 'name': "杨柳满地\n      剑指代码 - 开发者博客"
+    - 'name': '杨柳满地 剑指代码 - 开发者博客'
       'url': 'https://oooe.me/'
-    - 'name': "社会易姐QwQ\n      给岁月以文明，而不是给文明以岁月。"
+    - 'name': '社会易姐QwQ 给岁月以文明，而不是给文明以岁月。'
       'url': 'https://shakaianee.top/'
-    - 'name': "WindShadow\n      行所欲行，无问西东。"
+    - 'name': 'WindShadow 行所欲行，无问西东。'
       'url': 'https://blog.fyz666.xyz/'
-    - 'name': "张洪HEO\n      分享设计与科技生活"
+    - 'name': '张洪HEO 分享设计与科技生活'
       'url': 'https://blog.zhheo.com/'
-    - 'name': "安知鱼\n      生活明朗 万物可爱"
+    - 'name': '安知鱼 生活明朗 万物可爱'
       'url': 'https://blog.anheyu.com/'
-    - 'name': "akilar\n      纷纷暮雪下辕门，风掣红旗冻不翻"
+    - 'name': 'akilar 纷纷暮雪下辕门，风掣红旗冻不翻'
       'url': 'https://akilar.top/'
-    - 'name': "枫叶\n      分享知识，认识世界"
+    - 'name': '枫叶 分享知识，认识世界'
       'url': 'https://blog.aqcoder.cn/'
-    - 'name': "Ariasaka\n      人有悲欢离合 月有阴晴圆缺"
+    - 'name': 'Ariasaka 人有悲欢离合 月有阴晴圆缺'
       'url': 'https://blog.yaria.top'
-    - 'name': "Butterfly主题美化教程
-
-        \      让每个人轻松的自定义自己的博客"
-      'url': 'https://butterfly.zhheo.com/'
-    - 'name': "I Am I\n      永远相信美好的事情即将发生"
+    - 'name': 'I Am I 永远相信美好的事情即将发生'
       'url': 'https://5ime.cn/'
-    - 'name': "HCLonely\n      懒，是社会发展的动力..."
+    - 'name': 'HCLonely 懒，是社会发展的动力...'
       'url': 'https://blog.hclonely.com/'
-    - 'name': "清羽飞扬\n      柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜"
+    - 'name': '清羽飞扬 柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜'
       'url': 'https://blog.liushen.fun/'
-    - 'name': "June\n      遇事不决，可问春风"
+    - 'name': 'June 遇事不决，可问春风'
       'url': 'https://blog.june-pj.cn/'
-    - 'name': "Hexo\n      快速、简单且强大的网络框架"
-      'url': 'https://hexo.io/zh-tw/'
-    - 'name': "Butterfly
-
-        \      A Simple and Card UI Design theme for Hexo"
-      'url': 'https://butterfly.js.org/'
-    - 'name': 'Hexo 7.3.0'
-      'url': 'https://hexo.io'

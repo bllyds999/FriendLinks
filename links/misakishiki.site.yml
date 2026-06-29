@@ -4,12 +4,8 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '文档'
-      'url': 'https://yun.yunyoujun.cn'
     - 'name': '云游君的小站All at sea.'
       'url': 'https://yunyoujun.cn'
-    - 'name': '维基萌萌即是正义！一名热爱acg的前端设计师的小站！'
-      'url': 'http://www.wikimoe.com/'
     - 'name': '花火神社花有重开日，人无再少年'
       'url': 'https://blog.hanabi6.com/'
     - 'name': '孤影墨香海内存知己，天涯若比邻'

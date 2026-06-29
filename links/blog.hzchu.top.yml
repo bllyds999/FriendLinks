@@ -6,13 +6,3 @@
   'friends':
     - 'name': 'Artalk'
       'url': 'https://artalk.js.org'
-    - 'name': 'MRUI'
-      'url': 'https://mrui.hzchu.top/'
-    - 'name': '日常'
-      'url': 'https://memos.hzchu.top/'
-    - 'name': '相册'
-      'url': 'https://gallery.hzchu.top/'
-    - 'name': 'CC BY-NC-SA 4.0'
-      'url': 'https://creativecommons.org/licenses/by-nc-sa/4.0/'
-    - 'name': '又拍云'
-      'url': 'https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'

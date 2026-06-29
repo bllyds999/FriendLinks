@@ -145,11 +145,6 @@
     - 'name': 'Temp Mail'
       'url': 'https://tempmail100.com'
       'description': 'Secure and Anonymous Temp Mail Service'
-    - 'name': 'Halo'
-      'url': 'https://www.halo.run/'
-      'description': '强大易用的开源
-
-        建站工具'
     - 'name': '清风'
       'url': 'https://luckqf.cn'
       'description': '万般皆苦 唯有自渡'

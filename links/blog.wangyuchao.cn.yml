@@ -4,10 +4,6 @@
   'url': 'https://blog.wangyuchao.cn/'
   'links': '/link'
   'friends':
-    - 'name': '新闻'
-      'url': 'https://news.wangyuchao.cn/'
-    - 'name': 'covercoverHexo'
-      'url': 'https://hexo.io/zh-tw/'
     - 'name': '安知鱼安知鱼生活明朗，万物可爱'
       'url': 'https://blog.anheyu.com/'
     - 'name': '张洪Heo张洪Heo分享设计与科技生活'

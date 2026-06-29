@@ -6,101 +6,25 @@
   'friends':
     - 'name': 'OpenAI'
       'url': 'https://chatbot.theb.ai'
-    - 'name': "butterfly
-
-        \     \ 
-
-        \      butterfly\ 
-
-        \      butterfly官方操作手册"
-      'url': 'https://butterfly.js.org/'
-    - 'name': "Hexo
-
-        \     \ 
-
-        \      Hexo\ 
-
-        \      快速、簡單且強大的網誌框架"
-      'url': 'https://hexo.io/zh-tw/'
-    - 'name': "花猪\n     \ \n      花猪\ \n      佛系青年"
+    - 'name': '花猪 花猪 佛系青年'
       'url': 'https://cnhuazhu.top/'
-    - 'name': "小码同学
-
-        \     \ 
-
-        \      小码同学\ 
-
-        \      喜欢的东西就努力去追求，万一成功了呢!"
+    - 'name': '小码同学 小码同学 喜欢的东西就努力去追求，万一成功了呢!'
       'url': 'https://blog.hikki.site'
-    - 'name': "张洪Heo
-
-        \     \ 
-
-        \      张洪Heo\ 
-
-        \      分享设计与科技生活"
+    - 'name': '张洪Heo 张洪Heo 分享设计与科技生活'
       'url': 'https://blog.zhheo.com/'
-    - 'name': "一笔淡墨
-
-        \     \ 
-
-        \      一笔淡墨\ 
-
-        \      前行，是人生唯一重要的方向。"
+    - 'name': '一笔淡墨 一笔淡墨 前行，是人生唯一重要的方向。'
       'url': 'https://xue65535.cn/'
-    - 'name': "李程 ic
-
-        \     \ 
-
-        \      李程 ic\ 
-
-        \      中华人民共和国万岁！"
+    - 'name': '李程 ic 李程 ic 中华人民共和国万岁！'
       'url': 'https://www.licic.net/'
-    - 'name': "安知鱼`Blog
-
-        \     \ 
-
-        \      安知鱼`Blog\ 
-
-        \      生活明朗，万物可爱"
+    - 'name': '安知鱼`Blog 安知鱼`Blog 生活明朗，万物可爱'
       'url': 'https://anzhiy.cn/'
-    - 'name': "满心 Heo
-
-        \     \ 
-
-        \      满心 Heo\ 
-
-        \      追求让人充实，分享让人快乐"
+    - 'name': '满心 Heo 满心 Heo 追求让人充实，分享让人快乐'
       'url': 'https://blog.lovelu.top/'
-    - 'name': "GanSer
-
-        \     \ 
-
-        \      GanSer\ 
-
-        \      紫箫吟断，素笺恨切"
+    - 'name': 'GanSer GanSer 紫箫吟断，素笺恨切'
       'url': 'https://www.gan1ser.top/'
-    - 'name': "呆鱼
-
-        \     \ 
-
-        \      呆鱼\ 
-
-        \      Hello World"
+    - 'name': '呆鱼 呆鱼 Hello World'
       'url': 'https://daiyu.fun/'
-    - 'name': "沧海网络
-
-        \     \ 
-
-        \      沧海网络\ 
-
-        \      undefined"
+    - 'name': '沧海网络 沧海网络 undefined'
       'url': 'https://halloworlds.cn/'
-    - 'name': "Almango
-
-        \     \ 
-
-        \      Almango\ 
-
-        \      天真永不消逝，浪漫至死不渝"
+    - 'name': 'Almango Almango 天真永不消逝，浪漫至死不渝'
       'url': 'https://almango.cn/'

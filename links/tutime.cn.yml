@@ -4,12 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '个人主页'
-      'url': 'https://home.tutime.cn'
-    - 'name': '后台'
-      'url': 'https://admin.tutime.cn/'
-    - 'name': 'Tutu'
-      'url': 'https://home.tutime.cn/'
     - 'name': 'Valine'
       'url': 'https://valine.js.org'
     - 'name': '啊不嘟'
@@ -48,5 +42,3 @@
       'url': 'http://www.albertz.top'
     - 'name': '幻幻博客'
       'url': 'https://blog.xhxx.cc'
-    - 'name': '署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议'
-      'url': 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'

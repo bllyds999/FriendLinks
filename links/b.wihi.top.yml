@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '知识库'
-      'url': 'https://doc.wihi.top/'
     - 'name': '葱苓语畔Don''t worry, be happy.'
       'url': 'https://blog.ciraos.top'
     - 'name': '花生莲子粥与世无争，不染于泥'

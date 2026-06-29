@@ -4,9 +4,5 @@
   'url': 'https://wangkay.top/'
   'links': '/friends'
   'friends':
-    - 'name': '今日热榜'
-      'url': 'https://wangkay.cn/hotnews/'
     - 'name': '三尺剑妖的站点'
       'url': 'https://xn--w9q323f.cn/'
-    - 'name': '小妖文库'
-      'url': 'https://wk21.com'

@@ -4,10 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Hexo快速、简洁且高效的博客框架'
-      'url': 'https://hexo.io/zh-cn'
-    - 'name': 'Fluid一款 Material Design 风格的 Hexo 主题'
-      'url': 'https://hexo.fluid-dev.com'
     - 'name': 'iMaeGoo’s Blog虹墨空间站'
       'url': 'https://www.imaegoo.com'
     - 'name': '安知鱼生活明朗，万物可爱'

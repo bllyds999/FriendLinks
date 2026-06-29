@@ -4,15 +4,9 @@
   'url': 'https://aidianfirst.top/'
   'links': '/link'
   'friends':
-    - 'name': "Hexo\ \n      快速、简单且强大的网誌框架"
-      'url': 'https://hexo.io/zh-tw/'
-    - 'name': "Jerry\ \n      null"
-      'url': 'https://butterfly.js.org/'
-    - 'name': "小N同学\ \n      青石落晚巷 故人未还乡"
+    - 'name': '小N同学 青石落晚巷 故人未还乡'
       'url': 'https://www.nesxc.com/'
-    - 'name': "Akilarの糖果屋\ \n      期待您的光临！"
+    - 'name': 'Akilarの糖果屋 期待您的光临！'
       'url': 'https://akilar.top/'
-    - 'name': "youmingsama\ 
-
-        \      呐，请把您的灵魂出卖给我把....我求求你们了！！！"
+    - 'name': 'youmingsama 呐，请把您的灵魂出卖给我把....我求求你们了！！！'
       'url': 'https://youmingsama.cn'

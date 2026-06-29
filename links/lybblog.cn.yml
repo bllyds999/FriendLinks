@@ -4,119 +4,35 @@
   'url': 'https://lybblog.cn/'
   'links': '/friends'
   'friends':
-    - 'name': '旧版 轻淡时光'
-      'url': 'http://blog.lybblog.cn'
     - 'name': 'Hary'
       'url': 'https://hxy.cc/'
     - 'name': '小彦'
       'url': 'https://note-star.cn/'
-    - 'name': "24小时\n\t\t\t\t\t\t\t\t新搓网管设备一键配置脚本"
+    - 'name': '24小时 新搓网管设备一键配置脚本'
       'url': 'https://www.imuu.cn/9225.html'
-    - 'name': "2026-06-21 17:08:53
-
-        \t\t\t\t\t\t\t\t开发GPS高精定位系统"
-      'url': 'https://www.imuu.cn/9180.html'
-    - 'name': "24小时\n\t\t\t\t\t\t\t\t六月小记①②③④"
-      'url': 'https://hxy.cc/2606.html'
-    - 'name': "2026-06-21 22:00:00
-
-        \t\t\t\t\t\t\t\t五月做的梦，六月醒了"
-      'url': 'https://hxy.cc/yigemeng.html'
-    - 'name': "2026-06-26 23:07:00
-
-        \t\t\t\t\t\t\t\t初夏荷花开-2026"
+    - 'name': '2026-06-26 23:07:00 初夏荷花开-2026'
       'url': 'https://xyzbz.cn/archives/1553/'
-    - 'name': "2026-06-15 14:49:00
-
-        \t\t\t\t\t\t\t\t松声｜廿六年·六月中·荷花开"
-      'url': 'https://xyzbz.cn/archives/1550/'
-    - 'name': "2026-06-24 14:27:00
-
-        \t\t\t\t\t\t\t\t松松垮垮"
+    - 'name': '2026-06-24 14:27:00 松松垮垮'
       'url': 'https://zhongxiaojie.cn/2026/06/1539/'
-    - 'name': "2026-06-22 13:00:12
-
-        \t\t\t\t\t\t\t\t饥荒"
-      'url': 'https://zhongxiaojie.cn/2026/06/1518/'
-    - 'name': "2026-06-22 14:37:00
-
-        \t\t\t\t\t\t\t\tWordPress-Riven主题正式发售了！！！"
-      'url': 'https://zhoutian.com/385.html'
-    - 'name': "2026-06-17 10:45:00
-
-        \t\t\t\t\t\t\t\t车子又到了要续保的日子了"
+    - 'name': '2026-06-17 10:45:00 车子又到了要续保的日子了'
       'url': 'https://zhoutian.com/384.html'
-    - 'name': "2026-06-20 21:03:47
-
-        \t\t\t\t\t\t\t\t满满一箱的战利品"
+    - 'name': '2026-06-20 21:03:47 满满一箱的战利品'
       'url': 'https://me.xu19.com/full-box-of-diy-handmade-porcelain-from-jingdezhen/'
-    - 'name': "2026-06-13 23:17:07
-
-        \t\t\t\t\t\t\t\t永久版本是个坑"
-      'url': 'https://me.xu19.com/he-permanent-version-of-the-software-is-a-pitfall/'
-    - 'name': "2026-06-16 13:54:11
-
-        \t\t\t\t\t\t\t\t兰州牛肉面VS兰州凉面"
+    - 'name': '2026-06-16 13:54:11 兰州牛肉面VS兰州凉面'
       'url': 'https://chrison.cn/live/474.html'
-    - 'name': "2026-05-23 14:04:00
-
-        \t\t\t\t\t\t\t\t今日菜肴：羊排手抓饭"
-      'url': 'https://chrison.cn/live/472.html'
-    - 'name': "2026-06-11 23:24:00
-
-        \t\t\t\t\t\t\t\t真是蠢爆了"
+    - 'name': '2026-06-11 23:24:00 真是蠢爆了'
       'url': 'https://www.vian.top/710.html'
-    - 'name': "2026-02-14 21:01:00
-
-        \t\t\t\t\t\t\t\t哟！"
-      'url': 'https://www.vian.top/709.html'
-    - 'name': "2026-06-02 21:08:20
-
-        \t\t\t\t\t\t\t\t二〇二六年五月总结：颓态总会过去吧"
+    - 'name': '2026-06-02 21:08:20 二〇二六年五月总结：颓态总会过去吧'
       'url': 'https://feng.pub/0620269616.html'
-    - 'name': "2026-05-22 15:05:13
-
-        \t\t\t\t\t\t\t\t时隔两年再次献血，左胳膊400毫升"
-      'url': 'https://feng.pub/0520269606.html'
-    - 'name': "2026-06-01 20:15:58
-
-        \t\t\t\t\t\t\t\t711全职店务员离职心得"
+    - 'name': '2026-06-01 20:15:58 711全职店务员离职心得'
       'url': 'https://t-t.live/archives/7MagsYkt'
-    - 'name': "2026-04-21 23:47:05
-
-        \t\t\t\t\t\t\t\t近况（7）"
-      'url': 'https://t-t.live/archives/NkLXavXm'
-    - 'name': "2026-05-09 18:26:24
-
-        \t\t\t\t\t\t\t\t风记得的音乐：《行将近》—— Soon to Leave"
+    - 'name': '2026-05-09 18:26:24 风记得的音乐：《行将近》—— Soon to Leave'
       'url': 'https://www.thyuu.com/82442/'
-    - 'name': "2026-05-08 23:34:14
-
-        \t\t\t\t\t\t\t\t欢迎来到精神世界"
-      'url': 'https://ly.lybblog.cn/2026/05/08/50/'
-    - 'name': "2025-08-21 22:30:02
-
-        \t\t\t\t\t\t\t\t二零二五·捌月&amp;顺其自然"
+    - 'name': '2025-08-21 22:30:02 二零二五·捌月&amp;顺其自然'
       'url': 'https://blog.liuzhuai.com/archives/40.html'
-    - 'name': "24小时
-
-        \t\t\t\t\t\t\t\tThriveX 4.0 还是那个起点，还是那份炽热"
-      'url': 'https://liuyuyang.net/article/2290'
-    - 'name': "2026-06-21 21:58:56
-
-        \t\t\t\t\t\t\t\t⛰️ 好想环游世界 🥺"
+    - 'name': '2026-06-21 21:58:56 ⛰️ 好想环游世界 🥺'
       'url': 'https://liuyuyang.net/record'
-    - 'name': "2026-06-18 09:23:00
-
-        \t\t\t\t\t\t\t\t读博随笔 | 本学期的助教课结束，认识了一些可爱的大一新生"
+    - 'name': '2026-06-18 09:23:00 读博随笔 | 本学期的助教课结束，认识了一些可爱的大一新生'
       'url': 'https://www.52txr.cn/2026/2026TA.html'
-    - 'name': "2026-02-26 00:00:00
-
-        \t\t\t\t\t\t\t\t推荐酷鸭数据主机"
-      'url': 'https://dusays.com/archives/855/'
-    - 'name': "2026-01-02 00:00:00
-
-        \t\t\t\t\t\t\t\tMinecraft 生存服务器来啦「1.21.8 版」"
-      'url': 'https://dusays.com/archives/845/'
     - 'name': 'THYUU/星度'
       'url': 'https://theme.thyuu.com/'

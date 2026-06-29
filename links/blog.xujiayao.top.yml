@@ -6,45 +6,37 @@
   'friends':
     - 'name': '评论管理系统'
       'url': 'https://comments.xujiayao.com/ui'
-    - 'name': "Tmzncty\n      题目自拟的盒子"
+    - 'name': 'Tmzncty 题目自拟的盒子'
       'url': 'https://tmzncty.cn/'
-    - 'name': "Hydroxide\n      回声与月光"
+    - 'name': 'Hydroxide 回声与月光'
       'url': 'https://echoandmoonlight.com/'
-    - 'name': "DexterCai\n      明天太远，今天太短"
+    - 'name': 'DexterCai 明天太远，今天太短'
       'url': 'https://blog.dextercai.com/'
-    - 'name': "noionion\n      贰猹の小窝"
+    - 'name': 'noionion 贰猹の小窝'
       'url': 'https://noionion.top/'
-    - 'name': "BlissfulAlloy79\n      没有技术，也不够宅"
+    - 'name': 'BlissfulAlloy79 没有技术，也不够宅'
       'url': 'https://blissfulalloy79.lazycraft.top/'
-    - 'name': "Pedro\n      Life is a comet"
+    - 'name': 'Pedro Life is a comet'
       'url': 'https://pedropo.com/'
-    - 'name': "Richard\n      物极必反，否极泰来"
+    - 'name': 'Richard 物极必反，否极泰来'
       'url': 'https://blog.richardw.top/'
-    - 'name': ".Han\n      运气是计划之外的东西."
+    - 'name': '.Han 运气是计划之外的东西.'
       'url': 'https://www.vvhan.com/'
-    - 'name': "Victor Li\n      除了听没什么是做不到"
+    - 'name': 'Victor Li 除了听没什么是做不到'
       'url': 'https://deshengdulikaifa.com/'
-    - 'name': ".Sam\n      内容一般，热爱很满."
+    - 'name': '.Sam 内容一般，热爱很满.'
       'url': 'https://blog.lvjianqing.xyz/'
-    - 'name': "Nexmoe\n      一个比较特别的 Hexo 主题"
-      'url': 'https://nexmoe.com/hexo-theme-nexmoe.html'
-    - 'name': "Butterfly
-
-        \      A Hexo Theme: Butterfly"
-      'url': 'https://butterfly.js.org/'
-    - 'name': "折影轻梦\n      崇尚自由、热爱技术"
+    - 'name': '折影轻梦 崇尚自由、热爱技术'
       'url': 'https://nexmoe.com/'
-    - 'name': "Jerry\n      今日事，今日畢"
+    - 'name': 'Jerry 今日事，今日畢'
       'url': 'https://crazywong.com/'
-    - 'name': "奕奕生辉\n      叶奕的空间"
+    - 'name': '奕奕生辉 叶奕的空间'
       'url': 'https://www.yeyi.site/'
-    - 'name': "souldjl\n      高级前端进阶"
+    - 'name': 'souldjl 高级前端进阶'
       'url': 'https://www.daijl.cn/'
-    - 'name': "Ariven\n      Ariven的博客"
+    - 'name': 'Ariven Ariven的博客'
       'url': 'https://blog.ariven.cn/'
-    - 'name': "Wuyouchao\n      我是比萌新还要萌新的萌新"
+    - 'name': 'Wuyouchao 我是比萌新还要萌新的萌新'
       'url': 'https://blog.wuyouchao.top/'
-    - 'name': "水碧枫\n      水碧枫的甜点屋"
+    - 'name': '水碧枫 水碧枫的甜点屋'
       'url': 'https://www.crystmaple.net/'
-    - 'name': 'Hexo 8.1.2'
-      'url': 'https://hexo.io'

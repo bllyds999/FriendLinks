@@ -4,29 +4,15 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "Glaube-TY
-
-        \                                        精神的游牧民族"
+    - 'name': 'Glaube-TY 精神的游牧民族'
       'url': 'https://blog.glaube-ty.top'
-    - 'name': "Mimosa的小屋
-
-        \                                        含羞草居住的地方"
+    - 'name': 'Mimosa的小屋 含羞草居住的地方'
       'url': 'https://loneapex.cn/'
-    - 'name': "洛卡日记
-
-        \                                        日常生活留存地"
+    - 'name': '洛卡日记 日常生活留存地'
       'url': 'https://luoca.cn'
-    - 'name': "寒士杰克
-
-        \                                        喜欢捣鼓，不断进步！"
+    - 'name': '寒士杰克 喜欢捣鼓，不断进步！'
       'url': 'https://www.hansjack.com'
-    - 'name': "鈴奈咲桜のBlog
-
-        \                                        「情けは巡る」"
+    - 'name': '鈴奈咲桜のBlog 「情けは巡る」'
       'url': 'https://blog.sakura.ink'
-    - 'name': "風雪城
-
-        \                                        浩繁星空下的一场稚嫩的梦"
+    - 'name': '風雪城 浩繁星空下的一场稚嫩的梦'
       'url': 'https://blog.chyk.ink/'
-    - 'name': 'Halo'
-      'url': 'https://halo.run/'

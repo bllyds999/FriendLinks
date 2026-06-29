@@ -4,26 +4,14 @@
   'url': 'https://dllcnx.com/'
   'links': '/link'
   'friends':
-    - 'name': '私有仓库'
-      'url': 'https://home.dllcnx.com:30000'
     - 'name': 'NPM'
       'url': 'https://www.npmjs.com/~jukaifeng'
     - 'name': 'DockerHub'
       'url': 'https://hub.docker.com/u/jkf19980216'
-    - 'name': '掘金'
-      'url': 'https://juejin.cn/user/3896324939076743'
     - 'name': '思否'
       'url': 'https://segmentfault.com/u/dllcnx'
-    - 'name': "Hexo\ \n      快速、简单且强大的网志框架"
-      'url': 'https://hexo.io/zh-cn/'
-    - 'name': "butterfly\ 
-
-        \      A Hexo Theme, Butterfly"
-      'url': 'https://butterfly.js.org/'
-    - 'name': "张洪Heo\ \n      分享设计与科技生活"
+    - 'name': '张洪Heo 分享设计与科技生活'
       'url': 'https://blog.zhheo.com/'
-    - 'name': '思否'
-      'url': 'https://segmentfault.com/u/dllcnx/articles'
     - 'name': 'Svelte'
       'url': 'https://svelte.dev'
     - 'name': 'Angular'

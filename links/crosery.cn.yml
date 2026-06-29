@@ -4,8 +4,6 @@
   'url': 'https://crosery.cn/'
   'links': '/link'
   'friends':
-    - 'name': 'anzhiyu主题'
-      'url': 'https://blog.anheyu.com/'
     - 'name': '张洪Heo'
       'url': 'https://blog.zhheo.com/'
     - 'name': 'fufhaha的博客'
@@ -16,5 +14,3 @@
       'url': 'https://blog.anxy.top/'
     - 'name': 'LYSHARK'
       'url': 'https://www.lyshark.com'
-    - 'name': '博客框架为Hexo_v5.4.0'
-      'url': 'https://hexo.io/'

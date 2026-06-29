@@ -4,7 +4,5 @@
   'url': 'https://blog.yhehe.com/'
   'links': '/friends'
   'friends':
-    - 'name': '相册'
-      'url': 'https://photo.yhehe.com/'
     - 'name': 'Artalk'
       'url': 'https://artalk.js.org'

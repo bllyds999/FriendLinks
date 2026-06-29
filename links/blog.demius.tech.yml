@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '半神主题'
-      'url': 'https://blog.demius.space/'
     - 'name': 'Artalk'
       'url': 'https://artalk.js.org'

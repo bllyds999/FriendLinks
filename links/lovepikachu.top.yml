@@ -4,11 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '实验功能'
-      'url': 'https://lab.lovepikachu.top/'
-    - 'name': '大学英语听力随身练期末背题'
-      'url': 'https://lab.lovepikachu.top/document/englishlisten/'
-    - 'name': '鳌江中学心情屋'
-      'url': 'https://www.bing.com/ck/a?!&&p=eef9cd2acee47726JmltdHM9MTY5Nzg0NjQwMCZpZ3VpZD0zMWUwNTE3Ny03ZDk1LTY1ODItMzVjYi00MzQyN2M0NzY0OWUmaW5zaWQ9NTE4MQ&ptn=3&hsh=3&fclid=31e05177-7d95-6582-35cb-43427c47649e&psq=%e9%b3%8c%e6%b1%9f%e4%b8%ad%e5%ad%a6%e5%bf%83%e6%83%85%e5%b1%8b&u=a1aHR0cHM6Ly9ibG9nLnNpbmEuY29tLmNuL2Fqenh4cXc&ntb=1'
     - 'name': '刺猬心语'
       'url': 'https://axinkai.cn/'

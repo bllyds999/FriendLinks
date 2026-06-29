@@ -4,13 +4,9 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '鹰歌游戏引擎文档  鹰歌游戏引擎的社区使用文档、开发指南。 游戏引擎文档公益'
-      'url': 'https://docs-mf.tasaed.top'
     - 'name': '技术支持：Svelte'
       'url': 'https://svelte.dev'
     - 'name': '凌霞软件'
       'url': 'https://www.lxware.cn?code=tasaed'
-    - 'name': '鹰歌游戏引擎文档'
-      'url': 'https://docs-mf.tasaed.top/'
     - 'name': '博客：Astro'
       'url': 'https://astro.build'

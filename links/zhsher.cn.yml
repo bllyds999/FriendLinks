@@ -4,8 +4,6 @@
   'url': 'https://zhsher.cn/'
   'links': '/link'
   'friends':
-    - 'name': '游戏盒'
-      'url': 'https://rv.zhsher.cn/Game_box/game/'
     - 'name': '一百个Chocolate学如逆水行舟，不进则退'
       'url': 'https://yangchaoyi.vip'
     - 'name': '二兔能与你一起成长，我荣幸之至'
@@ -92,7 +90,3 @@
       'url': 'https://blog.marcus233.top'
     - 'name': '关关和六六向世界分享我们的故事'
       'url': 'https://www.gmcllp.cn'
-    - 'name': '了一昂梁从心不拧巴'
-      'url': 'https://blog.zhsher.cn'
-    - 'name': '稀土掘金'
-      'url': 'https://juejin.cn/user/2872373005264216'

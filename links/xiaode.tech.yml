@@ -4,18 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '热点新闻'
-      'url': 'https://newsnow.xiaode.tech/'
-    - 'name': '杂货铺'
-      'url': 'https://shop.xiaode.tech'
-    - 'name': '我的唱片机'
-      'url': 'https://music.xiaode.tech'
-    - 'name': '日程表'
-      'url': 'https://calendar.xiaode.tech/#/home'
-    - 'name': 'TESLAMATE'
-      'url': 'https://tmg.xiaode.tech'
-    - 'name': 'FnOS'
-      'url': 'https://fnos.xiaode.tech'
     - 'name': '余劫于人间渡'
       'url': 'https://blog.wssg.top/'
     - 'name': '知行博客'
@@ -120,13 +108,7 @@
       'url': 'https://pic.ffnb.top'
     - 'name': '顶茶社'
       'url': 'https://blog.redcha.cn'
-    - 'name': "我的朋友圈
-
-        \                                我听见我的身体里刮起一阵狂风"
-      'url': 'https://moment.xiaode.tech'
     - 'name': 'bbb-lsy07'
       'url': 'https://i.bbb-lsy07.sbs/'
-    - 'name': 'Serenity'
-      'url': 'https://serenity.aobp.cn/'
     - 'name': 'mp4网'
       'url': 'http://mp4wang.cc'

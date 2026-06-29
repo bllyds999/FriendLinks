@@ -4,39 +4,31 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'OneBlog'
-      'url': 'https://docs.onenote.io'
-    - 'name': "Evan\n\t\t\t\t        Keep It Real"
+    - 'name': 'Evan Keep It Real'
       'url': 'https://www.evan.xin'
-    - 'name': "阿杰Jack\n\t\t\t\t        一切都是最好的安排"
+    - 'name': '阿杰Jack 一切都是最好的安排'
       'url': 'https://veryjack.com'
-    - 'name': "Pnnk\n\t\t\t\t        独り言つ"
+    - 'name': 'Pnnk 独り言つ'
       'url': 'https://pnnk.ee'
-    - 'name': "Vian
-
-        \t\t\t\t        想要的都拥有，得不到的都释怀..."
+    - 'name': 'Vian 想要的都拥有，得不到的都释怀...'
       'url': 'https://www.vian.top'
-    - 'name': "云心怀鹤\n\t\t\t\t        寻真旅摄，笔墨纪实"
+    - 'name': '云心怀鹤 寻真旅摄，笔墨纪实'
       'url': 'https://bluehe.cn'
-    - 'name': "全局变量\n\t\t\t\t        记录生活中的平凡事"
+    - 'name': '全局变量 记录生活中的平凡事'
       'url': 'https://ilogs.cn'
-    - 'name': "在下厦门人\n\t\t\t\t        一个浪人的博客"
+    - 'name': '在下厦门人 一个浪人的博客'
       'url': 'https://www.zxxmr.com'
-    - 'name': "张洪Heo\n\t\t\t\t        分享设计与科技生活"
+    - 'name': '张洪Heo 分享设计与科技生活'
       'url': 'https://blog.zhheo.com'
-    - 'name': "暖心向阳335\n\t\t\t\t        永不言败，砥砺前行"
+    - 'name': '暖心向阳335 永不言败，砥砺前行'
       'url': 'https://nxxy335.top'
-    - 'name': "LiMhy'Blog
-
-        \t\t\t\t        在阅读中沉淀，于随笔中抒怀"
+    - 'name': 'LiMhy''Blog 在阅读中沉淀，于随笔中抒怀'
       'url': 'https://i.lilog.cn'
-    - 'name': "皮皮社\n\t\t\t\t        皮一下，很开心！"
+    - 'name': '皮皮社 皮一下，很开心！'
       'url': 'https://www.pipishe.com'
-    - 'name': "若志随笔\n\t\t\t\t        愿世界安康，愿你我皆好！"
+    - 'name': '若志随笔 愿世界安康，愿你我皆好！'
       'url': 'https://www.rz.sb'
-    - 'name': "旺东自留地\n\t\t\t\t        爱生活、爱摸鱼"
+    - 'name': '旺东自留地 爱生活、爱摸鱼'
       'url': 'https://wang618.cn'
-    - 'name': "品味苏州
-
-        \t\t\t\t        吴侬软语、小桥流水，最美在苏州。"
+    - 'name': '品味苏州 吴侬软语、小桥流水，最美在苏州。'
       'url': 'https://pwsz.com'

@@ -4,11 +4,7 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '好奇心花园'
-      'url': 'https://garden.1900.live/'
     - 'name': 'ghost'
       'url': 'https://www.ghost.org/'
-    - 'name': 'CC BY-NC-ND 4.0'
-      'url': 'https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans'
     - 'name': 'Artalk'
       'url': 'https://artalk.js.org'

@@ -6,7 +6,5 @@
   'friends':
     - 'name': '淘宝店'
       'url': 'https://dmzhmw.taobao.com/'
-    - 'name': '博客'
-      'url': 'https://blog.wpwpp.com/'
     - 'name': '查看演示'
       'url': 'https://linkwhisper.com/'

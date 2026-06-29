@@ -1,8 +1,0 @@
-'site':
-  'name': 'templum.cn'
-  'description': '友情链接'
-  'url': 'https://templum.cn/'
-  'links': '/link'
-  'friends':
-    - 'name': '由 ZAXU 主题构建'
-      'url': 'https://www.zaxu.com/'

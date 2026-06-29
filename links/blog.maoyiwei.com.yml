@@ -1,8 +1,0 @@
-'site':
-  'name': 'Yves'
-  'url': 'https://blog.maoyiwei.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 'CC BY-NC-ND 4.0'
-      'url': 'https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans'

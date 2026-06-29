@@ -4,38 +4,28 @@
   'url': 'https://euukey.com/'
   'links': '/link'
   'friends':
-    - 'name': '网站收藏'
-      'url': 'https://dh.euukey.com'
-    - 'name': '镜像站'
-      'url': 'https://blog.233.one/'
-    - 'name': '自动签到'
-      'url': 'https://qd.euukey.com'
-    - 'name': '毒鸡汤'
-      'url': 'https://jt.euukey.com'
-    - 'name': "幕光倾城-Linfeng Mei\ \n      钝学累功-勤能补拙"
+    - 'name': '幕光倾城-Linfeng Mei 钝学累功-勤能补拙'
       'url': 'https://www.meilinfeng.top'
-    - 'name': "Kongerの万事屋\ \n      嘤嘤嘤"
+    - 'name': 'Kongerの万事屋 嘤嘤嘤'
       'url': 'https://blog.ninglans.top'
-    - 'name': "Rui.plus\ \n      浪里白嫖-诸葛村夫:-)"
+    - 'name': 'Rui.plus 浪里白嫖-诸葛村夫:-)'
       'url': 'https://rui.plus/'
-    - 'name': "潘高的小站\ \n      IT套路深，必须瞎折腾"
+    - 'name': '潘高的小站 IT套路深，必须瞎折腾'
       'url': 'https://blog.pangao.vip'
-    - 'name': "Roi's Blog\ \n      null"
+    - 'name': 'Roi''s Blog null'
       'url': 'https://roi.moe/'
-    - 'name': "⑨BIE\ \n      伪技术宅的迷之地"
+    - 'name': '⑨BIE 伪技术宅的迷之地'
       'url': 'https://9bie.org'
-    - 'name': "Sakura` Blogs\ \n      个人小站"
+    - 'name': 'Sakura` Blogs 个人小站'
       'url': 'https://jinan6.vip'
-    - 'name': "百般美好\ \n      山有扶苏，隰有荷华"
+    - 'name': '百般美好 山有扶苏，隰有荷华'
       'url': 'https://ply.cool/'
-    - 'name': "Seeker\ \n      木有灵兮"
+    - 'name': 'Seeker 木有灵兮'
       'url': 'https://snow.js.org/'
-    - 'name': "seeseeu\ \n      人生如水，越淡越真"
+    - 'name': 'seeseeu 人生如水，越淡越真'
       'url': 'https://seeseeu.top'
-    - 'name': "张洪Heo\ \n      分享设计与科技生活"
+    - 'name': '张洪Heo 分享设计与科技生活'
       'url': 'https://blog.zhheo.com/'
-    - 'name': '镜像站'
-      'url': 'https://hexo.euukey.now.sh/'
     - 'name': 'Valine'
       'url': 'https://valine.js.org'
     - 'name': '酷安'

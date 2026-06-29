@@ -1,8 +1,0 @@
-'site':
-  'name': '雨落川'
-  'url': 'https://blog.yangzy.top/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '主题和组件文档'
-      'url': 'https://blog.zhilu.site/theme'

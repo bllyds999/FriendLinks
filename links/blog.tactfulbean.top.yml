@@ -4,12 +4,6 @@
   'url': 'https://blog.tactfulbean.top/'
   'links': '/link'
   'friends':
-    - 'name': 'Jerry'
-      'url': 'https://butterfly.js.org/'
-    - 'name': 'Bean''s Homepage'
-      'url': 'https://home.tactfulbean.top/'
-    - 'name': 'Bean''s Alist'
-      'url': 'http://alist.tactfulbean.top/'
     - 'name': '安知鱼`Blog'
       'url': 'https://blog.anheyu.com/'
     - 'name': '张洪Heo'

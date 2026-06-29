@@ -4,12 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '云端减肥云端之法进行减肥～'
-      'url': 'https://jfdk.xxbjf.com/jianfei/index.html'
-    - 'name': '云端便笺云端便笺书写心绪云端～'
-      'url': 'https://jfdk.xxbjf.com/yd_notepad/index.html'
-    - 'name': '云端之眼云端之眼监察云端～'
-      'url': 'https://jfdk.xxbjf.com/linux_top/index.html'
     - 'name': '杜老师说师者，传道，授业，解惑！'
       'url': 'https://dusays.com'
     - 'name': 'OBABY程序媛 / 独立开发者 / 智商不稳定的女神经'
@@ -26,5 +20,3 @@
       'url': 'https://xingbianren.cn'
     - 'name': '柳橙睿其实我是一个假柳橙'
       'url': 'https://www.liuchengrui.cn'
-    - 'name': '关于我😥'
-      'url': 'https://blog.xxbjf.com/about'

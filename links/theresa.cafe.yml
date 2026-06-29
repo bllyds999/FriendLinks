@@ -4,17 +4,13 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "IIROSE\ \n      iirose.com"
+    - 'name': 'IIROSE iirose.com'
       'url': 'https://iirose.com'
-    - 'name': "Razuritta’s Notebook\ 
-
-        \      拉兹先生的在线笔记"
+    - 'name': 'Razuritta’s Notebook 拉兹先生的在线笔记'
       'url': 'https://blog.razuritta.me/'
-    - 'name': "Shucheng Li\ \n      Shucheng Li"
+    - 'name': 'Shucheng Li Shucheng Li'
       'url': 'https://snli.org/'
-    - 'name': "Lily Ellenvia\ \n      Lily Ellenvia"
+    - 'name': 'Lily Ellenvia Lily Ellenvia'
       'url': 'https://blog.lilynet.work/'
-    - 'name': "MoeQing Network\ 
-
-        \      MoeQing Network"
+    - 'name': 'MoeQing Network MoeQing Network'
       'url': 'https://blog.moeqing.com/'

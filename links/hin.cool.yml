@@ -4,47 +4,7 @@
   'url': 'https://hin.cool/'
   'links': '/friends'
   'friends':
-    - 'name': "Butterfly主题
-
-        \     \ 
-
-        \      Butterfly主题\ 
-
-        \      A Hexo Theme"
-      'url': 'https://butterfly.js.org/'
-    - 'name': "Xaoxuu
-
-        \     \ 
-
-        \      Xaoxuu\ 
-
-        \      Volantis主题开发者"
-      'url': 'https://xaoxuu.com'
-    - 'name': "MHuiG
-
-        \     \ 
-
-        \      MHuiG\ 
-
-        \      Volantis主题开发者"
-      'url': 'https://blog.mhuig.top/'
-    - 'name': "枋柚梓
-
-        \     \ 
-
-        \      枋柚梓\ 
-
-        \      繁星永存，记忆亘古不变。"
+    - 'name': '枋柚梓 枋柚梓 繁星永存，记忆亘古不变。'
       'url': 'https://inkss.cn'
-    - 'name': "Jerry
-
-        \     \ 
-
-        \      Jerry\ 
-
-        \      Butterfly主题开发者"
-      'url': 'https://crazywong.com/'
-    - 'name': '腾讯云2H2G 年付99元'
-      'url': 'https://curl.qcloud.com/Tzag7A6h'
     - 'name': 'EdgeOne&多吉云'
       'url': 'https://www.dogecloud.com/?iuid=2384'

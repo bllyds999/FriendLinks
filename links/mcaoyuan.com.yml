@@ -4,33 +4,13 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': "张洪Heo
-
-        \                 \ 
-
-        \                    分享设计与科技生活"
+    - 'name': '张洪Heo 分享设计与科技生活'
       'url': 'https://blog.zhheo.com'
-    - 'name': "追光人
-
-        \                 \ 
-
-        \                    追寻生活的炽热"
+    - 'name': '追光人 追寻生活的炽热'
       'url': 'https://zhuiguang.ren'
-    - 'name': "洋芋博客
-
-        \                 \ 
-
-        \                    一个什么都分享的博客"
+    - 'name': '洋芋博客 一个什么都分享的博客'
       'url': 'https://blog.51yangyu.cn'
-    - 'name': "wsbのblog
-
-        \                 \ 
-
-        \                    己所不欲，勿施于人"
+    - 'name': 'wsbのblog 己所不欲，勿施于人'
       'url': 'https://www.wsbblog.cn'
-    - 'name': "TinyPng
-
-        \                 \ 
-
-        \                    免费在线图片压缩"
+    - 'name': 'TinyPng 免费在线图片压缩'
       'url': 'https://tinypng.com/'

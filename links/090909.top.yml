@@ -4,89 +4,83 @@
   'url': 'https://090909.top/'
   'links': '/friends'
   'friends':
-    - 'name': "王科文\n      写的 MkDocs 教程很好！"
+    - 'name': '王科文 写的 MkDocs 教程很好！'
       'url': 'https://wcowin.work/'
-    - 'name': "可乐\n      他真的很喜欢网络安全！"
+    - 'name': '可乐 他真的很喜欢网络安全！'
       'url': 'https://cola0908.top/'
-    - 'name': "峰哥\n      他拍的照片真的很好看！"
+    - 'name': '峰哥 他拍的照片真的很好看！'
       'url': 'https://fengcblog.880200.xyz/'
-    - 'name': "秋葵笔记\n      他写的笔记很好，我很喜欢！"
+    - 'name': '秋葵笔记 他写的笔记很好，我很喜欢！'
       'url': 'https://qiukui-note.happy365.day/'
-    - 'name': "周配萝卜\n      好朋友，好像还是个二次元！"
+    - 'name': '周配萝卜 好朋友，好像还是个二次元！'
       'url': 'https://blog.zplb.top/'
-    - 'name': "乐依利\n      在秋葵评论区认识的小博主！"
+    - 'name': '乐依利 在秋葵评论区认识的小博主！'
       'url': 'https://930309.xyz/'
-    - 'name': "天渺工作室\n      B 站新朋友，分享小技巧！"
+    - 'name': '天渺工作室 B 站新朋友，分享小技巧！'
       'url': 'https://tianmiao.site/'
-    - 'name': "芊\n      分享一些英语学习笔记！"
+    - 'name': '芊 分享一些英语学习笔记！'
       'url': 'https://hxqblog.cn/'
-    - 'name': "旺东\n      看他分享生活，挺有意思的！"
+    - 'name': '旺东 看他分享生活，挺有意思的！'
       'url': 'https://wang618.cn/'
-    - 'name': "阿叶\n      黑客风网站，爱好网络安全！"
+    - 'name': '阿叶 黑客风网站，爱好网络安全！'
       'url': 'https://blog.ayeez.cn/'
-    - 'name': "小废鼠\n      NotionNext 搭建的博客网站！"
+    - 'name': '小废鼠 NotionNext 搭建的博客网站！'
       'url': 'https://feishu.xiao-feishu.top/'
-    - 'name': "团子和蛋糕\n      很爱学习，还会自己写笔记！"
+    - 'name': '团子和蛋糕 很爱学习，还会自己写笔记！'
       'url': 'https://blog.tsh520.cn/'
-    - 'name': "幸荟\n      网站是二次元风格啊！"
+    - 'name': '幸荟 网站是二次元风格啊！'
       'url': 'https://www.xinghuisama.top/'
-    - 'name': "奇怪先生\n      喜欢分享技术的博主！"
+    - 'name': '奇怪先生 喜欢分享技术的博主！'
       'url': 'https://www.20210701.xyz/'
-    - 'name': "琳琳\n      她的博客内容很随心！"
+    - 'name': '琳琳 她的博客内容很随心！'
       'url': 'https://karina.xin/'
-    - 'name': "卡瑟布尔\n      高中生更新少也正常啦！"
+    - 'name': '卡瑟布尔 高中生更新少也正常啦！'
       'url': 'https://blog.ksable.top/'
-    - 'name': "阿普修\n      他的博客内容很随心！"
+    - 'name': '阿普修 他的博客内容很随心！'
       'url': 'https://upxuu.com/'
-    - 'name': "本尼格\n      博客内容专注技术分享！"
+    - 'name': '本尼格 博客内容专注技术分享！'
       'url': 'https://benign.host/'
-    - 'name': "暖心向阳\n      博客内容专注自己的生活！"
+    - 'name': '暖心向阳 博客内容专注自己的生活！'
       'url': 'https://nxxy335.top/'
-    - 'name': "瓦尔杰德赫\n      他是最近开始写博客的新手！"
+    - 'name': '瓦尔杰德赫 他是最近开始写博客的新手！'
       'url': 'https://wrcbdjdh.cloud/'
-    - 'name': "流欺\n      又是个二次元主题的网站！"
-      'url': 'https://blog.lqay.cn/'
-    - 'name': "拾月\n      喜欢的博主，永不停更！"
+    - 'name': '拾月 喜欢的博主，永不停更！'
       'url': 'https://www.skyue.com/'
-    - 'name': "椰汁\n      平时很懒的小博主，初中生！"
+    - 'name': '椰汁 平时很懒的小博主，初中生！'
       'url': 'https://home.132614.xyz'
-    - 'name': "会枝\n      喜欢在网站发一些碎碎念！"
+    - 'name': '会枝 喜欢在网站发一些碎碎念！'
       'url': 'https://blog.huizhi.ink/'
-    - 'name': "在下寒江雪\n      论坛上认识的老熟人！"
+    - 'name': '在下寒江雪 论坛上认识的老熟人！'
       'url': 'https://hanchan.vip/'
-    - 'name': "安知鱼\n      很有趣的主题开发者！"
-      'url': 'https://blog.anheyu.com/'
-    - 'name': "污柳先生\n      他的写作内容很随心！"
+    - 'name': '污柳先生 他的写作内容很随心！'
       'url': 'https://mrwuliu.top/'
-    - 'name': "小葱\n      他的梦想是星辰大海！"
+    - 'name': '小葱 他的梦想是星辰大海！'
       'url': 'https://blog.mosicong.top/'
-    - 'name': "楠楠\n      安安静静存在就很好！"
+    - 'name': '楠楠 安安静静存在就很好！'
       'url': 'https://www.nannax.top/'
-    - 'name': "李许伟\n      他想要走遍世界各地！"
+    - 'name': '李许伟 他想要走遍世界各地！'
       'url': 'https://blog.apodfg.com/'
-    - 'name': "麦卡杰斯\n      他等待一个迷路的夜！"
+    - 'name': '麦卡杰斯 他等待一个迷路的夜！'
       'url': 'https://blog.seln.cn/'
-    - 'name': "姓王者\n      他希望创造无限可能！"
+    - 'name': '姓王者 他希望创造无限可能！'
       'url': 'https://xingwangzhe.fun/'
-    - 'name': "桃之夭夭\n      这是桃之夭夭的小屋！"
+    - 'name': '桃之夭夭 这是桃之夭夭的小屋！'
       'url': 'https://taozhiyy.top/'
-    - 'name': "风舞心弦\n      又是一个有趣的灵魂！"
+    - 'name': '风舞心弦 又是一个有趣的灵魂！'
       'url': 'https://fengwu.art/'
-    - 'name': "笔尖代码\n      一个喜欢装机的小伙！"
+    - 'name': '笔尖代码 一个喜欢装机的小伙！'
       'url': 'https://123456l.com/'
-    - 'name': "顾拾柒\n      喜欢写建站的小博主！"
+    - 'name': '顾拾柒 喜欢写建站的小博主！'
       'url': 'https://blog.olinl.com/'
-    - 'name': "伊夫\n      喜欢碎碎念的小博主！"
+    - 'name': '伊夫 喜欢碎碎念的小博主！'
       'url': 'https://nnnj.net/'
-    - 'name': "番茄主理人\n      分享建站教程的博主！"
+    - 'name': '番茄主理人 分享建站教程的博主！'
       'url': 'https://www.fqzlr.com/'
-    - 'name': "希格鲁特\n      他的内容主要是编程！"
+    - 'name': '希格鲁特 他的内容主要是编程！'
       'url': 'https://xgrblog.cn/'
-    - 'name': "文字笔记\n      最喜欢的笔记，以前拿这个写文章！"
+    - 'name': '文字笔记 最喜欢的笔记，以前拿这个写文章！'
       'url': 'https://obsidian.md/'
-    - 'name': "图标制作\n      上传图片，圆角调成 180 大小！"
+    - 'name': '图标制作 上传图片，圆角调成 180 大小！'
       'url': 'https://uutool.cn/img-radius/'
-    - 'name': "应用清单\n      网页应用清单生成器！"
+    - 'name': '应用清单 网页应用清单生成器！'
       'url': 'https://iotools.cloud/zh/tool/pwa-web-app-manifest-generator/'
-    - 'name': 'Hexo 8.1.2'
-      'url': 'https://hexo.io'

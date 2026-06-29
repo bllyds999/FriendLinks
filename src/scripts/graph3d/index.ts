@@ -391,7 +391,7 @@ export function init3d(graphData: GraphData) {
     })
     .linkPositionUpdate(() => false)
     .backgroundColor(isDarkRef.value ? "#0f1115" : "#ffffff")
-    .enableNodeDrag(true)
+    .enableNodeDrag(false)
     .enableNavigationControls(true)
     .nodeOpacity(1.0)
     .warmupTicks(0)

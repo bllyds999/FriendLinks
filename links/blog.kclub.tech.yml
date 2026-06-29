@@ -4,8 +4,6 @@
   'url': 'https://blog.kclub.tech/'
   'links': '/link'
   'friends':
-    - 'name': 'Open-WebUI'
-      'url': 'https://chat.kclub.tech/'
     - 'name': 'Nick的琐碎日常'
       'url': 'https://www.nickwald.top/'
     - 'name': '安知鱼'

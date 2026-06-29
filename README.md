@@ -114,20 +114,20 @@ src/
 ├── pages/                 # Astro 页面/端点
 links/                     # 友链 YAML 源文件（核心数据）
 scripts/
-  ├── cleanup-junk.ts      # 友链垃圾条目清理
+  ├── prune-irrelevant.ts      # 友链无关条目剔除
   ├── check-access.ts      # 可达性检查
 types/                     # TypeScript 类型定义
 ```
 
-### 清理垃圾条目
+### 剔除无关条目
 
 爬虫可能抓入非友链数据（备案号、主题框架、社交链接、站内页面等）。运行清理脚本：
 
 ```bash
-bun run scripts/cleanup-junk.ts
+bun run scripts/prune-irrelevant.ts
 ```
 
-脚本会自动剔除垃圾条目，友链全空时自动删除文件。
+脚本会自动剔除无关条目，友链全空时自动删除文件。
 
 ---
 

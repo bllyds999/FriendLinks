@@ -4,16 +4,12 @@
   'url': 'https://justpureh2o.cn/'
   'links': '/friends'
   'friends':
-    - 'name': 'Firefly文档'
-      'url': 'https://docs-firefly.cuteleaf.cn'
     - 'name': '夏夜流萤飞萤之火自无梦的长夜亮起，绽放在终竟的明天。巨佬'
       'url': 'https://blog.cuteleaf.cn'
     - 'name': 'GGapa自能生羽翼，何必仰云梯朋友同学'
       'url': 'http://ggapa.net/'
     - 'name': 'HYLW干 一 场 硬 仗 S1朋友同学'
       'url': 'https://www.luogu.com.cn/user/663949#article'
-    - 'name': 'Aventurine_stone愿人生的赌局，赢的总是我们。朋友同学'
-      'url': 'https://www.luogu.com.cn/user/1041101#article'
     - 'name': 'Lucas2011无穷的远方，无数的人们，都与我有关。朋友同学'
       'url': 'https://lucas2011.top/'
     - 'name': 'iMaeGoo’s Blog虹墨空间站朋友'
@@ -64,9 +60,5 @@
       'url': 'https://blog.542000.xyz'
     - 'name': 'MaxLHy’s BlogWhere All Miracle Begins.朋友'
       'url': 'https://maxlhy0424.is-a.dev'
-    - 'name': '署名-非商业性使用-相同方式共享
-
-        4.0 国际 (CC BY-NC-SA 4.0) 协议'
-      'url': 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'
     - 'name': 'Qexo'
       'url': 'https://www.oplog.cn/qexo/'

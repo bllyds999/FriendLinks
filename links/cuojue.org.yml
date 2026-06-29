@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Cuojue''s Drive'
-      'url': 'https://disk.cuojue.org'
     - 'name': 'BFDZ山重水复疑无路，柳暗花明又一村'
       'url': 'https://www.bfdz.ink'
     - 'name': 'Ailoli永远年轻，永远热泪盈眶'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '荒野菲克'
-      'url': 'https://i.ficor.net'
     - 'name': '柒色墨笺'
       'url': 'https://vii.ink'
     - 'name': 'Lawpan'
@@ -92,8 +90,6 @@
       'url': 'https://www.skyue.com/'
     - 'name': '西风源于热爱而去创造'
       'url': 'https://xifeng.net'
-    - 'name': '柒色墨笺柒色入墨，落笔成诗'
-      'url': 'https://vii.ink/'
     - 'name': '旅行漫记'
       'url': 'https://synyan.cn'
     - 'name': '响石潭'

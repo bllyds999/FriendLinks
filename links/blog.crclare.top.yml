@@ -1,0 +1,10 @@
+'site':
+  'name': 'blog.crclare.top'
+  'url': 'https://blog.crclare.top/'
+  'description': '友情链接'
+  'links': '/link/'
+  'friends':
+    - 'name': 'Itch'
+      'url': 'https://crclare.itch.io/'
+    - 'name': '爱发电'
+      'url': 'https://afdian.com/a/crclare'

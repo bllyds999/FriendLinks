@@ -1,8 +1,0 @@
-'site':
-  'name': 'blog.eurekac.cn'
-  'description': '友情链接'
-  'url': 'https://blog.eurekac.cn/'
-  'links': '/friends'
-  'friends':
-    - 'name': 'CC BY-NC 4.0'
-      'url': 'https://creativecommons.org/licenses/by-nc/4.0'

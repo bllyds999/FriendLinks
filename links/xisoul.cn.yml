@@ -4,12 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'IT Tools'
-      'url': 'https://tools.xisoul.cn/'
-    - 'name': 'github备用站'
-      'url': 'https://blog.xisoul.cn/'
-    - 'name': '备用站github page'
-      'url': 'https://blog.xisoul.cn'
     - 'name': '云深处'
       'url': 'https://blog.likesrt.com'
     - 'name': '木因博客'

@@ -4,13 +4,5 @@
   'url': 'https://blog.430070.xyz/'
   'links': '/link'
   'friends':
-    - 'name': 'anzhiyu主题'
-      'url': 'https://blog.anheyu.com/'
     - 'name': '清羽飞扬'
       'url': 'https://blog.liushen.fun/'
-    - 'name': '抖音'
-      'url': 'https://v.douyin.com/DwCpMEy/'
-    - 'name': '51la统计'
-      'url': 'https://v6.51.la/'
-    - 'name': '博客框架为Hexo_v5.4.0'
-      'url': 'https://hexo.io/'

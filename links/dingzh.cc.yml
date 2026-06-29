@@ -4,8 +4,6 @@
   'url': 'https://dingzh.cc/'
   'links': '/link'
   'friends':
-    - 'name': '镜像'
-      'url': 'https://vercel.dingzh.cc'
     - 'name': 'Akilar'
       'url': 'https://akilar.top'
     - 'name': '山岳库博'

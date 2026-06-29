@@ -4,8 +4,6 @@
   'url': 'https://blog.ethanloo.cn/'
   'links': '/friends'
   'friends':
-    - 'name': 'Go to my lab'
-      'url': 'https://lab.ethanloo.cn'
     - 'name': '小嘉的部落格 好记性不如烂笔头'
       'url': 'https://blog.imzjw.cn/'
     - 'name': 'Licardo 喜欢编程的医学生'

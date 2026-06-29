@@ -6,9 +6,7 @@
   'friends':
     - 'name': 'leaf软件'
       'url': 'https://www.leafsoft.com.cn'
-    - 'name': "秃头张\n                      保护好自己的头发"
+    - 'name': '秃头张 保护好自己的头发'
       'url': 'https://tutouzhang.com'
     - 'name': '陌涛的记事本'
       'url': 'https://imotao.com'
-    - 'name': 'Halo'
-      'url': 'https://halo.run'

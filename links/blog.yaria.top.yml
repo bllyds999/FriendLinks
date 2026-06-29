@@ -1,8 +1,0 @@
-'site':
-  'name': 'Ariasaka'
-  'url': 'https://blog.yaria.top/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '个人主页'
-      'url': 'https://yaria.top'

@@ -6,12 +6,8 @@
   'friends':
     - 'name': 'ORCID'
       'url': 'https://orcid.org/0009-0009-9236-4883'
-    - 'name': 'Komari'
-      'url': 'https://komari.085404.xyz'
     - 'name': 'blog.zhheo.com'
       'url': 'https://blog.zhheo.com/'
-    - 'name': 'docs.mizuki.mysqil.com'
-      'url': 'https://docs.mizuki.mysqil.com'
     - 'name': 'www.dawn114514.site'
       'url': 'https://www.dawn114514.site'
     - 'name': 'elysium-stack.cn'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '扫雷'
-      'url': 'http://minesweeper.whispery.cn/'
     - 'name': 'L1nSn0w’s Blog无限进步.🎈'
       'url': 'https://blog.linsnow.cn'
     - 'name': '张洪Heo分享设计与科技生活'

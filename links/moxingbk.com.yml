@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '子比主题'
-      'url': 'https://www.zibll.com/?ref=21618'
     - 'name': '图酷'
       'url': 'https://three.tucool.cn/certificate?cert_id=5'

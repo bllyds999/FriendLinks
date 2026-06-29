@@ -4,12 +4,6 @@
   'url': 'https://blog.caotx.cn/'
   'links': '/link'
   'friends':
-    - 'name': '统计'
-      'url': 'https://umami.caotx.cn/share/wLAFs7QUhanh4y2a'
-    - 'name': '相册集'
-      'url': 'https://album.caotx.cn/'
-    - 'name': '关于本人'
-      'url': 'https://caotx.cn/'
     - 'name': '安知鱼'
       'url': 'https://blog.anheyu.com/'
     - 'name': '张洪Heo'

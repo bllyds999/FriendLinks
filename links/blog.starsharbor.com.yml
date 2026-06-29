@@ -4,10 +4,6 @@
   'url': 'https://blog.starsharbor.com'
   'links': '/links'
   'friends':
-    - 'name': '主页'
-      'url': 'https://www.starsharbor.com/'
-    - 'name': '音乐站'
-      'url': 'https://music.starsharbor.com/'
     - 'name': 'BlogFinder'
       'url': 'https://bf.zzxworld.com/'
     - 'name': 'Solitude'

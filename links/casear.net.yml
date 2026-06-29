@@ -4,8 +4,6 @@
   'url': 'https://casear.net/'
   'links': '/link'
   'friends':
-    - 'name': 'ERA'
-      'url': 'https://era.casear.net/albums'
     - 'name': '喵二の小博客缘，妙不可言'
       'url': 'https://www.miaoer.net/'
     - 'name': 'Mello的赛博本子在本子上写写画画'
@@ -30,8 +28,6 @@
       'url': 'https://ccomm.top/'
     - 'name': 'Unicorn'
       'url': 'https://blog.unicornit.cn/'
-    - 'name': 'Unicorn'
-      'url': 'https://blog.unicornit.cn'
     - 'name': '二十三画生'
       'url': 'https://taocodehub.com'
     - 'name': 'VanBlog'
