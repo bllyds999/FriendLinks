@@ -152,10 +152,10 @@ export async function GET() {
       "link",
       forceLink(simLinks as any)
         .id((d: any) => d.id)
-        .distance(250),
+        .distance(350),
     )
     .force("charge", forceManyBody().strength(-800))
-    .force("center", forceCenter(0, 0, 0).strength(0.01))
+    .force("center", forceCenter(0, 0, 0).strength(0.005))
     .alphaDecay(0.008)
     .velocityDecay(0.35);
 
@@ -164,7 +164,8 @@ export async function GET() {
 
   const TICKS = 800;
   const TICK_LOG = 40;
-  const alphaMin = sim.alphaMin(); // d3 默认 0.001
+  sim.alphaMin(0.02); // 允许 ~1m 位置误差，大幅提前收敛
+  const alphaMin = sim.alphaMin();
   let actualTicks = 0;
   for (let i = 0; i < TICKS; i++) {
     sim.tick();
