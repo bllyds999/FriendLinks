@@ -892,6 +892,7 @@ export function init3d(graphData: GraphData) {
   let frameSkip = 0;
   const FRAME_SKIP_IDLE = 2; // 空闲时跳过的帧数
   const MAX_VISIBLE_SPRITES = 200; // 最多显示 Sprite 的节点数
+  const FAR_ZOOM_THRESHOLD = 800; // 超过此距离视为远距俯瞰，跳过 Sprite 动画
 
   function animateRipples() {
     const now = performance.now();
@@ -941,19 +942,13 @@ export function init3d(graphData: GraphData) {
       } catch {}
     }
 
-    // LOD 更新：每帧根据相机距离切换节点精度
+    // ── 合并为一次遍历：LOD 更新 + Sprite 动画 ──────────────────
     if (lodsCreated && currentData.nodes) {
-      try {
-        const cam = Graph.camera() as THREE.PerspectiveCamera;
-        if (cam) {
-          for (const node of currentData.nodes) {
-            if (node.__lod) (node.__lod as THREE.LOD).update(cam);
-          }
-        }
-      } catch {}
-    }
+      // 判断是否处于远距俯瞰模式（所有节点底模已坍缩为点，不再需要 glow）
+      const cam = Graph.cameraPosition();
+      const camDist = Math.sqrt(cam.x * cam.x + cam.y * cam.y + cam.z * cam.z);
+      const isFarZoom = camDist > FAR_ZOOM_THRESHOLD;
 
-    if (currentData.nodes) {
       if (!ripplesInited) {
         for (const node of currentData.nodes) {
           if (node.__threeObj) {
@@ -978,7 +973,15 @@ export function init3d(graphData: GraphData) {
         nodes._sortedByDegree = true;
       }
 
+      const sceneCam = Graph.camera() as THREE.PerspectiveCamera;
+
       for (const node of nodes) {
+        // LOD 更新：每帧根据相机距离切换节点精度
+        if (node.__lod && sceneCam) (node.__lod as THREE.LOD).update(sceneCam);
+
+        // 远距俯瞰时完全跳过 Sprite 动画（点太小根本看不见 glow）
+        if (isFarZoom) continue;
+
         if (node.__threeObj && node.__threeObj.children.length > 1) {
           const sprite = node.__threeObj.children[1];
           if (sprite) {

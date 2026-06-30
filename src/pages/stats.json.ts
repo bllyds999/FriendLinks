@@ -9,6 +9,7 @@ function getHost(u: string): string {
 }
 
 export async function GET() {
+  const start = performance.now();
   const validSites = await loadSites();
 
   const siteHostSet = new Set<string>();
@@ -106,6 +107,9 @@ export async function GET() {
     .map(([route, count]) => ({ route, count }));
 
   const statsWithRoutes = { ...stats, linkRoutes: linkRoutesSorted };
+
+  const elapsed = ((performance.now() - start) / 1000).toFixed(1);
+  console.error(`  ✔ /stats.json  ${validSites.length} 站点，${stats.connections.total} 连接，耗时 ${elapsed}s`);
 
   return new Response(JSON.stringify(statsWithRoutes), {
     headers: { "Content-Type": "application/json" },
