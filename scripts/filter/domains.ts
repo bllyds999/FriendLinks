@@ -507,4 +507,17 @@ export const NON_BLOG_DOMAINS: string[] = [
 			  "limo.ts-yun.com", "blog.jclin.top", // 博主spam/备用
 			  "shuangyunjx.com", "tibets.no43.cn", "hebeis.laparoscopy.cn", // 壁纸/本地
 			  "lodka.vercel.app", "lcqbc.com", "1a1zp1ep5qgefi2dmptftl5slmv7divfna.com", // 表格/病例/比特币
+			  // 前9000中文名分析 — B2B/工具/政府/商业
+			  "11467.com", "blgou.net", "xuekutong.cn", "htcmcm.com", // B2B/官网/学库/赌博
+			  "reeji.com", "kuaipng.com", "gaoding.art", "jkapi.com", "jishixiezuo.com", // 字库/图网/AI/API/AI写作
+			  "xiaojiyun.com", "4759.cn", "qqkkb.com", "softwarelove.cn", "nvdb.org.cn", // 云/域名/博客网/软件/编号
+			  "shaolinwushuxuexiao.com", "cdrckt.cn", "sosuoseo.com", "jtsg010.com", // 招生/文学/SEO/律师
+			  "senyuanfa.com", "gdhztc.cn", "forestsongbookstore.com", "qianlima.com", // 防腐/培训/书店/招聘
+			  "58pic.com", "jia.com", "gucheng.com", "mfcad.com", "cnhnb.com", // 图网/家装/股城/CAD/惠农
+			  "thum.io", "gartic.io", "jkgq.top", "wc8.cn", "fuyejidi.com", // 截图/游戏/地址/网创/副业
+			  "jimeng.jianying.com", "quququ.cn", "weikelink.com", "webpagetest.org", // AI/去水印/外链/测速
+			  "liulihu.com", "ykinvestment.com", "wdybk.work", "softqq.com", // 专家/技术/哆啦/PE装机
+			  "bandbbs.cn", "miegoat.club", "rubicforce.com", "nicsrs.com", // 论坛/.NET/魔方/国际
+			  "jypy.jyb.cn", "live.freebuf.com", // 教育部/FreeBuf
+			  "ysepan.com", "moefire.tech", // 藏经阁/工作室
 			];
