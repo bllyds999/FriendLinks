@@ -930,13 +930,15 @@ export function init3d(graphData: GraphData) {
       } catch {}
     }
 
-    // LOD 更新
+    // LOD 更新 + 飞船自动悬停
     if (lodsCreated && currentData.nodes) {
       const sceneCam = Graph.camera() as THREE.PerspectiveCamera;
       if (sceneCam) {
         for (const node of currentData.nodes) {
           if (node.__lod) (node.__lod as THREE.LOD).update(sceneCam);
         }
+        // 飞船模式：自动悬停视野中央最近的星球
+        if (isFlyMode) updateAutoHover(currentData.nodes, sceneCam);
       }
     }
 
@@ -1089,6 +1091,10 @@ export function init3d(graphData: GraphData) {
   let flyControlPanel: HTMLElement | null = null;
   let flyOnKeyDown: ((e: KeyboardEvent) => void) | null = null;
   let flyOnKeyUp: ((e: KeyboardEvent) => void) | null = null;
+  let autoHoverId: string | null = null;
+  const _forward = new THREE.Vector3();
+  const _camPos = new THREE.Vector3();
+  const _toNode = new THREE.Vector3();
 
   function createSpaceship(): THREE.Group {
     const group = new THREE.Group();
@@ -1204,6 +1210,69 @@ export function init3d(graphData: GraphData) {
     if (cam && (e.movementX || e.movementY)) {
       cam.rotateY(-e.movementX * MOUSE_LOOK_SENSITIVITY);
       cam.rotateX(-e.movementY * MOUSE_LOOK_SENSITIVITY);
+    }
+  }
+
+  /** 在飞船模式下自动悬停视野中心的星球 */
+  function updateAutoHover(nodes: any[], cam: THREE.PerspectiveCamera) {
+    cam.getWorldPosition(_camPos);
+    cam.getWorldDirection(_forward);
+
+    let bestScore = -Infinity;
+    let bestNode: any = null;
+
+    for (const node of nodes) {
+      if (node.x == null) continue;
+      // 忽略过远的节点（> 800 单位）
+      _toNode.set(node.x - _camPos.x, node.y - _camPos.y, node.z - _camPos.z);
+      const dist = _toNode.length();
+      if (dist > 800) continue;
+      // 朝向评分：前方为正，越靠近视野中心越高
+      const dot = _forward.dot(_toNode) / dist;
+      if (dot < 0.85) continue;
+      // 综合评分：中心度 / 距离
+      const score = dot / (1 + dist * 0.01);
+      if (score > bestScore) {
+        bestScore = score;
+        bestNode = node;
+      }
+    }
+
+    const newId = bestNode ? bestNode.id : null;
+    if (newId === autoHoverId) return;
+    autoHoverId = newId;
+
+    // 隐藏上次的工具提示
+    tooltip.hide();
+
+    if (bestNode) {
+      const content = document.createElement("div");
+      content.className = "graph-tooltip-content";
+      const titleEl = document.createElement("strong");
+      titleEl.className = "graph-tooltip-title";
+      titleEl.textContent = bestNode.name || bestNode.id;
+      content.appendChild(titleEl);
+      if (bestNode.desc) {
+        const descEl = document.createElement("div");
+        descEl.className = "graph-tooltip-desc";
+        descEl.textContent = bestNode.desc;
+        content.appendChild(descEl);
+      }
+      if (bestNode.url) {
+        const urlEl = document.createElement("div");
+        urlEl.className = "graph-tooltip-url";
+        const a = document.createElement("a");
+        a.href = bestNode.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = bestNode.url;
+        a.style.color = "#87ceeb";
+        a.style.textDecoration = "underline";
+        urlEl.appendChild(a);
+        content.appendChild(urlEl);
+      }
+      // 显示在屏幕中央下方
+      tooltip.show(content, window.innerWidth / 2 - 160, window.innerHeight / 2 + 20);
     }
   }
 
