@@ -527,7 +527,7 @@ export function init3d(graphData: GraphData) {
       _fpsLastTime = now;
       if (!_fpsDisplay) {
         _fpsDisplay = document.createElement("div");
-        _fpsDisplay.style.cssText = "position:fixed;top:8px;right:8px;z-index:10000;background:rgba(0,0,0,0.7);color:#0f0;padding:4px 8px;border-radius:4px;font:12px monospace;";
+        _fpsDisplay.style.cssText = "position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:10000;background:rgba(0,0,0,0.7);color:#0f0;padding:4px 8px;border-radius:4px;font:12px monospace;";
         document.body.appendChild(_fpsDisplay);
       }
       const nodeCount = ctx.nodes.count;
