@@ -342,4 +342,14 @@ export const NON_BLOG_DOMAINS: string[] = [
 			  "zhonghaizhi.com",      // 中嗨智
 			  "xiaozhao233.com",      // 中国的小赵
 			  "huahengtaoci.com",     // 九游会菠菜
+			  // "直接访问"(按钮文本被当站名) — 均为工具/服务站点
+			  "5118.com", "5ce.com", "aidea.im", "heygen.com", "getgetai.com",
+			  "xiezuocat.com", "xiaofamao.com", "heyfriday.cn", "chuangkit.com",
+			  "zhimap.com", "hizdm.cn", "aipix.net", "weshineapp.com", "weiciyun.com",
+			  "sssssssss.com", "12321.cn", "loghao.com", "chanmama.com", "allhistory.com",
+			  "shangdianba.com", "jikipedia.com", "juzikong.com", "yayun.la",
+			  "bodongshi.com", "wenangou.com", "mediatrack.cn", "bigjpg.com",
+			  "yuntianyi.com", "caiyunai.com", "mypitaya.com", "1ts.fun",
+			  "chronodivide.com", "itellyou.cn", "xiniubaba.com", "vvcha.cn",
+			  "51240.com", "ys168.com", "epubee.com",
 			];
