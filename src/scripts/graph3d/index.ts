@@ -944,6 +944,11 @@ export function init3d(graphData: GraphData) {
 
   function exitFlyMode() {
     isFlyMode = false;
+    // 同步 OrbitControls target 到当前视线方向，避免切回时相机跳动
+    const lookTarget = new THREE.Vector3();
+    ctx.camera.getWorldDirection(lookTarget);
+    lookTarget.multiplyScalar(1000).add(ctx.camera.position);
+    ctx.controls.target.copy(lookTarget);
     ctx.controls.enabled = true;
     if (flyOnKeyDown) document.removeEventListener("keydown", flyOnKeyDown);
     if (flyOnKeyUp) document.removeEventListener("keyup", flyOnKeyUp);
