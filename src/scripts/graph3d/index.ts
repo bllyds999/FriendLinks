@@ -186,7 +186,7 @@ export function init3d(graphData: GraphData) {
       if (n.x == null) continue;
       const dx = n.x - camPos.x, dy = (n.y || 0) - camPos.y, dz = (n.z || 0) - camPos.z;
       const sqDist = dx * dx + dy * dy + dz * dz;
-      if (sqDist > 200 * 200) continue; // 只在 200 单位内才创建标签
+      if (sqDist > 200 * 200) continue;
 
       labelsCreated.add(i);
       const name = n.name || n.id;
@@ -196,7 +196,40 @@ export function init3d(graphData: GraphData) {
       const sprite = createTextSprite(name);
       sprite.position.set(n.x!, n.y! + nodeSize / 2 + 10, n.z!);
       (sprite as any)._nodePos = { x: n.x, y: n.y, z: n.z };
+      (sprite as any)._nodeIndex = i; // 记录节点索引用于销毁
+      (sprite as any)._lastNear = performance.now();
       labelGroup.add(sprite);
+    }
+  }
+
+  // 定期销毁远离相机的标签（每 10 秒，距离 > 600 超过 30 秒）
+  let _lastPrune = 0;
+  function pruneLabels() {
+    const now = performance.now();
+    if (now - _lastPrune < 10000) return;
+    _lastPrune = now;
+
+    const toRemove: THREE.Sprite[] = [];
+    for (const child of labelGroup.children) {
+      const sprite = child as THREE.Sprite;
+      const np = (sprite as any)._nodePos;
+      if (!np) continue;
+      const dx = np.x - ctx.camera.position.x;
+      const dy = np.y - ctx.camera.position.y;
+      const dz = np.z - ctx.camera.position.z;
+      const sqDist = dx * dx + dy * dy + dz * dz;
+      if (sqDist < 600 * 600) {
+        (sprite as any)._lastNear = now;
+      } else if (now - ((sprite as any)._lastNear || now) > 30000) {
+        toRemove.push(sprite);
+      }
+    }
+    for (const sprite of toRemove) {
+      const idx = (sprite as any)._nodeIndex;
+      if (idx != null) labelsCreated.delete(idx);
+      sprite.material.map?.dispose();
+      sprite.material.dispose();
+      labelGroup.remove(sprite);
     }
   }
 
@@ -537,6 +570,7 @@ export function init3d(graphData: GraphData) {
 
     // 按需创建标签
     ensureLabels();
+    pruneLabels();
 
     updateFPS();
 
