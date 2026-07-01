@@ -154,7 +154,9 @@ export async function GET() {
     target: typeof l.target === "string" ? l.target : (l as any).target,
   }));
 
-  // 三轴等强微弱居中，保持 3D 散布
+  // 稀疏度控制：电荷斥力，绝对值越大节点越散开
+  // 800 = 原始自然网络，200 = 紧密，2000 = 极度稀疏
+  const REPULSION = 800;
   const sim = forceSimulation(simNodes as any, 3)
     .force(
       "link",
@@ -162,7 +164,7 @@ export async function GET() {
         .id((d: any) => d.id)
         .distance(350),
     )
-    .force("charge", forceManyBody().strength(-800).theta(2.5))
+    .force("charge", forceManyBody().strength(-REPULSION).theta(2.5))
     .force("center", forceCenter(0, 0, 0).strength(0.005))
     .alphaDecay(0.008)
     .velocityDecay(0.35);
