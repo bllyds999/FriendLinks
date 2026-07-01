@@ -425,8 +425,8 @@ export const NON_BLOG_DOMAINS: string[] = [
 			  "ijiwei.com", "ifabiao.com", "iwangba.net", "aisouzhan.com", "asilu.com", // 行业/导航
 			  "ituibar.com", "ivanba.com", "aikeyuan.cn", "awz.cc", "iisuser.com", "imf8.cn", // 推广/目录
 			  "athaitao.com", "afexcn.com", "it200.com", "iwmob.com", "love.tg", "i171.com", // 商业/海淘
-			  "aqzx.com", "aiwazi.com", "ziiti.com", "iciba.com", "23phy.com", "23ops.com", // 平台/工具
+			  "aqzx.com", "ziiti.com", "23phy.com", "23ops.com", // 平台/工具
 			  "kisssub.org", "ailoli.org", "w8dsci.org", "aichunjing.com", "subingwen.cn", "icodebook.com", // 动漫/组织/教育平台
 			  "aini365.cn", "sdxbm.com", "idh.cc", "aiit.me", "itmeit.com", "aigeek.top", "illlt.com", // 杂项
-			  "naturaleki.one", "erro.cn", "x.iqimeng.com", "i.ewceo.com", "eriqua.com", "aikuaj.com", "aztdxz.cn", // 杂项
+			  "erro.cn", "x.iqimeng.com", "i.ewceo.com", "eriqua.com", "aikuaj.com", "aztdxz.cn", // 杂项
 			];
