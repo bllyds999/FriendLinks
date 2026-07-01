@@ -165,16 +165,24 @@ export function updateLinkPositions(
 
 // ─── 相机 ──────────────────────────────────────────────────────────
 
-export function zoomToFit(ctx: RenderContext, graphNodes: GraphNode[], ms: number, padding: number) {
+export function zoomToFit(ctx: RenderContext, graphNodes: GraphNode[], ms: number, padding: number, degreeMap?: Record<string, number>) {
   if (!graphNodes.length) return;
+
+  // 度数加权中心：密集区权重高
+  let cx = 0, cy = 0, cz = 0, tw = 0;
+  for (const n of graphNodes) {
+    const w = degreeMap ? Math.max(1, (degreeMap[n.id] || 0)) : 1;
+    cx += (n.x ?? 0) * w; cy += (n.y ?? 0) * w; cz += (n.z ?? 0) * w;
+    tw += w;
+  }
+  const wCenter = new THREE.Vector3(cx / tw, cy / tw, cz / tw);
+
+  // Bounding box 用于确定视野大小
   const box = new THREE.Box3();
   for (const n of graphNodes) {
     box.expandByPoint(new THREE.Vector3(n.x ?? 0, n.y ?? 0, n.z ?? 0));
   }
   box.expandByScalar(padding);
-
-  const center = new THREE.Vector3();
-  box.getCenter(center);
   const size = new THREE.Vector3();
   box.getSize(size);
   const maxDim = Math.max(size.x, size.y, size.z);
@@ -183,7 +191,7 @@ export function zoomToFit(ctx: RenderContext, graphNodes: GraphNode[], ms: numbe
 
   const startPos = ctx.camera.position.clone();
   const startTarget = ctx.controls.target.clone();
-  const targetPos = center.clone().add(new THREE.Vector3(0, 0, dist));
+  const targetPos = wCenter.clone().add(new THREE.Vector3(0, 0, dist));
   const startTime = performance.now();
 
   function anim() {

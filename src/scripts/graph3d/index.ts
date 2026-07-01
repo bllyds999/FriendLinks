@@ -1012,7 +1012,7 @@ export function init3d(graphData: GraphData) {
   }
 
   // ── 17. 启动 ──
-  zoomToFit(ctx, nodes, 400, 80);
+  zoomToFit(ctx, nodes, 400, 80, degreeMap);
   animateLoop();
 
   // ── 18. Resize ──
