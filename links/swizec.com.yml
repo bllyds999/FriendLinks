@@ -4,7 +4,7 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': '<picture><source type="image/webp" srcSet="/static/b4f29844c56f8dcc54a6b5060365d'
+    - 'name': 'scalingfastbook.com'
       'url': 'https://scalingfastbook.com'
     - 'name': 'Sign up to get notified when React for Dataviz happens next 👉'
       'url': 'https://reactfordataviz.com'

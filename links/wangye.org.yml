@@ -4,7 +4,7 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': '<img width=400 height=76 role=img aria-label="Buy me a coffee" crossorigin=anony'
+    - 'name': 'buymeacoffee.com'
       'url': 'https://www.buymeacoffee.com/wangye'
     - 'name': '威言威语'
       'url': 'https://www.weisay.com/'
