@@ -115,7 +115,7 @@ export function createTextSprite(text: string): THREE.Sprite {
   });
 
   const sprite = new THREE.Sprite(mat);
-  const h = 10; // world-unit height
+  const h = 5; // world-unit height
   sprite.scale.set(h * (canvas.width / canvas.height), h, 1);
   sprite.renderOrder = 999;
 
