@@ -23,9 +23,10 @@
 	    "lint": "oxlint src/",
 	    "fmt": "oxfmt src/ --write",
 	    "fmt-check": "oxfmt src/ --check",
-	    "prune": "bun scripts/prune-irrelevant.ts",
-	    "probe": "bun scripts/probe_subs.ts",
-	    "fetch": "bun scripts/fetch-friends.ts"
+		    "prune": "bun scripts/prune-irrelevant.ts",
+		    "probe": "bun scripts/probe_subs.ts",
+		    "retry-slow": "bun scripts/retry-slow.ts",
+		    "fetch": "bun scripts/fetch-friends.ts"
 	  },
   "dependencies": {
     "3d-force-graph": "^1.80.0",
