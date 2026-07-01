@@ -269,6 +269,7 @@ export function init3d(graphData: GraphData) {
     return panel;
   }
 
+  let MOVE_SPEED = 30;
   const labelShow = { value: true };
 
   const controlPanel = createControlPanel();
@@ -1220,7 +1221,6 @@ export function init3d(graphData: GraphData) {
   });
 
   // ── 12. 飞船飞行模式（FPS 惯性准星） ──────────────────────────
-  let MOVE_SPEED = 30;
   const SHIFT_MULTIPLIER = 3;
   const MOUSE_SENSITIVITY = 0.003;
   const RETICLE_SPRING = 30;
