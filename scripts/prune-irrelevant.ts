@@ -39,6 +39,18 @@ async function main() {
       const site = obj.site;
       if (!Array.isArray(site.friends)) continue;
 
+      // 主站自身也需要被过滤：域名黑名单 或 名称匹配垃圾模式
+      const selfEntry = { name: site.name || file, url: site.url || `https://${file.replace(/\.yml$/i, "")}/` };
+      const selfResult = isJunkEntryWithReason(selfEntry);
+      if (selfResult.junk) {
+        try { await Bun.file(filePath).delete(); } catch {}
+        process.stdout.write(`\n🗑️ ${file} 主站删除 [${selfResult.reason}]\n`);
+        totalFilesChanged++;
+        totalRemoved += site.friends?.length || 0;
+        totalFiles++;
+        continue;
+      }
+
       const before = site.friends.map((f: any) => `${f.name || ""}  ${f.url || ""}`);
       const { cleaned, removed, reasons } = cleanupFriends(site.friends, site.url);
 
