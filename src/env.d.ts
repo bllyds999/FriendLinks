@@ -1,10 +1,5 @@
 /// <reference types="astro/client" />
 
-declare module "3d-force-graph" {
-  const ForceGraph3D: any;
-  export default ForceGraph3D;
-}
-
 declare module "msgpackr" {
   export function encode(data: any): Buffer | Uint8Array;
   export function decode(buffer: Uint8Array): any;
