@@ -867,7 +867,6 @@ export function init3d(graphData: GraphData) {
   const labelScene = Graph.scene();
   if (labelScene) labelScene.add(labelGroup);
 
-  const LABEL_MIN_DEGREE = 2;
   const LABEL_MAX_DIST = 2000;
   let labelsCreated = false;
 
@@ -880,13 +879,12 @@ export function init3d(graphData: GraphData) {
     labelsCreated = true;
     for (const node of gd.nodes) {
       const deg = degreeMap[node.id] || 0;
-      if (deg < LABEL_MIN_DEGREE) continue;
       const name = node.name || node.id;
       if (name.length > 40) continue;
 
       const sprite = createTextSprite(name);
       const nodeSize = degreeToSize(deg, maxDegree);
-      sprite.position.set(node.x, node.y + nodeSize / 2 + 3, node.z);
+      sprite.position.set(node.x, node.y + nodeSize / 2 + 10, node.z);
       (sprite as any)._nodePos = { x: node.x, y: node.y, z: node.z };
       labelGroup.add(sprite);
     }
