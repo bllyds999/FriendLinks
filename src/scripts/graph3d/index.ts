@@ -687,7 +687,11 @@ export function init3d(graphData: GraphData) {
     if (n.url) window.open(n.url, "_blank");
   };
   interaction.onRightClick = (n: any) => {
-    focusNodeById(n.id);
+    if (focusedId === n.id) {
+      clearHighlights();
+    } else {
+      focusNodeById(n.id);
+    }
   };
 
   // ── 15. 聚焦 + 搜索 ──
