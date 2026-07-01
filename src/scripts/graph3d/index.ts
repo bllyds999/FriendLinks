@@ -1280,9 +1280,9 @@ export function init3d(graphData: GraphData) {
   /** 惯性视角：鼠标偏移累积为角速度，每帧衰减 */
   function onFlyMouseMove(e: MouseEvent) {
     if (!isFlyMode) return;
+    // mouse up → movementY 负 → flyAngVel.x 负 → rotateX(负) → 抬头 ✅
     flyAngVel.y += e.movementX * MOUSE_SENSITIVITY;
     flyAngVel.x += e.movementY * MOUSE_SENSITIVITY;
-    // 限制最大角速度，防止使劲一甩转疯
     flyAngVel.x = Math.max(-1, Math.min(1, flyAngVel.x));
     flyAngVel.y = Math.max(-1, Math.min(1, flyAngVel.y));
   }
@@ -1295,13 +1295,13 @@ export function init3d(graphData: GraphData) {
     if (node?.url) window.open(node.url, "_blank");
   }
 
-  /** 创建十字准星 */
+  /** 创建十字准星（内点 + 外环，锁定变色） */
   function createCrosshair(): HTMLElement {
     let el = document.getElementById("fly-crosshair") as HTMLElement | null;
     if (el) return el;
     el = document.createElement("div");
     el.id = "fly-crosshair";
-    el.innerHTML = '<div class="dot"></div>';
+    el.innerHTML = '<div class="dot"></div><div class="ring"></div>';
     el.style.cssText = `
       position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
       z-index:9999;pointer-events:none;display:none;
@@ -1314,26 +1314,37 @@ export function init3d(graphData: GraphData) {
         background:rgba(255,255,255,0.5);border-radius:1px;
       }
       #fly-crosshair::before {
-        width:20px;height:1.5px;top:50%;left:50%;
+        width:24px;height:1.5px;top:50%;left:50%;
         transform:translate(-50%,-50%);
         transition:background 0.15s,width 0.15s;
       }
       #fly-crosshair::after {
-        width:1.5px;height:20px;top:50%;left:50%;
+        width:1.5px;height:24px;top:50%;left:50%;
         transform:translate(-50%,-50%);
         transition:background 0.15s,height 0.15s;
       }
       #fly-crosshair .dot {
         position:absolute;top:50%;left:50%;
         transform:translate(-50%,-50%);
-        width:3px;height:3px;border-radius:50%;
+        width:2px;height:2px;border-radius:50%;
         background:#4af;transition:all 0.15s;
       }
+      #fly-crosshair .ring {
+        position:absolute;top:50%;left:50%;
+        transform:translate(-50%,-50%);
+        width:12px;height:12px;border-radius:50%;
+        border:1px solid rgba(255,255,255,0.25);
+        transition:border-color 0.15s,width 0.15s,height 0.15s;
+      }
       #fly-crosshair.locked::before, #fly-crosshair.locked::after {
-        background:rgba(68,255,136,0.8);width:24px;height:2px;
+        background:rgba(68,255,136,0.8);width:28px;height:2px;
       }
       #fly-crosshair.locked .dot {
-        width:5px;height:5px;background:#4f8;
+        width:4px;height:4px;background:#4f8;
+      }
+      #fly-crosshair.locked .ring {
+        border-color:rgba(68,255,136,0.5);
+        width:16px;height:16px;
       }
     `;
     document.head.appendChild(style);
@@ -1430,6 +1441,7 @@ export function init3d(graphData: GraphData) {
     flyCrosshair = createCrosshair();
     flyCrosshair.style.display = "block";
     flyCrosshair.classList.remove("locked");
+    container.style.cursor = "none";
 
     flyControlPanel = createFlyControlPanel();
     flyControlPanel.style.display = "block";
@@ -1452,6 +1464,7 @@ export function init3d(graphData: GraphData) {
     flyOnKeyDown = flyOnKeyUp = null;
 
     if (flyCrosshair) flyCrosshair.style.display = "none";
+    container.style.cursor = "";
     if (flyControlPanel) flyControlPanel.style.display = "none";
   }
 
