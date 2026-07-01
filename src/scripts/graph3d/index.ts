@@ -555,6 +555,8 @@ export function init3d(graphData: GraphData) {
 
   const sharedHaloGeom = new THREE.CylinderGeometry(0.5, 0.5, 1, 6);
   const sharedCoreGeom = new THREE.CylinderGeometry(0.18, 0.18, 1, 6);
+  const sharedFocusHaloGeom = new THREE.CylinderGeometry(1.0, 1.0, 1, 6);
+  const sharedFocusCoreGeom = new THREE.CylinderGeometry(0.36, 0.36, 1, 6);
   const up_v = new THREE.Vector3(0, 1, 0);
   const quat_v = new THREE.Quaternion();
   const mid_v = new THREE.Vector3();
@@ -592,9 +594,13 @@ export function init3d(graphData: GraphData) {
       mid_v.addVectors(start_v, end_v).multiplyScalar(0.5);
       quat_v.setFromUnitVectors(up_v, dir_v);
 
-      const halo = new THREE.Mesh(sharedHaloGeom, haloMat);
+      const isFocus = color === 0xffdd44;
+      const hGeom = isFocus ? sharedFocusHaloGeom : sharedHaloGeom;
+      const cGeom = isFocus ? sharedFocusCoreGeom : sharedCoreGeom;
+
+      const halo = new THREE.Mesh(hGeom, haloMat);
       halo.position.copy(mid_v); halo.quaternion.copy(quat_v); halo.scale.set(1, len, 1);
-      const core = new THREE.Mesh(sharedCoreGeom, coreMat);
+      const core = new THREE.Mesh(cGeom, coreMat);
       core.position.copy(mid_v); core.quaternion.copy(quat_v); core.scale.set(1, len, 1);
       overlayGroup.add(halo); overlayGroup.add(core);
     }
