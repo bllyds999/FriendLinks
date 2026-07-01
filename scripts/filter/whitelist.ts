@@ -1,9 +1,14 @@
-/**
- * 绝对白名单 — 无论如何不被过滤剔除的域名
- *
- * 格式: host（不含 www. 前缀），如 "example.com"
- * 匹配规则: 全匹配 hostname 或 hostname 去掉 www. 后匹配
- */
+// 白名单域名 — 永远不被过滤，即使匹配黑名单关键词
+// 博客聚合平台、博客目录、博客社区等
 export const WHITELIST_DOMAINS: string[] = [
-  // "example.com",
+  "512kb.club",
+  "useplaintext.email",
+  // 博客聚合/目录/社区平台
+  "travellings.cn",
+  "travellings.net",
+  "foreverblog.cn",
+  "blogfinder.cc",
+  "jsr.org.cn",
+  "blogscn.com",
+  "bkld.me",
 ];

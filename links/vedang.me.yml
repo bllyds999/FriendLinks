@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'The Recurse Center Webring'
-      'url': 'https://ring.recurse.com/'
     - 'name': 'Buttondown'
       'url': 'https://buttondown.com'
     - 'name': 'Org-mode'
