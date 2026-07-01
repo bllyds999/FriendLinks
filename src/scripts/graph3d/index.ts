@@ -660,18 +660,59 @@ export function init3d(graphData: GraphData) {
     if (!document.pointerLockElement) exitFlyMode();
   }
 
-  function updateAutoHover(_nodes: any[], _cam: THREE.Camera) {
-    let closestId: string | null = null;
-    let closestDist = Infinity;
-    for (const n of nodes) {
-      if (n.x == null) continue;
-      const dx = n.x - ctx.camera.position.x;
-      const dy = (n.y || 0) - ctx.camera.position.y;
-      const dz = (n.z || 0) - ctx.camera.position.z;
-      const d = dx * dx + dy * dy + dz * dz;
-      if (d < closestDist) { closestDist = d; closestId = n.id; }
+  // 预分配向量（避免 GC）
+  const _camPos_v = new THREE.Vector3();
+  const _forward_v = new THREE.Vector3();
+  const _toNode_v = new THREE.Vector3();
+
+  function updateAutoHover(_nodes: any[], cam: THREE.Camera) {
+    cam.updateMatrixWorld(true);
+    (cam as THREE.PerspectiveCamera).getWorldPosition(_camPos_v);
+    (cam as THREE.PerspectiveCamera).getWorldDirection(_forward_v);
+
+    let bestScore = -Infinity;
+    let bestNode: any = null;
+
+    for (const node of nodes) {
+      if (node.x == null) continue;
+      _toNode_v.set(node.x - _camPos_v.x, (node.y || 0) - _camPos_v.y, (node.z || 0) - _camPos_v.z);
+      const dist = _toNode_v.length();
+      if (dist > 1200) continue;
+      const dot = _forward_v.dot(_toNode_v) / dist;
+      if (dot < 0.5) continue; // 60° 锥体
+      const score = dot / (1 + dist * 0.005);
+      if (score > bestScore) { bestScore = score; bestNode = node; }
     }
-    if (closestId && closestId !== autoHoverId) autoHoverId = closestId;
+
+    const newId = bestNode ? bestNode.id : null;
+    if (newId === autoHoverId) return;
+    autoHoverId = newId;
+
+    if (flyCrosshair) flyCrosshair.classList.toggle("locked", !!newId);
+    tooltip.hide();
+
+    if (bestNode) {
+      const content = document.createElement("div");
+      content.className = "graph-tooltip-content";
+      const titleEl = document.createElement("strong");
+      titleEl.className = "graph-tooltip-title";
+      titleEl.textContent = bestNode.name || bestNode.id;
+      content.appendChild(titleEl);
+      if (bestNode.desc) {
+        const descEl = document.createElement("div");
+        descEl.className = "graph-tooltip-desc";
+        descEl.textContent = bestNode.desc;
+        content.appendChild(descEl);
+      }
+      if (bestNode.url) {
+        const urlEl = document.createElement("div");
+        const a = document.createElement("a");
+        a.href = bestNode.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+        a.textContent = bestNode.url; a.style.color = "#87ceeb"; a.style.textDecoration = "underline";
+        urlEl.appendChild(a); content.appendChild(urlEl);
+      }
+      tooltip.show(content, window.innerWidth / 2 - 160, window.innerHeight / 2 + 20);
+    }
   }
 
   function flyLoop() {
