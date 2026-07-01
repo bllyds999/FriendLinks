@@ -198,7 +198,7 @@ export function zoomToFit(ctx: RenderContext, graphNodes: GraphNode[], ms: numbe
     const t = Math.min(1, (performance.now() - startTime) / ms);
     const ease = 1 - Math.pow(1 - t, 3);
     ctx.camera.position.lerpVectors(startPos, targetPos, ease);
-    ctx.controls.target.lerpVectors(startTarget, center, ease);
+    ctx.controls.target.lerpVectors(startTarget, wCenter, ease);
     ctx.controls.update();
     if (t < 1) requestAnimationFrame(anim);
   }
