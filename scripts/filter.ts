@@ -36,8 +36,8 @@ export function isJunkEntry(f: { name: string; url: string }, siteUrl?: string):
     const parsed = new URL(url.startsWith("http") ? url : `https://${url}`);
     const hostname = parsed.hostname.toLowerCase();
     const pathname = parsed.pathname;
-    // 友链必须指向首页或 /blog(s) 子路由
-    if (pathname !== "/" && pathname !== "" && !/^\/blogs?\b/i.test(pathname)) return true;
+    // 友链必须指向首页
+    if (pathname !== "/" && pathname !== "") return true;
     if (/^api[.-]/i.test(hostname)) return true;
     if (SERVICE_SUBDOMAINS.test(hostname)) return true;
     // 非博客域名（明文，支持子域名匹配）— O(1) Set 查找
