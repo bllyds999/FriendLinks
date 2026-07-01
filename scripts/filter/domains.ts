@@ -358,4 +358,14 @@ export const NON_BLOG_DOMAINS: string[] = [
 			  "shoelace.style", "hilla.dev", "core.clarity.design",
 			  "openjsf.org", "lion.js.org", "auro.alaskaair.com",
 			  "packetstormsecurity.org",   // 漏洞利用库，非博客
+			  // 电影中文域名/无法访问的停放域名(punycode)
+			  "xn--dpqv20e8ug6r8a.com",  // 阿甘正传.com
+			  "xn--rhqp87dfoiv9a830g.com", // 楚门的世界.com
+			  "xn--10vr61a3xc5x3b.com",  // 盗梦空间.com
+			  "xn--vcsx1ip8b8w4i.com",   // 黑客帝国.com
+			  "xn--wcv59z.com",          // 教父.com
+			  "xn--74qy8dk4drvg29x.com", // 泰坦尼克号.com
+			  "xn--74qz10cqsltibh40akss.com", // 肖申克的救赎.com
+			  "xn--kivn76b41nnhi.com",   // 星际穿越.com
+			  "hgeme.com",
 			];
