@@ -956,8 +956,7 @@ import "../css/modal.css";
           pathError.style.display = "none";
           pathStepIndicator.style.display = "inline";
           pathClearBtn.style.display = "inline-flex";
-          const info = api.getPathInfo?.();
-          if (info) updatePathUI({ step: info.currentStep, total: info.totalSteps });
+          updatePathUI({ step: 0, total: path.length });
         };
 
         const updatePathUI = (res) => {
