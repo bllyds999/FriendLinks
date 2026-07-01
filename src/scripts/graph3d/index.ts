@@ -81,7 +81,6 @@ export function init3d(graphData: GraphData) {
     if (t != null) degreeMap[t] = (degreeMap[t] || 0) + 1;
   }
   const degValues = Object.values(degreeMap);
-  const maxDegree = degValues.length ? Math.max(...degValues) : 1;
 
   // ── 2. 节点预处理 ──
   const rawNodes = graphData.nodes || [];
@@ -157,7 +156,7 @@ export function init3d(graphData: GraphData) {
     _cHighlight: n._cHighlight,
   }));
 
-  updateAllNodePositions(ctx, nodes, degreeMap, maxDegree, nodeStates);
+  updateAllNodePositions(ctx, nodes, nodeStates);
   updateLinkPositions(ctx, linkArr, nodeIdToIndex, nodes, linkOpacity.value);
 
   function refreshLinkColors() {
@@ -191,10 +190,8 @@ export function init3d(graphData: GraphData) {
       labelsCreated.add(i);
       const name = n.name || n.id;
       if (name.length > 40) continue;
-      const deg = degreeMap[n.id] || 0;
-      const nodeSize = degreeToSize(deg, maxDegree);
       const sprite = createTextSprite(name);
-      sprite.position.set(n.x!, n.y! + nodeSize / 2 + 10, n.z!);
+      sprite.position.set(n.x!, n.y! + 12, n.z!);
       (sprite as any)._nodePos = { x: n.x, y: n.y, z: n.z };
       (sprite as any)._nodeIndex = i; // 记录节点索引用于销毁
       (sprite as any)._lastNear = performance.now();

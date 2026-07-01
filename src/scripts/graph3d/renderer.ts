@@ -4,7 +4,6 @@
  */
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { degreeToSize } from "./utils";
 import type { GraphNode } from "../../../types/graph";
 
 // ─── 类型 ──────────────────────────────────────────────────────────
@@ -98,20 +97,16 @@ export function createRenderer(container: HTMLElement, nodeCount: number, linkCo
 export function updateAllNodePositions(
   ctx: RenderContext,
   nodes: GraphNode[],
-  degreeMap: Record<string, number>,
-  maxDegree: number,
   nodeStates: NodeState[],
 ) {
   const m = new THREE.Matrix4();
 
   for (let i = 0; i < nodes.length; i++) {
     const n = nodes[i];
-    const deg = degreeMap[n.id] || 0;
-    const size = degreeToSize(deg, maxDegree);
     m.compose(
       new THREE.Vector3(n.x ?? 0, n.y ?? 0, n.z ?? 0),
       new THREE.Quaternion(),
-      new THREE.Vector3(size, size, size),
+      new THREE.Vector3(3, 3, 3),
     );
     ctx.nodes.setMatrixAt(i, m);
 

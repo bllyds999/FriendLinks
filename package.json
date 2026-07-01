@@ -21,7 +21,7 @@
     "build": "astro build",
     "minibuild": "MINIBUILD=1 astro build",
     "preview": "astro preview",
-    "lint": "oxlint src/",
+    "lint": "oxlint src/ && tsc --noEmit",
     "fmt": "oxfmt src/ --write",
     "fmt-check": "oxfmt src/ --check",
     "names": "bun scripts/collect-names.ts",
@@ -43,6 +43,7 @@
     "yaml": "^2.9.0"
   },
   "devDependencies": {
+    "@types/three": "^0.185.0",
     "ngraph.forcelayout": "^3.3.1",
     "ngraph.graph": "^20.1.2",
     "oxfmt": "^0.57.0",
