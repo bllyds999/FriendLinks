@@ -1020,7 +1020,7 @@ export function init3d(graphData: GraphData) {
         reticleOffset.y += reticleVelocity.y * 0.016;
 
         // 2. 准星偏移 → 相机旋转（偏移大 = 转得快）
-        const rotScale = 0.1;
+        const rotScale = 0.05;
         cam.rotateY(-reticleOffset.x * rotScale);
         cam.rotateX(reticleOffset.y * rotScale);
 
@@ -1166,7 +1166,7 @@ export function init3d(graphData: GraphData) {
   });
 
   // ── 12. 飞船飞行模式（FPS 惯性准星） ──────────────────────────
-  const MOVE_SPEED = 300;
+  const MOVE_SPEED = 30;
   const SHIFT_MULTIPLIER = 3;
   const MOUSE_SENSITIVITY = 0.003;
   const RETICLE_SPRING = 3;
@@ -1315,6 +1315,15 @@ export function init3d(graphData: GraphData) {
     if (node?.url) window.open(node.url, "_blank");
   }
 
+  /** 全屏退出时自动切回球幕模式 */
+  function onFullscreenChange() {
+    if (!document.fullscreenElement && isFlyMode) {
+      exitFlyMode();
+      const btn = document.getElementById("fly-toggle");
+      if (btn) btn.textContent = "🚀 飞船模式";
+    }
+  }
+
   /** 创建十字准星（固定十字 + 惯性浮动准星） */
   function createCrosshair(): HTMLElement {
     let el = document.getElementById("fly-crosshair") as HTMLElement | null;
@@ -1447,6 +1456,10 @@ export function init3d(graphData: GraphData) {
     reticleVelocity.x = 0;
     reticleVelocity.y = 0;
 
+    // 全屏锁定鼠标不溢出
+    try { document.documentElement.requestFullscreen(); } catch {}
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+
     const cam = Graph.camera() as THREE.PerspectiveCamera;
     spaceshipObj = createSpaceship();
     spaceshipObj.position.set(0, -0.6, -1.2);
@@ -1485,6 +1498,10 @@ export function init3d(graphData: GraphData) {
     container.removeEventListener("mousemove", onFlyMouseMove);
     container.removeEventListener("click", onFlyClick);
     flyOnKeyDown = flyOnKeyUp = null;
+
+    // 退出全屏
+    document.removeEventListener("fullscreenchange", onFullscreenChange);
+    try { if (document.fullscreenElement) document.exitFullscreen(); } catch {}
 
     if (flyCrosshair) flyCrosshair.style.display = "none";
     const fixedCross = document.getElementById("fly-crosshair-fixed");
