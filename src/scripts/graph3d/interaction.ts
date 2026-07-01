@@ -36,11 +36,15 @@ export function createInteraction(
   let lastCheck = 0;
   const RAY_THROTTLE = 60; // ms
 
+  let _isFlyMode = false;
+
   function getNodeAtMouse(event: MouseEvent): GraphNode | null {
     const rect = ctx.renderer.domElement.getBoundingClientRect();
-    ix.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    ix.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
+    // 飞船模式下指针锁定，用屏幕中心代替鼠标坐标
+    const mx = _isFlyMode ? rect.width / 2 : event.clientX - rect.left;
+    const my = _isFlyMode ? rect.height / 2 : event.clientY - rect.top;
+    ix.mouse.x = (mx / rect.width) * 2 - 1;
+    ix.mouse.y = -(my / rect.height) * 2 + 1;
     ix.raycaster.setFromCamera(ix.mouse, ctx.camera);
 
     let closestDist = Infinity;
@@ -61,6 +65,9 @@ export function createInteraction(
     }
     return null;
   }
+
+  // 供外部切换飞船模式时同步状态
+  (ix as any).setFlyMode = (v: boolean) => { _isFlyMode = v; };
 
   // ── Mouse move → hover (throttled) ──
   ctx.renderer.domElement.addEventListener("mousemove", (event: MouseEvent) => {

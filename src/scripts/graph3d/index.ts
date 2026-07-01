@@ -976,6 +976,8 @@ export function init3d(graphData: GraphData) {
     };
     ctx.renderer.domElement.addEventListener("mousemove", flyOnMouseMove);
 
+    (interaction as any).setFlyMode?.(true);
+
     flyControlPanel = createFlyControlPanel();
     flyControlPanel.style.display = "block";
   }
@@ -996,6 +998,7 @@ export function init3d(graphData: GraphData) {
     try { document.exitPointerLock?.(); } catch {}
     if (flyCrosshair) { flyCrosshair.style.display = "none"; flyCrosshair = null; }
     if (flyControlPanel) { flyControlPanel.style.display = "none"; flyControlPanel = null; }
+    (interaction as any).setFlyMode?.(false);
     document.body.style.cursor = "";
   }
 
