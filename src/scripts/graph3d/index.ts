@@ -867,7 +867,6 @@ export function init3d(graphData: GraphData) {
   const labelScene = Graph.scene();
   if (labelScene) labelScene.add(labelGroup);
 
-  const LABEL_MAX_DIST = 2000;
   let labelsCreated = false;
 
   function createLabels() {
@@ -1061,9 +1060,13 @@ export function init3d(graphData: GraphData) {
         const dy = np.y - cp.y;
         const dz = np.z - cp.z;
         const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        // 仅淡出不隐藏，远距离标签订为最低透明度
-        sprite.visible = true;
-        sprite.material.opacity = Math.max(0.15, Math.min(1, 1 - (dist - 200) / LABEL_MAX_DIST));
+        // 远距离不可见(>1500)，靠近时逐渐淡入(800→300)，近处完全显示(<300)
+        if (dist > 1500) {
+          sprite.visible = false;
+        } else {
+          sprite.visible = true;
+          sprite.material.opacity = Math.max(0, Math.min(1, (800 - dist) / 500));
+        }
       }
     }
 
