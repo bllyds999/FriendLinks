@@ -145,6 +145,51 @@ export function createNodeLOD(baseColor: string): THREE.LOD {
   return lod;
 }
 
+// ─── Canvas Sprite 文字标签 ─────────────────────────────────────────────────
+
+/**
+ * 用 Canvas 2D 渲染文字，生成 THREE.Sprite
+ * 纯系统字体，零外部依赖，自动 billboarding
+ */
+export function createTextSprite(text: string): THREE.Sprite {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d")!;
+  const fontSize = 48;
+
+  ctx.font = `${fontSize}px sans-serif`;
+  const m = ctx.measureText(text);
+  const pw = 12;
+  const ph = 6;
+  canvas.width = Math.max(2, Math.ceil(m.width + pw * 2));
+  canvas.height = Math.max(2, Math.ceil(fontSize * 1.3 + ph * 2));
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = `${fontSize}px sans-serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.minFilter = THREE.LinearFilter;
+  tex.magFilter = THREE.LinearFilter;
+  tex.needsUpdate = true;
+
+  const mat = new THREE.SpriteMaterial({
+    map: tex,
+    transparent: true,
+    depthTest: false,
+    depthWrite: false,
+    depthFunc: THREE.AlwaysDepth,
+  });
+
+  const sprite = new THREE.Sprite(mat);
+  const h = 1.2;
+  sprite.scale.set(h * (canvas.width / canvas.height), h, 1);
+  sprite.renderOrder = 999;
+
+  return sprite;
+}
+
 /**
  * 更新 LOD 对象内所有层级的材质颜色
  */
