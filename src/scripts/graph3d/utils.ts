@@ -177,15 +177,13 @@ export function createTextSprite(text: string): THREE.Sprite {
   const mat = new THREE.SpriteMaterial({
     map: tex,
     transparent: true,
-    depthTest: false,
+    depthTest: true,
     depthWrite: false,
-    depthFunc: THREE.AlwaysDepth,
   });
 
   const sprite = new THREE.Sprite(mat);
-  const h = 1.2;
+  const h = 5; // world-unit height
   sprite.scale.set(h * (canvas.width / canvas.height), h, 1);
-  sprite.renderOrder = 999;
 
   return sprite;
 }

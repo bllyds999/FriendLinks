@@ -885,7 +885,8 @@ export function init3d(graphData: GraphData) {
       if (name.length > 40) continue;
 
       const sprite = createTextSprite(name);
-      sprite.position.set(node.x, node.y + 1.2, node.z);
+      const nodeSize = degreeToSize(deg, maxDegree);
+      sprite.position.set(node.x, node.y + nodeSize / 2 + 3, node.z);
       (sprite as any)._nodePos = { x: node.x, y: node.y, z: node.z };
       labelGroup.add(sprite);
     }
