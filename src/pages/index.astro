@@ -81,8 +81,8 @@ import "../css/modal.css";
       <button id="stats-toggle" class="top-button" aria-label="查看统计信息"
         >📊友链统计</button
       >
-      <button id="opacity-toggle" class="top-button" aria-label="连线透明度设置"
-        >连线设置</button
+      <button id="opacity-toggle" class="top-button" aria-label="控制面板"
+        >控制面板</button
       >
       <button id="path-toggle" class="top-button" aria-label="路径查找"
         >🔗 路径查找</button
@@ -120,7 +120,7 @@ import "../css/modal.css";
             <li><strong>鼠标拖拽</strong>：旋转 3D 视角</li>
             <li><strong>滚轮</strong>：缩放视图</li>
             <li><strong>搜索框</strong>：模糊搜索站点名或域名</li>
-            <li><strong>「连线设置」按钮</strong>：调整基础线网透明度</li>
+            <li><strong>「控制面板」按钮</strong>：调整连线透明度、飞船速度、节点标签显隐</li>
           </ul>
           <h4>聚焦效果说明</h4>
           <p>右键点击节点后，会触发以下视觉效果：</p>
@@ -769,7 +769,7 @@ import "../css/modal.css";
           if (aboutModal?.classList.contains("show")) hideAboutModal();
         });
 
-        // 连线设置面板按钮
+        // 控制面板按钮
         const opacityBtn = document.getElementById("opacity-toggle");
         if (opacityBtn) {
           opacityBtn.addEventListener("click", () => {
