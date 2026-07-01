@@ -288,4 +288,5 @@ export const NON_BLOG_DOMAINS: string[] = [
 			  "boduoad.com",          // 广告/垃圾站
 			  "cssworld.cn",          // CSS世界(书籍官网)
 			  "artemkutsan.pp.ua",    // 个人子域名站，友链标题为新闻文章名
+			  "770b.cn",              // 邀请码推广(learn.770b.cn)
 			];
