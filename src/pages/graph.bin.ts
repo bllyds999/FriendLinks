@@ -162,18 +162,18 @@ export async function GET() {
         .id((d: any) => d.id)
         .distance(250),
     )
-    .force("charge", forceManyBody().strength(-1200))
+    .force("charge", forceManyBody().strength(-1200).theta(1.5))
     .force("center", forceCenter(0, 0, 0).strength(0.002))
-    .alphaDecay(0.12)
+    .alphaDecay(0.2)
     .velocityDecay(0.7);
 
   printProgress("❷", "图构建完成", 100);
   printDone("图构建完成");
 
   const FAST = import.meta.env.DEV || !!process.env.MINIBUILD;
-  const TICKS = FAST ? 15 : 25;
-  const TICK_LOG = 5;
-  sim.alphaMin(FAST ? 0.2 : 0.15);
+  const TICKS = FAST ? 8 : 12;
+  const TICK_LOG = 4;
+  sim.alphaMin(FAST ? 0.35 : 0.3);
   const alphaMin = sim.alphaMin();
   let actualTicks = 0;
   for (let i = 0; i < TICKS; i++) {
