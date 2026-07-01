@@ -1060,12 +1060,15 @@ export function init3d(graphData: GraphData) {
         const dy = np.y - cp.y;
         const dz = np.z - cp.z;
         const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        // 远距离不可见(>1500)，靠近时逐渐淡入(800→300)，近处完全显示(<300)
-        if (dist > 1500) {
+        // >5000 隐藏，5000→2000 逐渐淡入，<2000 完全显示
+        if (dist > 5000) {
           sprite.visible = false;
+        } else if (dist < 2000) {
+          sprite.visible = true;
+          sprite.material.opacity = 1;
         } else {
           sprite.visible = true;
-          sprite.material.opacity = Math.max(0, Math.min(1, (800 - dist) / 500));
+          sprite.material.opacity = (5000 - dist) / 3000;
         }
       }
     }
