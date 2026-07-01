@@ -534,10 +534,13 @@ export function init3d(graphData: GraphData) {
       }
     }
 
-    // 飞船模式
-    if (isFlyMode) flyLoop();
+    // 飞船模式（独立控制，不与 OrbitControls 冲突）
+    if (isFlyMode) {
+      flyLoop();
+    } else {
+      ctx.controls.update();
+    }
 
-    ctx.controls.update();
     ctx.renderer.render(ctx.scene, ctx.camera);
   }
 
