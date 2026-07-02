@@ -12,8 +12,6 @@
       'url': 'https://almond.sh'
     - 'name': 'read more on the Scala CLI website'
       'url': 'https://scala-cli.virtuslab.org'
-    - 'name': 'ScalablyTyped'
-      'url': 'https://scalablytyped.org/'
     - 'name': 'Laminar'
       'url': 'https://laminar.dev'
     - 'name': 'Tyrian'

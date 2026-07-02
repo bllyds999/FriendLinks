@@ -1,8 +1,0 @@
-'site':
-  'name': 'keminglabs.com'
-  'url': 'https://keminglabs.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Subform'
-      'url': 'https://subformapp.com'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'a small online lab 致敬想象和创造力！'
-      'url': 'https://invert-viewer.github.io/'
     - 'name': 'Hello I''m 0o酱 光阴如梦，昨日随风'
       'url': 'https://blog.im0o.top/'
     - 'name': '锐龙的小窝 锐冰的个人博客'

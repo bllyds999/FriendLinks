@@ -1,8 +1,0 @@
-'site':
-  'name': 'wallleap.cn'
-  'url': 'https://wallleap.cn/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'great community'
-      'url': 'https://caddy.community/'

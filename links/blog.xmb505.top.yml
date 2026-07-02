@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'OEN LAB'
-      'url': 'https://openenet.cn'
     - 'name': 'SerinaNya'
       'url': 'https://serinanya.cn/'
     - 'name': '北尘文案馆'

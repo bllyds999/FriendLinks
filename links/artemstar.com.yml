@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Debian.Club'
-      'url': 'https://debian.club/'
     - 'name': 'HesitaCP CN'
       'url': 'https://hestiacp.cn/'
     - 'name': 'PortCyou'

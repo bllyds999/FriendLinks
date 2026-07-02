@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Building Mobile Apps at Scale'
       'url': 'https://www.mobileatscale.com'
-    - 'name': 'The Engineering Manager'
-      'url': 'https://www.theengineeringmanager.com/'
     - 'name': 'Understanding Distributed Systems'
       'url': 'https://understandingdistributed.systems/'
     - 'name': 'other books'

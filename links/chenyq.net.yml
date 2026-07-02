@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'F5 Networks, Inc.'
-      'url': 'https://www.f5.com'
     - 'name': 'Red Hat Inc.'
       'url': 'https://www.redhat.com/'
     - 'name': 'Planet'

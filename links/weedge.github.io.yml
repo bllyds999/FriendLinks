@@ -1,8 +1,0 @@
-'site':
-  'name': 'weedge.github.io'
-  'url': 'https://weedge.github.io/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Podcast AI'
-      'url': 'https://podcast-997.pages.dev/'

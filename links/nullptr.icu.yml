@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'yink''s studio'
-      'url': 'http://yinkstudio.xyz/'
     - 'name': 'AL76'
       'url': 'http://www.al76.fun/'
     - 'name': 'Von Brank'

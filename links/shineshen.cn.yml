@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Github Page'
-      'url': 'https://ShineShenCn.github.io'
     - 'name': 'Akilar の糖果屋'
       'url': 'https://akilar.top'
     - 'name': '御网尚书'

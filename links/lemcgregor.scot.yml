@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Code Your Future'
       'url': 'https://codeyourfuture.io'
-    - 'name': 'programming lab'
-      'url': 'https://citadel-programming-lab.gitlab.io'
     - 'name': 'local library'
       'url': 'https://www.onfife.com'
     - 'name': 'They Work for You'

@@ -4,12 +4,8 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Red Planet Labs'
-      'url': 'https://redplanetlabs.com'
     - 'name': 'Recurse Center'
       'url': 'https://www.recurse.com/'
-    - 'name': 'Insight Data Engineering'
-      'url': 'http://insightdataengineering.com/'
     - 'name': 'Apache Storm'
       'url': 'http://storm-project.net'
     - 'name': 'spider.io'

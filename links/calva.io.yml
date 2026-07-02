@@ -8,7 +8,5 @@
       'url': 'https://clojure.org'
     - 'name': 'ClojureScript'
       'url': 'https://clojurescript.org'
-    - 'name': 'Visual Studio Code'
-      'url': 'https://code.visualstudio.com'
     - 'name': 'get an invite here'
       'url': 'http://clojurians.net/'

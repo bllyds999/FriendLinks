@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'su-team'
-      'url': 'https://su-team.cn/'
     - 'name': 'sun.empty'
       'url': 'https://sun1028.top/'
     - 'name': 'AsaL1n'

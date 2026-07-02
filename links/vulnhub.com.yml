@@ -1,8 +1,0 @@
-'site':
-  'name': 'vulnhub.com'
-  'url': 'https://www.vulnhub.com/'
-  'description': '友情链接'
-  'links': '/about'
-  'friends':
-    - 'name': 'g0tmi1k'
-      'url': 'https://blog.g0tmi1k.com/'

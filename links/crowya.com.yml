@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friend'
   'friends':
-    - 'name': 'ftyhub'
-      'url': 'http://www.ftyhub.com/'
     - 'name': '浮云翩迁之间'
       'url': 'https://blognas.hwb0307.com'
     - 'name': '定の栈'

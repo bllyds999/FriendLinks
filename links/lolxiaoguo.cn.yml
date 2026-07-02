@@ -1,8 +1,0 @@
-'site':
-  'name': 'lolxiaoguo.cn'
-  'url': 'https://www.lolxiaoguo.cn/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'great community'
-      'url': 'https://caddy.community/'

@@ -32,8 +32,6 @@
       'url': 'https://www.cyrusimap.org/'
     - 'name': 'Net-SNMP'
       'url': 'http://www.net-snmp.org/'
-    - 'name': 'Debian.Club'
-      'url': 'https://debian.club/'
     - 'name': 'Ubuntu.Fan'
       'url': 'https://ubuntu.fan/'
     - 'name': 'RunEntLinux'

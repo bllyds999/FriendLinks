@@ -1,8 +1,0 @@
-'site':
-  'name': 'shef-aire.github.io'
-  'url': 'https://shef-aire.github.io/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Sheffield Data Science and AI Community'
-      'url': 'https://shef-ai.github.io/'

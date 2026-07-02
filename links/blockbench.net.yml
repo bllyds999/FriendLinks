@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Mojang Studios'
-      'url': 'https://minecraft.net'
     - 'name': 'Hytale'
       'url': 'https://hytale.com/'
     - 'name': 'Noxcrew'
@@ -14,7 +12,5 @@
       'url': 'https://sparkuniverse.com'
     - 'name': 'Cyclone'
       'url': 'https://www.cyclone.games'
-    - 'name': 'Oreville Studios'
-      'url': 'https://orevillestudios.com'
     - 'name': 'Gamemode One'
       'url': 'https://www.gamemodeone.com'

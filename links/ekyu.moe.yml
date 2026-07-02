@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'Blog'
       'url': 'https://github.blog'
-    - 'name': 'GitHub status page'
-      'url': 'https://www.githubstatus.com/'
     - 'name': 'Community'
       'url': 'https://github.community/'

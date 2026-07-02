@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'NyaaCat Community'
-      'url': 'https://www.nyaa.cat/'
     - 'name': 'Project Trans'
       'url': 'https://project-trans.org/'
     - 'name': 'Victoria Metrics'

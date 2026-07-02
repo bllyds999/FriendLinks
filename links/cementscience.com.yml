@@ -4,10 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Microlab-m3c4.blogspot.com'
-      'url': 'https://microlab-m3c4.blogspot.com/'
-    - 'name': 'Csla-project.blogspot.com'
-      'url': 'https://www.csla-project.blogspot.com/'
     - 'name': 'www.nationalslag.org'
       'url': 'http://www.nationalslag.org/'
     - 'name': 'www.slagcement.org'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Information Science Group'
-      'url': 'http://www.isg.uni-konstanz.de/'
     - 'name': 'OvGU'
       'url': 'http://www.ovgu.de'
     - 'name': 'Freeplane'

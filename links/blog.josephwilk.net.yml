@@ -14,8 +14,6 @@
       'url': 'http://supercollider.github.io/'
     - 'name': 'Overtone'
       'url': 'http://overtone.github.io/'
-    - 'name': 'OpenFrameworks'
-      'url': 'http://openframeworks.cc'
     - 'name': 'Sonic Pi'
       'url': 'http://sonic-pi.net/'
     - 'name': 'Meta-ex'

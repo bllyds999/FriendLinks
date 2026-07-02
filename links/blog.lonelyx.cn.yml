@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '做题鸭网络科技工作室 做题鸭网络，致力于公益性服务'
-      'url': 'https://zuotiya.com'
     - 'name': '张洪Heo 分享设计与科技生活'
       'url': 'https://blog.zhheo.com/'
     - 'name': '棚子 学习与分享'

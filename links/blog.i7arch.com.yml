@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends'
   'friends':
-    - 'name': 'GNU Project'
-      'url': 'https://gnu.org'
     - 'name': 'aisuneko'
       'url': 'https://aisuneko.moe'
     - 'name': 'Astrozen'

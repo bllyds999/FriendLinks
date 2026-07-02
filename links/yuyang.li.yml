@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'CoRe Lab'
-      'url': 'https://pku.ai'
     - 'name': 'Prof. Yixin Zhu'
       'url': 'https://yzhu.io/'
     - 'name': 'Beijing Institute for General AI'

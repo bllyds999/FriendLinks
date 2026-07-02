@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Chaos Computer Club'
-      'url': 'https://ccc.de'
     - 'name': 'F-Droid'
       'url': 'https://f-droid.org/'

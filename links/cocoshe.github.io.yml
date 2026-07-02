@@ -1,8 +1,0 @@
-'site':
-  'name': 'cocoshe.github.io'
-  'url': 'https://cocoshe.github.io/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Jimmy'
-      'url': 'https://jimmycai.com'

@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'BroadcastChannelTurn your Telegram Channel into a MicroBlog.'
       'url': 'https://memo.miantiao.me'
-    - 'name': 'awesome-homelabCurating Top Open Source Apps for Homelab Enthusiasts'
-      'url': 'https://www.awesome-homelab.com'
     - 'name': 'ssh-ai-chatChat with AI over SSH.'
       'url': 'https://chat.agi.li'
     - 'name': 'Willin Wang'

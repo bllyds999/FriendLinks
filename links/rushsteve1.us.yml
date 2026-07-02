@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'Liberty Mutual'
       'url': 'https://libertymutual.com/'
-    - 'name': 'Demiurge Studios'
-      'url': 'https://demiurgestudios.com/'
     - 'name': 'Gopuff'
       'url': 'https://gopuff.com'

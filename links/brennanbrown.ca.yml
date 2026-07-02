@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Berry House'
       'url': 'https://berryhouse.ca'
-    - 'name': 'Write Club'
-      'url': 'https://writeclub.ca'
     - 'name': 'Gumroad'
       'url': 'https://brennanbrown.gumroad.com'
     - 'name': 'Poetry on Tumblr'

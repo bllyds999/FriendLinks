@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Z-BlogPHP'
-      'url': 'https://www.zblogcn.com/'
     - 'name': '可忆网'
       'url': 'https://www.coinol.com/'
     - 'name': '挨踢茶馆'

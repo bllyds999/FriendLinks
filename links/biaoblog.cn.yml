@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Athing Hub'
-      'url': 'http://hub.athingnotes.cn/'
     - 'name': '杀死一只知更鸟'
       'url': 'https://www.shangjidong.com'
     - 'name': 'Song`s Blog'

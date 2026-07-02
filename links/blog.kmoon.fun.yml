@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'hellogithub.com Hello Github 月刊 ↗'
-      'url': 'https://www.hellogithub.com/'
     - 'name': 'www.v2ex.com V2EX ↗'
       'url': 'https://www.v2ex.com'
     - 'name': 'testerhome.com TesterHome ↗'

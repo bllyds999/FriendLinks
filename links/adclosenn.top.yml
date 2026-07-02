@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends/'
   'friends':
-    - 'name': 'Visual Studio Code 轻量编辑器中的真神'
-      'url': 'https://code.visualstudio.com'
     - 'name': '一言 把一些句子汇聚起来，形成一言网络，以传递更多的感动'
       'url': 'https://hitokoto.cn'
     - 'name': 'AcoFork Blog 爱你所爱~ ❤'

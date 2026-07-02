@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links.html'
   'friends':
-    - 'name': 'GitLab'
-      'url': 'https://code.microcharon.dev'
     - 'name': '晨鹤部落格'
       'url': 'https://chenhe.me/'
     - 'name': 'NodeSeek'

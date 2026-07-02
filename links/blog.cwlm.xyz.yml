@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/link'
   'friends':
-    - 'name': 'SpeedOnline-Team'
-      'url': 'https://www.speedonline.cloud/'
     - 'name': '夜轻Blog一个人'
       'url': 'https://blog.yeqing.net/'
     - 'name': '洋洋Blog洋洋的小小Blog'

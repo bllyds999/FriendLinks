@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'MB Lab'
-      'url': 'https://lianwenbin.cn'
     - 'name': '观联数字'
       'url': 'https://www.guanlian.net'
     - 'name': 'ANKUAIFU'

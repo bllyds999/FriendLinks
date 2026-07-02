@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'Awestruct'
       'url': 'http://awestruct.org'
-    - 'name': 'JBoss Community'
-      'url': 'http://jboss.org'

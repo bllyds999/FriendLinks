@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'leading a product design team to improve the lives of people living with disabil'
-      'url': 'https://www.hireup.com.au'
     - 'name': 'consultancies'
       'url': 'https://www.madetech.com/'
     - 'name': 'top notch agencies'

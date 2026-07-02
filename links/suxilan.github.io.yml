@@ -1,8 +1,0 @@
-'site':
-  'name': 'suxilan.github.io'
-  'url': 'https://suxilan.github.io/'
-  'description': '友情链接'
-  'links': '/about'
-  'friends':
-    - 'name': '丘卡饮品店要来点喝的吗？'
-      'url': 'https://blog.zerolacqua.top'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends'
   'friends':
-    - 'name': 'Z.L Vansiit''s blog开发 | vansiit，Web & Front-end Engineer | vansiit的个人博客呀https://v'
-      'url': 'https://vansiit.cc/'
     - 'name': 'Richor - Shiyun WangRichor is a senior student of Musashino Art University, majo'
       'url': 'http://richor.me/'
     - 'name': '瓠樽以瓠為樽而浮乎江湖https://blog.dylanwu.space/'

@@ -1,8 +1,0 @@
-'site':
-  'name': 'weidows.github.io'
-  'url': 'https://weidows.github.io/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Vercel-site'
-      'url': 'https://blog.weidows.tech'

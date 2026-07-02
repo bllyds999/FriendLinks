@@ -6,8 +6,6 @@
   'friends':
     - 'name': '1 Thing A Week'
       'url': 'https://www.1thingaweek.com'
-    - 'name': 'Good Gear Club'
-      'url': 'https://www.goodclear.club'
     - 'name': 'quiz for Liverpool FC'
       'url': 'https://kopquiz.cchana.dev'
     - 'name': 'fast & responsive websites'

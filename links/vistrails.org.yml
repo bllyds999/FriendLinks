@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'Julia'
       'url': 'https://julialang.org/'
-    - 'name': 'CrowdLabs'
-      'url': 'http://www.crowdlabs.org'

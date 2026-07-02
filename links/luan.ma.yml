@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Blessing Studio'
-      'url': 'https://blessing.studio/'
     - 'name': '董沅鑫'
       'url': 'https://godbmw.com/'
     - 'name': 'snow'

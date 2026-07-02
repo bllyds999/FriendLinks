@@ -1,8 +1,0 @@
-'site':
-  'name': 'bentomi.github.io'
-  'url': 'https://bentomi.github.io/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Cryogen'
-      'url': 'http://cryogenweb.org'

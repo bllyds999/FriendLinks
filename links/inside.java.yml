@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'OpenJDK Community'
-      'url': 'https://openjdk.org'
     - 'name': 'Download Java'
       'url': 'https://jdk.java.net'

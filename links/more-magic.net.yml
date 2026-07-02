@@ -34,8 +34,6 @@
       'url': 'https://r7rs.org/'
     - 'name': 'CHICKEN'
       'url': 'https://www.call-cc.org/'
-    - 'name': 'PreScheme restoration project'
-      'url': 'https://prescheme.org'
     - 'name': 'Scheme48'
       'url': 'https://www.s48.org'
     - 'name': 'Tcl/Tk'

@@ -4,8 +4,6 @@
   'url': 'https://lxnchan.cn/'
   'links': '/friends'
   'friends':
-    - 'name': 'www.zh66.club'
-      'url': 'http://www.zh66.club/'
     - 'name': 'www.ariels.xyz'
       'url': 'http://www.ariels.xyz/'
     - 'name': 'www.shan-net.com'

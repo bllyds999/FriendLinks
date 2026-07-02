@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends.html'
   'friends':
-    - 'name': 'DN42 BGP Lab'
-      'url': 'https://www.caius-dn42.com/'
     - 'name': '米露小窝 放弃个性,就和死了没什么区别'
       'url': 'https://milu.ink/'
     - 'name': '盐木的小破窝 卷土重来未可知。 ——杜牧《题乌江亭》'

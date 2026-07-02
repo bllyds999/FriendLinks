@@ -1,8 +1,0 @@
-'site':
-  'name': 'a11yproject.com'
-  'url': 'https://www.a11yproject.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Eleventy'
-      'url': 'https://www.11ty.io/'

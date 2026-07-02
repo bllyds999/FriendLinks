@@ -14,8 +14,6 @@
       'url': 'https://karpathy.ai'
     - 'name': 'LangChain Blog'
       'url': 'https://blog.langchain.dev'
-    - 'name': 'Prompt Engineering'
-      'url': 'https://www.promptingguide.ai'
     - 'name': 'Netflix技术博客'
       'url': 'https://netflixtechblog.com'
     - 'name': 'InfoQ中国'

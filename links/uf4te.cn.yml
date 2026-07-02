@@ -1,8 +1,0 @@
-'site':
-  'name': 'uf4te.cn'
-  'url': 'https://www.uf4te.cn/'
-  'description': '友情链接'
-  'links': '/link'
-  'friends':
-    - 'name': 'uf4te.github.io'
-      'url': 'https://uf4te.github.io'

@@ -14,5 +14,3 @@
       'url': 'http://cctop.ttk.hu/'
     - 'name': 'PSORT 蛋白质亚细胞定位预测，点击WoLF PSORT后选择物种'
       'url': 'https://psort.hgc.jp/'
-    - 'name': 'plaBiPD 现有植物基因组检索网站，支持发表时间、进化关系检索'
-      'url': 'https://www.plabipd.de/'

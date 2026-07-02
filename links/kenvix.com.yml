@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'IX Network Studio'
-      'url': 'https://blog.ixnet.work/'
     - 'name': '夜绫千裕'
       'url': 'https://yecl.net/'
     - 'name': 'Mokeyjay''s Blog'

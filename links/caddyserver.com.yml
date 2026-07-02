@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'A Project'
-      'url': 'https://zerossl.com'
     - 'name': 'Forum'
       'url': 'https://caddy.community'
     - 'name': 'FrankenPHP'

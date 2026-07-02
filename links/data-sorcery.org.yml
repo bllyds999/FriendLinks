@@ -26,8 +26,6 @@
       'url': 'http://www.jstatsoft.org/'
     - 'name': 'R bloggers'
       'url': 'http://www.r-bloggers.com/'
-    - 'name': 'The R Project'
-      'url': 'http://www.r-project.org/'
     - 'name': 'Processing Language'
       'url': 'http://processing.org/'
     - 'name': 'lindonslog'

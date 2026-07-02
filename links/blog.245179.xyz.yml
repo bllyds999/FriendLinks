@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'FurryFandomClub超棒的Furry聚集地'
-      'url': 'https://furryfandomclub.cn'
     - 'name': '阿呆分享学习有趣的知识'
       'url': 'https://adaiblog.github.io'
     - 'name': 'AOKAOKAのblog不经一事，不长一智。'

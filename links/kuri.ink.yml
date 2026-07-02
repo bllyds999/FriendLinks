@@ -14,8 +14,6 @@
       'url': 'https://saucenao.com/'
     - 'name': 'China-EMU'
       'url': 'https://www.china-emu.cn/'
-    - 'name': 'Github Proxy'
-      'url': 'https://github.akams.cn/'
     - 'name': 'APRS.TV'
       'url': 'https://aprs.tv/'
     - 'name': 'stellarium'

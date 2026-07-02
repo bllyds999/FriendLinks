@@ -52,8 +52,6 @@
       'url': 'https://www.futurepedia.io/'
     - 'name': 'AlternativeTo'
       'url': 'https://alternativeto.net/'
-    - 'name': 'Flathub'
-      'url': 'https://flathub.org/'
     - 'name': 'Obsidian'
       'url': 'https://obsidian.md/'
     - 'name': 'KeePassXC'

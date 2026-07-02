@@ -12,7 +12,5 @@
       'url': 'http://www.globalforestwatch.org/'
     - 'name': 'Stata'
       'url': 'http://www.stata.com/'
-    - 'name': 'Planet Labs'
-      'url': 'https://www.planet.com/'
     - 'name': 'software carpentry'
       'url': 'https://software-carpentry.org/'

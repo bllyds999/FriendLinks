@@ -8,8 +8,6 @@
       'url': 'http://vladlen.info/'
     - 'name': 'course notes'
       'url': 'https://cs231n.github.io/'
-    - 'name': 'GitHub blog'
-      'url': 'https://karpathy.github.io'
     - 'name': 'arxiv-sanity.com'
       'url': 'http://www.arxiv-sanity.com/'
     - 'name': 'arxiv-sanity-lite'

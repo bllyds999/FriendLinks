@@ -14,8 +14,6 @@
       'url': 'http://wired.org.au'
     - 'name': 'UNIHACK'
       'url': 'https://unihack.net'
-    - 'name': 'Young Engineers Australia'
-      'url': 'https://yea.engineersaustralia.org.au/'
     - 'name': 'No. 03↗Contact TracingTechnology demonstration of a contact-tracing application'
       'url': 'https://ct.vercel.app'
     - 'name': 'No. 04↗SpaceA small webapp that follows the mouse.'

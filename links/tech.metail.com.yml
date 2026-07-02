@@ -12,8 +12,6 @@
       'url': 'http://www.web3d.org'
     - 'name': 'assimp'
       'url': 'http://assimp.org/'
-    - 'name': 'DazStudio'
-      'url': 'https://www.daz3d.com/'
     - 'name': 'Blender 2.83.3'
       'url': 'https://www.blender.org/'
     - 'name': 'Palettist'

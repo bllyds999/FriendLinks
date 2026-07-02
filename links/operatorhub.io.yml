@@ -1,8 +1,0 @@
-'site':
-  'name': 'operatorhub.io'
-  'url': 'https://operatorhub.io/'
-  'description': '友情链接'
-  'links': '/links.html'
-  'friends':
-    - 'name': 'Documentation'
-      'url': 'https://operatorframework.io'

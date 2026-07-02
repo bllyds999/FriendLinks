@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/about'
   'friends':
-    - 'name': 'Gemini Project'
-      'url': 'https://gemini.circumlunar.space/'
     - 'name': 'eoin.site'
       'url': 'https://eoin.site'

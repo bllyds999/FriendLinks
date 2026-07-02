@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '云筑网 中建集中采购平台官网'
-      'url': 'https://www.yzw.cn/'
     - 'name': '西高所 电气领域检测、计量、认证及技术咨询服务业务，开展相关技术研究、标准制修订及行业管理和服务工作'
       'url': 'http://www.xihari.com/'
     - 'name': '西门子选型 西门子选型、价格查询'

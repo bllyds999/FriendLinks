@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Amiya MioSoftware Engineer'
-      'url': 'https://win7.win/'
     - 'name': 'Bluemangoo我很可爱，请来看看'
       'url': 'https://www.bluemangoo.net/'
     - 'name': 'Dahi Blog願你有一天能與你重要的人重逢'

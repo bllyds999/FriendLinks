@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Orange'
       'url': 'https://blog.orangesai.com/'
-    - 'name': 'Founder of ListenHub'
-      'url': 'https://listenhub.ai/'
     - 'name': 'Yishi'
       'url': 'https://blog.yishi.io/'
     - 'name': 'Founder of OneKey'

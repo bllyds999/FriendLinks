@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '米粒工作室 个人搭建用来学习与实践的网站'
-      'url': 'https://milir.top/'
     - 'name': 'snows_l''s Blog 渔得鱼心满意足，樵得樵眼笑眉舒！'
       'url': 'http://snows-l.site/'
     - 'name': '码上星辰的技术札记 - 码上星辰的技术札记'

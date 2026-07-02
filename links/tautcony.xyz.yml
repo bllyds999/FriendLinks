@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'VCB-Studio'
-      'url': 'https://vcb-s.com/'
     - 'name': 'Memo von EFS'
       'url': 'https://amefs.net/'
     - 'name': '小马哥'

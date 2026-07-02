@@ -14,8 +14,6 @@
       'url': 'https://gaze.show'
     - 'name': 'gazes.host'
       'url': 'https://gazes.host'
-    - 'name': 'Github Page'
-      'url': 'https://icedespair.github.io'
     - 'name': 'Netlify'
       'url': 'https://guidepost-ice.netlify.app'
     - 'name': 'Vercel'

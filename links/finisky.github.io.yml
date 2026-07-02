@@ -1,8 +1,0 @@
-'site':
-  'name': 'finisky.github.io'
-  'url': 'https://finisky.github.io/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': '总访问量：...'
-      'url': 'https://finicounter.eu.org/'

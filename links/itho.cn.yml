@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'CNFF landscape'
       'url': 'https://landscape.cncf.io/'
-    - 'name': 'operatorhub.io'
-      'url': 'https://operatorhub.io/'

@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Black Lives Matter'
       'url': 'https://blacklivesmatter.com'
-    - 'name': 'The Trevor Project'
-      'url': 'https://www.thetrevorproject.org/'
     - 'name': 'DeleteGoogle.com'
       'url': 'https://deletegoogle.com'
     - 'name': 'DeleteTwitter.com'

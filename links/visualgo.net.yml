@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'VisuAlgo project continues to be funded by Optiver (started mid 2023, to continu'
-      'url': 'https://optiver.com/'
     - 'name': 'Rose Marie Tan Zhao Yun'
       'url': 'https://www.rosemarietan.com/'

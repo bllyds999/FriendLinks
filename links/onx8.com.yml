@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Z-BlogPHP'
-      'url': 'http://www.zblogcn.com/'
     - 'name': 'SegmentFault'
       'url': 'http://segmentfault.com/'
     - 'name': '不凡博客'

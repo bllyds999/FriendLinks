@@ -4,11 +4,7 @@
   'description': '友情链接'
   'links': '/about'
   'friends':
-    - 'name': 'Systems Group'
-      'url': 'https://systems.ethz.ch'
     - 'name': 'Department of Computer Science'
       'url': 'https://inf.ethz.ch/'
     - 'name': 'ETH Zürich'
       'url': 'https://ethz.ch/'
-    - 'name': 'Enzian Project'
-      'url': 'https://enzian.systems'

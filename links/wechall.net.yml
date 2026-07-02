@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'mrradio.kr'
       'url': 'https://mrradio.kr/'
-    - 'name': 'GemForgeLabs'
-      'url': 'https://gemforgelabs.io/'
     - 'name': 'Hack The Web'
       'url': 'https://hack.arrrg.de/'
     - 'name': 'HackMyVM'
@@ -34,7 +32,3 @@
       'url': 'https://letsencrypt.org/'
     - 'name': 'Aperisolve - online tool that automates some basic stegano, like splitting bit p'
       'url': 'https://aperisolve.fr'
-    - 'name': 'My (little) wargame project'
-      'url': 'http://listbrain.tk/'
-    - 'name': 'Reverse Engineering Team - Essays from some of the bigger names in the RE commun'
-      'url': 'http://reteam.org'

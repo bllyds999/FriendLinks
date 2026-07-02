@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Debian.ClubDebian 13 中文指南'
-      'url': 'https://debian.club/'
     - 'name': 'RunEntLinux企业级 Linux 指南'
       'url': 'https://runentlinux.com/'
     - 'name': 'LiteHTTPD高度兼容 Apache 的轻量 Web Server'

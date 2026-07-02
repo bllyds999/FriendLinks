@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/link'
   'friends':
-    - 'name': 'Hackerslab.org'
-      'url': 'http://www.hackerslab.org/'
     - 'name': 'HackQuest'
       'url': 'http://www.hackquest.com/'
     - 'name': 'Blind-Dice'
@@ -28,8 +26,6 @@
       'url': 'http://www.guninski.com/'
     - 'name': 'SecurityFocus'
       'url': 'http://www.securityfocus.com/'
-    - 'name': 'SecuriTeam'
-      'url': 'http://www.securiteam.com/'
     - 'name': 'Google Hacking Database (GHDB)'
       'url': 'http://johnny.ihackstuff.com'
     - 'name': 'Hackers-News'

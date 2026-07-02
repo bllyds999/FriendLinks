@@ -1,8 +1,0 @@
-'site':
-  'name': 'code.visualstudio.com'
-  'url': 'https://code.visualstudio.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Web'
-      'url': 'https://vscode.dev/'

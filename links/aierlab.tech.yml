@@ -1,8 +1,0 @@
-'site':
-  'name': 'aierlab.tech'
-  'url': 'https://aierlab.tech/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Start Bootstrap'
-      'url': 'http://startbootstrap.com/'

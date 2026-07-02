@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/about'
   'friends':
-    - 'name': 'Open Greek and Latin Project'
-      'url': 'https://opengreekandlatin.org'
     - 'name': 'Eldarion'
       'url': 'https://eldarion.com'
     - 'name': 'CapiTainS'

@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'Piccalilli'
       'url': 'https://piccalil.li/'
-    - 'name': 'Set Studio'
-      'url': 'https://set.studio'
     - 'name': 'Every Layout'
       'url': 'https://every-layout.dev/'

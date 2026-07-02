@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'CORONA STUDIO 日冕工作室 CMFL/LauncherX'
-      'url': 'https://corona.studio'
     - 'name': 'Ghost_chu’s Blog 『保持初心』大概是这个时代最大的难题'
       'url': 'https://www.ghostchu.com'
     - 'name': 'IzzelAliz''s Blog 海螺螺的博客'

@@ -260,6 +260,17 @@ export const NON_BLOG_DOMAINS: string[] = [
   "retiehe.com", "imgbb.com", "sublimetext.com",
   // 工具镜像站
   "softonic.com", "kzisp.com", "zongsang.com",
+  // 游戏社区/项目平台
+  "cngal.org", "godothub.com", "kid-game.cn", "momoyu.ink",
+  "doujin-ledger.org", "nanana.cn", "ymgal.games", "humihumi.com", "lspsp.me",
+  // 免费资源推荐站
+  "thosefree.com",
+  // 网吧维护/软件站
+  "yweihu.com", "wangbaweihu.com", "slsup.com", "clxp.net.cn", "shykx.com",
+  "cnit.net.cn", "laoliit.cn", "im2828.com", "osssr.com", "xitonggho.com",
+  "58server.net", "iwangwei.cn",
+  // 教程/博客平台
+  "codeqd.com", "jiangweishan.com", "web176.com", "zblogcn.com", "htmlit.com.cn",
   // 杂志/发表/批发/法律/新闻站
   "cnmy.org.cn", "yunzazhi.com", "sozazhi.com", "yfabiao.com", "fly63.com",
   "2466.cn", "fumuyu.com", "866120.com", "dyc123.com", "imlaw.cn",

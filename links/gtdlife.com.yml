@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/about'
   'friends':
-    - 'name': 'dodoteam'
-      'url': 'http://www.dodoteam.com'
     - 'name': 'putchair'
       'url': 'http://www.putchair.com/'
     - 'name': '喔喔兒'

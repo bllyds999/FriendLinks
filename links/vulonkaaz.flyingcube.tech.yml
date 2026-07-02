@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links.html'
   'friends':
-    - 'name': 'Paperchan.club'
-      'url': 'https://paperchan.club/'
     - 'name': 'Gikopoi'
       'url': 'https://gikopoi.com/'
     - 'name': 'Lunarsight'

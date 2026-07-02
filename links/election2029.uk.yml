@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Democracy Club'
-      'url': 'https://democracyclub.org.uk/'
     - 'name': 'mySociety'
       'url': 'https://www.mysociety.org/'

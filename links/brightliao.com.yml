@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Thoughtworks洞见'
-      'url': 'https://insights.thoughtworks.cn/'
     - 'name': '少个分号（DDD思考者）'
       'url': 'https://shaogefenhao.com/'
     - 'name': '马大伟（被动收入实践者）'

@@ -4,10 +4,6 @@
   'description': '友情链接'
   'links': '/about'
   'friends':
-    - 'name': 'badwebsite.club'
-      'url': 'https://badwebsite.club/'
-    - 'name': 'Ruby Habits study group'
-      'url': 'https://rubyhabits.github.io/'
     - 'name': 'Rails Girls Summer of Code'
       'url': 'https://railsgirlssummerofcode.org/'
     - 'name': 'Where2Help'

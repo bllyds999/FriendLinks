@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'z creative labs'
-      'url': 'https://www.zcreativelabs.com/'
     - 'name': 'Blobmaker.app'
       'url': 'https://www.blobmaker.app/'

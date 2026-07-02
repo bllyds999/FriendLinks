@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'online gallery'
       'url': 'https://mutable.gallery'
-    - 'name': 'Set Studio'
-      'url': 'https://set.studio'
     - 'name': 'web.dev'
       'url': 'https://web.dev/'
     - 'name': 'Stripe'

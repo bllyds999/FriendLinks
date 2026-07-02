@@ -22,8 +22,6 @@
       'url': 'https://mirlo.space'
     - 'name': 'Internet Archive'
       'url': 'https://archive.org/'
-    - 'name': 'The Gutenberg Project'
-      'url': 'https://www.gutenberg.org/'
     - 'name': 'Electronic Frontier Foundation'
       'url': 'https://www.eff.org/'
     - 'name': 'Privacy Guides'

@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'Emojipedia'
       'url': 'https://emojipedia.org'
-    - 'name': 'Noun Project'
-      'url': 'https://thenounproject.com/'
     - 'name': 'Sophie'
       'url': 'https://localghost.dev'

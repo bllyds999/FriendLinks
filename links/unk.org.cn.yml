@@ -4,10 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'V&N Team'
-      'url': 'https://vnteam.cn/'
-    - 'name': 'W&M Team'
-      'url': 'https://wm-team.cn/'
     - 'name': 'Boogipop'
       'url': 'https://boogipop.com/'
     - 'name': 'DELETE'

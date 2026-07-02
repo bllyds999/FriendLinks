@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'bert hubert'
-      'url': 'https://ds9a.nl/'
     - 'name': 'PowerDNS.COM BV'
       'url': 'https://www.powerdns.com'
     - 'name': 'Thomas Graf'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/link'
   'friends':
-    - 'name': 'Github线路'
-      'url': 'https://qxchuckle.github.io'
     - 'name': '小冰博客做个有梦想的人！>=10s'
       'url': 'https://zfe.one'
     - 'name': 'Akilarの糖果屋期待您的光临！461ms'
@@ -84,8 +82,6 @@
       'url': 'https://falling42.top/'
     - 'name': 'Mx一个分享知识和快乐的地方！>=10s'
       'url': 'https://www.wwru.cn/'
-    - 'name': 'QYstudio不因何事去制作 只因兴趣而创造>=10s'
-      'url': 'https://qystudio.ltd'
     - 'name': 'starsのBlog科学是使人的精神变得勇敢的最好途径>=10s'
       'url': 'https://blog.cnortles.top'
     - 'name': '是浮沫的QQ空间这里居然是聚聚的博客？>=10s'

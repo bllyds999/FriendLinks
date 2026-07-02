@@ -1,8 +1,0 @@
-'site':
-  'name': 'foojay.io'
-  'url': 'https://foojay.io/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'See How Reo.Dev Works!'
-      'url': 'https://www.reo.dev/'

@@ -1,8 +1,0 @@
-'site':
-  'name': 'maggieappleton.com'
-  'url': 'https://maggieappleton.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'GitHub Next'
-      'url': 'https://githubnext.com'

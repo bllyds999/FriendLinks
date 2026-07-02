@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends'
   'friends':
-    - 'name': 'PRIN BLOGprintempw.github.io'
-      'url': 'https://printempw.github.io/'
     - 'name': 'Stray Episodefarer.org'
       'url': 'https://farer.org/'
     - 'name': 'BLOG @ GIUEMgiuem.com'

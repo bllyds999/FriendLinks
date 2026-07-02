@@ -10,8 +10,6 @@
       'url': 'https://tu-lambda.github.io/'
     - 'name': 'fluid.tw'
       'url': 'https://fluid.tw/'
-    - 'name': 'Lean 4 | wasm build | Zulip team chat'
-      'url': 'https://leanprover.zulipchat.com/#narrow/stream/270676-lean4/topic/wasm.20build/near/402692669'
     - 'name': 'slidev'
       'url': 'https://sli.dev'
     - 'name': 'a simple DNS lookup tool'

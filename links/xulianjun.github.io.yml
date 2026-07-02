@@ -1,8 +1,0 @@
-'site':
-  'name': 'xulianjun.github.io'
-  'url': 'https://xulianjun.github.io/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 'kshao Life Oriented Programming'
-      'url': 'https://ksh7.com/'

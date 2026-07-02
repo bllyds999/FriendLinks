@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'GitHub-site'
-      'url': 'https://weidows.github.io'
     - 'name': '十年之约'
       'url': 'https://www.foreverblog.cn/blog/6104.html'

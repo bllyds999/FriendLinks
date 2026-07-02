@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '乐动平台app官网-乐动(中国)'
-      'url': 'http://www.charlesshaker.com'
     - 'name': '乐动网站_乐动中国'
       'url': 'http://www.floridatravelbooking.com'
     - 'name': '乐动在线官网-乐动（中国）'

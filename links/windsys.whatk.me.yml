@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends'
   'friends':
-    - 'name': 'Windsys Project.css-1e2dcm1{z-index:1500;pointer-events:none;}.css-okvapm{z-inde'
-      'url': 'https://windsys.win'
     - 'name': 'SUGARHOPE推荐我喜欢的'
       'url': 'https://sugarhope.com/'
     - 'name': '小钧博客愿你出走半生，归来仍是少年'

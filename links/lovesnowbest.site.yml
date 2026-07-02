@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'USTC-BIVLab'
-      'url': 'https://bivlab123.github.io/'
     - 'name': 'Project'
       'url': 'https://mmsearch.github.io/'
     - 'name': 'Project'

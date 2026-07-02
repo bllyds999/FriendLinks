@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'FunHub'
-      'url': 'https://fun.starrynets.com'
     - 'name': '艾特网'
       'url': 'https://iiter.cn'
     - 'name': 'Maxwell'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Scritch Works'
-      'url': 'https://scritch.works/'
     - 'name': 'Fursona Lookup'
       'url': 'https://fursona.gmem.ca/'
     - 'name': 'Nord'

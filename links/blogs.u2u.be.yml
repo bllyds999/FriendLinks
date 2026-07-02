@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'BlogEngine.NET'
-      'url': 'http://dotnetblogengine.net/'
     - 'name': 'Francis Bio'
       'url': 'http://francis.bio/'

@@ -12,8 +12,6 @@
       'url': 'http://www.qslinfo.de/'
     - 'name': 'Morse Code'
       'url': 'http://lcwo.net/'
-    - 'name': 'CW RBN Club Spotter'
-      'url': 'https://rbn.telegraphy.de/'
     - 'name': 'Dresden University of Technology'
       'url': 'http://tu-dresden.de/'
     - 'name': 'LaTeX'

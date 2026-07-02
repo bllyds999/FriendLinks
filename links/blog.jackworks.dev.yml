@@ -1,8 +1,0 @@
-'site':
-  'name': 'blog.jackworks.dev'
-  'url': 'https://blog.jackworks.dev/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'efml'
-      'url': 'https://ef.js.org/'

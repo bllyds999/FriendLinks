@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Book Riot'
       'url': 'https://bookriot.com/'
-    - 'name': 'Literary Hub'
-      'url': 'https://lithub.com/'
     - 'name': 'One Useful Thing'
       'url': 'https://www.oneusefulthing.org/'
     - 'name': 'Fated Mates'

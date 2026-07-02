@@ -6,8 +6,6 @@
   'friends':
     - 'name': '十年之约'
       'url': 'https://www.foreverblog.cn/'
-    - 'name': 'Sci-hub'
-      'url': 'https://sci-hub.se/'
     - 'name': 'Glyphs'
       'url': 'https://glyphsapp.com/'
     - 'name': 'Web.dev'

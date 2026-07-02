@@ -1,8 +1,0 @@
-'site':
-  'name': 'naixi.net'
-  'url': 'https://naixi.net/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Naixi Networks'
-      'url': 'https://about.naixi.org/'
