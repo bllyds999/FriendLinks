@@ -243,4 +243,22 @@ type SearchResult = { id: string; name: string; url?: string };
   }
 })();
 
+// 移动端菜单切换
+const menuToggle = document.getElementById("menu-toggle");
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const group = document.querySelector(".top-buttons-group");
+    if (group) {
+      group.classList.toggle("open");
+    }
+  });
+  // 点击菜单外关闭
+  document.addEventListener("click", (e) => {
+    const group = document.querySelector(".top-buttons-group");
+    if (group && group.classList.contains("open") && !(e.target as HTMLElement).closest(".top-buttons")) {
+      group.classList.remove("open");
+    }
+  });
+}
+
 export {};

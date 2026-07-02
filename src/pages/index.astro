@@ -73,21 +73,24 @@ import "../css/modal.css";
     </div>
 
     <div class="top-buttons">
-      <button id="fly-toggle" class="top-button" aria-label="切换飞船模式"
-        >🚀 飞船模式</button
-      >
-      <button id="about-toggle" class="top-button" aria-label="关于项目"
-        >关于</button
-      >
-      <button id="stats-toggle" class="top-button" aria-label="查看统计信息"
-        >📊统计信息</button
-      >
-      <button id="opacity-toggle" class="top-button" aria-label="控制面板"
-        >控制面板</button
-      >
-      <button id="path-toggle" class="top-button" aria-label="路径查找"
-        >🔗 路径查找</button
-      >
+      <button id="menu-toggle" class="top-button menu-toggle" aria-label="菜单" title="菜单">☰</button>
+      <div class="top-buttons-group">
+        <button id="fly-toggle" class="top-button" aria-label="切换飞船模式"
+          >🚀 飞船模式</button
+        >
+        <button id="about-toggle" class="top-button" aria-label="关于项目"
+          >关于</button
+        >
+        <button id="stats-toggle" class="top-button" aria-label="查看统计信息"
+          >📊统计信息</button
+        >
+        <button id="opacity-toggle" class="top-button" aria-label="控制面板"
+          >控制面板</button
+        >
+        <button id="path-toggle" class="top-button" aria-label="路径查找"
+          >🔗 路径查找</button
+        >
+      </div>
     </div>
 
     <!-- 统计弹窗 -->
@@ -216,7 +219,18 @@ import "../css/modal.css";
         position: fixed;
         top: 12px;
         right: 12px;
-        z-index: 60; /* 高于 .topbar (20) 和移动端的 #theme-toggle (40) */
+        z-index: 60;
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        pointer-events: auto;
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 18px;
+        line-height: 1;
+      }
+      .top-buttons-group {
         display: flex;
         gap: 8px;
         pointer-events: auto;
@@ -235,7 +249,25 @@ import "../css/modal.css";
         .top-buttons {
           top: 8px;
           right: 8px;
-          gap: 6px;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 4px;
+        }
+        .menu-toggle {
+          display: inline-block;
+        }
+        .top-buttons-group {
+          display: none;
+          flex-direction: column;
+          gap: 4px;
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          border-radius: 8px;
+          padding: 6px;
+          box-shadow: 0 4px 12px rgba(0,0,0,.15);
+        }
+        .top-buttons-group.open {
+          display: flex;
         }
         .top-button {
           font-size: 12px;
