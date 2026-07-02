@@ -1,8 +1,0 @@
-'site':
-  'name': 'xhhdd.cc'
-  'url': 'https://xhhdd.cc/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'PoweredTypecho'
-      'url': 'http://www.typecho.org'

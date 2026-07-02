@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'WP REST API'
       'url': 'http://v2.wp-api.org/'
-    - 'name': 'Favicon生成器'
-      'url': 'http://www.favicon-generator.org/'
     - 'name': 'Stackedit – In-browser markdown editor'
       'url': 'https://stackedit.io/'
     - 'name': 'LNMP一键安装包'

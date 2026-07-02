@@ -4,7 +4,7 @@
  */
 
 import { createHash } from "node:crypto";
-import { JUNK_NAME_PATTERNS } from "./filter/names";
+import { JUNK_NAME_PATTERNS, JUNK_NAME_PATTERNS_LEGACY } from "./filter/names";
 import { JUNK_URL_PATTERNS } from "./filter/urls";
 import { NON_BLOG_DOMAINS } from "./filter/domains";
 import { SENSITIVE_DOMAINS } from "./filter/sensitive";
@@ -85,6 +85,9 @@ export function isJunkEntryWithReason(f: { name: string; url: string }, siteUrl?
 
   // ── 名称检查 ────────────────────────────────────────────
   for (const p of JUNK_NAME_PATTERNS) {
+    if (p.test(name)) return { junk: true, reason: `名称匹配: ${p.source}` };
+  }
+  for (const p of JUNK_NAME_PATTERNS_LEGACY) {
     if (p.test(name)) return { junk: true, reason: `名称匹配: ${p.source}` };
   }
   if (/^\d+$/.test(name)) return { junk: true, reason: "纯数字名称" };

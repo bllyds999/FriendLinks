@@ -1,8 +1,0 @@
-'site':
-  'name': 'startupinamonth.net'
-  'url': 'https://startupinamonth.net/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com'

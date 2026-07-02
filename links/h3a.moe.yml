@@ -1,8 +1,0 @@
-'site':
-  'name': 'h3a.moe'
-  'url': 'https://h3a.moe/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Hugo'
-      'url': 'https://gohugo.io/'

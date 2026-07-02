@@ -1,8 +1,0 @@
-'site':
-  'name': 'blog.bonnieeisenman.com'
-  'url': 'http://blog.bonnieeisenman.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Jekyll'
-      'url': 'http://jekyllrb.com'

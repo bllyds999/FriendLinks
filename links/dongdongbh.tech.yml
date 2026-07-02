@@ -1,8 +1,0 @@
-'site':
-  'name': 'dongdongbh.tech'
-  'url': 'https://dongdongbh.tech/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com'

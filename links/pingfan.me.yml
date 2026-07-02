@@ -1,8 +1,0 @@
-'site':
-  'name': '我本平凡'
-  'url': 'https://pingfan.me/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com/'

@@ -58,5 +58,3 @@
       'url': 'https://blog.redcha.cn'
     - 'name': 'dnschecker 免费网站监测服务,不同的是它主要针对DNS记录进行检查'
       'url': 'https://dnschecker.org/'
-    - 'name': 'dnschecker 全平台的WEB APP图标设计，用于生成PWA使用的manifest'
-      'url': 'https://realfavicongenerator.net/'

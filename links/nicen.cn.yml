@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friend'
   'friends':
-    - 'name': 'Chrome拓展'
-      'url': 'https://crxdl.com/'
     - 'name': '印格DIY定制'
       'url': 'https://www.diyon.cn'
     - 'name': 'Binge网络科技'

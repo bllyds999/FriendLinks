@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Typst'
       'url': 'https://typst.app/'
-    - 'name': 'Zola'
-      'url': 'https://www.getzola.org/'
     - 'name': 'MBRjun-Blog'
       'url': 'https://www.libmbr.com'
     - 'name': 'Alan の blog'

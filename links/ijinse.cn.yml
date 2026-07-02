@@ -4,13 +4,9 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': '大内旅游网'
-      'url': 'http://www.shrifgs.cn'
     - 'name': '园林石材雕塑'
       'url': 'http://www.haodediaosu.com'
     - 'name': '无缝钢管厂'
       'url': 'http://www.h2wz.com'
     - 'name': '唐硕数码'
       'url': 'http://www.ts1010.com'
-    - 'name': '什邡旅游网'
-      'url': 'http://www.yhwufvo.cn'

@@ -1,8 +1,0 @@
-'site':
-  'name': 'zwei.de.eu.org'
-  'url': 'https://zwei.de.eu.org/'
-  'description': '友情链接'
-  'links': '/friends'
-  'friends':
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com'

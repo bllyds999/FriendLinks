@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Astro Starlight'
-      'url': 'https://starlight.astro.build'
     - 'name': 'JetBrains'
       'url': 'https://www.jetbrains.com'

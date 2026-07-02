@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '王九弦SZ·Ninty欢迎旅行者，来到这个平凡但又记载了许多故事的小屋blog.sinzmise.top'
-      'url': 'https://blog.sinzmise.top/'
     - 'name': '時光心寄朗朗乾坤，胸怀真修之道。blog.shiguang666.eu.org'
       'url': 'https://blog.shiguang666.eu.org/'
     - 'name': 'ztrztr不积跬步无以至千里ztrztr.top'

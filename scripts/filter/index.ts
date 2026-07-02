@@ -7,7 +7,7 @@
  *   import { NON_BLOG_DOMAINS } from "./filter/domains";
  */
 
-export { JUNK_NAME_PATTERNS } from "./names";
+export { JUNK_NAME_PATTERNS, JUNK_NAME_PATTERNS_LEGACY } from "./names";
 export { JUNK_URL_PATTERNS } from "./urls";
 export { NON_BLOG_DOMAINS as DOMAINS_HASHED } from "./domains";
 export { SENSITIVE_DOMAINS } from "./sensitive";

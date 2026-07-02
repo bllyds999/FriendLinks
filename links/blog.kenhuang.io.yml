@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'Cider'
       'url': 'https://cider.mx/'
-    - 'name': 'Hugo v0.152.2'
-      'url': 'https://gohugo.io'

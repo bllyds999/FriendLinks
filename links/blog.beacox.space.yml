@@ -1,8 +1,0 @@
-'site':
-  'name': 'blog.beacox.space'
-  'description': '友情链接'
-  'url': 'https://blog.beacox.space/'
-  'links': '/friends'
-  'friends':
-    - 'name': 'Blowfish'
-      'url': 'https://blowfish.page/'

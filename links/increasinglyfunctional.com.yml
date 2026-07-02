@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'passkeys'
       'url': 'https://passkeys.dev'
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com/'

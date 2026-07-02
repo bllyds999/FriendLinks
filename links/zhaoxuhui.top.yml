@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'powered'
       'url': 'https://www.freefind.com'
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com/'

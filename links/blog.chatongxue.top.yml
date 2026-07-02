@@ -1,8 +1,0 @@
-'site':
-  'name': 'blog.chatongxue.top'
-  'url': 'https://blog.chatongxue.top/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Blowfish'
-      'url': 'https://blowfish.page/'

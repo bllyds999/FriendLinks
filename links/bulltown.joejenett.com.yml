@@ -1,8 +1,0 @@
-'site':
-  'name': 'bulltown.joejenett.com'
-  'url': 'https://bulltown.joejenett.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com/'

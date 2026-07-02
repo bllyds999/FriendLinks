@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'nicetheme'
-      'url': 'https://www.nicetheme.cn'
     - 'name': 'TNT'' s Blog'
       'url': 'http://www.untnt.com/'
     - 'name': '小马''s Blog'

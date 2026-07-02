@@ -1,8 +1,0 @@
-'site':
-  'name': 'blog.korny.info'
-  'url': 'https://blog.korny.info/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com'

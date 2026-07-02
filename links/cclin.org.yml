@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/about'
   'friends':
-    - 'name': 'astro.js - Website Framework'
-      'url': 'https://astro.build'
     - 'name': 'katex - Mathematical Formulas'
       'url': 'https://katex.org'
     - 'name': 'unifiedjs - Markdown Rendering'

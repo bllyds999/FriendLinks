@@ -146,6 +146,40 @@ export const NON_BLOG_DOMAINS: string[] = [
   // 组件库/框架官网
   "react.dev", "reactjs.org", "angular.io", "angularjs.org",
   "nodejs.org", "npmjs.com", "typescriptlang.org", "deno.land",
+  "gohugo.io", "markdown.com.cn", "blowfish.page", "0w.hk", "xt50.com", "typecho.org",
+  // SSG/博客框架官网
+  "astro.build", "getzola.org", "jekyllrb.com", "gatsbyjs.com",
+  // 论坛/BBS平台
+  "discuz.vip", "dismall.com",
+  // 在线工具/非博客
+  "favicon-generator.org", "realfavicongenerator.net", "oneinstack.com", "wufazhuce.com", "reeoo.com",
+  // 域名出售/导航站
+  "1cy.top", "moezzz.com",
+  // 论坛/商业/非博客
+  "zozse.cn", "sh-artmuseum.org.cn", "shangce8.com",
+  // 赌博/菠菜站群
+  "1m90.com", "pastacookies.com", "tongyacraft.com", "marketpads.com", "shandngluquam.com", "webb-plumbing.com",
+  // SEO垃圾外链/商业站
+  "snvo.net", "learntospeakkorean.info", "chrismasebook.info", "wxfsj.com", "humeitu.com",
+  // 主题商店/外包公司
+  "xintheme.com", "nicetheme.cn", "whkakaxi.com",
+  // 商业公司站群
+  "xjdshx.com", "liaoliaojizhang.cn", "oem818.com", "as0000.cn", "ktvjgof.cn",
+  "scyssy.com.cn", "qiushicaijing.com", "74i74.cn", "mcsmalltian.com",
+  "linkmoreparking.cn", "zsdkw.net", "bussmann.cc", "520papapa.cn",
+  // 汇率SEO站群
+  "xjqyc.cn", "ksnfes.com.cn", "wyq888.top", "tuyios.cn", "xiansimao.top",
+  "youzi201314.top", "tyhsrjt.cn", "afyrty.cn", "breakeve.cn", "jinfet.top",
+  // "访问网站" SEO批量友链 + 博客平台
+  "xjybk.cn", "bybkw.cn", "panzy.top", "xfabe.com", "21r.cn",
+  "chaojizy.com", "ffw8.cn", "yuhiri.me", "yuankainet.cn", "emlog.net",
+  // "前去学习"/"访问网站" SEO批量友链
+  "yanhuolg.github.io", "clearwine.online", "yods007.top", "hurkin.top", "n0o0b.com", "c3ngh.top",
+  // 英语/家教/出书/主题平台
+  "yewandou.com", "22en.com", "kmspjjw.com", "wenyunfang.com", "csw66.com", "themeisle.com",
+  // 旅游/汽车/培训平台
+  "yichangly.com", "dycjy.com", "i7car.com", "citscsc.com", "tuozhanm.com",
+  "0559hs.com", "0792u.com", "ourdour.com", "quanjingke.com", "pianfang.cn",
   "tailwindcss.com", "getbootstrap.com", "jquery.com",
   "webpack.js.org", "vitejs.dev", "nextjs.org", "nuxt.com", "svelte.dev",
   "electronjs.org", "flutter.dev", "dart.dev",

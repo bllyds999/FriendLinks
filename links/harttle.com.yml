@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'caniuse.com'
       'url': 'https://caniuse.com/'
-    - 'name': 'Jekyll'
-      'url': 'https://jekyllrb.com/'
