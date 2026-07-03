@@ -6,7 +6,5 @@
   'friends':
     - 'name': '一言网 提供一句话服务'
       'url': 'https://hitokoto.cn/'
-    - 'name': '图标库 国际通用标准图标库'
-      'url': 'https://fontawesome.com/'
     - 'name': 'Artitalk.js 基于 LeanCloud'
       'url': 'https://artitalk.js.org/'

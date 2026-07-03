@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Michael W. Delaney'
       'url': 'https://michaeldelaney.me'
-    - 'name': 'an example of styling cards'
-      'url': 'https://smolcss.dev/#smol-card-component'
     - 'name': 'Saptak S'
       'url': 'https://saptaks.website'
     - 'name': 'Ryan Trimble'

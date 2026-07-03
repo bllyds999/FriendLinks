@@ -1,8 +1,0 @@
-'site':
-  'name': 'zhangjiaji.com'
-  'url': 'http://www.zhangjiaji.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': '亚新网页版-亚新(中国)'
-      'url': 'http://www.gutmw.com/'

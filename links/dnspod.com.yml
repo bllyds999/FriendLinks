@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'Tencent RTC'
       'url': 'https://trtc.io/'
-    - 'name': 'Tencent EdgeOne'
-      'url': 'https://edgeone.ai/'
     - 'name': 'Tencent MPS'
       'url': 'https://mps.live/'

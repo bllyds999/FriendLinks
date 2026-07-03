@@ -78,8 +78,6 @@
       'url': 'https://lnmp.org/'
     - 'name': 'AMH'
       'url': 'https://amh.sh/'
-    - 'name': '1PANEL'
-      'url': 'https://1panel.cn/'
     - 'name': 'jsDelivr'
       'url': 'https://www.jsdelivr.com/'
     - 'name': 'Staticfile'

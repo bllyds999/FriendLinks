@@ -1,8 +1,0 @@
-'site':
-  'name': 'julienblog.com'
-  'url': 'http://www.julienblog.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '乐动官方端网页版-乐动(中国)'
-      'url': 'http://www.redbeanforum.com'

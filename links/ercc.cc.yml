@@ -1,8 +1,0 @@
-'site':
-  'name': 'ercc.cc'
-  'url': 'https://www.ercc.cc/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': '22.cn'
-      'url': 'https://www.22.cn'

@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/link/'
   'friends':
-    - 'name': 'CAD软件'
-      'url': 'https://www.gstarcad.com/'
     - 'name': '设计素材'
       'url': 'https://www.ztupic.com'
     - 'name': 'IT培训'

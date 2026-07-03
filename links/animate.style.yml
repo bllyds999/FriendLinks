@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'Daniel Eden'
       'url': 'https://daneden.me'
-    - 'name': 'CodePen'
-      'url': 'https://codepen.io'
     - 'name': 'Hippocratic License'
       'url': 'http://firstdonoharm.dev'

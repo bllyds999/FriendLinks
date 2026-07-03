@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'ModernCSS.dev'
-      'url': 'https://moderncss.dev'
     - 'name': 'StyleStage.dev'
       'url': 'https://stylestage.dev'
     - 'name': 'LearnFromSteph.dev'

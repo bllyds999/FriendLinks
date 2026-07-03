@@ -1,8 +1,0 @@
-'site':
-  'name': 'css-tricks.com'
-  'url': 'https://css-tricks.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 'CodePen'
-      'url': 'http://codepen.io'

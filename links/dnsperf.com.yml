@@ -1,8 +1,0 @@
-'site':
-  'name': 'dnsperf.com'
-  'url': 'https://www.dnsperf.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Get premium'
-      'url': 'https://perfops.net/'

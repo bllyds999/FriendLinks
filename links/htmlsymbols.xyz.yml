@@ -4,10 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Font Awesome'
-      'url': 'https://fontawesome.com/'
-    - 'name': 'Stack Overflow'
-      'url': 'https://stackoverflow.com/'
     - 'name': 'Cookie Consent by Insites'
       'url': 'https://cookieconsent.insites.com/'
     - 'name': 'clipboard.js'

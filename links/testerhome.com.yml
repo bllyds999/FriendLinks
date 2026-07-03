@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'SegmentFault'
-      'url': 'https://segmentfault.com/'
     - 'name': '测试窝'
       'url': 'https://www.testwo.com/'
     - 'name': 'IT大咖说'

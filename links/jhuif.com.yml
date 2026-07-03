@@ -1,8 +1,0 @@
-'site':
-  'name': 'jhuif.com'
-  'url': 'http://www.jhuif.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '米兰网页版·官方端入口-米兰online(中国)'
-      'url': 'http://www.jczsbz.com/'

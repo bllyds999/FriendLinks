@@ -6,9 +6,3 @@
   'friends':
     - 'name': '今日人才网'
       'url': 'http://www.jrrc.com'
-    - 'name': '今日招聘网'
-      'url': 'https://www.jrzp.com'
-    - 'name': '宣讲会'
-      'url': 'http://xuanjiang.jrzp.com/'
-    - 'name': '云宣讲'
-      'url': 'http://live.jrzp.com/'

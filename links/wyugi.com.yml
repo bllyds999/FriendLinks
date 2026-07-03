@@ -1,8 +1,0 @@
-'site':
-  'name': 'wyugi.com'
-  'url': 'http://wyugi.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '英亚网页版页面-英亚(中国)'
-      'url': 'http://jsjgzx.com/'

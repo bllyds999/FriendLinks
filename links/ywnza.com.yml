@@ -1,8 +1,0 @@
-'site':
-  'name': 'ywnza.com'
-  'url': 'http://www.ywnza.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '云开体育-云开体育(中国)'
-      'url': 'http://cqwmw.com/'

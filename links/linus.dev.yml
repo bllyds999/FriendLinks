@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'TC39'
-      'url': 'https://tc39.es'
     - 'name': '@linusgroh:matrix.org'
       'url': 'https://matrix.to/#/@linusgroh:matrix.org'
     - 'name': 'Kiesel'

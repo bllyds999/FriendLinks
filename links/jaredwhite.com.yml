@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Bridgetown'
-      'url': 'https://www.bridgetownrb.com'
     - 'name': 'statichost.eu'
       'url': 'https://statichost.eu'
     - 'name': 'That''s what I do for a living!'

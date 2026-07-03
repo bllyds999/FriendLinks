@@ -72,8 +72,6 @@
       'url': 'https://nginxproxymanager.com'
     - 'name': 'Pi-Hole'
       'url': 'https://pi-hole.net'
-    - 'name': 'Font Awesome'
-      'url': 'https://fontawesome.com'
     - 'name': 'Iconify'
       'url': 'https://icon-sets.iconify.design'
     - 'name': 'PWA Builder'

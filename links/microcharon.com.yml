@@ -6,7 +6,5 @@
   'friends':
     - 'name': '晨鹤部落格'
       'url': 'https://chenhe.me/'
-    - 'name': 'NodeSeek'
-      'url': 'https://www.nodeseek.com'
     - 'name': 'CD包子铺'
       'url': 'https://cdbao.org'

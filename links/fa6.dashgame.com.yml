@@ -4,9 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': '作者博客'
-      'url': 'https://blog.fontawesome.com'
-    - 'name': '定制图标'
-      'url': 'https://fontawesome.com/#commissions'
     - 'name': 'PayPal'
       'url': 'https://www.paypal.com'

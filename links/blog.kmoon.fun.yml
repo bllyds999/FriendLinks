@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'www.v2ex.com V2EX ↗'
-      'url': 'https://www.v2ex.com'
     - 'name': 'testerhome.com TesterHome ↗'
       'url': 'https://testerhome.com'
     - 'name': 'blog.pdjjq.org DJJ 反抗吧，朋友！ ↗'

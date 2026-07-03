@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Ar-Sr-Na 博客站'
-      'url': 'https://b.arsrna.cn/'
     - 'name': 'Asteri5m的小破站'
       'url': 'https://asteri5m.icu/'
     - 'name': 'Bright Chen'

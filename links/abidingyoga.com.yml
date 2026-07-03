@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': '乐动网页版登录入口_乐动(中国)'
-      'url': 'http://www.mariannejoyas.com'
     - 'name': '乐动网站_乐动中国'
       'url': 'http://www.kokowinka.com'

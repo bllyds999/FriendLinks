@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'SegmentFault思否'
-      'url': 'https://segmentfault.com'
     - 'name': 'TesterHome'
       'url': 'https://testerhome.com'
     - 'name': 'W3CTech'

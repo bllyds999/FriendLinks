@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'Ghost'
       'url': 'https://ghost.org'
-    - 'name': 'Nuxt.js'
-      'url': 'https://nuxtjs.org'

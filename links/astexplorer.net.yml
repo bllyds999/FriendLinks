@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'Babel'
       'url': 'https://babeljs.io/'
-    - 'name': 'Font Awesome'
-      'url': 'https://fontawesome.com/'
     - 'name': 'Express'
       'url': 'https://expressjs.com/'

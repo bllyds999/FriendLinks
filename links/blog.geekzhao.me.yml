@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links.html'
   'friends':
-    - 'name': '唯一度博客 上善若水，水利万物而不争'
-      'url': 'http://www.234du.com/'
     - 'name': 'Keinx 学无止境，无限可能'
       'url': 'https://www.keinx.com/'
     - 'name': '陈宇恒博客 又一个 Typecho 站点'

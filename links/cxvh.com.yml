@@ -66,8 +66,6 @@
       'url': 'https://www.amazon.cn/'
     - 'name': 'codesandbox'
       'url': 'https://codesandbox.io/'
-    - 'name': 'codepen'
-      'url': 'https://codepen.io/'
     - 'name': 'plnkr'
       'url': 'http://plnkr.co/'
     - 'name': 'repl.it'

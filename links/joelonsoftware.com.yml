@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'Stack Overflow'
-      'url': 'http://stackoverflow.com'
     - 'name': 'Stack Exchange network'
       'url': 'http://stackexchange.com'
     - 'name': 'Fog Creek Software'
@@ -16,7 +14,5 @@
       'url': 'https://gomix.com/'
     - 'name': 'NewsBlur'
       'url': 'https://newsblur.com/'
-    - 'name': 'Glitch'
-      'url': 'https://glitch.com/'
     - 'name': 'HASH'
       'url': 'https://hash.ai/'

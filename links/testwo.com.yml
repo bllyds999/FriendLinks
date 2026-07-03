@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'SegmentFault'
-      'url': 'https://segmentfault.com'
     - 'name': 'TesterHome'
       'url': 'http://testerhome.com'
     - 'name': '禅道项目管理'

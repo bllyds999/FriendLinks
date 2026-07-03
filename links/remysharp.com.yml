@@ -24,7 +24,5 @@
       'url': 'http://adactio.com'
     - 'name': 'Socket.IO'
       'url': 'http://Socket.IO'
-    - 'name': 'Web & JavaScript conference'
-      'url': 'https://ffconf.org'
     - 'name': 'MIT license'
       'url': 'http://rem.mit-license.org'

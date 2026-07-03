@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Free DNS'
       'url': 'https://dns.he.net/'
-    - 'name': 'BGP Toolkit'
-      'url': 'https://bgp.he.net'
     - 'name': 'Net Tools App'
       'url': 'https://networktools.he.net'
     - 'name': 'Forums'

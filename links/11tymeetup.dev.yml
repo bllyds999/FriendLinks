@@ -1,8 +1,0 @@
-'site':
-  'name': '11tymeetup.dev'
-  'url': 'https://11tymeetup.dev/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Website'
-      'url': 'https://sia.codes/'

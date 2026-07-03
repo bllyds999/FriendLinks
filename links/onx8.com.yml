@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'SegmentFault'
-      'url': 'http://segmentfault.com/'
     - 'name': '不凡博客'
       'url': 'http://www.bufanz.com/'
     - 'name': '稚云博客'

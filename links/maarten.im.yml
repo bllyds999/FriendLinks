@@ -6,5 +6,3 @@
   'friends':
     - 'name': 'Lightspeed'
       'url': 'https://www.lightspeedhq.com/'
-    - 'name': 'Gatsby'
-      'url': 'https://www.gatsbyjs.org/'

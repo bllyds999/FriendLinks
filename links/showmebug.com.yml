@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'daydao'
       'url': 'https://www.daydao.com/'
-    - 'name': 'SegmentFault'
-      'url': 'https://segmentfault.com/'
     - 'name': '增长黑客'
       'url': 'https://www.growthhk.cn'
     - 'name': '维格表'

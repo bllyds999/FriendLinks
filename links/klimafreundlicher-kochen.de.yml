@@ -1,8 +1,0 @@
-'site':
-  'name': 'klimafreundlicher-kochen.de'
-  'url': 'https://www.klimafreundlicher-kochen.de/'
-  'description': '友情链接'
-  'links': '/about'
-  'friends':
-    - 'name': 'Font Awesome'
-      'url': 'https://fontawesome.com/'

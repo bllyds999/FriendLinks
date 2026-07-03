@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'MathOverflow'
       'url': 'http://mathoverflow.net/'
-    - 'name': 'Stack Overflow'
-      'url': 'http://www.stackoverflow.com/'
     - 'name': 'Android Developer'
       'url': 'http://developer.android.com/'
     - 'name': '干货集中营'

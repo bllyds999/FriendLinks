@@ -1,8 +1,0 @@
-'site':
-  'name': 'shijueli.com'
-  'url': 'http://shijueli.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '米兰官方站网页版在线登入-米兰(中国)'
-      'url': 'http://51szjz.com/'

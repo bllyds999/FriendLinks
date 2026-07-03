@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links'
   'friends':
-    - 'name': 'SegmentFault'
-      'url': 'https://segmentfault.com/'
     - 'name': 'Arrfounder'
       'url': 'https://arrfounder.com'
     - 'name': 'Geddle'

@@ -1,8 +1,0 @@
-'site':
-  'name': 'mem.ac'
-  'url': 'https://mem.ac/'
-  'description': '友情链接'
-  'links': '/friends'
-  'friends':
-    - 'name': 'Gatsby.js'
-      'url': 'https://gatsbyjs.org/'

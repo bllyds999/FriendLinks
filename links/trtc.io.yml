@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Tencent EdgeOne'
-      'url': 'https://edgeone.ai/'
     - 'name': 'Tencent MPS'
       'url': 'https://mps.live/'
     - 'name': 'Tencent VooV Meeting'

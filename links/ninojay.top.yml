@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends'
   'friends':
-    - 'name': 'V2EX'
-      'url': 'https://www.v2ex.com/'
     - 'name': 'LeetCode-CN'
       'url': 'https://leetcode.cn/'
     - 'name': '少数派'

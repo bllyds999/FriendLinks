@@ -4,10 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Font Awesome'
-      'url': 'https://fontawesome.com/'
-    - 'name': 'CloudCannon'
-      'url': 'https://cloudcannon.com/'
     - 'name': 'NEJS CONF'
       'url': 'http://nejsconf.com/'
     - 'name': 'NebraskaJS'

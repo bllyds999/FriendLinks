@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/links.html'
   'friends':
-    - 'name': '逍遥客'
-      'url': 'https://11010.net'
     - 'name': 'NullPointerException'
       'url': 'https://omn.cc/'
     - 'name': '夜轻Blog'

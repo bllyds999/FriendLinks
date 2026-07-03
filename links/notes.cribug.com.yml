@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'Laravel学院'
-      'url': 'http://laravelacademy.org/'
     - 'name': 'laravist'
       'url': 'https://laravist.com/'
     - 'name': 'Kyomini Book'

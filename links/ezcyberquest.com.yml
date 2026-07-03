@@ -1,8 +1,0 @@
-'site':
-  'name': 'ezcyberquest.com'
-  'url': 'http://ezcyberquest.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': '乐动官方端网页版-乐动(中国)'
-      'url': 'http://www.julienblog.com'

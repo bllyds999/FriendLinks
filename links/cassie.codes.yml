@@ -1,8 +1,0 @@
-'site':
-  'name': 'cassie.codes'
-  'url': 'https://cassie.codes/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'CSS tricks'
-      'url': 'https://css-tricks.com/'

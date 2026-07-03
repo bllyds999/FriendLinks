@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'CAD软件'
-      'url': 'https://www.gstarcad.com/'
     - 'name': '多特软件站'
       'url': 'https://www.duote.com/'
     - 'name': 'logo'
@@ -14,8 +12,6 @@
       'url': 'https://www.fotor.com.cn'
     - 'name': 'MBA中国网'
       'url': 'https://www.mbachina.com/'
-    - 'name': 'CNMO'
-      'url': 'https://www.cnmo.com'
     - 'name': '二级建造师报考条件'
       'url': 'http://www.xuex.cn/'
     - 'name': '系统之家'

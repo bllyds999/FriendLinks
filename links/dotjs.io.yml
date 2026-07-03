@@ -6,7 +6,5 @@
   'friends':
     - 'name': 'dotAI,'
       'url': 'https://www.dotai.io/'
-    - 'name': 'TC39'
-      'url': 'https://tc39.es'
     - 'name': 'callio'
       'url': 'https://www.callio.dev/'

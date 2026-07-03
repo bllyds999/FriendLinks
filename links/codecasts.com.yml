@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/link'
   'friends':
-    - 'name': 'Laravel 学院'
-      'url': 'http://laravelacademy.org/'
     - 'name': 'sswowo的博客'
       'url': 'http://wowo.in/'
     - 'name': 'X-Bird的博客'

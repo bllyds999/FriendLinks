@@ -4,7 +4,5 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': 'ModernCSS.dev'
-      'url': 'https://moderncss.dev'
     - 'name': 'CSS Zen Garden'
       'url': 'http://www.csszengarden.com/'

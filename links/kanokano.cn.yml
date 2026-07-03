@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/friends.html'
   'friends':
-    - 'name': '云路由'
-      'url': 'http://s3a161a26f0753227.luyou.gocloud.cn:8864/'
     - 'name': 'base64转换'
       'url': 'http://base64.top/'
     - 'name': '起始页'
@@ -128,8 +126,6 @@
       'url': 'https://blog.qjhqy.com/'
     - 'name': '夏沫花火zzz'
       'url': 'https://1l1.icu'
-    - 'name': '溯小容'
-      'url': 'https://alist.histb.com'
     - 'name': 'MuXiaoChen🍊'
       'url': 'https://www.aimiliy.top'
     - 'name': 'cjq'

@@ -6,8 +6,6 @@
   'friends':
     - 'name': 'Smashing Magazine'
       'url': 'https://www.smashingmagazine.com'
-    - 'name': 'CSS-Tricks'
-      'url': 'https://css-tricks.com'
     - 'name': 'Beyond Tellerand'
       'url': 'https://beyondtellerrand.com/'
     - 'name': 'web.dev'
