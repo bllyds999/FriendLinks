@@ -1,8 +1,10 @@
-'site':
-  'name': 'Exister'
-  'description': 'Written By Human Not By AI'
-  'url': 'https://exister.tk/'
-  'links': '/links'
-  'friends':
-    - 'name': '姓王者'
-      'url': 'https://xingwangzhe.fun/'
+site:
+  name: Exister
+  description: Written By Human Not By AI
+  url: https://exister.tk/
+  links: /links
+  friends:
+    - name: 姓王者
+      url: https://xingwangzhe.fun
+    - name: 亂筆
+      url: https://blog.l3zc.com
