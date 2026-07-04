@@ -754,11 +754,6 @@ export function init3d(graphData: GraphData) {
       } else {
         flyExitRoll = 0;
       }
-      // Ctrl+拖拽横滚（球幕斜视）
-      const roll = (ctx.controls as any).getRoll?.() || 0;
-      if (Math.abs(roll) > 0.0001) {
-        ctx.camera.rotateZ(roll);
-      }
     }
 
     ctx.renderer.render(ctx.scene, ctx.camera);
