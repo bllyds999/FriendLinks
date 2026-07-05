@@ -174,10 +174,10 @@ export async function GET() {
   }
   const linksFlat = Array.from(linkSrcTgt.slice(0, li));
 
-  const REPULSION = 3000;
+  const REPULSION = 30000;
   const LINK_DISTANCE = 500;
-  const CENTER_STRENGTH = 0.005;
-  const forceOpts = { repulsion: REPULSION, linkDistance: LINK_DISTANCE, centerStrength: CENTER_STRENGTH, theta: 0.8, velocityDecay: 0.60, alphaDecay: 0.02 };
+  const CENTER_STRENGTH = 0.015;
+  const forceOpts = { repulsion: REPULSION, linkDistance: LINK_DISTANCE, centerStrength: CENTER_STRENGTH, theta: 0.8, velocityDecay: 0.10, alphaDecay: 0.02 };
 
   const FAST = import.meta.env.DEV || !!process.env.MINIBUILD;
   const TICKS_MAX = FAST ? 100 : 500;

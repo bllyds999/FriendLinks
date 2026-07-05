@@ -99,7 +99,7 @@ export function updateAllNodePositions(ctx: RenderContext, nodes: GraphNode[], n
 
   for (let i = 0; i < nodes.length; i++) {
     const n = nodes[i];
-    m.compose(new THREE.Vector3(n.x ?? 0, n.y ?? 0, n.z ?? 0), new THREE.Quaternion(), new THREE.Vector3(3, 3, 3));
+    m.compose(new THREE.Vector3(n.x ?? 0, n.y ?? 0, n.z ?? 0), new THREE.Quaternion(), new THREE.Vector3(15, 15, 15));
     ctx.nodes.setMatrixAt(i, m);
 
     if (nodeStates[i]) {
