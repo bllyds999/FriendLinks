@@ -36,3 +36,6 @@ unknown.txt
 probe_by_route/
 
 .playwright-cli/
+
+# Crawlee 运行时产物
+storage/
