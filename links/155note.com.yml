@@ -4,8 +4,6 @@
   'description': '友情链接'
   'links': '/'
   'friends':
-    - 'name': '小熊软件'
-      'url': 'https://xxrj.cn/'
     - 'name': '私域神器'
       'url': 'https://www.siyushenqi.com/'
     - 'name': '极客酱'

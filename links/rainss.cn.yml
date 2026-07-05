@@ -1,74 +1,52 @@
-'site':
-  'name': 'rainss.cn'
-  'url': 'http://rainss.cn/'
-  'description': '友情链接'
-  'links': '/links.html'
-  'friends':
-    - 'name': '枫林幻境'
-      'url': 'http://fyypll.cn'
-    - 'name': '现实君'
-      'url': 'http://uixsj.cn'
-    - 'name': '初夏博客'
-      'url': 'https://www.wlhrt.cn/'
-    - 'name': '零玖博客'
-      'url': 'http://vv1234.cn'
-    - 'name': '灰色头像'
-      'url': 'http://3ghh.cn'
-    - 'name': '西门吹雪'
-      'url': 'http://ximcx.cn/'
-    - 'name': '情醉中国风'
-      'url': 'http://www.sqyai.com/'
-    - 'name': '淡墨的小屋'
-      'url': 'http://warss.cn'
-    - 'name': '顾念文笔'
-      'url': 'http://gunianwen.com/'
-    - 'name': '雨落泪尽'
-      'url': 'http://1000yun.cn'
-    - 'name': '工匠盒子'
-      'url': 'https://www.artisanbox.org/'
-    - 'name': '小乐博客'
-      'url': 'http://xiaole66.cn/'
-    - 'name': '云小哥'
-      'url': 'http://yuntongxue.cn'
-    - 'name': '我爱老司机'
-      'url': 'http://520lsj.cn/'
-    - 'name': 'Marisn'
-      'url': 'https://blog.67cc.cn'
-    - 'name': '宿觞博客'
-      'url': 'http://duanpenghui.com'
-    - 'name': 'Godaddy'
-      'url': 'http://www.goyouhuima.com'
-    - 'name': 'WispX'
-      'url': 'http://www.wispx.cn'
-    - 'name': '阿飞博客'
-      'url': 'http://af520.cn/'
-    - 'name': '是非题'
-      'url': 'https://shifeiti.cn/'
-    - 'name': '鸟叔の窝'
-      'url': 'https://thornbird.org/'
-    - 'name': 'UOOPE技术栈'
-      'url': 'https://uoope.com'
-    - 'name': '文学经典'
-      'url': 'http://www.vrrw.net'
-    - 'name': '卡卡讯'
-      'url': 'http://kkxun.com'
-    - 'name': '奇乐网'
-      'url': 'https://76wp.cn'
-    - 'name': 'YVAN'
-      'url': 'http://host712259411.s136.pppf.com.cn'
-    - 'name': 'gsdad_white'
-      'url': 'https://www.smalli.org'
-    - 'name': '小鱼CC'
-      'url': 'https://www.qzylytt.top'
-    - 'name': '粘小土'
-      'url': 'http://www.nianxiaotu.com'
-    - 'name': '凌一博客'
-      'url': 'https://lyiqk.cn'
-    - 'name': 'Echocow'
-      'url': 'https://www.echocow.cn'
-    - 'name': '浅枫沐雪'
-      'url': 'http://allms.cn/'
-    - 'name': 'Deepin非官方站'
-      'url': 'https://deepin.evanora.top'
-    - 'name': 'Cuteen'
-      'url': 'https://blog.zwying.com'
+site:
+  name: 雨落凋殇
+  description: 雨落凋殇的个人博客
+  url: https://rainss.cn/
+  links: /neighbour.html
+  friends:
+    - name: Echocow
+      url: https://zyue.wiki/
+    - name: 浅枫沐雪
+      url: http://allms.cn/
+    - name: 枫林幻境
+      url: https://maplerain.cc/
+    - name: 情醉中国风
+      url: https://www.sqyai.com/
+    - name: 零玖博客
+      url: https://vv1234.cn/
+    - name: 淡墨的小屋
+      url: http://warss.cn/
+    - name: 雨落泪尽
+      url: https://couqiao.net/
+    - name: 懵仙兔兔
+      url: https://2dph.com/
+    - name: 鉛華博客
+      url: https://blog.shifeiti.cn/
+    - name: 鸟叔の窝
+      url: https://thornbird.org/
+    - name: 洛丽糖
+      url: http://luolt.cn/
+    - name: 凌一博客
+      url: https://lyiqk.cn/
+    - name: 卡卡讯
+      url: https://kkxun.com/
+    - name: 卷土博客
+      url: https://juantu.cn/
+    - name: 赵彤刚的博客
+      url: http://blog.heheda.top/
+    - name: 追往昔
+      url: http://zl88.net/
+    - name: Deep的小屋
+      url: https://www.deepon.cn/
+    - name: 云小哥
+      url: http://yuntongxue.cn/
+    - name: 00#00
+      url: https://own.evanora.top/
+    - name: 观后无感
+      url: https://www.blog18.cn/
+    - name: 素颜
+      url: https://www.suyanw.cn/
+    - name: 东方幻梦
+      url: https://blog.badapple.pro/
+    - name: 落语
+      url: https://fallenleave.net/

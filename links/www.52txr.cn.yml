@@ -1,112 +1,116 @@
-'site':
-  'name': '陶小桃的博客'
-  'description': '以网站建设、Linux、VPS、云主机、网站优化与博客心得为主的个人站长博客。'
-  'url': 'https://www.52txr.cn/'
-  'links': '/Friends.html'
-  'friends':
-    - 'name': 'imydl'
-      'url': 'https://www.imydl.com/'
-    - 'name': '张戈博客'
-      'url': 'https://zhangge.net/'
-    - 'name': '咖啡走糖'
-      'url': 'https://www.qwc-lmhhj.cn/'
-    - 'name': '网友小宋'
-      'url': 'https://xyzbz.cn/'
-    - 'name': 'iMin 博客'
-      'url': 'https://www.iminbk.com/'
-    - 'name': '南蛮子懋和'
-      'url': 'https://www.dao.js.cn/'
-    - 'name': 'HALFA 博客'
-      'url': 'https://www.mahaofei.com/'
-    - 'name': 'blog.zhheo'
-      'url': 'https://blog.zhheo.com/'
-    - 'name': 'Kali 博客'
-      'url': 'https://blog.bbskali.cn/'
-    - 'name': '鸟叔の窝'
-      'url': 'https://thornbird.org/'
-    - 'name': 'OhYee'
-      'url': 'https://www.ohyee.cc/'
-    - 'name': 'Auriel の小破站'
-      'url': 'https://www.auriel.top/'
-    - 'name': '尘遇'
-      'url': 'https://chenyu.me/'
-    - 'name': '猫爪鱼'
-      'url': 'https://picsky.cn/'
-    - 'name': 'Justin 写字的地方'
-      'url': 'https://zblogs.top/'
-    - 'name': 'Kartone''s Blog'
-      'url': 'https://blog.kartone.site/'
-    - 'name': 'UQUQ'
-      'url': 'https://www.uquq.cn/'
-    - 'name': '云计算运维'
-      'url': 'https://blog.ossq.cn/'
-    - 'name': '奥奥的部落格'
-      'url': 'https://fiime.cn/'
-    - 'name': '又见苍岚'
-      'url': 'https://www.zywvvd.com/'
-    - 'name': 'cicode 博客'
-      'url': 'http://www.cicode.cn/'
-    - 'name': '韩涛博客'
-      'url': 'https://www.hantaosec.com/'
-    - 'name': '迟博勋博客'
-      'url': 'https://www.chiboxun.com/'
-    - 'name': '落文云网络'
-      'url': 'https://www.52n.cc/'
-    - 'name': '公爵书房'
-      'url': 'https://blog.gjcloak.top/'
-    - 'name': 'XIAOMING''S BLOG'
-      'url': 'https://vimin.cc/'
-    - 'name': '爱吃肉的猫'
-      'url': 'https://meuicat.com/'
-    - 'name': '淇云博客'
-      'url': 'https://www.pengqi.club/'
-    - 'name': '柒柒blog'
-      'url': 'https://blog.lwgzs.cn/'
-    - 'name': '文武科技柜'
-      'url': 'https://www.wangdu.site/'
-    - 'name': '9sb'
-      'url': 'https://9sb.net/'
-    - 'name': '亚灿网志 (Manyacan)'
-      'url': 'https://www.manyacan.com/'
-    - 'name': 'Dabenshi'
-      'url': 'https://dabenshi.cn/'
-    - 'name': 'Muidar'
-      'url': 'https://muidar.com/'
-    - 'name': 'Mengfanjun'
-      'url': 'https://mfjblog.top/'
-    - 'name': '东东的小黑盒'
-      'url': 'https://www.ankia.top/'
-    - 'name': '鄢云峰'
-      'url': 'https://yanyunfeng.com/'
-    - 'name': '韩情脉脉'
-      'url': 'https://www.hxy.cc/'
-    - 'name': '冰火之砺'
-      'url': 'https://blog.marice.top/'
-    - 'name': '小权的探险日记'
-      'url': 'https://www.nsxsb.com/'
-    - 'name': '小鹿的个人网站'
-      'url': 'https://www.siena.zone/'
-    - 'name': 'Dongdong''s Blog'
-      'url': 'https://ddw2019.com/'
-    - 'name': 'XueZhao 的博客'
-      'url': 'https://www.xuezhao.space/'
-    - 'name': 'CommunityBlog'
-      'url': 'https://communityblog.xyz/'
-    - 'name': '一个夏天的年少'
-      'url': 'http://www.zhuangqingyuan.site/'
-    - 'name': '蓝天有月的博客'
-      'url': 'https://www.my8090.cn/'
-    - 'name': '琳晨博客'
-      'url': 'https://52lc.top/'
-    - 'name': '墨点白'
-      'url': 'https://nanwish.love/'
-    - 'name': 'Lincol29'
-      'url': 'https://www.lincol29.cn/'
-    - 'name': 'ztr 的小窝'
-      'url': 'https://ztrztr.top/'
-    - 'name': 'blog.tsio'
-      'url': 'https://blog.tsio.top/'
-    - 'name': 'imuu'
-      'url': 'https://www.imuu.cn/'
-    - 'name': '青云(blog bytesycn)'
-      'url': 'https://bytesycn.cn/'
+site:
+  name: 陶小桃Blog
+  description: 热衷于分享日常和技术的机械专业小哥哥~
+  url: https://www.52txr.cn/
+  links: /Friends.html
+  friends:
+    - name: 懋和道人
+      url: https://www.dao.js.cn
+    - name: YBExistence
+      url: https://www.lybblog.cn/
+    - name: Miocaky
+      url: https://www.mioc.cn
+    - name: Rawley
+      url: https://rawley2025.xyz
+    - name: 淇云博客
+      url: https://www.88pq.cn/
+    - name: 老刘博客
+      url: https://www.liublog.cn/
+    - name: HiPeach
+      url: https://blog.opeach.cn
+    - name: 浅染
+      url: http://blog.zr0.cn
+    - name: 小聂
+      url: https://xiaonie.xyz/
+    - name: 冬七
+      url: http://snows-l.site
+    - name: Zhangl
+      url: https://www.blog.gszyzl.cn/
+    - name: RyanZhang
+      url: https://bytesycn.cn
+    - name: xuan
+      url: https://blog.ybyq.wang
+    - name: 倪星宇
+      url: http://www.0731119.xyz/
+    - name: hary
+      url: https://www.hxy.cc/
+    - name: Young143
+      url: https://www.young143.top
+    - name: 止戈
+      url: https://picsky.cn
+    - name: 凌清云
+      url: https://www.qynest.cn
+    - name: 张文保
+      url: https://zhangwenbao.com
+    - name: 满心
+      url: https://zhoutian.com
+    - name: 湘铭呀
+      url: https://xiangming.site/
+    - name: 光溯星河
+      url: https://blog.tsio.top
+    - name: q2019
+      url: https://www.q2019.com
+    - name: HansJack
+      url: https://www.hansjack.com/
+    - name: WeekUP
+      url: https://metaipro.com/
+    - name: liuk123
+      url: http://www.prime12.com
+    - name: 冷冰冰
+      url: https://o331.fun
+    - name: 钧言
+      url: https://www.jinjun.top/
+    - name: 倦意
+      url: https://jyblog.cn
+    - name: tqazy
+      url: https://www.tqazy.com
+    - name: 运维学习笔记博客
+      url: https://tech.imydl.com
+    - name: CMuidar
+      url: https://muidar.com
+    - name: mingchen
+      url: https://www.itmingchen.cn
+    - name: webfem
+      url: https://webfem.com/
+    - name: 王鑫
+      url: https://wonse.info
+    - name: 布洛妮娅总裁
+      url: https://bronya-zaychik.cn/
+    - name: simonsu
+      url: https://simonsu.cn/
+    - name: 句号
+      url: https://0jh.cn
+    - name: starchen
+      url: https://blog.starchen.top/
+    - name: 小李同学
+      url: https://blog.xxfer.cn/
+    - name: 伍六
+      url: https://57767.top
+    - name: hyruo
+      url: https://hyruo.com
+    - name: 小白菜
+      url: https://blog.1zxbc.cn/
+    - name: 瀚海星辰
+      url: https://www.imuu.cn
+    - name: 幻风网
+      url: https://www.46x.cn
+    - name: 笨笨
+      url: https://mkirin.top
+    - name: ztrztr
+      url: https://ztrztr.top
+    - name: 网友小宋
+      url: https://xyzbz.cn
+    - name: lincol29
+      url: https://www.lincol29.cn
+    - name: 墨点白
+      url: https://nanwish.love
+    - name: LinChen
+      url: https://52lc.top
+    - name: PeterJXL
+      url: https://www.peterjxl.com/
+    - name: 0cv
+      url: https://www.0cv.com
+    - name: blogplanet
+      url: https://www.blogplanet.cn/
+    - name: shmaur
+      url: https://www.shmaur.com/

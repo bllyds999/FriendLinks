@@ -1,8 +1,26 @@
-'site':
-  'name': 'blog.acesheep.com'
-  'url': 'https://blog.acesheep.com/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'Jimmy'
-      'url': 'https://jimmycai.com'
+site:
+  name: AceSheep
+  description: 记录生活中的点滴，留下回忆与怀恋
+  url: https://blog.acesheep.com/
+  links: /links/
+  friends:
+    - name: NPCHK Blog
+      url: https://npchk.info/
+    - name: GLORIOUS DAYS
+      url: https://blog.gloriousdays.pw/
+    - name: linkthis blog
+      url: https://linkthis.me/
+    - name: 灰灰 の blog
+      url: https://huihui.moe/
+    - name: zankyo
+      url: https://zankyo.cc/
+    - name: Memo von EFS
+      url: https://amefs.net/
+    - name: 陈布衣的个人网站
+      url: https://buyi.dev/
+    - name: 赵苦瓜的Blog~
+      url: https://blog.jixiaob.cn/
+    - name: 夜琉璃小栈
+      url: https://0x0.ink/
+    - name: Vigorous Pro
+      url: https://www.wevg.org/

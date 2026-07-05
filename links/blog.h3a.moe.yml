@@ -1,0 +1,78 @@
+site:
+  name: 化猫の幻
+  description: H3a's blog
+  url: https://blog.h3a.moe/
+  links: /link/
+  friends:
+    - name: Rin's Blog
+      url: https://rin.moe/
+    - name: 赫兹的盒子
+      url: https://hertz.page/
+    - name: 🐑
+      url: https://ewe.moe/
+    - name: Billchenchina
+      url: https://billchen.bid/
+    - name: mcfx's blog
+      url: https://mcfx.us/
+    - name: Garden in the Wonderland
+      url: https://blog.yuuta.moe/
+    - name: Piggy's Home
+      url: https://blog.piggy.moe/
+    - name: Easton Man's Blog
+      url: https://blog.eastonman.com/
+    - name: Esonhugh_Namespace
+      url: https://eson.ninja/
+    - name: 倚窗，听雨
+      url: https://blog.coelacanthus.moe/
+    - name: Hanako Blog
+      url: https://hanako.me/
+    - name: Sxyazi's Blog
+      url: https://sxyz.blog/
+    - name: MiaoTony's 小窝
+      url: https://miaotony.xyz/
+    - name: SEPT'S PERSONAL BLOG
+      url: https://septs.blog/
+    - name: Satori's Storybook
+      url: https://satori-k.github.io/
+    - name: pointeee's blog
+      url: https://pointeee.github.io/
+    - name: Ben's front door page
+      url: https://www.imbushuo.net/
+    - name: Liet Blue
+      url: https://liet.moe/
+    - name: Nico杂货铺
+      url: https://niconiconi.us/
+    - name: iBug
+      url: https://ibug.io/
+    - name: CSL 讲废话
+      url: https://blog.cubercsl.site/
+    - name: XYenon's Blog
+      url: https://blog.xyenon.bid/
+    - name: Atelier Abyss
+      url: https://abyss.moe/
+    - name: 梓瑶
+      url: https://ziyao233.github.io/
+    - name: KusakabeSi's Space
+      url: https://www.kskb.eu.org/
+    - name: ssr's blog
+      url: https://leanhe.dev/
+    - name: JeffZ Blog
+      url: https://jeffz.page/
+    - name: 欧式的Blog
+      url: https://blog.ous50.moe/
+    - name: 惠狐之书
+      url: https://blog.megumifox.com/
+    - name: moecast.blog
+      url: https://blog.cas7.moe/
+    - name: QuantumAlgorithm's Portal
+      url: https://www.qamoe.cyou/
+    - name: KHonoka's Blog
+      url: https://khonoka.com/
+    - name: Ruri's Blog
+      url: https://blog.rurichan.work/
+    - name: TechCiel
+      url: https://ciel.dev/
+    - name: Leisurelybear's blog
+      url: https://blog.lebear.top/
+    - name: 奶昔博客
+      url: https://blog.naixi.net/

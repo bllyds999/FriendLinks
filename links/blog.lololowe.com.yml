@@ -1,44 +1,32 @@
-'site':
-  'name': 'blog.lololowe.com'
-  'url': 'https://blog.lololowe.com/'
-  'description': '友情链接'
-  'links': '/link/'
-  'friends':
-    - 'name': 'Jackie’s Blog这里是 Jackie 的个人博客，一名热爱技术的中国学生。专注分享区块链、智能合约、以太坊、CI/CD、开源项目以及 IT 基础设施的'
-      'url': 'https://jackie.openenet.cn/'
-    - 'name': '张洪Heo分享设计与科技生活'
-      'url': 'https://blog.zhheo.com/'
-    - 'name': '28.7空山不见人，但闻人语响'
-      'url': 'https://blog.kong.college/'
-    - 'name': '青序栈青序成栈·向简而生'
-      'url': 'https://www.qixz.cn/'
-    - 'name': 'bbb-lsy07科技激荡人文，洞见智慧本真'
-      'url': 'https://blog.tsoo.net/'
-    - 'name': 'lznauy的技术小屋生之微欢，俄而感怀，奋勉有得，相携互舍，所谓幸福'
-      'url': 'https://lznauy.cn/'
-    - 'name': 'weiのBlogweiのBlog'
-      'url': 'https://www.vivipe.com/'
-    - 'name': '清羽飞扬柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜'
-      'url': 'https://blog.liushen.fun/'
-    - 'name': '梦爱吃鱼不负心灵，不负今生。'
-      'url': 'https://blog.bsgun.cn/'
-    - 'name': '枫林灯语深山踏红叶，耳畔闻鹿鸣'
-      'url': 'https://blog.mfwt.top/'
-    - 'name': '木头堆栈kamto’s stack'
-      'url': 'https://blog.kamt.cn/'
-    - 'name': '含蓄的青椒'
-      'url': 'https://clashgithub.com/'
-    - 'name': 'bbb-lsy07'
-      'url': 'https://blog.6uu.us/'
-    - 'name': 'Prorise'
-      'url': 'https://prorise666.site/'
-    - 'name': 'FOFA'
-      'url': 'https://fofa.info/'
-    - 'name': 'VirusTotal'
-      'url': 'https://www.virustotal.com/'
-    - 'name': '微步云沙箱'
-      'url': 'https://s.threatbook.com/'
-    - 'name': 'IP归属查询'
-      'url': 'https://iplark.com/'
-    - 'name': '网速测试'
-      'url': 'https://shua.leyz.top/'
+site:
+  name: lololowe的博客
+  description: 计网，网安知识分享
+  url: https://blog.lololowe.com/
+  links: /link/
+  friends:
+    - name: Jackie's Blog
+      url: https://jackie.openenet.cn/
+    - name: 张洪Heo
+      url: https://blog.zhheo.com/
+    - name: '28.7'
+      url: https://blog.kong.college/
+    - name: 青序栈
+      url: https://www.qixz.cn/
+    - name: bbb-lsy07
+      url: https://blog.tsoo.net/
+    - name: lznauy的技术小屋
+      url: https://lznauy.cn/
+    - name: Prorise - 博客小栈
+      url: https://blog.prorisehub.com/
+    - name: weiのBlog
+      url: https://www.vivipe.com/
+    - name: 清羽飞扬
+      url: https://blog.liushen.fun/
+    - name: 梦爱吃鱼
+      url: https://blog.bsgun.cn/
+    - name: 枫林灯语
+      url: https://blog.mfwt.top/
+    - name: 木头堆栈
+      url: https://blog.kamt.cn/
+    - name: 超腾开源
+      url: https://www.hylab.cn/

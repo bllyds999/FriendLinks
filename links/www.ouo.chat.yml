@@ -1,0 +1,20 @@
+site:
+  name: 鸭鸭的小站
+  description: 一只游走在互联网上的黄油小蛋糕
+  url: https://www.ouo.chat/
+  links: /friends
+  friends:
+    - name: 时隐重工
+      url: https://shiyin.cafe/
+    - name: 853Lab
+      url: https://853lab.com/
+    - name: 汐汐雾の小窝
+      url: https://pmp.moe/
+    - name: 橙橙子の小窝
+      url: https://nyanote.cn/
+    - name: 布布
+      url: https://dwd.moe/
+    - name: 汝汝秋的博客
+      url: https://www.ruqiu.life/
+    - name: 無無名小栈
+      url: https://blog.imsyy.top/

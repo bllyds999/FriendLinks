@@ -1,0 +1,24 @@
+site:
+  name: Escape
+  description: 听摇滚,但不偏颇;也挺古典,但不安逸
+  url: https://www.escapelife.site/
+  links: /friends
+  friends:
+    - name: 董伟明
+      url: https://dongwm.com/
+    - name: 阮一峰
+      url: http://www.ruanyifeng.com/
+    - name: 酷壳(R.I.P)
+      url: https://coolshell.cn/
+    - name: laike9m
+      url: https://laike9m.com/
+    - name: 赖鑫涛
+      url: https://www.kawabangga.com/
+    - name: 朱雷
+      url: https://www.piglei.com/
+    - name: Miguel
+      url: https://blog.miguelgrinberg.com/
+    - name: 我才是二亮
+      url: http://blog.2liang.me/
+    - name: ferstar
+      url: https://blog.ferstar.org/

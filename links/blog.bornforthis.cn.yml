@@ -1,14 +1,82 @@
-'site':
-  'name': '别碰我的镜头盖'
-  'url': 'https://blog.bornforthis.cn/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '私教主页'
-      'url': 'https://www.class1v1.com/'
-    - 'name': 'Medium'
-      'url': 'https://aiyc.top'
-    - 'name': '小奥のblog'
-      'url': 'https://www.aokaoka.top/'
-    - 'name': '梦爱吃鱼'
-      'url': 'https://blog.bsgun.cn/'
+site:
+  name: 别碰我的镜头盖
+  description: AI悦创的个人博客
+  url: https://blog.bornforthis.cn/
+  links: /link/
+  friends:
+    - name: Naokuo
+      url: https://www.naokuo.top/
+    - name: 小旦
+      url: https://satera.cn/
+    - name: 梦爱吃鱼
+      url: https://blog.bsgun.cn/
+    - name: Akilarの糖果屋
+      url: https://akilar.top/
+    - name: 煮雪话河山'Blog
+      url: https://blog.cent1pedee.top/
+    - name: 张时贰
+      url: https://zhsher.cn/
+    - name: 南方嘉木
+      url: https://blog.cancin.cn/
+    - name: 轻笑Chuckle
+      url: https://www.qcqx.cn/
+    - name: Joker2Yue的个人博客
+      url: https://blog.joker2yue.cn/
+    - name: 刘郎阁
+      url: https://vjo.cc/
+    - name: 爱吃肉的猫
+      url: https://meuicat.com/
+    - name: XingJiのBlog
+      url: https://love.xingji.fun/
+    - name: Mikuの极光星
+      url: https://blog.sotkg.com/
+    - name: xaoxuu
+      url: https://xaoxuu.com/
+    - name: 周润发
+      url: https://blog.aizrf.com/
+    - name: 小奥のblog
+      url: https://www.aokaoka.top/
+    - name: 落叶不随
+      url: https://bloggersht.com.cn/
+    - name: Verslamerrr
+      url: https://verslamerrr.com/
+    - name: 陌颜Hao
+      url: https://blog.imoyan.top/
+    - name: 安知鱼
+      url: https://blog.anheyu.com/
+    - name: Leonus
+      url: https://blog.leonus.cn/
+    - name: 前尘小筑
+      url: https://mnchen.cn/
+    - name: 铭心石刻
+      url: https://blog.kouseki.cn/
+    - name: Xne3
+      url: https://xne3.top/link/
+    - name: Elykia
+      url: https://blog.elykia.cn/
+    - name: 朽丘秋雨
+      url: https://blog.koxiuqiu.cc/
+    - name: Ganzhe
+      url: https://ganzhe.site/
+    - name: 碎幻梦灬
+      url: https://blog.chenyudong.cn/
+    - name: 琅環书生
+      url: https://blog.chn.us.kg/
+    - name: Ariasakaの小窝
+      url: https://blog.yaria.top/
+    - name: 廿壴博客
+      url: https://blog.ganxb2.com/
+    - name: TWindyの小站
+      url: https://www.twindy.top/
+    - name: 一粒微尘
+      url: https://blog.667408.xyz/
+    - name: Loris Cro
+      url: https://kristoff.it/
+    - name: 丁俊尧「4ading」
+      url: https://4ading.com/
+    - name: 美好的明天
+      url: https://www.wmviv.com/
+    - name: 弈鸣小筑
+      url: https://blog.ymhut.cn/
+    - name: 青序栈
+      url: https://qxzhan.cn/

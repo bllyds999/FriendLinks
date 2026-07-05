@@ -1,0 +1,46 @@
+site:
+  name: Watermelonabc的Blog
+  description: 一个蒟蒻 CTFer 的自留地~
+  url: https://watermelonabc.top/
+  links: /friends
+  friends:
+    - name: 景蓝的小屋
+      url: https://yurik.cafe/
+    - name: 龙星划空
+      url: https://blog.245179.xyz/
+    - name: GoodBoyboy 's Blog
+      url: https://blog.goodboyboy.top/
+    - name: Gogei的静默日志
+      url: https://blog.gogei.top/
+    - name: 拾光小阁
+      url: https://blog.bear556.top/
+    - name: Potat0w0's Blog
+      url: https://blog.potatowo.top/
+    - name: Cl1ck-t0's blog
+      url: https://cl1ck-t0.github.io/
+    - name: S1nec-1o's B1og
+      url: https://s1nec-1o.github.io/
+    - name: Satoru's Blog
+      url: https://blog.sudoer.online/
+    - name: LXIOS
+      url: https://lxiosfer.github.io/
+    - name: pine的Blog
+      url: http://pinesawfly.top/
+    - name: Wells
+      url: https://wells.host/
+    - name: 155TuT
+      url: https://155tut.github.io/
+    - name: Sparrowhe
+      url: https://blog.sparrowhe.top/
+    - name: hfddh666
+      url: https://hfddh666.github.io/
+    - name: Sherlock
+      url: https://cina666.github.io/
+    - name: Eminem's blog
+      url: https://3a0.top/
+    - name: Cc12138's blog
+      url: https://0xcc12138.github.io/
+    - name: yyyffff的个人博客
+      url: https://yyyffff.github.io/
+    - name: AiY0u的博客
+      url: https://aiy0u.github.io/
