@@ -1,70 +1,106 @@
-'site':
-  'name': '090909.top'
-  'description': '友情链接'
-  'url': 'https://090909.top/'
-  'links': '/friends'
-  'friends':
-    - 'name': '王科文 写的 MkDocs 教程很好！'
-      'url': 'https://wcowin.work/'
-    - 'name': '峰哥 他拍的照片真的很好看！'
-      'url': 'https://fengcblog.880200.xyz/'
-    - 'name': '秋葵笔记 他写的笔记很好，我很喜欢！'
-      'url': 'https://qiukui-note.happy365.day/'
-    - 'name': '周配萝卜 好朋友，好像还是个二次元！'
-      'url': 'https://blog.zplb.top/'
-    - 'name': '乐依利 在秋葵评论区认识的小博主！'
-      'url': 'https://930309.xyz/'
-    - 'name': '芊 分享一些英语学习笔记！'
-      'url': 'https://hxqblog.cn/'
-    - 'name': '旺东 看他分享生活，挺有意思的！'
-      'url': 'https://wang618.cn/'
-    - 'name': '小废鼠 NotionNext 搭建的博客网站！'
-      'url': 'https://feishu.xiao-feishu.top/'
-    - 'name': '幸荟 网站是二次元风格啊！'
-      'url': 'https://www.xinghuisama.top/'
-    - 'name': '奇怪先生 喜欢分享技术的博主！'
-      'url': 'https://www.20210701.xyz/'
-    - 'name': '琳琳 她的博客内容很随心！'
-      'url': 'https://karina.xin/'
-    - 'name': '阿普修 他的博客内容很随心！'
-      'url': 'https://upxuu.com/'
-    - 'name': '本尼格 博客内容专注技术分享！'
-      'url': 'https://benign.host/'
-    - 'name': '暖心向阳 博客内容专注自己的生活！'
-      'url': 'https://nxxy335.top/'
-    - 'name': '瓦尔杰德赫 他是最近开始写博客的新手！'
-      'url': 'https://wrcbdjdh.cloud/'
-    - 'name': '拾月 喜欢的博主，永不停更！'
-      'url': 'https://www.skyue.com/'
-    - 'name': '椰汁 平时很懒的小博主，初中生！'
-      'url': 'https://home.132614.xyz'
-    - 'name': '会枝 喜欢在网站发一些碎碎念！'
-      'url': 'https://blog.huizhi.ink/'
-    - 'name': '污柳先生 他的写作内容很随心！'
-      'url': 'https://mrwuliu.top/'
-    - 'name': '小葱 他的梦想是星辰大海！'
-      'url': 'https://blog.mosicong.top/'
-    - 'name': '楠楠 安安静静存在就很好！'
-      'url': 'https://www.nannax.top/'
-    - 'name': '李许伟 他想要走遍世界各地！'
-      'url': 'https://blog.apodfg.com/'
-    - 'name': '麦卡杰斯 他等待一个迷路的夜！'
-      'url': 'https://blog.seln.cn/'
-    - 'name': '姓王者 他希望创造无限可能！'
-      'url': 'https://xingwangzhe.fun/'
-    - 'name': '桃之夭夭 这是桃之夭夭的小屋！'
-      'url': 'https://taozhiyy.top/'
-    - 'name': '风舞心弦 又是一个有趣的灵魂！'
-      'url': 'https://fengwu.art/'
-    - 'name': '笔尖代码 一个喜欢装机的小伙！'
-      'url': 'https://123456l.com/'
-    - 'name': '顾拾柒 喜欢写建站的小博主！'
-      'url': 'https://blog.olinl.com/'
-    - 'name': '伊夫 喜欢碎碎念的小博主！'
-      'url': 'https://nnnj.net/'
-    - 'name': '番茄主理人 分享建站教程的博主！'
-      'url': 'https://www.fqzlr.com/'
-    - 'name': '希格鲁特 他的内容主要是编程！'
-      'url': 'https://xgrblog.cn/'
-    - 'name': '文字笔记 最喜欢的笔记，以前拿这个写文章！'
-      'url': 'https://obsidian.md/'
+site:
+  name: 他说
+  description: 梁栋烨的博客网站
+  url: https://090909.top/
+  links: /friends
+  friends:
+    - name: 王科文
+      url: https://wcowin.work/
+    - name: 老米小芬
+      url: https://xfcnl.github.io/
+    - name: 可乐
+      url: https://cola0908.top/
+    - name: 慕迟离
+      url: https://muchili-code.github.io/
+    - name: 峰哥
+      url: https://fengcblog.880200.xyz/
+    - name: 秋葵笔记
+      url: https://qiukui-note.happy365.day/
+    - name: 周配萝卜
+      url: https://blog.zplb.top/
+    - name: 乐依利
+      url: https://930309.xyz/
+    - name: 天渺工作室
+      url: https://tianmiao.site/
+    - name: 冷月笙寒
+      url: https://lygalaxy.cn/
+    - name: 芊
+      url: https://hxqblog.cn/
+    - name: 旺东
+      url: https://wang618.cn/
+    - name: 阿叶
+      url: https://blog.ayeez.cn/
+    - name: 小废鼠
+      url: https://feishu.xiao-feishu.top/
+    - name: 团子和蛋糕
+      url: https://blog.tsh520.cn/
+    - name: 幸荟
+      url: https://www.xinghuisama.top/
+    - name: 奇怪先生
+      url: https://www.20210701.xyz/
+    - name: 琳琳
+      url: https://karina.xin/
+    - name: 卡瑟布尔
+      url: https://blog.ksable.top/
+    - name: 阿普修
+      url: https://upxuu.com/
+    - name: 本尼格
+      url: https://benign.host/
+    - name: 暖心向阳
+      url: https://nxxy335.top/
+    - name: 瓦尔杰德赫
+      url: https://wrcbdjdh.cloud/
+    - name: 流欺
+      url: https://blog.lqay.cn/
+    - name: 张洪
+      url: https://blog.zhheo.com/
+    - name: 拾月
+      url: https://www.skyue.com/
+    - name: 椰汁
+      url: https://home.132614.xyz
+    - name: 会枝
+      url: https://blog.huizhi.ink/
+    - name: 在下寒江雪
+      url: https://hanchan.vip/
+    - name: 安知鱼
+      url: https://blog.anheyu.com/
+    - name: 污柳先生
+      url: https://mrwuliu.top/
+    - name: 小葱
+      url: https://blog.mosicong.top/
+    - name: 楠楠
+      url: https://www.nannax.top/
+    - name: 李许伟
+      url: https://blog.apodfg.com/
+    - name: 柠檬
+      url: https://lemonadorable.github.io/
+    - name: 麦卡杰斯
+      url: https://blog.seln.cn/
+    - name: 姓王者
+      url: https://xingwangzhe.fun/
+    - name: 桃之夭夭
+      url: https://taozhiyy.top/
+    - name: 风舞心弦
+      url: https://fengwu.art/
+    - name: 笔尖代码
+      url: https://123456l.com/
+    - name: 顾拾柒
+      url: https://blog.olinl.com/
+    - name: 清沫
+      url: https://ttquk.netlify.app/
+    - name: 伊夫
+      url: https://nnnj.net/
+    - name: 呆呆猫
+      url: https://nnnj.net/
+    - name: 番茄主理人
+      url: https://www.fqzlr.com/
+    - name: 希格鲁特
+      url: https://xgrblog.cn/
+    - name: 井天乐
+      url: https://en.lcrworld.xyz/
+    - name: 幺九零零
+      url: https://1900.live/
+    - name: 傥师妹
+      url: https://blog.224418.xyz/
+    - name: 水星引力
+      url: https://www.233002.xyz/
