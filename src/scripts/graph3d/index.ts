@@ -265,7 +265,7 @@ export function init3d(graphData: GraphData) {
 	  }
 
   // ── 9. 控制面板 ──
-  let MOVE_SPEED = 5;
+  let MOVE_SPEED = 15;
   function createControlPanel() {
     let panel = document.getElementById("graph-control-panel") as HTMLElement | null;
     if (panel) return panel;
