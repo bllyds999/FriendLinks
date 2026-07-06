@@ -227,7 +227,26 @@ export function init3d(graphData: GraphData) {
   if (ctx.glowMaterial) {
     ctx.glowMaterial.uniforms.glowIntensity.value = nodeGlowIntensity.value;
   }
-  updateLinkPositions(ctx, linkArr, nodeIdToIndex, nodes, linkOpacity.value);
+
+  // ── 连线位置：优先使用构建时预计算的贝塞尔数据，否则运行时计算 ──
+  const _bezier = (graphData as any).bezier as { lpx: number[]; lpy: number[]; lpz: number[] } | null | undefined;
+  if (_bezier) {
+    const pos = ctx.linkLines.geometry.attributes.position.array as Float32Array;
+    const lpx = _bezier.lpx,
+      lpy = _bezier.lpy,
+      lpz = _bezier.lpz;
+    const maxFloats = Math.min(pos.length, lpx.length);
+    for (let i = 0; i < maxFloats; i++) {
+      pos[i * 3] = lpx[i];
+      pos[i * 3 + 1] = lpy[i];
+      pos[i * 3 + 2] = lpz[i];
+    }
+    ctx.linkLines.geometry.attributes.position.needsUpdate = true;
+    ctx.linkLines.geometry.setDrawRange(0, (maxFloats / 3) | 0);
+    (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = linkOpacity.value;
+  } else {
+    updateLinkPositions(ctx, linkArr, nodeIdToIndex, nodes, linkOpacity.value);
+  }
   // 初始线条辉光
   updateLineGlow(ctx, lineGlowIntensity.value);
   createNodeGlow(ctx, nodes.length, degreeMap, nodes, maxDegree);
@@ -398,6 +417,33 @@ export function init3d(graphData: GraphData) {
         cbLabel.textContent = cb.checked ? "显示" : "隐藏";
         if (cb.checked) ensureLabels(); // 开启时立即创建视野内标签
       });
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;";
+      row.appendChild(cb);
+      row.appendChild(cbLabel);
+      panel.appendChild(lbl);
+      panel.appendChild(row);
+    }
+
+    {
+      const lbl = document.createElement("label");
+      lbl.textContent = "Bloom 泛光";
+      lbl.style.cssText = "font-size:12px;color:#aaa;display:block;margin-bottom:4px;margin-top:10px;";
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = loadVal("bloom_enabled", true);
+      cb.style.cssText = "accent-color:#4a9eff;margin-right:6px;";
+      const cbLabel = document.createElement("span");
+      cbLabel.textContent = cb.checked ? "开启" : "关闭";
+      cbLabel.style.cssText = "font-size:12px;color:#ccc;";
+      cb.addEventListener("change", () => {
+        const enabled = cb.checked;
+        saveVal("bloom_enabled", enabled);
+        cbLabel.textContent = enabled ? "开启" : "关闭";
+        ctx.bloomPass.intensity = enabled ? bloomStrength.value : 0;
+        _needsRender = true;
+      });
+      if (!cb.checked) ctx.bloomPass.intensity = 0;
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;";
       row.appendChild(cb);
@@ -891,6 +937,7 @@ export function init3d(graphData: GraphData) {
   let _lastCamPos = { x: 0, y: 0, z: 0 };
   let _queryCamMove = true;
   let _lblFrameSkip = 0;
+  let _lblCreateSkip = 0;
 
   // FPS 监控
   let _fpsFrames = 0;
@@ -939,9 +986,12 @@ export function init3d(graphData: GraphData) {
     const now = performance.now();
     _lastTime = now;
 
-    // 按需创建标签
-    ensureLabels();
-    pruneLabels();
+    // 标签：只在每 10 帧或空闲时才检查创建
+    if (++_lblCreateSkip >= 10 || _idleFrames > 120) {
+      _lblCreateSkip = 0;
+      ensureLabels();
+      pruneLabels();
+    }
 
     updateFPS();
 
@@ -1694,7 +1744,7 @@ export function init3d(graphData: GraphData) {
 // ─── 紧凑格式展开 ────────────────────────────────────────────────────
 
 function expandCompact(c: any): GraphData {
-  const { nid, nnm, nur, nfa, nde, nx, ny, nz, ndeg, ladj_off, ladj } = c;
+  const { nid, nnm, nur, nfa, nde, nx, ny, nz, ndeg, ladj_off, ladj, lpx, lpy, lpz } = c;
   const nodes = nid.map((_id: string, i: number) => ({
     id: nid[i],
     name: nnm[i],
@@ -1713,6 +1763,7 @@ function expandCompact(c: any): GraphData {
     links,
     categories: c.c || [],
     adjacency: ndeg ? { ndeg, ladj_off, ladj } : {},
+    bezier: lpx ? { lpx, lpy, lpz } : null,
   };
 }
 

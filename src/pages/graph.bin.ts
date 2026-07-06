@@ -4,6 +4,7 @@ import { encode } from "msgpackr";
 import { printProgress, printDone } from "../utils/progress";
 import { simTick } from "@xingwangzhe/force-rs";
 import { isFastMode } from "../utils/sample";
+import { bezier2, calcControlOffset, EDGE_SEGMENTS } from "../utils/bezier";
 
 function getHost(u: string): string {
   try {
@@ -288,6 +289,58 @@ export async function GET() {
     }
   }
 
+  /** 预计算贝塞尔曲线连线位置（客户端只需 TypedArray 拷贝，零计算） */
+  function buildBezierPositions(
+    nCount: number,
+    srcs: number[],
+    tgts: number[],
+    px: number[],
+    py: number[],
+    pz: number[],
+  ) {
+    const edgeCount = srcs.length;
+    const totalFloats = edgeCount * EDGE_SEGMENTS * 2 * 3;
+    const lpx = new Float32Array(totalFloats);
+    const lpy = new Float32Array(totalFloats);
+    const lpz = new Float32Array(totalFloats);
+
+    for (let i = 0; i < edgeCount; i++) {
+      const si = srcs[i];
+      const ti = tgts[i];
+      if (si >= nCount || ti >= nCount) continue;
+      const sx = px[si],
+        sy = py[si],
+        sz = pz[si];
+      const ex = px[ti],
+        ey = py[ti],
+        ez = pz[ti];
+      const dx = ex - sx,
+        dy = ey - sy,
+        dz = ez - sz;
+      const len = Math.sqrt(dx * dx + dy * dy + dz * dz) || 1;
+      const off = calcControlOffset(dx, dy, dz, len);
+      const bend = len * 0.15;
+      const cx = (sx + ex) / 2 + off.ox * bend;
+      const cy = (sy + ey) / 2 + off.oy * bend;
+      const cz = (sz + ez) / 2 + off.oz * bend;
+
+      for (let j = 0; j < EDGE_SEGMENTS; j++) {
+        const t0 = j / EDGE_SEGMENTS;
+        const t1 = (j + 1) / EDGE_SEGMENTS;
+        const base = (i * EDGE_SEGMENTS + j) * 6;
+        // 起点
+        lpx[base] = bezier2(sx, cx, ex, t0);
+        lpy[base] = bezier2(sy, cy, ey, t0);
+        lpz[base] = bezier2(sz, cz, ez, t0);
+        // 终点
+        lpx[base + 3] = bezier2(sx, cx, ex, t1);
+        lpy[base + 3] = bezier2(sy, cy, ey, t1);
+        lpz[base + 3] = bezier2(sz, cz, ez, t1);
+      }
+    }
+    return { lpx: Array.from(lpx), lpy: Array.from(lpy), lpz: Array.from(lpz) };
+  }
+
   const compact = {
     nid,
     nnm,
@@ -302,6 +355,8 @@ export async function GET() {
     c: categories,
     // ── 预计算：度数和邻接表（免去客户端 O(E) 循环）──
     ...buildAdjacency(nid.length, ls, lt),
+    // ── 预计算：贝塞尔连线位置（免去客户端 720K+ 浮点运算）──
+    ...buildBezierPositions(nid.length, ls, lt, nx, ny, nz),
   };
   const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
   printDone(`/graph.bin 完成 · ${nodes.length} 节点 · ${linksArr.length} 边 · 耗时 ${elapsed}s`);
