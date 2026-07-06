@@ -1044,15 +1044,14 @@ export function init3d(graphData: GraphData) {
   const tooltip = createTooltip();
   const interaction = createInteraction(ctx, nodes);
 
-  // 高亮叠加线网（hover/focus 时显示）
+  // 高亮叠加线网（hover/focus 时显示，预构建 mesh 池，避免 GC）
   const overlayGroup = new THREE.Group();
   overlayGroup.visible = false;
   ctx.scene.add(overlayGroup);
 
+  // ── 共享几何体 ──
   const sharedHaloGeom = new THREE.CylinderGeometry(0.5, 0.5, 1, 6);
   const sharedCoreGeom = new THREE.CylinderGeometry(0.18, 0.18, 1, 6);
-  const sharedFocusHaloGeom = new THREE.CylinderGeometry(1.0, 1.0, 1, 6);
-  const sharedFocusCoreGeom = new THREE.CylinderGeometry(0.36, 0.36, 1, 6);
   const up_v = new THREE.Vector3(0, 1, 0);
   const quat_v = new THREE.Quaternion();
   const mid_v = new THREE.Vector3();
@@ -1060,13 +1059,44 @@ export function init3d(graphData: GraphData) {
   const end_v = new THREE.Vector3();
   const dir_v = new THREE.Vector3();
 
+  // ── 共享材质（hover 和 focus 共用，运行时切换颜色/亮度）──
+  const overlayHaloMat = new THREE.MeshStandardMaterial({
+    emissiveIntensity: 0.4,
+    transparent: true,
+    opacity: 0.25,
+    depthWrite: false,
+  });
+  const overlayCoreMat = new THREE.MeshStandardMaterial({
+    emissiveIntensity: 0.7,
+    transparent: true,
+    opacity: 1,
+    depthWrite: false,
+  });
+
+  // ── 预构建 mesh 池 ──
+  const POOL_SIZE = OVERLAY_MAX_EDGES * EDGE_SEGMENTS;
+  const overlayHaloPool: THREE.Mesh[] = [];
+  const overlayCorePool: THREE.Mesh[] = [];
+  for (let i = 0; i < POOL_SIZE; i++) {
+    const halo = new THREE.Mesh(sharedHaloGeom, overlayHaloMat);
+    const core = new THREE.Mesh(sharedCoreGeom, overlayCoreMat);
+    halo.visible = false;
+    core.visible = false;
+    overlayGroup.add(halo);
+    overlayGroup.add(core);
+    overlayHaloPool.push(halo);
+    overlayCorePool.push(core);
+  }
+  let _overlayPoolUsed = 0; // 当前已使用的 mesh 数量
+
   function buildOverlay(nodeId: string | null, color: THREE.ColorRepresentation) {
-    while (overlayGroup.children.length > 0) {
-      const child = overlayGroup.children[0] as THREE.Mesh;
-      child.geometry = undefined as any;
-      if (child.material) (child.material as THREE.Material).dispose();
-      overlayGroup.remove(child);
+    // 重置池
+    for (let i = 0; i < _overlayPoolUsed; i++) {
+      overlayHaloPool[i].visible = false;
+      overlayCorePool[i].visible = false;
     }
+    _overlayPoolUsed = 0;
+
     if (!nodeId) {
       overlayGroup.visible = false;
       return;
@@ -1074,37 +1104,28 @@ export function init3d(graphData: GraphData) {
 
     const baseColor = new THREE.Color(color);
     const isFocus = focusedId === nodeId;
-    const hGeom = isFocus ? sharedFocusHaloGeom : sharedHaloGeom;
-    const cGeom = isFocus ? sharedFocusCoreGeom : sharedCoreGeom;
+    overlayHaloMat.color.copy(baseColor);
+    overlayHaloMat.emissive.copy(baseColor);
+    overlayHaloMat.emissiveIntensity = isFocus ? 0.8 : 0.4;
+    overlayHaloMat.opacity = isFocus ? 0.5 : 0.25;
+    overlayCoreMat.color.copy(baseColor);
+    overlayCoreMat.emissive.copy(baseColor);
+    overlayCoreMat.emissiveIntensity = isFocus ? 1.2 : 0.7;
+    overlayCoreMat.opacity = 1;
 
-    const emissiveIntensity = isFocus ? 1.2 : 0.7;
-    const coreMat = new THREE.MeshStandardMaterial({
-      color: baseColor,
-      emissive: baseColor,
-      emissiveIntensity,
-      transparent: true,
-      opacity: 1,
-      depthWrite: false,
-    });
-    const haloMat = new THREE.MeshStandardMaterial({
-      color: baseColor.clone(),
-      emissive: baseColor.clone(),
-      emissiveIntensity: isFocus ? 0.8 : 0.4,
-      transparent: true,
-      opacity: isFocus ? 0.5 : 0.25,
-      depthWrite: false,
-    });
+    const focusScale = isFocus ? 2 : 1; // focus 用 2x 缩放替代大号几何体
 
     const linkPos = ctx.linkLines.geometry.attributes.position.array as Float32Array;
     const FLOATS_PER_EDGE = EDGE_SEGMENTS * 2 * 3;
     let edgeCount = 0;
+    let poolIdx = 0;
 
     for (let i = 0; i < links.length && edgeCount < OVERLAY_MAX_EDGES; i++) {
       if (links[i].source !== nodeId && links[i].target !== nodeId) continue;
       edgeCount++;
       const base = i * FLOATS_PER_EDGE;
 
-      for (let j = 0; j < EDGE_SEGMENTS; j++) {
+      for (let j = 0; j < EDGE_SEGMENTS && poolIdx < POOL_SIZE; j++) {
         const segBase = base + j * 6;
         start_v.set(linkPos[segBase], linkPos[segBase + 1], linkPos[segBase + 2]);
         end_v.set(linkPos[segBase + 3], linkPos[segBase + 4], linkPos[segBase + 5]);
@@ -1115,18 +1136,22 @@ export function init3d(graphData: GraphData) {
         mid_v.addVectors(start_v, end_v).multiplyScalar(0.5);
         quat_v.setFromUnitVectors(up_v, dir_v);
 
-        const halo = new THREE.Mesh(hGeom, haloMat);
+        const halo = overlayHaloPool[poolIdx];
+        const core = overlayCorePool[poolIdx];
+        poolIdx++;
+
         halo.position.copy(mid_v);
         halo.quaternion.copy(quat_v);
-        halo.scale.set(1, segLen, 1);
-        const core = new THREE.Mesh(cGeom, coreMat);
+        halo.scale.set(focusScale, segLen, focusScale);
+        halo.visible = true;
+
         core.position.copy(mid_v);
         core.quaternion.copy(quat_v);
-        core.scale.set(1, segLen, 1);
-        overlayGroup.add(halo);
-        overlayGroup.add(core);
+        core.scale.set(focusScale * 0.36, segLen, focusScale * 0.36);
+        core.visible = true;
       }
     }
+    _overlayPoolUsed = poolIdx;
     overlayGroup.visible = true;
   }
 
