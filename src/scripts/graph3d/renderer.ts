@@ -395,7 +395,7 @@ export function createNodeGlow(
         vCol = aCol;
         vec4 mv = modelViewMatrix * vec4(position, 1.0);
         // 限制最大像素尺寸：远景缩小光晕，防止加法混合叠成白色
-        gl_PointSize = clamp(aSz * (320.0 / -mv.z), 1.5, 96.0);
+        gl_PointSize = clamp(aSz * (320.0 / -mv.z), 1.5, 48.0);
         gl_Position = projectionMatrix * mv;
       }
     `,
@@ -404,7 +404,7 @@ export function createNodeGlow(
       varying vec3 vCol;
       void main() {
         float a = texture2D(glowTex, gl_PointCoord).r;
-        gl_FragColor = vec4(vCol * 1.8, a * 0.85);
+        gl_FragColor = vec4(vCol * 1.2, a * 0.60);
       }
     `,
     blending: THREE.AdditiveBlending,
