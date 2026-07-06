@@ -244,6 +244,24 @@ export function init3d(graphData: GraphData) {
     ctx.linkLines.geometry.attributes.position.needsUpdate = true;
     ctx.linkLines.geometry.setDrawRange(0, (maxFloats / 3) | 0);
     (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = linkOpacity.value;
+    // 填充 edgeRefs（供 updateLineGlow 用）
+    ctx.edgeRefs = linkArr.map((l) => {
+      const si = nodeIdToIndex.get(l.source);
+      const ti = nodeIdToIndex.get(l.target);
+      const sn = si != null ? nodes[si] : null;
+      const tn = ti != null ? nodes[ti] : null;
+      return {
+        sx: sn?.x ?? 0,
+        sy: sn?.y ?? 0,
+        sz: sn?.z ?? 0,
+        ex: tn?.x ?? 0,
+        ey: tn?.y ?? 0,
+        ez: tn?.z ?? 0,
+        cx: 0,
+        cy: 0,
+        cz: 0,
+      };
+    });
   } else {
     updateLinkPositions(ctx, linkArr, nodeIdToIndex, nodes, linkOpacity.value);
   }
