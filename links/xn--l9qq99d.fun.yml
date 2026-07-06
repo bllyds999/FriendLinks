@@ -1,0 +1,14 @@
+'site':
+  'name': '日志'
+  'url': 'https://xn--l9qq99d.fun/'
+  'description': 'Just Do It --With World'
+  'links': '/links'
+  'friends':
+    - 'name': '池鱼小栈'
+      'url': 'https://chiyu.it/'
+    - 'name': 'Shattered217のBlog'
+      'url': 'https://nvcc-v.com/'
+    - 'name': 'Duo 云站'
+      'url': 'https://www.mduo.cloud/'
+    - 'name': 'for_the_zero的小站'
+      'url': 'https://ftz.is-a.dev/'

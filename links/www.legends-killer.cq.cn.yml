@@ -1,0 +1,12 @@
+'site':
+  'name': '(*╹▽╹*)'
+  'url': 'https://www.legends-killer.cq.cn/'
+  'description': 'legends-killer的blog'
+  'links': '/links'
+  'friends':
+    - 'name': '0x4qE's Blog'
+      'url': 'https://0727.site/'
+    - 'name': 'Light Cube'
+      'url': 'https://github.red/'
+    - 'name': '首页'
+      'url': 'https://cynosura.one/'

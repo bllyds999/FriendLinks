@@ -1,0 +1,8 @@
+'site':
+  'name': 'Mysterious_bird的blog'
+  'url': 'https://hackerjintian.github.io/'
+  'description': 'Mysterious_bird的blog'
+  'links': '/links'
+  'friends':
+    - 'name': 'Aesrium の树洞'
+      'url': 'https://azusemisa.top/'
