@@ -12,7 +12,7 @@ export const dialogContent = tv({
   base: [
     "starwind-dialog-content",
     "fixed top-16 left-[50%] z-50 translate-x-[-50%] sm:top-[50%] sm:translate-y-[-50%]",
-    "bg-background w-full max-w-md rounded-lg border p-8 shadow-lg",
+    "bg-background w-full max-w-[calc(100%-2rem)] sm:max-w-md rounded-lg border p-6 sm:p-8 shadow-lg",
     "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fill-mode-forwards transition-[translate,scale,opacity]",
     "fade-in zoom-in-95 slide-in-from-bottom-2",
     "fade-out zoom-out-95 slide-out-to-bottom-2",

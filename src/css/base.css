@@ -17,6 +17,31 @@ body {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 响应式面板定位变量 — JS 动态面板引用这些变量而非硬编码位置 */
+:root {
+  --panel-right-offset: 8px;
+  --panel-bottom-offset: 70px;
+  --panel-left-offset: 8px;
+  --panel-top-offset: 8px;
+  --neighbor-panel-width: 280px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --panel-right-offset: 0px;
+    --panel-bottom-offset: 0px;
+    --panel-left-offset: 0px;
+    --neighbor-panel-width: 100%;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  :root {
+    --neighbor-panel-width: 220px;
+  }
 }
 #main {
   position: fixed;

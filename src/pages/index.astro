@@ -16,7 +16,7 @@ export const prerender = true;
       type="image/svg+xml"
       href="/StreamlinePlumpColorWebFlat.svg"
     />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <title>博客宇宙</title>
     <meta name="description" content="探索浩瀚的博客宇宙，寻找彼此之间的联系" />
@@ -224,6 +224,7 @@ friends:
         pointer-events: auto;
         font-size: 14px;
         white-space: nowrap;
+        min-height: 36px;
       }
       .top-button:focus {
         outline: 2px solid
@@ -245,6 +246,8 @@ friends:
         display: none;
         font-size: 18px;
         line-height: 1;
+        min-width: 36px;
+        min-height: 36px;
       }
       .top-buttons-group {
         display: flex;
@@ -260,17 +263,20 @@ friends:
         z-index: 61 !important;
       }
 
-      /* 移动端调整 */
+      /* ── 移动端调整 ── */
       @media (max-width: 640px) {
         .top-buttons {
           top: 8px;
-          right: 8px;
+          right: 6px;
           flex-direction: column;
           align-items: flex-end;
           gap: 4px;
         }
         .menu-toggle {
           display: inline-block;
+          min-width: 44px;
+          min-height: 44px;
+          font-size: 20px;
         }
         .top-buttons-group {
           display: none;
@@ -286,12 +292,27 @@ friends:
           display: flex;
         }
         .top-button {
-          font-size: 12px;
-          padding: 4px 8px;
+          font-size: 13px;
+          padding: 8px 12px;
+          min-height: 44px;
+        }
+      }
+
+      /* ── 平板端调整 (641-1024px) ── */
+      @media (min-width: 641px) and (max-width: 1024px) {
+        .top-buttons {
+          top: 10px;
+          right: 10px;
+          gap: 6px;
+        }
+        .top-button {
+          font-size: 13px;
+          padding: 5px 8px;
         }
       }
 
       /* 首屏加载蒙版 */
+      #loading-overlay {
         position: fixed;
         inset: 0;
         z-index: 9999;
@@ -464,6 +485,108 @@ friends:
         font-size: 12px;
         text-align: center;
         padding: 4px 0 0 0;
+      }
+
+      /* ── 路径栏响应式 ── */
+      @media (max-width: 640px) {
+        #path-bar {
+          padding: 8px 8px;
+        }
+        .path-bar-row {
+          gap: 4px;
+        }
+        .path-search-wrap {
+          min-width: 80px;
+          max-width: none;
+          flex: 1 1 40%;
+        }
+        .path-search-wrap input {
+          height: 36px;
+          font-size: 14px;
+        }
+        .path-bar-icon {
+          display: none;
+        }
+        .path-nav-btn {
+          height: 36px;
+          padding: 0 8px;
+          font-size: 13px;
+        }
+      }
+      @media (max-width: 480px) {
+        .path-bar-row {
+          flex-wrap: wrap;
+        }
+        .path-search-wrap {
+          flex: 1 1 100%;
+          min-width: 0;
+        }
+        .path-arrow {
+          display: none;
+        }
+      }
+
+      /* ── JS 动态面板响应式 ── */
+      /* 邻接面板桌面端默认 */
+      #neighbor-panel {
+        --np-right: 0px;
+        --np-top: 50%;
+        --np-transform: translateY(-50%);
+        --np-width: var(--neighbor-panel-width, 280px);
+        --np-max-height: 75vh;
+        --np-border-radius: 8px 0 0 8px;
+        --np-bottom: auto;
+        --np-left: auto;
+      }
+      /* 控制面板桌面端默认 */
+      #graph-control-panel {
+        --cp-bottom: 70px;
+        --cp-right: 16px;
+        --cp-left: auto;
+        --cp-top: auto;
+        --cp-width: auto;
+        --cp-border-radius: 8px;
+        --cp-transform: none;
+      }
+      /* 飞船面板桌面端默认 */
+      #fly-control-panel {
+        --fp-bottom: 70px;
+        --fp-left: 16px;
+        --fp-right: auto;
+        --fp-top: auto;
+        --fp-max-width: 220px;
+      }
+      @media (max-width: 640px) {
+        #neighbor-panel {
+          --np-right: 0;
+          --np-top: auto;
+          --np-transform: none;
+          --np-bottom: 0;
+          --np-left: 0;
+          --np-width: 100%;
+          --np-max-height: 60vh;
+          --np-border-radius: 12px 12px 0 0;
+        }
+        #graph-control-panel {
+          --cp-bottom: 0;
+          --cp-right: 0;
+          --cp-left: 0;
+          --cp-width: 100%;
+          --cp-border-radius: 12px 12px 0 0;
+        }
+        #fly-control-panel {
+          --fp-bottom: 0;
+          --fp-left: 0;
+          --fp-right: 0;
+          --fp-max-width: none;
+          --fp-width: 100%;
+          --fp-border-radius: 12px 12px 0 0;
+        }
+      }
+      @media (min-width: 641px) and (max-width: 1024px) {
+        #neighbor-panel {
+          --np-width: 220px;
+        }
       }
     </style>
     <script>

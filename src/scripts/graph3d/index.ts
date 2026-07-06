@@ -52,8 +52,18 @@ function createTooltip(): TooltipApi {
       el.innerHTML = "";
       el.appendChild(content);
       el.style.display = "block";
-      el.style.left = `${x + 12}px`;
-      el.style.top = `${y + 12}px`;
+      // 自适应：不超出视口边界
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const tw = Math.min(el.scrollWidth || 280, vw - 16);
+      const th = el.scrollHeight || 100;
+      let lx = Math.min(x + 12, vw - tw - 8);
+      let ly = Math.min(y + 12, vh - th - 8);
+      if (lx < 8) lx = 8;
+      if (ly < 8) ly = 8;
+      el.style.left = `${lx}px`;
+      el.style.top = `${ly}px`;
+      if (tw !== parseInt(el.style.maxWidth)) el.style.maxWidth = `${Math.min(320, vw - 16)}px`;
     },
     hide() {
       if (el) el.style.display = "none";
@@ -326,9 +336,14 @@ export function init3d(graphData: GraphData) {
     hint.textContent = "⚙️ 左键拖拽旋转 · 右键拖拽平移 · 滚轮缩放";
     hint.style.cssText = "font-size:10px;color:#666;margin-top:10px;text-align:center;";
     panel.appendChild(hint);
-    panel.style.cssText = `position:fixed;bottom:70px;right:16px;z-index:9998;
+    panel.style.cssText = `position:fixed;
+      bottom:var(--cp-bottom,70px);right:var(--cp-right,16px);
+      left:var(--cp-left,auto);top:var(--cp-top,auto);
+      width:var(--cp-width,auto);border-radius:var(--cp-border-radius,8px);
+      transform:var(--cp-transform,none);
+      z-index:9998;
       background:rgba(30,30,40,0.85);backdrop-filter:blur(8px);
-      border:1px solid rgba(255,255,255,0.1);border-radius:8px;
+      border:1px solid rgba(255,255,255,0.1);
       padding:10px 14px;min-width:160px;display:none;font-family:sans-serif;`;
     document.body.appendChild(panel);
     return panel;
@@ -346,9 +361,15 @@ export function init3d(graphData: GraphData) {
     const style = document.createElement("style");
     style.id = "neighbor-panel-style";
     style.textContent = `
-      #neighbor-panel { position:fixed; right:0; top:50%; transform:translateY(-50%);
-        z-index:9997; width:280px; max-height:75vh; background:var(--card-bg,rgba(20,20,30,0.9));
-        backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1); border-radius:8px 0 0 8px;
+      #neighbor-panel { position:fixed;
+        right:var(--np-right,0); top:var(--np-top,50%);
+        transform:var(--np-transform,translateY(-50%));
+        bottom:var(--np-bottom,auto); left:var(--np-left,auto);
+        width:var(--np-width,280px); max-height:var(--np-max-height,75vh);
+        z-index:9997;
+        background:var(--card-bg,rgba(20,20,30,0.9));
+        backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1);
+        border-radius:var(--np-border-radius,8px 0 0 8px);
         overflow:hidden; font-family:sans-serif; transition:width 0.3s; }
       #neighbor-panel.hidden { display:none; }
       #neighbor-panel.collapsed { width:36px; }
@@ -767,6 +788,14 @@ export function init3d(graphData: GraphData) {
         _fpsDisplay = document.createElement("div");
         _fpsDisplay.style.cssText =
           "position:fixed;bottom:8px;left:8px;z-index:10000;background:rgba(0,0,0,0.7);color:#0f0;padding:4px 8px;border-radius:4px;font:12px monospace;";
+        // 移动端移到右下避免遮挡
+        const fpsMq = window.matchMedia("(max-width:640px)");
+        function updateFpsPos(mq: MediaQueryList | MediaQueryListEvent) {
+          _fpsDisplay!.style.left = mq.matches ? "auto" : "8px";
+          _fpsDisplay!.style.right = mq.matches ? "8px" : "auto";
+        }
+        fpsMq.addEventListener("change", updateFpsPos);
+        updateFpsPos(fpsMq);
         document.body.appendChild(_fpsDisplay);
       }
       const nodeCount = ctx.nodes.count;
@@ -1265,11 +1294,16 @@ export function init3d(graphData: GraphData) {
     panel = document.createElement("div");
     panel.id = "fly-control-panel";
     panel.style.cssText = `
-      position:fixed;bottom:70px;left:16px;z-index:9998;
+      position:fixed;
+      bottom:var(--fp-bottom,70px); left:var(--fp-left,16px);
+      right:var(--fp-right,auto); top:var(--fp-top,auto);
+      width:var(--fp-width,auto); max-width:var(--fp-max-width,220px);
+      border-radius:var(--fp-border-radius,8px);
+      z-index:9998;
       background:rgba(16,16,24,0.88);backdrop-filter:blur(8px);
-      border:1px solid rgba(255,255,255,0.08);border-radius:8px;
+      border:1px solid rgba(255,255,255,0.08);
       padding:8px 12px;font-family:sans-serif;font-size:12px;color:#ccc;
-      display:none;max-width:220px;line-height:1.6;
+      display:none;line-height:1.6;
     `;
     panel.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
