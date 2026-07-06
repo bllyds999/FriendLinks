@@ -179,6 +179,7 @@ export function init3d(graphData: GraphData) {
 
   function refreshLinkColors() {
     (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = linkOpacity.value;
+    _needsRender = true;
   }
 
   // ── 8. 标签系统 ──
@@ -688,6 +689,7 @@ export function init3d(graphData: GraphData) {
     clearOldPathState();
     focusedId = null;
     highlightedSet.clear();
+    _needsRender = true;
     updateNeighborPanel(null);
     pathNodeIds = path;
     pathStepIndex = 0;
@@ -737,6 +739,7 @@ export function init3d(graphData: GraphData) {
 
   function clearPath() {
     clearOldPathState();
+    _needsRender = true;
     refreshAllNodeColors();
     (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = linkOpacity.value;
   }
@@ -810,12 +813,20 @@ export function init3d(graphData: GraphData) {
     }
   }
 
-  let _lastTime = performance.now();
+	  let _lastTime = performance.now();
+  let _needsRender = true;
+  let _idleFrames = 0;
+
+  // 用户交互（相机/悬停等）触发即时渲染
+  ctx.controls.addEventListener("change", () => {
+    _needsRender = true;
+    _idleFrames = 0;
+  });
 
   function animateLoop() {
     requestAnimationFrame(animateLoop);
     const now = performance.now();
-    const delta = Math.min((now - _lastTime) / 1000, 0.1); // 上限 100ms 防跳帧
+    const delta = Math.min((now - _lastTime) / 1000, 0.1);
     _lastTime = now;
 
     // 按需创建标签
@@ -835,12 +846,14 @@ export function init3d(graphData: GraphData) {
       _lastCamPos.y = camPos.y;
       _lastCamPos.z = camPos.z;
       _queryCamMove = false;
+      _needsRender = true;
+      _idleFrames = 0;
 
       // 标签淡出（每 3 帧才跑一次，减少 CPU 消耗）
       _lblFrameSkip++;
       if (_lblFrameSkip >= 3 && labelGroup.children.length > 0) {
         _lblFrameSkip = 0;
-        ensureLabels(); // 相机移动时检查是否有新节点进入视野
+        ensureLabels();
         const show = labelShow.value;
         for (const child of labelGroup.children) {
           const sprite = child as THREE.Sprite;
@@ -868,11 +881,10 @@ export function init3d(graphData: GraphData) {
       }
     }
 
-    // 邻居大字标签：屏幕空间恒定大小，按标签数量动态收缩
+    // 邻居大字标签：屏幕空间恒定大小
     if (neighborLabelGroup.children.length > 0) {
       const fovRad = (ctx.camera.fov * Math.PI) / 180;
       const count = neighborLabelGroup.children.length;
-      // 平滑收缩：1个标签 ~5%，50个~2.5%，200个~1%，500个~0.45%
       const targetFraction = 0.05 / (1 + count / 50);
       for (const child of neighborLabelGroup.children) {
         const sprite = child as THREE.Sprite;
@@ -884,23 +896,46 @@ export function init3d(graphData: GraphData) {
       }
     }
 
-    // 飞船模式（独立控制，不与 OrbitControls 冲突）
+    // 飞船模式 / OrbitControls
     if (isFlyMode) {
       flyLoop();
     } else {
       ctx.controls.update();
-      // 退出飞船后平滑恢复翻滚角
       if (Math.abs(flyExitRoll) > 0.0001) {
         ctx.camera.rotateZ(flyExitRoll);
         flyExitRoll *= 0.92;
       } else {
         flyExitRoll = 0;
-	    }
-	    }
+      }
+    }
 
-	    updateParticles(ctx, delta);
-	    ctx.composer.render();
-	  }
+    // 粒子 CPU 更新（轻量，每帧都跑）
+    updateParticles(ctx, delta);
+    // 粒子在动 → 需要渲染
+    _needsRender = true;
+
+    // ── 渲染节流 ──
+    // 空闲时逐步降低渲染帧率，减少 GPU 负担（尤其是 Bloom 后处理）
+    if (!_needsRender) {
+      _idleFrames++;
+    }
+    if (_needsRender) {
+      _needsRender = false;
+      _idleFrames = 0;
+      ctx.composer.render();
+    } else {
+      _idleFrames++;
+      // 空闲逐渐降帧：<1s 60fps, 1-3s 30fps, 3-10s 15fps, >10s 8fps
+      const throttleStep =
+        _idleFrames < 60 ? 0 :
+        _idleFrames < 180 ? 1 :
+        _idleFrames < 600 ? 3 :
+        6;
+      if (throttleStep === 0 || (_idleFrames % (throttleStep + 1)) === 0) {
+        ctx.composer.render();
+      }
+    }
+  }
 
   // ── 13b. 邻居大字标签点击/右键（独立 Raycaster，在节点交互之前注册）──
   const spriteRaycaster = new THREE.Raycaster();
@@ -1022,6 +1057,7 @@ export function init3d(graphData: GraphData) {
     const prevId = hoveredId;
     hoveredId = newHoveredId;
     lastHoveredId = newHoveredId;
+    _needsRender = true;
     if (prevId) {
       const pi = nodeIdToIndex.get(prevId);
       if (pi != null) setNodeColor(ctx, pi, nodes[pi]._cDefault);
@@ -1082,6 +1118,7 @@ export function init3d(graphData: GraphData) {
   function focusNodeById(id: string) {
     _lastFocusedId = focusedId;
     focusedId = id;
+    _needsRender = true;
     refreshAllNodeColors();
     buildOverlay(id, 0xffdd44);
     updateNeighborPanel(id);
@@ -1104,6 +1141,7 @@ export function init3d(graphData: GraphData) {
       const nbrs = neighborMap.get(id);
       if (nbrs) for (const nb of nbrs) highlightedSet.add(nb);
     }
+    _needsRender = true;
     refreshAllNodeColors();
   }
 
@@ -1115,6 +1153,7 @@ export function init3d(graphData: GraphData) {
       buildOverlay(null, 0xffffff);
       clearNeighborLabels();
     }
+    _needsRender = true;
     refreshAllNodeColors();
   }
 
