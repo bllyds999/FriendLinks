@@ -1,0 +1,8 @@
+'site':
+  'name': 'NOWHERE'
+  'url': 'https://xnth97.github.io/'
+  'description': 'Blog'
+  'links': '/links'
+  'friends':
+    - 'name': '椒盐豆豉'
+      'url': 'https://blog.douchi.space/'

@@ -1,0 +1,8 @@
+'site':
+  'name': 'PYM博客'
+  'url': 'https://pym.plus/'
+  'description': '欢迎！Welcome!'
+  'links': '/links'
+  'friends':
+    - 'name': 'Kegongteng'
+      'url': 'https://kegongteng.cn/'

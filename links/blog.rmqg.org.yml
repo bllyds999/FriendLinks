@@ -1,0 +1,12 @@
+'site':
+  'name': '若木秋光のBlog Ver.3.0'
+  'url': 'https://blog.rmqg.org/'
+  'description': '首页'
+  'links': '/links'
+  'friends':
+    - 'name': '淡Air'
+      'url': 'https://air3912.cn/'
+    - 'name': 'Home'
+      'url': 'https://blog.candlest.cc/'
+    - 'name': 'lbyxiaolizi's blog'
+      'url': 'https://blog.vh.gs/'

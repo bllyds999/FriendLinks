@@ -1,0 +1,10 @@
+'site':
+  'name': 'Xiaobin's Notes'
+  'url': 'https://lxb.wiki/'
+  'description': 'Xiaobin's Notes'
+  'links': '/links'
+  'friends':
+    - 'name': 'Rat's Blog'
+      'url': 'https://www.moerats.com/'
+    - 'name': '磊磊落落'
+      'url': 'https://leileiluoluo.com/'

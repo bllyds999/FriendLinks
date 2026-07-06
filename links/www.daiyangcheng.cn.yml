@@ -1,0 +1,16 @@
+'site':
+  'name': 'Daiyangcheng's Blog'
+  'url': 'https://www.daiyangcheng.cn/'
+  'description': 'Daiyangcheng's Blog'
+  'links': '/links'
+  'friends':
+    - 'name': '零狼の小窝'
+      'url': 'https://zerowolf.cn/'
+    - 'name': '洛元(砂纸)の小屋'
+      'url': 'https://blog.dimeta.top/'
+    - 'name': 'EDream's Blog'
+      'url': 'https://blog.edmc.cn/'
+    - 'name': '阿龙的笔记'
+      'url': 'https://www.alongw.cn/'
+    - 'name': '楠ちゃん の Blog'
+      'url': 'https://blog.nyat.icu/'
