@@ -1,10 +1,12 @@
 'site':
-  'name': 'radishzz.cc'
+  'name': 'radishzz's blog'
   'url': 'https://radishzz.cc/'
-  'description': '友情链接'
+  'description': 'Welcome to radishzz's blog. This is my personal space to share my thoughts and i'
   'links': '/links'
   'friends':
-    - 'name': '天一生水的博客一蓑烟雨任平生'
-      'url': 'https://www.jiangyu.org'
-    - 'name': 'duanluan 的博客书山有路勤为径，学海无涯苦作舟'
-      'url': 'https://blog.zhjh.top'
+    - 'name': 'radishzz's blog'
+      'url': 'https://radishzz.netlify.app/'
+    - 'name': '天一生水'
+      'url': 'https://www.jiangyu.org/'
+    - 'name': '程序员无尤'
+      'url': 'https://blog.zhjh.top/'

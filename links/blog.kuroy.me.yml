@@ -1,8 +1,10 @@
 'site':
-  'name': 'blog.kuroy.me'
+  'name': '幻想驿站'
   'url': 'https://blog.kuroy.me/'
-  'description': '友情链接'
+  'description': 'Thoughts, stories and ideas.'
   'links': '/links'
   'friends':
-    - 'name': 'Ghost'
-      'url': 'https://ghost.org/'
+    - 'name': '猫箱内の六軒島'
+      'url': 'https://batora.ushiromiya.com/'
+    - 'name': '白熊阿丸的小屋'
+      'url': 'https://blog.bxaw.name/'

@@ -1,8 +1,12 @@
 'site':
-  'name': 'hin.cool'
-  'description': '友情链接'
+  'name': '瓦解的生活记事'
   'url': 'https://hin.cool/'
-  'links': '/friends'
+  'description': 'W4J1e的博客，基于hexo+butterfly，分享有趣和有用的东西，记录不务正业的生活。'
+  'links': '/links'
   'friends':
-    - 'name': '枋柚梓 枋柚梓 繁星永存，记忆亘古不变。'
-      'url': 'https://inkss.cn'
+    - 'name': 'XAOXUU'
+      'url': 'https://xaoxuu.com/'
+    - 'name': '枋柚梓博客'
+      'url': 'https://inkss.cn/'
+    - 'name': 'CrazyWong'
+      'url': 'https://crazywong.com/'

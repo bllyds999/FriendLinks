@@ -1,8 +1,14 @@
 'site':
-  'name': 'cyp'
+  'name': 'cyp0633's Blog'
   'url': 'https://cyp0633.icu/'
-  'description': '友情链接'
+  'description': 'cyp0633's Blog'
   'links': '/links'
   'friends':
-    - 'name': 'Jimmy'
-      'url': 'https://jimmycai.com'
+    - 'name': '贰猹の小窝'
+      'url': 'https://noionion.top/'
+    - 'name': 'SkyWT'
+      'url': 'https://skywt.cn/'
+    - 'name': 'B1ue1nWh1te'
+      'url': 'https://www.seaeye.cn/'
+    - 'name': 'hiRipple -Ripple‘s blog'
+      'url': 'https://hiripple.com/'
