@@ -156,16 +156,19 @@ export function createRenderer(container: HTMLElement, nodeCount: number, linkCo
   scene.add(nodes);
 
   // ── 贝塞尔曲线连线 (LineSegments) ──
-  // 每条边细分 EDGE_SEGMENTS 段，每段 2 个顶点 × 3 坐标
+  // 每条边细分 EDGE_SEGMENTS 段，每段 2 个顶点 × 3 坐标 + 顶点颜色
   const edgeVertsPerEdge = EDGE_SEGMENTS * 2 * 3;
   const linkGeom = new THREE.BufferGeometry();
   const linkPositions = new Float32Array(linkCount * edgeVertsPerEdge);
+  const linkColors = new Float32Array(linkCount * EDGE_SEGMENTS * 2 * 3); // 每个顶点 RGB
   linkGeom.setAttribute("position", new THREE.BufferAttribute(linkPositions, 3));
+  linkGeom.setAttribute("color", new THREE.BufferAttribute(linkColors, 3));
   linkGeom.setDrawRange(0, 0);
   const linkMat = new THREE.LineBasicMaterial({
-    color: 0x666666,
+    vertexColors: true,
     transparent: true,
     opacity: 0,
+    blending: THREE.AdditiveBlending,
     depthWrite: false,
   });
   const linkLines = new THREE.LineSegments(linkGeom, linkMat);
@@ -208,6 +211,7 @@ export function updateLinkPositions(
   opacity: number,
 ) {
   const pos = ctx.linkLines.geometry.attributes.position.array as Float32Array;
+  const col = ctx.linkLines.geometry.attributes.color.array as Float32Array;
   const maxEdges = Math.min(links.length, pos.length / (EDGE_SEGMENTS * 2 * 3));
   const edgeDataArr: EdgeData[] = [];
 
@@ -227,7 +231,6 @@ export function updateLinkPositions(
     const dx = ex - sx, dy = ey - sy, dz = ez - sz;
     const len = Math.sqrt(dx * dx + dy * dy + dz * dz) || 1;
     const offset = calcControlOffset(dx, dy, dz, len);
-    // 弯度随边长比例增长，但设上限避免超长边过度弯曲
     const bend = Math.min(len * 0.18, 8000);
     const cx = mx + offset.ox * bend;
     const cy = my + offset.oy * bend;
@@ -235,7 +238,10 @@ export function updateLinkPositions(
 
     edgeDataArr.push({ sx, sy, sz, ex, ey, ez, cx, cy, cz });
 
-    // 生成 EDGE_SEGMENTS 段线
+    // 边颜色 = 源节点颜色
+    const srcColor = new THREE.Color((sn as any)._cDefault || "#ffffff");
+    const colR = srcColor.r, colG = srcColor.g, colB = srcColor.b;
+
     for (let j = 0; j < EDGE_SEGMENTS; j++) {
       const t0 = j / EDGE_SEGMENTS;
       const t1 = (j + 1) / EDGE_SEGMENTS;
@@ -246,11 +252,15 @@ export function updateLinkPositions(
       pos[base + 3] = bezier(sx, cx, ex, t1);
       pos[base + 4] = bezier(sy, cy, ey, t1);
       pos[base + 5] = bezier(sz, cz, ez, t1);
+      // 顶点颜色：两个顶点都取源节点颜色
+      col[base]     = colR; col[base + 1] = colG; col[base + 2] = colB;
+      col[base + 3] = colR; col[base + 4] = colG; col[base + 5] = colB;
     }
   }
 
   ctx.edgeRefs = edgeDataArr;
   ctx.linkLines.geometry.attributes.position.needsUpdate = true;
+  ctx.linkLines.geometry.attributes.color.needsUpdate = true;
   ctx.linkLines.geometry.setDrawRange(0, maxEdges * EDGE_SEGMENTS * 2);
   (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = opacity;
 }

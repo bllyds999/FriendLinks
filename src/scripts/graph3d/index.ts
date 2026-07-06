@@ -1077,7 +1077,10 @@ export function init3d(graphData: GraphData) {
     if (n) {
       const ci = nodeIdToIndex.get(n.id);
       if (ci != null) setNodeColor(ctx, ci, nodes[ci]._cHover);
-      if (!focusedId && !pathNodeIds) buildOverlay(n.id, 0xeeeeee);
+      if (!focusedId && !pathNodeIds) {
+        const hoverColor = n ? new THREE.Color(n._cDefault || 0xeeeeee) : 0xeeeeee;
+        buildOverlay(n.id, hoverColor);
+      }
     } else {
       if (!focusedId && !pathNodeIds) buildOverlay(null, 0xffffff);
     }
@@ -1132,7 +1135,9 @@ export function init3d(graphData: GraphData) {
     focusedId = id;
     _needsRender = true;
     refreshAllNodeColors();
-    buildOverlay(id, 0xffdd44);
+    const focusNode = nodes.find((n) => n.id === id);
+    const focusOverlayColor = focusNode ? new THREE.Color(focusNode._cDefault) : new THREE.Color(0xffdd44);
+    buildOverlay(id, focusOverlayColor);
     updateNeighborPanel(id);
     buildNeighborLabels(id);
     const node = nodes.find((n) => n.id === id);
