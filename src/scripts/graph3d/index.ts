@@ -941,6 +941,7 @@ export function init3d(graphData: GraphData) {
 	    }
 
     // ── 自动自转（在 controls.update 前设置）──
+    const isAutoRotating = autoRotate.value && !isFlyMode && _idleFrames > 60;
     if (autoRotate.value && !isFlyMode) {
       ctx.controls.autoRotate = _idleFrames > 60;
       ctx.controls.autoRotateSpeed = 0.8 * autoRotateDir.value;
@@ -968,6 +969,9 @@ export function init3d(graphData: GraphData) {
 
     // ── 空闲计数（每帧 +1，用户交互重置）──
     _idleFrames++;
+
+    // 自转中 → 全帧渲染，节流禁用
+    if (isAutoRotating) _needsRender = true;
 
     // ── 渲染节流 ──
     // 空闲时逐步降低渲染帧率，减少 GPU 负担（尤其是 Bloom 后处理）
