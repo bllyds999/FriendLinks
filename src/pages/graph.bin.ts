@@ -229,6 +229,33 @@ export async function GET() {
   }
 
   // ── 列式紧凑输出（含预计算 3D 位置） ─────────────────────────
+
+  /** 预计算度数 + 邻接表（flat 数组，免去客户端 Map/Set 构建） */
+  function buildAdjacency(nodeCount: number, srcs: number[], tgts: number[]) {
+    const ndeg = new Uint16Array(nodeCount);
+    // 第一遍：计数各节点邻居数（Uint16 最大 65535，图规模约 1 万，足够）
+    for (let i = 0; i < srcs.length; i++) {
+      ndeg[srcs[i]]++;
+      ndeg[tgts[i]]++;
+    }
+    // 偏移表（前缀和）
+    const ladj_off = new Uint32Array(nodeCount + 1);
+    for (let i = 0; i < nodeCount; i++) {
+      ladj_off[i + 1] = ladj_off[i] + ndeg[i];
+    }
+    // 第二遍：填充邻居索引
+    const totalNeighborSlots = ladj_off[nodeCount];
+    const ladj = new Uint32Array(totalNeighborSlots);
+    const fillPtr = new Uint32Array(nodeCount); // 每节点已填充到哪个位置
+    for (let i = 0; i < srcs.length; i++) {
+      const s = srcs[i];
+      const t = tgts[i];
+      ladj[ladj_off[s] + fillPtr[s]++] = t;
+      ladj[ladj_off[t] + fillPtr[t]++] = s;
+    }
+    return { ndeg: Array.from(ndeg), ladj_off: Array.from(ladj_off), ladj: Array.from(ladj) };
+  }
+
   const nid: string[] = [];
   const nnm: string[] = [];
   const nur: string[] = [];
@@ -261,7 +288,21 @@ export async function GET() {
     }
   }
 
-  const compact = { nid, nnm, nur, nfa, nde, nx, ny, nz, ls, lt, c: categories };
+  const compact = {
+    nid,
+    nnm,
+    nur,
+    nfa,
+    nde,
+    nx,
+    ny,
+    nz,
+    ls,
+    lt,
+    c: categories,
+    // ── 预计算：度数和邻接表（免去客户端 O(E) 循环）──
+    ...buildAdjacency(nid.length, ls, lt),
+  };
   const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
   printDone(`/graph.bin 完成 · ${nodes.length} 节点 · ${linksArr.length} 边 · 耗时 ${elapsed}s`);
   return new Response(encode(compact) as unknown as BodyInit, {

@@ -89,19 +89,32 @@ export function init3d(graphData: GraphData) {
 
   container.innerHTML = "";
 
-  // ── 1. 度数 ──
-  const degreeMap: Record<string, number> = {};
-  const rawLinks = graphData.links || [];
-  for (const l of rawLinks) {
-    const link = l as any;
-    const s = link.source ?? link[0];
-    const t = link.target ?? link[1];
-    if (s != null) degreeMap[s] = (degreeMap[s] || 0) + 1;
-    if (t != null) degreeMap[t] = (degreeMap[t] || 0) + 1;
-  }
+  // ── 1. 度数（优先用预计算数据，否则运行时计算）──
+  const adjacency: any = graphData.adjacency || {};
+  const preDeg: number[] | undefined = adjacency.ndeg;
+  const preAdjOff: number[] | undefined = adjacency.ladj_off;
+  const preAdj: number[] | undefined = adjacency.ladj;
+  const hasPreAdj = preDeg && preAdjOff && preAdj;
 
   // ── 2. 节点预处理 ──
   const rawNodes = graphData.nodes || [];
+  const rawLinks = graphData.links || [];
+
+  const degreeMap: Record<string, number> = {};
+  if (hasPreAdj) {
+    for (let i = 0; i < rawNodes.length; i++) {
+      degreeMap[rawNodes[i].id] = preDeg![i] || 0;
+    }
+  } else {
+    for (const l of rawLinks) {
+      const link = l as any;
+      const s = link.source ?? link[0];
+      const t = link.target ?? link[1];
+      if (s != null) degreeMap[s] = (degreeMap[s] || 0) + 1;
+      if (t != null) degreeMap[t] = (degreeMap[t] || 0) + 1;
+    }
+  }
+
   const nodes = rawNodes.map((n: any) => {
     const base = n.color || PALETTE[hashToIndex(n.id)];
     return Object.assign({}, n, {
@@ -133,17 +146,33 @@ export function init3d(graphData: GraphData) {
   let pathStepIndex = -1;
   let pathOverlayGroup: THREE.Group | null = null;
 
-  // ── 6. 邻居映射 ──
+  // ── 5b. 标准化链接数组（供 overlay、linkArr 等处使用）──
   const links = rawLinks.map((l: any) => ({
     source: typeof l.source === "object" && l.source !== null ? (l.source.id ?? l.source) : l.source,
     target: typeof l.target === "object" && l.target !== null ? (l.target.id ?? l.target) : l.target,
   }));
+
+  // ── 6. 邻居映射 ──
   const neighborMap = new Map<string, Set<string>>();
-  for (const l of links) {
-    if (!neighborMap.has(l.source)) neighborMap.set(l.source, new Set());
-    if (!neighborMap.has(l.target)) neighborMap.set(l.target, new Set());
-    neighborMap.get(l.source)!.add(l.target);
-    neighborMap.get(l.target)!.add(l.source);
+  if (hasPreAdj) {
+    // 从预计算邻接表直接构建，O(N)
+    for (let i = 0; i < rawNodes.length; i++) {
+      const nid = rawNodes[i].id;
+      const off = preAdjOff![i];
+      const end = preAdjOff![i + 1];
+      const nbrs = new Set<string>();
+      for (let j = off; j < end; j++) {
+        nbrs.add(rawNodes[preAdj![j]].id);
+      }
+      neighborMap.set(nid, nbrs);
+    }
+  } else {
+    for (const l of links) {
+      if (!neighborMap.has(l.source)) neighborMap.set(l.source, new Set());
+      if (!neighborMap.has(l.target)) neighborMap.set(l.target, new Set());
+      neighborMap.get(l.source)!.add(l.target);
+      neighborMap.get(l.target)!.add(l.source);
+    }
   }
 
   // ── 6b. 控制面板持久化 ──
@@ -1665,7 +1694,7 @@ export function init3d(graphData: GraphData) {
 // ─── 紧凑格式展开 ────────────────────────────────────────────────────
 
 function expandCompact(c: any): GraphData {
-  const { nid, nnm, nur, nfa, nde, nx, ny, nz } = c;
+  const { nid, nnm, nur, nfa, nde, nx, ny, nz, ndeg, ladj_off, ladj } = c;
   const nodes = nid.map((_id: string, i: number) => ({
     id: nid[i],
     name: nnm[i],
@@ -1673,12 +1702,18 @@ function expandCompact(c: any): GraphData {
     favicon: nfa[i],
     desc: nde[i],
     ...(nx ? { x: nx[i], y: ny[i], z: nz[i] } : {}),
+    ...(ndeg ? { _degree: ndeg[i] } : {}),
   }));
   const links = (c.ls || []).map((s: number, i: number) => ({
     source: nid[s],
     target: nid[c.lt[i]],
   }));
-  return { nodes, links, categories: c.c || [], adjacency: {} };
+  return {
+    nodes,
+    links,
+    categories: c.c || [],
+    adjacency: ndeg ? { ndeg, ladj_off, ladj } : {},
+  };
 }
 
 export async function init3dFromUrl(url: string) {
