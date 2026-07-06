@@ -968,12 +968,9 @@ export function init3d(graphData: GraphData) {
 
     // ── 渲染节流 ──
     // 空闲时逐步降低渲染帧率，减少 GPU 负担（尤其是 Bloom 后处理）
-    if (!_needsRender) {
-      _idleFrames++;
-    }
     if (_needsRender) {
       _needsRender = false;
-      _idleFrames = 0;
+      // 不自增 idleFrames — 用户交互才重置它
       ctx.composer.render();
     } else {
       _idleFrames++;
