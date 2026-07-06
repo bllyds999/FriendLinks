@@ -615,45 +615,47 @@ friends:
           }
         }
 
-        function renderStatsCards(data) {
-          const sd = data.sixDegrees;
-          const dist = sd?.edgeDistanceDistribution || {};
-          const entries = Object.entries(dist).filter(([d]) => Number(d) <= 20).sort(([a],[b])=>Number(a)-Number(b));
-          const maxVal = Math.max(...entries.map(([,c])=>Number(c)), 1);
-          const cd = sd?.compSizeDistribution || [];
-          const maxCompCnt = Math.max(...cd.map(b => b.count), 1);
+	        function renderStatsCards(data) {
+	          const sd = data.sixDegrees;
+	          const dist = sd?.edgeDistanceDistribution || {};
+	          const entries = Object.entries(dist).filter(([d]) => Number(d) <= 20).sort(([a],[b])=>Number(a)-Number(b));
+	          const maxVal = Math.max(...entries.map(([,c])=>Number(c)), 1);
+	          const cd = sd?.compSizeDistribution || [];
+	          const maxCompCnt = Math.max(...cd.map(b => b.count), 1);
 
-          return `
-            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              <div class="rounded-lg border p-4">
-                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">核心节点</h3>
-                <div class="space-y-2">
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">节点数</span><span class="font-bold">${data.coreNodes.count.toLocaleString()}</span></div>
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">唯一域名</span><span class="font-bold">${data.coreNodes.uniqueHosts.toLocaleString()}</span></div>
-                </div>
-              </div>
-              <div class="rounded-lg border p-4">
-                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">友链节点</h3>
-                <div class="space-y-2">
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">外部友链数</span><span class="font-bold">${data.friendNodes.total.toLocaleString()}</span></div>
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">友链连接</span><span class="font-bold">${data.friendNodes.externalFriends.toLocaleString()}</span></div>
-                </div>
-              </div>
-              <div class="rounded-lg border p-4">
-                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">连接</h3>
-                <div class="space-y-2">
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">核心间双向</span><span class="font-bold">${data.connections.coreToCore.bidirectional.toLocaleString()}</span></div>
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">核心间单向</span><span class="font-bold">${data.connections.coreToCore.unidirectional.toLocaleString()}</span></div>
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">核心到友链</span><span class="font-bold">${data.connections.coreToFriend.toLocaleString()}</span></div>
-                </div>
-              </div>
-              <div class="rounded-lg border p-4">
-                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">总览</h3>
-                <div class="space-y-2">
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">所有节点</span><span class="font-bold">${data.overview.totalNodes.toLocaleString()}</span></div>
-                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">总连接</span><span class="font-bold">${data.overview.totalConnections.toLocaleString()}</span></div>
-                </div>
-              </div>
+	          const coreCnt = data.coreNodes.count;
+	          const friendCnt = data.friendNodes.count;
+	          const totalNodes = data.overview.totalNodes;
+	          const ccBi = data.connections.coreToCore.bidirectional;
+	          const ccUni = data.connections.coreToCore.unidirectional;
+	          const cf = data.connections.coreToFriend;
+	          const totalLinks = data.connections.total;
+
+	          return `
+	            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+	              <div class="rounded-lg border p-4">
+	                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">📦 节点组成</h3>
+	                <div class="space-y-2">
+	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">主站节点 <span class="text-xs opacity-60">(已注册)</span></span><span class="font-bold">${coreCnt.toLocaleString()}</span></div>
+	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">友链节点 <span class="text-xs opacity-60">(外部引用)</span></span><span class="font-bold">${friendCnt.toLocaleString()}</span></div>
+	                  <div class="border-t pt-2 flex justify-between"><span class="text-sm font-semibold">全部节点</span><span class="font-bold">${totalNodes.toLocaleString()}</span></div>
+	                </div>
+	              </div>
+	              <div class="rounded-lg border p-4">
+	                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🔀 链接方向 <span class="text-xs opacity-60">(主站间)</span></h3>
+	                <div class="space-y-2">
+	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">🔄 双向链接 <span class="text-xs opacity-60">(互相添加)</span></span><span class="font-bold">${ccBi.toLocaleString()} 对</span></div>
+	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">➡️ 单向链接 <span class="text-xs opacity-60">(仅一方添加)</span></span><span class="font-bold">${ccUni.toLocaleString()} 对</span></div>
+	                </div>
+	              </div>
+	              <div class="rounded-lg border p-4">
+	                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">📊 链接规模</h3>
+	                <div class="space-y-2">
+	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">↔️ 主站间</span><span class="font-bold">${(ccBi + ccUni).toLocaleString()} 条</span></div>
+	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">➡️ 主站→友链</span><span class="font-bold">${cf.toLocaleString()} 条</span></div>
+	                  <div class="border-t pt-2 flex justify-between"><span class="text-sm font-semibold">全部链接</span><span class="font-bold">${totalLinks.toLocaleString()} 条</span></div>
+	                </div>
+	              </div>
               <div class="rounded-lg border p-4 sm:col-span-2 lg:col-span-2">
                 <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🌐 六度分隔 · 主分量 ${sd?.mainComponentSize.toLocaleString()} 节点 · 最大 ${sd?.maxEdgeDistance} 度</h3>
                 <div class="space-y-1">

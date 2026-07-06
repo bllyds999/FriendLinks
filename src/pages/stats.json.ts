@@ -26,8 +26,10 @@ export async function GET() {
   for (const s of validSites) linkMap.set(getHost(s.url), new Set());
 
   let externalFriendsCount = 0;
+  let totalFriendReferences = 0;
   for (const s of validSites) {
     const sourceNorm = getHost(s.url);
+    totalFriendReferences += s.friends.length;
     for (const f of s.friends) {
       const targetHost = getHost(f.url);
       if (siteHostSet.has(targetHost)) linkMap.get(sourceNorm)!.add(targetHost);
@@ -43,14 +45,18 @@ export async function GET() {
     }
 
   const stats = {
-    coreNodes: { count: validSites.length, uniqueHosts: siteHostSet.size },
-    friendNodes: { total: externalHosts.size, externalFriends: externalFriendsCount },
+    coreNodes: { count: validSites.length },
+    friendNodes: { count: externalHosts.size },
     connections: {
       coreToCore: { total: 0, bidirectional: 0, unidirectional: 0 },
       coreToFriend: externalFriendsCount,
       total: 0,
     },
-    overview: { totalNodes: 0, totalConnections: 0 },
+    overview: {
+      totalNodes: validSites.length + externalHosts.size,
+      totalConnections: 0,
+    },
+    totalFriendReferences,
   };
 
   printProgress("❷", "计算核心节点连接…", 0);
@@ -77,7 +83,6 @@ export async function GET() {
   }
   stats.connections.total = stats.connections.coreToCore.total + stats.connections.coreToFriend;
   stats.overview.totalConnections = stats.connections.total;
-  stats.overview.totalNodes = validSites.length + externalHosts.size;
 
   // 路由统计
   const linkRoutes: Record<string, number> = {};
@@ -207,7 +212,7 @@ export async function GET() {
   const finalStats = { ...stats, linkRoutes: linkRoutesSorted, sixDegrees: sixDegreeStats };
   const elapsed = ((performance.now() - start) / 1000).toFixed(1);
   printDone(
-    `/stats.json  ${validSites.length} 站点, ${stats.connections.total} 连接, ${n} 节点全量BFS, 耗时 ${elapsed}s`,
+    `/stats.json  ${validSites.length} 站点, ${totalFriendReferences} 友链引用, ${stats.connections.total} 连接, ${n} 节点全量BFS, 耗时 ${elapsed}s`,
   );
 
   return new Response(JSON.stringify(finalStats), {
