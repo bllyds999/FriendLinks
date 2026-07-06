@@ -961,11 +961,6 @@ export function init3d(graphData: GraphData) {
       }
 	    }
 
-    // ── 自动自转（空闲时球幕漫游）──
-      // 用户交互后暂停 1s 再恢复自转
-    } else {
-    }
-
     // 粒子 CPU 更新（轻量，每帧都跑）
     updateParticles(ctx, delta);
     // 粒子在动 → 需要渲染
