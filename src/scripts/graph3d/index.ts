@@ -1026,32 +1026,33 @@ export function init3d(graphData: GraphData) {
     for (let i = 0; i < links.length; i++) {
       if (links[i].source !== nodeId && links[i].target !== nodeId) continue;
       const base = i * FLOATS_PER_EDGE;
-      // 曲线起点 = 第 1 段第 1 个顶点
-      start_v.set(linkPos[base], linkPos[base + 1], linkPos[base + 2]);
-      // 曲线终点 = 最后 1 段第 2 个顶点
-      const lastSegOffset = FLOATS_PER_EDGE - 3;
-      end_v.set(linkPos[base + lastSegOffset], linkPos[base + lastSegOffset + 1], linkPos[base + lastSegOffset + 2]);
-      dir_v.subVectors(end_v, start_v);
-      const len = dir_v.length();
-      if (len < 0.01) continue;
-      dir_v.normalize();
-      mid_v.addVectors(start_v, end_v).multiplyScalar(0.5);
-      quat_v.setFromUnitVectors(up_v, dir_v);
-
       const isFocus = color === 0xffdd44;
       const hGeom = isFocus ? sharedFocusHaloGeom : sharedHaloGeom;
       const cGeom = isFocus ? sharedFocusCoreGeom : sharedCoreGeom;
 
-      const halo = new THREE.Mesh(hGeom, haloMat);
-      halo.position.copy(mid_v);
-      halo.quaternion.copy(quat_v);
-      halo.scale.set(1, len, 1);
-      const core = new THREE.Mesh(cGeom, coreMat);
-      core.position.copy(mid_v);
-      core.quaternion.copy(quat_v);
-      core.scale.set(1, len, 1);
-      overlayGroup.add(halo);
-      overlayGroup.add(core);
+      // 沿贝塞尔曲线创建分段圆柱，与连线曲线对齐
+      for (let j = 0; j < EDGE_SEGMENTS; j++) {
+        const segBase = base + j * 6;
+        start_v.set(linkPos[segBase], linkPos[segBase + 1], linkPos[segBase + 2]);
+        end_v.set(linkPos[segBase + 3], linkPos[segBase + 4], linkPos[segBase + 5]);
+        dir_v.subVectors(end_v, start_v);
+        const segLen = dir_v.length();
+        if (segLen < 0.01) continue;
+        dir_v.normalize();
+        mid_v.addVectors(start_v, end_v).multiplyScalar(0.5);
+        quat_v.setFromUnitVectors(up_v, dir_v);
+
+        const halo = new THREE.Mesh(hGeom, haloMat);
+        halo.position.copy(mid_v);
+        halo.quaternion.copy(quat_v);
+        halo.scale.set(1, segLen, 1);
+        const core = new THREE.Mesh(cGeom, coreMat);
+        core.position.copy(mid_v);
+        core.quaternion.copy(quat_v);
+        core.scale.set(1, segLen, 1);
+        overlayGroup.add(halo);
+        overlayGroup.add(core);
+      }
     }
     overlayGroup.visible = true;
   }
