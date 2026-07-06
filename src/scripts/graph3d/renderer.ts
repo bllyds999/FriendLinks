@@ -122,6 +122,8 @@ export function createRenderer(container: HTMLElement, nodeCount: number, linkCo
   const nodeGeom = new THREE.SphereGeometry(1, NODE_SEGMENTS, NODE_HEIGHT_SEGMENTS);
   const nodeMat = new THREE.ShaderMaterial({
     transparent: true,
+    depthWrite: false,
+    blending: THREE.NormalBlending,
     vertexShader: `
       varying vec3 vColor;
       varying vec3 vNormal;
