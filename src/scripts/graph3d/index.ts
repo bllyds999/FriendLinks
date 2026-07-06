@@ -966,14 +966,15 @@ export function init3d(graphData: GraphData) {
     // 粒子在动 → 需要渲染
     _needsRender = true;
 
+    // ── 空闲计数（每帧 +1，用户交互重置）──
+    _idleFrames++;
+
     // ── 渲染节流 ──
     // 空闲时逐步降低渲染帧率，减少 GPU 负担（尤其是 Bloom 后处理）
     if (_needsRender) {
       _needsRender = false;
-      // 不自增 idleFrames — 用户交互才重置它
       ctx.composer.render();
     } else {
-      _idleFrames++;
       // 空闲逐渐降帧：<1s 60fps, 1-3s 30fps, 3-10s 15fps, >10s 8fps
       const throttleStep =
         _idleFrames < 60 ? 0 :
