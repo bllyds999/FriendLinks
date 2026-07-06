@@ -5,24 +5,29 @@
 import FlexSearch from "flexsearch";
 import * as THREE from "three";
 import { decode } from "msgpackr";
-import { PALETTE, hashToIndex, adjustHex, createTextSprite } from "./utils";
+import { adjustHex, createTextSprite, hashToIndex, PALETTE } from "./utils";
 import {
+  animateCamera,
+  createNodeGlow,
+  createParticles,
   createRenderer,
+  EDGE_SEGMENTS,
+  nodeSize,
   setNodeColor,
   updateAllNodePositions,
-  updateLinkPositions,
-  animateCamera,
-  createParticles,
-  updateParticles,
-  createNodeGlow,
   updateLineGlow,
-  EDGE_SEGMENTS,
-  type RenderContext,
+  updateLinkPositions,
+  updateParticles,
   type NodeState,
+  type RenderContext,
 } from "./renderer";
 import { createInteraction } from "./interaction";
 import { findShortestPath } from "./pathfinder";
 import type { GraphData } from "../../../types/graph";
+
+// ─── 常量 ──────────────────────────────────────────────────────────
+
+const FOCUS_NODE_SCALE = 1.5;
 
 // ─── Tooltip ─────────────────────────────────────────────────────────────
 
@@ -184,7 +189,7 @@ export function init3d(graphData: GraphData) {
   updateAllNodePositions(ctx, nodes, nodeStates, degreeMap, maxDegree);
   // 从持久化恢复 bloom / glow 强度
   ctx.bloomPass.intensity = bloomStrength.value;
-  ctx.glowMaterial && (ctx.glowMaterial.uniforms.glowIntensity.value = nodeGlowIntensity.value);
+  if (ctx.glowMaterial) { ctx.glowMaterial.uniforms.glowIntensity.value = nodeGlowIntensity.value; }
   updateLinkPositions(ctx, linkArr, nodeIdToIndex, nodes, linkOpacity.value);
   // 初始线条辉光
   updateLineGlow(ctx, lineGlowIntensity.value);
@@ -816,11 +821,12 @@ export function init3d(graphData: GraphData) {
     for (let i = 0; i < nodes.length; i++) {
       const nd = nodes[i];
       let color: string;
+      const isFocused = focusedId === nd.id;
       if (pathNodeIds && pathStepIndex >= 0 && nd.id === pathNodeIds[pathStepIndex]) {
         color = adjustHex(nd._cDefault, 70);
       } else if (pathNodeIds && pathNodeIds.includes(nd.id)) {
         color = "#FF8C00";
-      } else if (focusedId === nd.id) {
+      } else if (isFocused) {
         color = nd._cFocus;
       } else if (highlightedSet.size > 0 && highlightedSet.has(nd.id)) {
         color = nd._cHighlight;
@@ -830,6 +836,21 @@ export function init3d(graphData: GraphData) {
         color = nd._cDefault;
       }
       setNodeColor(ctx, i, color);
+
+      // 聚焦节点放大 1.5x
+      if (isFocused) {
+        const m = new THREE.Matrix4();
+        const deg = degreeMap[nd.id] || 1;
+        const baseSz = nodeSize(deg, maxDegree);
+        const bigSz = baseSz * FOCUS_NODE_SCALE;
+        m.compose(
+          new THREE.Vector3(nd.x ?? 0, nd.y ?? 0, nd.z ?? 0),
+          new THREE.Quaternion(),
+          new THREE.Vector3(bigSz, bigSz, bigSz),
+        );
+        ctx.nodes.setMatrixAt(i, m);
+        ctx.nodes.instanceMatrix.needsUpdate = true;
+      }
     }
   }
 
@@ -1054,10 +1075,15 @@ export function init3d(graphData: GraphData) {
     }
 
     const baseColor = new THREE.Color(color);
+    const isFocus = focusedId === nodeId;
+    const hGeom = isFocus ? sharedFocusHaloGeom : sharedHaloGeom;
+    const cGeom = isFocus ? sharedFocusCoreGeom : sharedCoreGeom;
+
+    const emissiveIntensity = isFocus ? 1.2 : 0.7;
     const coreMat = new THREE.MeshStandardMaterial({
       color: baseColor,
       emissive: baseColor,
-      emissiveIntensity: 0.7,
+      emissiveIntensity,
       transparent: true,
       opacity: 1,
       depthWrite: false,
@@ -1065,9 +1091,9 @@ export function init3d(graphData: GraphData) {
     const haloMat = new THREE.MeshStandardMaterial({
       color: baseColor.clone(),
       emissive: baseColor.clone(),
-      emissiveIntensity: 0.4,
+      emissiveIntensity: isFocus ? 0.8 : 0.4,
       transparent: true,
-      opacity: 0.25,
+      opacity: isFocus ? 0.5 : 0.25,
       depthWrite: false,
     });
 
@@ -1076,9 +1102,6 @@ export function init3d(graphData: GraphData) {
     for (let i = 0; i < links.length; i++) {
       if (links[i].source !== nodeId && links[i].target !== nodeId) continue;
       const base = i * FLOATS_PER_EDGE;
-      const isFocus = color === 0xffdd44;
-      const hGeom = isFocus ? sharedFocusHaloGeom : sharedHaloGeom;
-      const cGeom = isFocus ? sharedFocusCoreGeom : sharedCoreGeom;
 
       // 沿贝塞尔曲线创建分段圆柱，与连线曲线对齐
       for (let j = 0; j < EDGE_SEGMENTS; j++) {
@@ -1175,6 +1198,10 @@ export function init3d(graphData: GraphData) {
   let _lastFocusedId: string | null = null;
 
   function focusNodeById(id: string) {
+    // 恢复上一个聚焦节点尺寸
+    if (focusedId && focusedId !== id) {
+      restoreNodeScale(focusedId);
+    }
     _lastFocusedId = focusedId;
     focusedId = id;
     _needsRender = true;
@@ -1196,6 +1223,20 @@ export function init3d(graphData: GraphData) {
     }
   }
 
+  /** 恢复节点到原始尺寸 */
+  function restoreNodeScale(id: string) {
+    const idx = nodeIdToIndex.get(id);
+    if (idx == null) return;
+    const nd = nodes[idx];
+    if (nd.x == null) return;
+    const m = new THREE.Matrix4();
+    const deg = degreeMap[id] || 1;
+    const sz = nodeSize(deg, maxDegree);
+    m.compose(new THREE.Vector3(nd.x, nd.y ?? 0, nd.z ?? 0), new THREE.Quaternion(), new THREE.Vector3(sz, sz, sz));
+    ctx.nodes.setMatrixAt(idx, m);
+    ctx.nodes.instanceMatrix.needsUpdate = true;
+  }
+
   function highlightNodesAndNeighbors(ids: string[]) {
     highlightedSet = new Set(ids);
     for (const id of ids) {
@@ -1209,6 +1250,8 @@ export function init3d(graphData: GraphData) {
   function clearHighlights() {
     highlightedSet.clear();
     if (focusedId) {
+      // 恢复原节点尺寸
+      restoreNodeScale(focusedId);
       focusedId = null;
       updateNeighborPanel(null);
       buildOverlay(null, 0xffffff);
@@ -1614,7 +1657,9 @@ function expandCompact(c: any): GraphData {
 
 export async function init3dFromUrl(url: string) {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`获取图数据失败: ${res.status}`);
+  if (!res.ok) {
+    throw new Error(`获取图数据失败: ${res.status}`);
+  }
   const buf = new Uint8Array(await res.arrayBuffer());
   const raw = decode(buf) as any;
   const data = raw.nid ? expandCompact(raw) : (raw as GraphData);

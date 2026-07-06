@@ -752,10 +752,10 @@ friends:
           if (pathFromInput) { pathFromInput.value = ""; }
           if (pathToInput) { pathToInput.value = ""; }
           if (pathFromResults) { pathFromResults.style.display = "none"; pathFromResults.innerHTML = ""; }
-          if (pathToResults) { pathToResults.style.display = "none"; pathToResults.innerHTML = ""; }
-          if (pathStepIndicator) pathStepIndicator.style.display = "none";
-          if (pathClearBtn) pathClearBtn.style.display = "none";
-          if (pathError) pathError.style.display = "none";
+	          if (pathToResults) { pathToResults.style.display = "none"; pathToResults.innerHTML = ""; }
+	          if (pathStepIndicator) { pathStepIndicator.style.display = "none"; }
+	          if (pathClearBtn) { pathClearBtn.style.display = "none"; }
+	          if (pathError) { pathError.style.display = "none"; }
           const api = getApi();
           if (api.clearPath) api.clearPath();
         };

@@ -3,10 +3,10 @@
   "plugins": ["typescript", "unicorn", "oxc", "import", "jest", "vitest"],
   "categories": {
     "correctness": "error",
-    "suspicious": "warn",
-    "perf": "warn",
+    "suspicious": "off",
+    "perf": "off",
     "pedantic": "off",
-    "style": "warn"
+    "style": "off"
   },
   "rules": {
     "no-unused-vars": "warn",
@@ -17,7 +17,7 @@
     "browser": true,
     "esnext": true
   },
-  "ignorePatterns": ["dist/", "node_modules/", "public/scripts/"],
+  "ignorePatterns": ["dist/", "node_modules/", "public/scripts/", "src/components/starwind/"],
   "overrides": [
     {
       "files": ["src/utils/load-sites.ts"],

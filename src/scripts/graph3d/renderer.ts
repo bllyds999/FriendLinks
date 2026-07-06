@@ -460,8 +460,8 @@ export function updateLineGlow(ctx: RenderContext, intensity: number) {
 // ─── 节点位置 + 颜色 ──────────────────────────────────────────────
 
 /** MeetBlog 风格的节点大小计算：度数越大节点越大 */
-function nodeSize(degree: number, maxDegree: number): number {
-  return 5 + Math.pow(degree / Math.max(1, maxDegree), 0.38) * 40;
+export function nodeSize(degree: number, maxDegree: number): number {
+  return 8 + Math.pow(degree / Math.max(1, maxDegree), 0.38) * 55;
 }
 
 export function updateAllNodePositions(
