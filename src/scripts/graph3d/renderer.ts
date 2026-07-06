@@ -113,14 +113,45 @@ export function createRenderer(container: HTMLElement, nodeCount: number, linkCo
   controls.minPolarAngle = 0;
   controls.maxPolarAngle = Math.PI * 2; // 上下贯通旋转
 
-  // Lights
-  scene.add(new THREE.AmbientLight(0xcccccc, Math.PI));
-  const dirLight = new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI);
-  scene.add(dirLight);
+  // 无需 scene lights — 自定义 ShaderMaterial 不使用 Three.js 内置光照
 
-  // InstancedMesh: 单层球体
+  // InstancedMesh: 单层球体 + 自定义 ShaderMaterial（菲涅尔 rim 光，比 MeshStandardMaterial 轻量 20x+）
   const nodeGeom = new THREE.SphereGeometry(1, NODE_SEGMENTS, NODE_SEGMENTS);
-  const nodeMat = new THREE.MeshStandardMaterial({ roughness: 0.6, metalness: 0.1 });
+  const nodeMat = new THREE.ShaderMaterial({
+    vertexShader: `
+      attribute mat4 instanceMatrix;
+      attribute vec3 instanceColor;
+
+      varying vec3 vColor;
+      varying vec3 vNormal;
+      varying vec3 vViewDir;
+
+      void main() {
+        vColor = instanceColor;
+        vec4 worldPos = instanceMatrix * vec4(position, 1.0);
+        // 均匀缩放 (15,15,15)，mat3(instanceMatrix) 即可正确变换法线
+        vNormal = normalize(mat3(instanceMatrix) * normal);
+        vec4 mvPos = modelViewMatrix * worldPos;
+        vViewDir = normalize(-mvPos.xyz);
+        gl_Position = projectionMatrix * mvPos;
+      }
+    `,
+    fragmentShader: `
+      varying vec3 vColor;
+      varying vec3 vNormal;
+      varying vec3 vViewDir;
+
+      void main() {
+        vec3 n = normalize(vNormal);
+        vec3 v = normalize(vViewDir);
+        // 菲涅尔 rim 光：边缘亮、中心暗，增强 3D 立体感
+        float rim = 1.0 - max(0.0, dot(n, v));
+        rim = pow(rim, 1.6);
+        vec3 col = vColor * mix(0.45, 1.8, rim);
+        gl_FragColor = vec4(col, 1.0);
+      }
+    `,
+  });
   const nodes = new THREE.InstancedMesh(nodeGeom, nodeMat, nodeCount);
   nodes.frustumCulled = false;
   scene.add(nodes);
