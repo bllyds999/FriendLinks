@@ -750,7 +750,7 @@ export function init3d(graphData: GraphData) {
       if (!node || node.x == null) continue;
       const name = node.name || node.id;
       if (name.length > 40) continue;
-      const sprite = createTextSprite(name, 1, 144);
+      const sprite = createTextSprite(name, 1, 176);
       // 暂存节点坐标，动画循环中做相机相对定位
       (sprite as any)._nodePos3d = { x: node.x!, y: node.y || 0, z: node.z || 0 };
       (sprite as any)._neighborId = nid;
@@ -1099,7 +1099,7 @@ export function init3d(graphData: GraphData) {
     if (neighborLabelGroup.children.length > 0) {
       const fovRad = (ctx.camera.fov * Math.PI) / 180;
       const count = neighborLabelGroup.children.length;
-      const targetFraction = 0.10 / (1 + count / 60);
+      const targetFraction = 0.14 / (1 + count / 50);
       // 相机本地 "上" 方向
       const _camUp = new THREE.Vector3(0, 1, 0).applyQuaternion(ctx.camera.quaternion);
       const _nodeRadius = nodeSize(1, 1); // 统一节点半径
@@ -1110,9 +1110,9 @@ export function init3d(graphData: GraphData) {
           // 隐藏统计标签放在节点下方，其余放在上方
           const sign = (sprite as any)._neighborId === null ? -1 : 1;
           sprite.position.set(
-            np.x + _camUp.x * (_nodeRadius + 6) * sign,
-            np.y + _camUp.y * (_nodeRadius + 6) * sign,
-            np.z + _camUp.z * (_nodeRadius + 6) * sign,
+            np.x + _camUp.x * (_nodeRadius + 16) * sign,
+            np.y + _camUp.y * (_nodeRadius + 16) * sign,
+            np.z + _camUp.z * (_nodeRadius + 16) * sign,
           );
         }
         const dist = ctx.camera.position.distanceTo(sprite.position);
