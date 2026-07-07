@@ -1,7 +1,7 @@
 site:
-  name: "situ2001.com"
+  name: "situ2001"
   url: "https://situ2001.com/"
-  description: "友情链接"
+  description: "Frontend engineer by day, geek by night."
   links: "/friends"
   friends:
     - name: "Airing"
@@ -39,4 +39,4 @@ site:
     - name: "Zhongye"
       url: "https://zhongye.github.io"
     - name: "HoHouman"
-      url: "https://leidun.pp.ua"
+      url: "https://blog.houman.top"
