@@ -332,9 +332,9 @@ export function init3d(graphData: GraphData) {
   ctx.scene.add(neighborLabelGroup);
 
   let labelsCreated = new Set<number>(); // 改为 Set 追踪已创建的节点索引
-  const LABEL_MAX_FADE_START = 6000;
-  const LABEL_FADE_FULL = 2000;
-  const LABEL_CREATE_DIST = 1200; // 创建标签的最大相机距离
+  const LABEL_MAX_FADE_START = 10000;
+  const LABEL_FADE_FULL = 3000;
+  const LABEL_CREATE_DIST = 2000; // 创建标签的最大相机距离
   const nodeIdToLabelIndex = new Map<string, number>(); // 反查 label index
   nodes.forEach((n, i) => nodeIdToLabelIndex.set(n.id, i));
 
@@ -357,8 +357,8 @@ export function init3d(graphData: GraphData) {
       const name = n.name || n.id;
       if (name.length > 40) continue;
       const sz = nodeSize(degreeMap[n.id] || 1, maxDegree);
-      const worldHeight = 16;
-      const sprite = createTextSprite(name, worldHeight, 72);
+      const worldHeight = 30;
+      const sprite = createTextSprite(name, worldHeight, 96);
       const offset = sz + worldHeight * 0.5 + 2;
       sprite.position.set(n.x!, n.y! + offset, n.z!);
       (sprite as any)._nodePos = { x: n.x, y: n.y, z: n.z };
@@ -370,7 +370,7 @@ export function init3d(graphData: GraphData) {
 
   // 定期销毁远离相机的标签（每 10 秒，距离 > 2000 超过 20 秒）
   let _lastPrune = 0;
-  const PRUNE_DIST = 2000;
+  const PRUNE_DIST = 4000;
   const PRUNE_DELAY = 20000;
   function pruneLabels() {
     const now = performance.now();
@@ -748,7 +748,7 @@ export function init3d(graphData: GraphData) {
       if (!node || node.x == null) continue;
       const name = node.name || node.id;
       if (name.length > 40) continue;
-      const sprite = createTextSprite(name, 1, 112);
+      const sprite = createTextSprite(name, 1, 128);
       // 暂存节点坐标，动画循环中做相机相对定位
       (sprite as any)._nodePos3d = { x: node.x!, y: node.y || 0, z: node.z || 0 };
       (sprite as any)._neighborId = nid;
@@ -760,7 +760,7 @@ export function init3d(graphData: GraphData) {
     if (hidden > 0) {
       const focusNode = nodes.find((n) => n.id === nodeId);
       if (focusNode && focusNode.x != null) {
-        const moreSprite = createTextSprite(`+${hidden} 隐藏`, 1, 64);
+        const moreSprite = createTextSprite(`+${hidden} 隐藏`, 1, 72);
         moreSprite.position.set(focusNode.x, (focusNode.y || 0) - 26, focusNode.z || 0);
         (moreSprite as any)._nodePos3d = { x: focusNode.x!, y: focusNode.y || 0, z: focusNode.z || 0 };
         (moreSprite as any)._neighborId = null;
