@@ -27,14 +27,14 @@ export function calcControlOffset(
   return { ox: ox / ol, oy: oy / ol, oz: oz / ol };
 }
 
-export const EDGE_SEGMENTS = 6;
+export const EDGE_SEGMENTS = 4;
 
 /** 基础最小分段数 */
-const MIN_SEGMENTS = 6;
+const MIN_SEGMENTS = 4;
 /** 最大分段数（数据上限） */
-export const MAX_EDGE_SEGMENTS = 16;
-/** 每个采样段覆盖的期望距离 */
-const SAMPLE_DISTANCE = 500;
+export const MAX_EDGE_SEGMENTS = 8;
+/** 每个采样段覆盖的期望距离 — 拉大减少远距离边细分 */
+const SAMPLE_DISTANCE = 800;
 
 /** 根据边长计算自适应分段数 */
 export function calcSegmentCount(edgeLength: number): number {

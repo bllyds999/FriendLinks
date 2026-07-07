@@ -358,7 +358,7 @@ export async function init3d(graphData: GraphData) {
     }
     ctx.linkLines.geometry.attributes.color.needsUpdate = true;
     ctx.linkLines.geometry.attributes.position.needsUpdate = true;
-    ctx.linkLines.geometry.setDrawRange(0, linkArr.length * MAX_VERTS_PER_EDGE);
+    ctx.linkLines.geometry.setDrawRange(0, maxOverlayEdges.value * MAX_EDGE_SEGMENTS * 2);
     (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = linkOpacity.value;
     // 填充 edgeRefs（边几何引用，供聚焦 overlay 使用，使用最大段数）
     ctx.edgeRefs = linkArr.map((l) => {
@@ -575,7 +575,8 @@ export async function init3d(graphData: GraphData) {
       (v) => {
         maxOverlayEdges.value = v;
         saveVal("max_overlay_edges", v);
-        if (focusedId) buildNeighborLabels(focusedId); // 刷新邻居标签
+        ctx.linkLines.geometry.setDrawRange(0, v * MAX_EDGE_SEGMENTS * 2);
+        if (focusedId) buildNeighborLabels(focusedId);
         _needsRender = true;
       },
       "",
