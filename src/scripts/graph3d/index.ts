@@ -1867,11 +1867,17 @@ export async function init3dFromUrl(coreUrl: string, signal?: AbortSignal, bezie
       const bezierRaw = maybeDecompress(new Uint8Array(bezierBuf));
       const bezier = decode(bezierRaw) as any;
       if (bezier.lpx) {
+        // msgpackr 将 Int16Array 解码为 Uint8Array（原始字节），
+        // 需通过 buffer 重解释为 Int16Array，而非逐元素拷贝
+        const asI16 = (arr: any) =>
+          arr instanceof Int16Array
+            ? arr
+            : new Int16Array(arr.buffer, arr.byteOffset, arr.byteLength / 2);
         (data as any).bezier = {
           lseg: bezier.lseg,
-          lpx: dequantize(new Int16Array(bezier.lpx), bezier.lpx_min, bezier.lpx_max),
-          lpy: dequantize(new Int16Array(bezier.lpy), bezier.lpy_min, bezier.lpy_max),
-          lpz: dequantize(new Int16Array(bezier.lpz), bezier.lpz_min, bezier.lpz_max),
+          lpx: dequantize(asI16(bezier.lpx), bezier.lpx_min, bezier.lpx_max),
+          lpy: dequantize(asI16(bezier.lpy), bezier.lpy_min, bezier.lpy_max),
+          lpz: dequantize(asI16(bezier.lpz), bezier.lpz_min, bezier.lpz_max),
         };
       }
     } catch {
