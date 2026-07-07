@@ -1006,16 +1006,8 @@ export function init3d(graphData: GraphData) {
       if (!_fpsDisplay) {
         _fpsDisplay = document.createElement("div");
         _fpsDisplay.style.cssText =
-          "position:fixed;bottom:8px;left:8px;z-index:10000;background:rgba(0,0,0,0.7);color:#0f0;padding:4px 8px;border-radius:4px;font:12px monospace;";
-        // 移动端移到右下避免遮挡
-        const fpsMq = window.matchMedia("(max-width:640px)");
-        function updateFpsPos(mq: MediaQueryList | MediaQueryListEvent) {
-          _fpsDisplay!.style.left = mq.matches ? "auto" : "8px";
-          _fpsDisplay!.style.right = mq.matches ? "8px" : "auto";
-        }
-        fpsMq.addEventListener("change", updateFpsPos);
-        updateFpsPos(fpsMq);
-        document.body.appendChild(_fpsDisplay);
+          "position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);z-index:10000;background:rgba(0,0,0,0.7);color:#0f0;padding:4px 8px;border-radius:4px;font:12px monospace;";
+        document.getElementById("main")?.appendChild(_fpsDisplay);
       }
       const nodeCount = ctx.nodes.count;
       const labelCount = labelGroup.children.length;
