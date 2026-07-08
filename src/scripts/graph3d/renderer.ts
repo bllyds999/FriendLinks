@@ -83,7 +83,11 @@ function calcControlOffset(dx: number, dy: number, dz: number, len: number): { o
 
 // ─── 工厂 ──────────────────────────────────────────────────────────
 
-export async function createRenderer(container: HTMLElement, nodeCount: number, linkCount: number): Promise<RenderContext> {
+export async function createRenderer(
+  container: HTMLElement,
+  nodeCount: number,
+  linkCount: number,
+): Promise<RenderContext> {
   const { width, height } = container.getBoundingClientRect();
 
   // Camera（far=200k 配合 maxDistance 10x，支持极远视野俯瞰博客宇宙）

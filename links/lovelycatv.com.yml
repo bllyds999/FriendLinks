@@ -4,23 +4,33 @@ site:
   description: 友情链接
   links: /friends
   friends:
-    - name: lovelycat
-      url: https://lovelycatv.cn
     - name: Apple_QAQ的小站
       url: https://apple-qaq.vercel.app/
+      description: 这是Apple_QAQ的小站捏！希望关注！
+      avatar: https://apple-qaq.vercel.app/assets/images/avatar.jpg
     - name: Hakadao
       url: https://hakadao.cc
+      avatar: https://lovelycat-blog.oss-cn-beijing.aliyuncs.com//2022/01/hakadao.jpg
     - name: MaaiiのBlog
       url: https://i.loli.ly
+      description: 曼珠沙華盛開的阪道，能去往黃泉之國嗎？
+      avatar: https://i.loli.ly/favicon.ico
     - name: Macro
       url: https://b.julym.com
+      avatar: https://cravatar.cn/avatar/b71f5c2c6e2bc86b7e81299b2e8257c6?s=112&d=monsterid&r=g
     - name: Marinda
       url: http://www.marinda.cn/
+      avatar: https://q2.qlogo.cn/headimg_dl?dst_uin=2398648561&spec=100
     - name: Oxdl
       url: https://oxdl.cn
+      avatar: https://lovelycat-blog.oss-cn-beijing.aliyuncs.com//2022/01/oxdl.jpg
     - name: Tokisaki
       url: https://tokisaki.top/
+      avatar: https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/avatar.jpg
     - name: youkucola
       url: https://blog.youkucola.icu
+      avatar: https://blog.youkucola.icu/img/avatar.png
     - name: 小赵博客 – XiaoZhao233
       url: https://blog.xiaozhao233.com/
+      description: 喵~欢迎来玩！
+      avatar: https://gh.xiaozhao233.top/profile-picture/yeah-1080x1080.png

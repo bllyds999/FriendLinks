@@ -24,10 +24,7 @@ export function clearSitesCache() {
  * 在 DEV / MINIBUILD 模式下自动采样 100 个站点。
  * 模块级缓存避免多个端点重复加载。
  */
-export async function loadSites(
-  _dir?: string,
-  onProgress?: (current: number, total: number) => void,
-): Promise<Site[]> {
+export async function loadSites(_dir?: string, onProgress?: (current: number, total: number) => void): Promise<Site[]> {
   if (_cachedSites) {
     onProgress?.(_cachedSites.length, _cachedSites.length);
     return _cachedSites;

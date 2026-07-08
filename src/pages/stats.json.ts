@@ -84,6 +84,29 @@ export async function GET() {
   stats.connections.total = stats.connections.coreToCore.total + stats.connections.coreToFriend;
   stats.overview.totalConnections = stats.connections.total;
 
+  // ── 度数统计（核心节点入度/出度）──
+  printProgress("❷", "计算度数统计…", 85);
+  const inDegMap = new Map<string, number>();
+  for (const s of validSites) inDegMap.set(getHost(s.url), 0);
+  for (const [, targets] of linkMap) {
+    for (const t of targets) {
+      inDegMap.set(t, (inDegMap.get(t) || 0) + 1);
+    }
+  }
+  const coreDegrees: Array<{ name: string; url: string; inDegree: number; outDegree: number }> = [];
+  for (const s of validSites) {
+    const host = getHost(s.url);
+    coreDegrees.push({
+      name: s.name,
+      url: s.url,
+      inDegree: inDegMap.get(host) ?? 0,
+      outDegree: linkMap.get(host)?.size ?? 0,
+    });
+  }
+  const topLinked = [...coreDegrees].sort((a, b) => b.inDegree - a.inDegree).slice(0, 10);
+  const topLinking = [...coreDegrees].sort((a, b) => b.outDegree - a.outDegree).slice(0, 10);
+  printProgress("❷", "度数统计完成", 90);
+
   // 路由统计
   const linkRoutes: Record<string, number> = {};
   for (const s of validSites) if (s.links) linkRoutes[s.links] = (linkRoutes[s.links] || 0) + 1;
@@ -178,6 +201,20 @@ export async function GET() {
   }
 
   const mainComponentSize = Math.max(...compSizes);
+  const isolatedCount = compSizes.filter((s) => s === 1).length;
+
+  // 从 BFS 直方图计算平均最短路径
+  let totalOrderedDist = 0;
+  let totalOrderedPairs = 0;
+  for (let d = 0; d < merged.histogram.length; d++) {
+    const cnt = merged.histogram[d];
+    if (cnt > 0) {
+      totalOrderedDist += (d + 1) * cnt;
+      totalOrderedPairs += cnt;
+    }
+  }
+  const avgPathLength =
+    totalOrderedPairs > 0 ? Math.round(((totalOrderedDist / 2) / (totalOrderedPairs / 2)) * 100) / 100 : 0;
 
   // 分量大小分布（分桶）
   const sizeBuckets = [
@@ -201,15 +238,23 @@ export async function GET() {
     totalNodes: n,
     mainComponentSize: mainComponentSize,
     componentCount: compId,
+    isolatedCount,
     compSizeDistribution,
     maxEdgeDistance: merged.maxDistance,
     maxIntermediateVertices: merged.maxDistance - 1,
+    avgPathLength,
     edgeDistanceDistribution: degreeDist,
     intermediateVertexDistribution: intermediateDist,
     totalPairsConsidered: (n * (n - 1)) / 2,
   };
 
-  const finalStats = { ...stats, linkRoutes: linkRoutesSorted, sixDegrees: sixDegreeStats };
+  const finalStats = {
+    ...stats,
+    linkRoutes: linkRoutesSorted,
+    sixDegrees: sixDegreeStats,
+    topLinked,
+    topLinking,
+  };
   const elapsed = ((performance.now() - start) / 1000).toFixed(1);
   printDone(
     `/stats.json  ${validSites.length} 站点, ${totalFriendReferences} 友链引用, ${stats.connections.total} 连接, ${n} 节点全量BFS, 耗时 ${elapsed}s`,

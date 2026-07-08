@@ -584,11 +584,11 @@ friends:
           --fp-border-radius: 12px 12px 0 0;
         }
       }
-      @media (min-width: 641px) and (max-width: 1024px) {
-        #neighbor-panel {
-          --np-width: 220px;
-        }
-      }
+	      @media (min-width: 641px) and (max-width: 1024px) {
+	        #neighbor-panel {
+	          --np-width: 360px;
+	        }
+	      }
     </style>
     <script>
       import "../scripts/index-client.ts";
@@ -616,84 +616,149 @@ friends:
           }
         }
 
-	        function renderStatsCards(data) {
-	          const sd = data.sixDegrees;
-	          const dist = sd?.edgeDistanceDistribution || {};
-	          const entries = Object.entries(dist).filter(([d]) => Number(d) <= 20).sort(([a],[b])=>Number(a)-Number(b));
-	          const maxVal = Math.max(...entries.map(([,c])=>Number(c)), 1);
-	          const cd = sd?.compSizeDistribution || [];
-	          const maxCompCnt = Math.max(...cd.map(b => b.count), 1);
+		function renderStatsCards(data) {
+		          const sd = data.sixDegrees;
+		          const dist = sd?.edgeDistanceDistribution || {};
+		          const distEntries = Object.entries(dist).filter(([d]) => Number(d) <= 20).sort(([a],[b])=>Number(a)-Number(b));
+		          const maxVal = Math.max(...distEntries.map(([,c])=>Number(c)), 1);
+		          const cd = sd?.compSizeDistribution || [];
+		          const maxCompCnt = Math.max(...cd.map(b => b.count), 1);
 
-	          const coreCnt = data.coreNodes.count;
-	          const friendCnt = data.friendNodes.count;
-	          const totalNodes = data.overview.totalNodes;
-	          const ccBi = data.connections.coreToCore.bidirectional;
-	          const ccUni = data.connections.coreToCore.unidirectional;
-	          const cf = data.connections.coreToFriend;
-	          const totalLinks = data.connections.total;
+		          const coreCnt = data.coreNodes.count;
+		          const friendCnt = data.friendNodes.count;
+		          const totalNodes = data.overview.totalNodes;
+		          const ccBi = data.connections.coreToCore.bidirectional;
+		          const ccUni = data.connections.coreToCore.unidirectional;
+		          const cf = data.connections.coreToFriend;
+		          const totalLinks = data.connections.total;
+		          const mutualRate = ccBi + ccUni > 0 ? Math.round((ccBi / (ccBi + ccUni)) * 100) : 0;
 
-	          return `
-	            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-	              <div class="rounded-lg border p-4">
-	                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">📦 节点组成</h3>
-	                <div class="space-y-2">
-	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">主站节点 <span class="text-xs opacity-60">(已注册)</span></span><span class="font-bold">${coreCnt.toLocaleString()}</span></div>
-	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">友链节点 <span class="text-xs opacity-60">(外部引用)</span></span><span class="font-bold">${friendCnt.toLocaleString()}</span></div>
-	                  <div class="border-t pt-2 flex justify-between"><span class="text-sm font-semibold">全部节点</span><span class="font-bold">${totalNodes.toLocaleString()}</span></div>
-	                </div>
-	              </div>
-	              <div class="rounded-lg border p-4">
-	                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🔀 链接方向 <span class="text-xs opacity-60">(主站间)</span></h3>
-	                <div class="space-y-2">
-	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">🔄 双向链接 <span class="text-xs opacity-60">(互相添加)</span></span><span class="font-bold">${ccBi.toLocaleString()} 对</span></div>
-	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">➡️ 单向链接 <span class="text-xs opacity-60">(仅一方添加)</span></span><span class="font-bold">${ccUni.toLocaleString()} 对</span></div>
-	                </div>
-	              </div>
-	              <div class="rounded-lg border p-4">
-	                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">📊 链接规模</h3>
-	                <div class="space-y-2">
-	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">↔️ 主站间</span><span class="font-bold">${(ccBi + ccUni).toLocaleString()} 条</span></div>
-	                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">➡️ 主站→友链</span><span class="font-bold">${cf.toLocaleString()} 条</span></div>
-	                  <div class="border-t pt-2 flex justify-between"><span class="text-sm font-semibold">全部链接</span><span class="font-bold">${totalLinks.toLocaleString()} 条</span></div>
-	                </div>
-	              </div>
-              <div class="rounded-lg border p-4 sm:col-span-2 lg:col-span-2">
-                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🌐 六度分隔 · 主分量 ${sd?.mainComponentSize.toLocaleString()} 节点 · 最大 ${sd?.maxEdgeDistance} 度</h3>
-                <div class="space-y-1">
-                  ${entries.map(([d,c]) => {
-                    const w = Math.max(1, Number(c)/maxVal*100).toFixed(0);
-                    return `<div class="flex items-center gap-2 text-xs">
-                      <span class="w-10 text-right text-muted-foreground shrink-0">${d}度</span>
-                      <span class="h-3 rounded-sm" style="width:${w}%;background:linear-gradient(90deg,#4a9eff,#00c6ff);min-width:2px"></span>
-                      <span class="text-muted-foreground shrink-0">${Number(c).toLocaleString()}</span>
-                    </div>`;
-                  }).join('')}
-                </div>
-              </div>
-              ${cd.length ? `<div class="rounded-lg border p-4 sm:col-span-2 lg:col-span-2">
-                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🧩 连通分量 · ${sd?.componentCount} 个 · 主分量 ${sd?.mainComponentSize.toLocaleString()} 节点</h3>
-                <div class="space-y-1">
-                  ${cd.map(b => {
-                    const w = Math.max(1, b.count/maxCompCnt*100).toFixed(0);
-                    return `<div class="flex items-center gap-2 text-xs">
-                      <span class="w-12 text-right text-muted-foreground shrink-0">${b.label}</span>
-                      <span class="h-3 rounded-sm" style="width:${w}%;background:linear-gradient(90deg,#4a9eff,#00c6ff);min-width:2px"></span>
-                      <span class="text-muted-foreground shrink-0">${b.count.toLocaleString()}</span>
-                    </div>`;
-                  }).join('')}
-                </div>
-              </div>` : ''}
-	              <div class="rounded-lg border p-4 sm:col-span-2 lg:col-span-2">
-	                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🚏 路由排行</h3>
-	                <div class="space-y-1">
-                  ${(data.linkRoutes || []).map(r => `
-                    <div class="flex justify-between text-sm"><span class="text-muted-foreground">${r.route}</span><span class="font-bold">${r.count}</span></div>
-                  `).join('')}
-                </div>
-              </div>
-            </div>
-          `;
-        }
+		          const topLinked = data.topLinked || [];
+		          const topLinking = data.topLinking || [];
+
+		          return `
+		            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+		              <!-- 📦 博客宇宙规模 -->
+		              <div class="rounded-lg border p-4">
+		                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">📦 博客宇宙规模</h3>
+		                <div class="space-y-2">
+		                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">📝 已注册主站</span><span class="font-bold">${coreCnt.toLocaleString()}</span></div>
+		                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">🔗 被引友链站</span><span class="font-bold">${friendCnt.toLocaleString()}</span></div>
+		                  <div class="border-t pt-2 flex justify-between"><span class="text-sm font-semibold">🌟 博客宇宙总节点</span><span class="font-bold">${totalNodes.toLocaleString()}</span></div>
+		                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">🔗 友链关系总数</span><span class="font-bold">${totalLinks.toLocaleString()} 条</span></div>
+		                </div>
+		              </div>
+
+		              <!-- 🤝 友链关系 -->
+		              <div class="rounded-lg border p-4">
+		                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🤝 友链关系 <span class="text-xs opacity-60">(主站间)</span></h3>
+		                <div class="space-y-2">
+		                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">🔄 双向互链 <span class="text-xs opacity-60">(互相添加)</span></span><span class="font-bold">${ccBi.toLocaleString()} 对</span></div>
+		                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">➡️ 单向关注 <span class="text-xs opacity-60">(仅一方添加)</span></span><span class="font-bold">${ccUni.toLocaleString()} 对</span></div>
+		                  <div class="border-t pt-2 flex justify-between"><span class="text-muted-foreground text-sm">💞 互链率</span><span class="font-bold" style="color:${mutualRate > 50 ? '#4ade80' : '#fbbf24'}">${mutualRate}%</span></div>
+		                  <div class="flex justify-between"><span class="text-muted-foreground text-sm">🌉 主站→友链</span><span class="font-bold">${cf.toLocaleString()} 条</span></div>
+		                </div>
+		              </div>
+
+		              <!-- 🏆 人气榜单：最多被链 -->
+		              <div class="rounded-lg border p-4">
+		                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🏆 最受欢迎站点 <span class="text-xs opacity-60">(被友链指向最多)</span></h3>
+		                <div class="space-y-1">
+		                  ${topLinked.slice(0, 6).map((n, i) => `
+		                    <div class="flex items-center gap-2 text-sm">
+		                      <span class="w-5 text-right shrink-0 ${i < 3 ? 'font-bold' : ''}" style="color:${['#ffd700','#c0c0c0','#cd7f32','#888','#888','#888'][i]}">${['🥇','🥈','🥉','④','⑤','⑥'][i]||'•'}</span>
+		                      <span class="text-muted-foreground truncate flex-1">${n.name}</span>
+		                      <span class="font-bold text-xs">${n.inDegree}</span>
+		                    </div>
+		                  `).join('')}
+		                  ${topLinked.length === 0 ? '<div class="text-muted-foreground text-xs">暂无数据</div>' : ''}
+		                </div>
+		              </div>
+
+		              <!-- 🔗 最活跃博主：最多出链 -->
+		              <div class="rounded-lg border p-4">
+		                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🔗 最活跃站点 <span class="text-xs opacity-60">(主动添加友链最多)</span></h3>
+		                <div class="space-y-1">
+		                  ${topLinking.slice(0, 6).map((n, i) => `
+		                    <div class="flex items-center gap-2 text-sm">
+		                      <span class="w-5 text-right shrink-0 ${i < 3 ? 'font-bold' : ''}" style="color:${['#ffd700','#c0c0c0','#cd7f32','#888','#888','#888'][i]}">${['🥇','🥈','🥉','④','⑤','⑥'][i]||'•'}</span>
+		                      <span class="text-muted-foreground truncate flex-1">${n.name}</span>
+		                      <span class="font-bold text-xs">${n.outDegree}</span>
+		                    </div>
+		                  `).join('')}
+		                  ${topLinking.length === 0 ? '<div class="text-muted-foreground text-xs">暂无数据</div>' : ''}
+		                </div>
+		              </div>
+
+		              <!-- 🌐 六度分隔 -->
+		              <div class="rounded-lg border p-4 sm:col-span-2 lg:col-span-2">
+		                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🌐 六度分隔 · 博客小世界</h3>
+		                <div class="grid gap-3 sm:grid-cols-3 mb-4">
+		                  <div class="text-center p-2 rounded-lg" style="background:rgba(74,158,255,0.08)">
+		                    <div class="text-2xl font-bold" style="color:#4a9eff">${sd?.maxEdgeDistance || '—'}</div>
+		                    <div class="text-xs text-muted-foreground mt-1">最多经过几步<br>认识任意博主</div>
+		                  </div>
+		                  <div class="text-center p-2 rounded-lg" style="background:rgba(74,158,255,0.08)">
+		                    <div class="text-2xl font-bold" style="color:#4a9eff">${sd?.avgPathLength ?? '—'}</div>
+		                    <div class="text-xs text-muted-foreground mt-1">平均每两个博主<br>隔几步认识</div>
+		                  </div>
+		                  <div class="text-center p-2 rounded-lg" style="background:rgba(74,158,255,0.08)">
+		                    <div class="text-2xl font-bold" style="color:#4a9eff">${sd?.mainComponentSize?.toLocaleString() || '—'}</div>
+		                    <div class="text-xs text-muted-foreground mt-1">最大博客圈<br>相互连通的站点数</div>
+		                  </div>
+		                </div>
+		                <div class="space-y-1">
+		                  <div class="flex justify-between text-xs text-muted-foreground"><span>距离分布（几步能认识彼此）</span><span>站点对数</span></div>
+		                  ${distEntries.map(([d,c]) => {
+		                    const w = Math.max(1, Number(c)/maxVal*100).toFixed(0);
+		                    return `<div class="flex items-center gap-2 text-xs">
+		                      <span class="w-8 text-right text-muted-foreground shrink-0">${d} 步</span>
+		                      <span class="h-3 rounded-sm" style="width:${w}%;background:linear-gradient(90deg,#4a9eff,#00c6ff);min-width:2px"></span>
+		                      <span class="text-muted-foreground shrink-0">${Number(c).toLocaleString()}</span>
+		                    </div>`;
+		                  }).join('')}
+		                </div>
+		              </div>
+
+		              <!-- 🧩 博客圈分布 -->
+		              ${cd.length ? `<div class="rounded-lg border p-4 sm:col-span-2 lg:col-span-2">
+		                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">🧩 博客圈分布 · ${sd?.componentCount} 个独立小圈子</h3>
+		                <div class="mb-3 text-xs text-muted-foreground">
+		                  最大的圈子有 <strong class="text-foreground">${sd?.mainComponentSize?.toLocaleString() || '—'}</strong> 个站点相互连通，
+		                  另有 <strong class="text-foreground">${sd?.isolatedCount ?? '—'}</strong> 个孤立的博客未与任何主站互联。
+		                </div>
+		                <div class="space-y-1">
+		                  ${cd.map(b => {
+		                    const w = Math.max(1, b.count/maxCompCnt*100).toFixed(0);
+		                    return `<div class="flex items-center gap-2 text-xs">
+		                      <span class="w-16 text-right text-muted-foreground shrink-0">${b.label}</span>
+		                      <span class="h-3 rounded-sm" style="width:${w}%;background:linear-gradient(90deg,#4a9eff,#00c6ff);min-width:2px"></span>
+		                      <span class="text-muted-foreground shrink-0">${b.count.toLocaleString()} 个</span>
+		                    </div>`;
+		                  }).join('')}
+		                </div>
+		              </div>` : ''}
+
+		              <!-- 📊 友链页面路由排行 -->
+		              <div class="rounded-lg border p-4 sm:col-span-2 lg:col-span-2">
+		                <h3 class="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">📊 友链页面路由排行 <span class="text-xs opacity-60">(大家都在哪里放友链)</span></h3>
+		                <div class="space-y-1">
+		                  ${(data.linkRoutes || []).slice(0, 12).map(r => {
+		                    const maxRoute = Math.max(...(data.linkRoutes || []).map(x => x.count), 1);
+		                    const bw = Math.max(1, (r.count / maxRoute) * 100).toFixed(0);
+		                    return `<div class="flex items-center gap-2 text-xs">
+		                      <span class="font-mono text-muted-foreground truncate flex-1">${r.route}</span>
+		                      <span class="h-3 rounded-sm" style="width:${bw}%;background:linear-gradient(90deg,#a78bfa,#7c3aed);min-width:2px"></span>
+		                      <span class="font-bold shrink-0">${r.count}</span>
+		                    </div>`;
+		                  }).join('')}
+		                </div>
+		              </div>
+
+		            </div>
+		          `;
+		        }
 
         // 控制面板按钮
         const opacityBtn = document.getElementById("opacity-toggle");

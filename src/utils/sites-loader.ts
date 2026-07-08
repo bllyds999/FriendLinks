@@ -165,20 +165,20 @@ function diagnoseSite(file: string, raw: unknown): DiagnosticReport {
     }
   }
 
-  // ── friends ──
-  if (!("friends" in s)) {
-    report.issues.push("`site.friends` 字段缺失");
-    report.ok = false;
-  } else {
-    const friends = s.friends;
-    if (friends === null || friends === undefined) {
-      report.issues.push("`site.friends` 值为 null，将视为空数组");
-    } else if (!Array.isArray(friends)) {
-      report.issues.push("`site.friends` 类型错误: 期望 array, 收到 " + `${typeof friends}`);
-      report.ok = false;
-    } else if (friends.length === 0) {
-      report.issues.push("`site.friends` 为空数组（该站点没有友链）");
-    } else {
+	  // ── friends ──
+	  if (!("friends" in s)) {
+	    report.issues.push("`site.friends` 字段缺失");
+	    report.ok = false;
+	  } else {
+	    const friends = s.friends;
+	    if (friends === null || friends === undefined) {
+	      // null/undefined 视为空数组，不报问题
+	    } else if (!Array.isArray(friends)) {
+	      report.issues.push("`site.friends` 类型错误: 期望 array, 收到 " + `${typeof friends}`);
+	      report.ok = false;
+	    } else if (friends.length === 0) {
+	      // 空数组是合法状态（该站点没有友链），不报问题
+	    } else {
       // 逐个检查 friend 条目
       for (let i = 0; i < friends.length; i++) {
         const f = (friends as unknown[])[i];
@@ -262,7 +262,7 @@ export function sitesLoader(): Loader {
           const pct = Math.round((i / files.length) * 100);
           logger.info(
             `📊 进度: ${i}/${files.length} (${pct}%) · ` +
-            `✅ ${loaded} · ⏭️  ${skipped} · ⚠️ ${warnings} · ❌ ${errors}`
+              `✅ ${loaded} · ⏭️  ${skipped} · ⚠️ ${warnings} · ❌ ${errors}`,
           );
         }
 
@@ -379,7 +379,7 @@ export function sitesLoader(): Loader {
       logger.info(`⚠️  警告数: ${warnings}`);
       logger.info(`❌ 错误数: ${errors}`);
       if (loaded > 0) {
-        const rate = (loaded / files.length * 100).toFixed(1);
+        const rate = ((loaded / files.length) * 100).toFixed(1);
         logger.info(`📈 成功率: ${rate}%`);
       }
       logger.info(`⏱️  耗时: ${elapsed}s`);
@@ -393,7 +393,7 @@ function hashString(str: string): string {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     const char = str.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
+    hash = (hash << 5) - hash + char;
     hash = hash & hash;
   }
   return Math.abs(hash).toString(16);
