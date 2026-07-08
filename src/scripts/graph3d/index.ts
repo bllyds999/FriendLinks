@@ -316,46 +316,46 @@ export async function init3d(graphData: GraphData) {
 
   updateAllNodePositions(ctx, nodes, nodeStates, degreeMap, maxDegree);
 
-	  // ── 连线位置：优先使用构建时预计算的贝塞尔数据，否则运行时计算 ──
-	  const _bezier = (graphData as any).bezier;
-	  if (_bezier) {
-	    applyBezierData(ctx, _bezier, linkArr, nodeIdToIndex, nodes, maxOverlayEdges.value, linkOpacity.value);
-	  } else {
-	    updateLinkPositions(ctx, linkArr, nodeIdToIndex, nodes, linkOpacity.value);
-	  }
-	
-	  // ── bezier 懒加载（首次交互时触发）──
-	  let _bezierLoaded = !!_bezier;
-	  let _bezierLoading = false;
-	
-		  async function loadBezierLazy() {
-		    if (_bezierLoaded || _bezierLoading) return;
-		    _bezierLoading = true;
-		    try {
-		      const res = await fetch("/graph-bezier.bin");
-		      if (!res.ok) return;
-		      const buf = await res.arrayBuffer();
-		      const raw = await maybeDecompress(new Uint8Array(buf));
-		      const bezierData = decode(raw) as any;
-		      if (!bezierData.lpx) return;
-		
-		      const asI16 = (arr: any) =>
-		        arr instanceof Int16Array ? arr : new Int16Array(arr.buffer, arr.byteOffset, arr.byteLength / 2);
-		      const bz = {
-		        lseg: bezierData.lseg,
-		        lpx: dequantize(asI16(bezierData.lpx), bezierData.lpx_min, bezierData.lpx_max),
-		        lpy: dequantize(asI16(bezierData.lpy), bezierData.lpy_min, bezierData.lpy_max),
-		        lpz: dequantize(asI16(bezierData.lpz), bezierData.lpz_min, bezierData.lpz_max),
-		      };
-		      applyBezierData(ctx, bz, linkArr, nodeIdToIndex, nodes, maxOverlayEdges.value, linkOpacity.value);
-		      _bezierLoaded = true;
-		      _needsRender = true;
-		    } catch {
-		      // 静默降级为直线
-		    }
-		  }
-	
-	  function refreshLinkColors() {
+  // ── 连线位置：优先使用构建时预计算的贝塞尔数据，否则运行时计算 ──
+  const _bezier = (graphData as any).bezier;
+  if (_bezier) {
+    applyBezierData(ctx, _bezier, linkArr, nodeIdToIndex, nodes, maxOverlayEdges.value, linkOpacity.value);
+  } else {
+    updateLinkPositions(ctx, linkArr, nodeIdToIndex, nodes, linkOpacity.value);
+  }
+
+  // ── bezier 懒加载（首次交互时触发）──
+  let _bezierLoaded = !!_bezier;
+  let _bezierLoading = false;
+
+  async function loadBezierLazy() {
+    if (_bezierLoaded || _bezierLoading) return;
+    _bezierLoading = true;
+    try {
+      const res = await fetch("/graph-bezier.bin");
+      if (!res.ok) return;
+      const buf = await res.arrayBuffer();
+      const raw = await maybeDecompress(new Uint8Array(buf));
+      const bezierData = decode(raw) as any;
+      if (!bezierData.lpx) return;
+
+      const asI16 = (arr: any) =>
+        arr instanceof Int16Array ? arr : new Int16Array(arr.buffer, arr.byteOffset, arr.byteLength / 2);
+      const bz = {
+        lseg: bezierData.lseg,
+        lpx: dequantize(asI16(bezierData.lpx), bezierData.lpx_min, bezierData.lpx_max),
+        lpy: dequantize(asI16(bezierData.lpy), bezierData.lpy_min, bezierData.lpy_max),
+        lpz: dequantize(asI16(bezierData.lpz), bezierData.lpz_min, bezierData.lpz_max),
+      };
+      applyBezierData(ctx, bz, linkArr, nodeIdToIndex, nodes, maxOverlayEdges.value, linkOpacity.value);
+      _bezierLoaded = true;
+      _needsRender = true;
+    } catch {
+      // 静默降级为直线
+    }
+  }
+
+  function refreshLinkColors() {
     (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = linkOpacity.value;
     saveVal("link_opacity", linkOpacity.value);
     _needsRender = true;
@@ -1381,12 +1381,12 @@ export async function init3d(graphData: GraphData) {
     overlayGroup.visible = true;
   }
 
-	  interaction.onHover = (n: any) => {
-	    // 首次交互时触发 bezier 懒加载
-	    if (!_bezierLoaded && !_bezierLoading && n) {
-	      loadBezierLazy();
-	    }
-	    const newHoveredId = n ? n.id : null;
+  interaction.onHover = (n: any) => {
+    // 首次交互时触发 bezier 懒加载
+    if (!_bezierLoaded && !_bezierLoading && n) {
+      loadBezierLazy();
+    }
+    const newHoveredId = n ? n.id : null;
     if (lastHoveredId === newHoveredId) return;
     const prevId = hoveredId;
     hoveredId = newHoveredId;
@@ -1780,20 +1780,20 @@ export async function init3d(graphData: GraphData) {
     return panel;
   }
 
-	  function enterFlyMode() {
-	    isFlyMode = true;
-	    ctx.controls.enabled = false;
-	    reticleOffset.x = 0;
-	    reticleOffset.y = 0;
-	    reticleVelocity.x = 0;
-	    reticleVelocity.y = 0;
-	    ctx.renderer.domElement.requestPointerLock?.();
-	    document.addEventListener("pointerlockchange", onPointerLockChange);
-	    ctx.renderer.domElement.addEventListener("click", flyReLock);
-	    // 切换旋转顺序前保存朝向，避免视觉闪烁
-	    const savedQuat = ctx.camera.quaternion.clone();
-	    ctx.camera.rotation.order = "YXZ";
-	    ctx.camera.quaternion.copy(savedQuat);
+  function enterFlyMode() {
+    isFlyMode = true;
+    ctx.controls.enabled = false;
+    reticleOffset.x = 0;
+    reticleOffset.y = 0;
+    reticleVelocity.x = 0;
+    reticleVelocity.y = 0;
+    ctx.renderer.domElement.requestPointerLock?.();
+    document.addEventListener("pointerlockchange", onPointerLockChange);
+    ctx.renderer.domElement.addEventListener("click", flyReLock);
+    // 切换旋转顺序前保存朝向，避免视觉闪烁
+    const savedQuat = ctx.camera.quaternion.clone();
+    ctx.camera.rotation.order = "YXZ";
+    ctx.camera.quaternion.copy(savedQuat);
     flyCrosshair = createCrosshair();
     flyCrosshair.style.display = "block";
     document.body.style.cursor = "none";
@@ -1906,27 +1906,27 @@ export async function init3d(graphData: GraphData) {
     return { nodes, links };
   }
 
-	  const api = {
-	    find,
-	    focusNode,
-	    focusNodeById, // 内部使用，不走 clearHighlights
-	    highlightNodesAndNeighbors,
-	    clearHighlights,
-	    focusByDomain,
-	    toggleFlightMode,
-	    showShortestPath,
-	    stepPathNext,
-	    stepPathPrev,
-	    clearPath,
-	    getPathInfo,
-	    getGraphData,
-	    loadBezierLazy, // 对外暴露，供 index-client 在需要时提前触发
-	    ctx,
-	    updateLinkOpacity(v: number) {
-	      linkOpacity.value = v;
-	      refreshLinkColors();
-	    },
-	  };
+  const api = {
+    find,
+    focusNode,
+    focusNodeById, // 内部使用，不走 clearHighlights
+    highlightNodesAndNeighbors,
+    clearHighlights,
+    focusByDomain,
+    toggleFlightMode,
+    showShortestPath,
+    stepPathNext,
+    stepPathPrev,
+    clearPath,
+    getPathInfo,
+    getGraphData,
+    loadBezierLazy, // 对外暴露，供 index-client 在需要时提前触发
+    ctx,
+    updateLinkOpacity(v: number) {
+      linkOpacity.value = v;
+      refreshLinkColors();
+    },
+  };
   (window as any).__graphApi = (window as any).__graphApi || {};
   Object.assign((window as any).__graphApi, api); // merge，不用 Object.assign 合并
   return api;
@@ -2010,9 +2010,15 @@ export function applyBezierData(
     const sn = si != null ? nodes[si] : null;
     const tn = ti != null ? nodes[ti] : null;
     return {
-      sx: sn?.x ?? 0, sy: sn?.y ?? 0, sz: sn?.z ?? 0,
-      ex: tn?.x ?? 0, ey: tn?.y ?? 0, ez: tn?.z ?? 0,
-      cx: 0, cy: 0, cz: 0,
+      sx: sn?.x ?? 0,
+      sy: sn?.y ?? 0,
+      sz: sn?.z ?? 0,
+      ex: tn?.x ?? 0,
+      ey: tn?.y ?? 0,
+      ez: tn?.z ?? 0,
+      cx: 0,
+      cy: 0,
+      cz: 0,
     };
   });
 
@@ -2033,7 +2039,7 @@ function dequantize(i16: Int16Array, min: number, max: number): Float32Array {
 // ─── 紧凑格式展开 ────────────────────────────────────────────────────
 
 export function expandCompact(c: any): GraphData {
-	  const { nid, nnm, nur, nfa, nde, nx, ny, nz, ndeg, ladj_off, ladj } = c;
+  const { nid, nnm, nur, nfa, nde, nx, ny, nz, ndeg, ladj_off, ladj } = c;
   const nodes = nid.map((_id: string, i: number) => ({
     id: nid[i],
     name: nnm[i],
@@ -2052,13 +2058,13 @@ export function expandCompact(c: any): GraphData {
     if (c.lsym?.[i]) l.symbol = ["none", "arrow"];
     return l;
   });
-	  return {
-	    nodes,
-	    links,
-	    categories: c.c || [],
-	    adjacency: ndeg ? { ndeg, ladj_off, ladj } : {},
-	    bezier: null,
-	  };
+  return {
+    nodes,
+    links,
+    categories: c.c || [],
+    adjacency: ndeg ? { ndeg, ladj_off, ladj } : {},
+    bezier: null,
+  };
 }
 
 /** zstd magic bytes: 0x28 0xB5 0x2F 0xFD */
@@ -2106,27 +2112,27 @@ export async function init3dFromUrl(coreUrl: string, signal?: AbortSignal, bezie
   const core = decode(coreRaw) as any;
   const data = core.nid ? expandCompact(core) : (core as GraphData);
 
-	  // 合并贝塞尔数据（可选，缺失时 init3d 内部走 updateLinkPositions 回退）
-	  if (bezierBuf) {
-	    try {
-	      const bezierRaw = await maybeDecompress(new Uint8Array(bezierBuf));
-	      const bezier = decode(bezierRaw) as any;
-	      if (bezier.lpx) {
-	        // msgpackr 将 Int16Array 解码为 Uint8Array（原始字节），
-	        // 需通过 buffer 重解释为 Int16Array，而非逐元素拷贝
-	        const asI16 = (arr: any) =>
-	          arr instanceof Int16Array ? arr : new Int16Array(arr.buffer, arr.byteOffset, arr.byteLength / 2);
-	        (data as any).bezier = {
-	          lseg: bezier.lseg,
-	          lpx: dequantize(asI16(bezier.lpx), bezier.lpx_min, bezier.lpx_max),
-	          lpy: dequantize(asI16(bezier.lpy), bezier.lpy_min, bezier.lpy_max),
-	          lpz: dequantize(asI16(bezier.lpz), bezier.lpz_min, bezier.lpz_max),
-	        };
-	      }
-	    } catch {
-	      // bezier 解码/反量化失败，静默降级
-	    }
-	  }
+  // 合并贝塞尔数据（可选，缺失时 init3d 内部走 updateLinkPositions 回退）
+  if (bezierBuf) {
+    try {
+      const bezierRaw = await maybeDecompress(new Uint8Array(bezierBuf));
+      const bezier = decode(bezierRaw) as any;
+      if (bezier.lpx) {
+        // msgpackr 将 Int16Array 解码为 Uint8Array（原始字节），
+        // 需通过 buffer 重解释为 Int16Array，而非逐元素拷贝
+        const asI16 = (arr: any) =>
+          arr instanceof Int16Array ? arr : new Int16Array(arr.buffer, arr.byteOffset, arr.byteLength / 2);
+        (data as any).bezier = {
+          lseg: bezier.lseg,
+          lpx: dequantize(asI16(bezier.lpx), bezier.lpx_min, bezier.lpx_max),
+          lpy: dequantize(asI16(bezier.lpy), bezier.lpy_min, bezier.lpy_max),
+          lpz: dequantize(asI16(bezier.lpz), bezier.lpz_min, bezier.lpz_max),
+        };
+      }
+    } catch {
+      // bezier 解码/反量化失败，静默降级
+    }
+  }
 
   return init3d(data);
 }

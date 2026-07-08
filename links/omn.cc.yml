@@ -1,7 +1,7 @@
 site:
-  name: "omn.cc"
+  name: "空指针"
   url: "https://omn.cc/"
-  description: "友情链接"
+  description: "爱情是七月的谎言"
   links: "/links.html"
   friends:
     - name: "Un1c0de的小窝❤"
@@ -21,7 +21,7 @@ site:
     - name: "黑弩的日记"
       url: "https://www.heinu.cc/"
     - name: "V's Blog"
-      url: "https://vofficial233.com"
+      url: "https://vofficial233.com/"
     - name: "Tianli"
       url: "https://tianli-blog.club/"
     - name: "huige233's blog"
@@ -31,7 +31,7 @@ site:
     - name: "LamentXU"
       url: "https://www.lamentxu.top/"
     - name: "Sudle 的小站"
-      url: "https://sudle2008.top"
+      url: "https://sudle2008.top/"
     - name: "兔子的博客"
       url: "https://blog.yujiay.wang/"
     - name: "LaoKey's Blog"
