@@ -640,15 +640,20 @@ export async function init3d(graphData: GraphData) {
     style.id = "neighbor-panel-style";
     style.textContent = `
       #neighbor-panel { position:fixed;
-        right:var(--np-right,0); top:var(--np-top,50%);
-        transform:var(--np-transform,translateY(-50%));
-        bottom:var(--np-bottom,auto); left:var(--np-left,auto);
-        width:var(--np-width,280px); max-height:var(--np-max-height,75vh);
+        right:0; top:50%; transform:translateY(-50%);
+        bottom:auto; left:auto;
+        width:660px; max-height:75vh;
         z-index:9997;
         background:var(--card-bg,rgba(20,20,30,0.9));
         backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1);
-        border-radius:var(--np-border-radius,8px 0 0 8px);
+        border-radius:8px 0 0 8px;
         overflow:hidden; font-family:sans-serif; transition:width 0.3s; }
+      @media (max-width: 640px) {
+        #neighbor-panel { right:0; top:auto; transform:none; bottom:0; left:0; width:100%; max-height:60vh; border-radius:12px 12px 0 0; }
+      }
+      @media (min-width: 641px) and (max-width: 1024px) {
+        #neighbor-panel { width:540px; }
+      }
       #neighbor-panel.hidden { display:none; }
       #neighbor-panel.collapsed { width:36px; }
       #neighbor-panel.collapsed .np-body,
