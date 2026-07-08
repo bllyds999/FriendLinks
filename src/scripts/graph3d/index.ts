@@ -216,11 +216,25 @@ export async function init3d(graphData: GraphData) {
       tokenizer: createTokenizer({ language: "mandarin", stopWords: mandarinStopwords }),
     },
   });
-  const documents = nodes.map((n: any) => ({
-    id: n.id,
-    name: n.name || n.id,
-    url: n.url || "",
-    description: n.desc || n.description || "",
+  const docById = new Map<string, { id: string; names: string[]; url: string; description: string }>();
+  for (const n of nodes) {
+    const id = n.id;
+    if (!id) continue;
+    const name = n.name || id;
+    const desc = n.desc || n.description || "";
+    const existing = docById.get(id);
+    if (existing) {
+      if (name && !existing.names.includes(name)) existing.names.push(name);
+      existing.description = existing.description || desc;
+    } else {
+      docById.set(id, { id, names: [name], url: n.url || "", description: desc });
+    }
+  }
+  const documents = [...docById.values()].map((d) => ({
+    id: d.id,
+    name: d.names.join(" "),
+    url: d.url,
+    description: d.description,
   }));
   await insertMultiple(oramaDB, documents);
 
