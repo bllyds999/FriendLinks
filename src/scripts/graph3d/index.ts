@@ -640,13 +640,12 @@ export async function init3d(graphData: GraphData) {
     style.id = "neighbor-panel-style";
     style.textContent = `
       #neighbor-panel { position:fixed;
-        right:0; top:50%; transform:translateY(-50%);
-        bottom:auto; left:auto;
+        right:0; bottom:0; top:auto; left:auto; transform:none;
         width:660px; max-height:75vh;
         z-index:9997;
         background:var(--card-bg,rgba(20,20,30,0.9));
         backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1);
-        border-radius:8px 0 0 8px;
+        border-radius:8px 0 0 0;
         overflow:hidden; font-family:sans-serif; transition:width 0.3s; }
       @media (max-width: 640px) {
         #neighbor-panel { right:0; top:auto; transform:none; bottom:0; left:0; width:100%; max-height:60vh; border-radius:12px 12px 0 0; }
