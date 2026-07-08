@@ -576,7 +576,12 @@ export async function init3d(graphData: GraphData) {
         maxOverlayEdges.value = v;
         saveVal("max_overlay_edges", v);
         ctx.linkLines.geometry.setDrawRange(0, v * MAX_EDGE_SEGMENTS * 2);
-        if (focusedId) buildNeighborLabels(focusedId);
+        if (focusedId) {
+          buildNeighborLabels(focusedId);
+          // 同步重建 overlay 管道，使上限生效
+          const fn = nodes.find((n) => n.id === focusedId);
+          if (fn) buildOverlay(focusedId, new THREE.Color(fn._cDefault));
+        }
         _needsRender = true;
       },
       "",
