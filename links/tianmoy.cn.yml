@@ -1,7 +1,7 @@
 'site':
-  'name': 'tianmoy.cn'
+  'name': 'Tianmoy博客'
   'url': 'https://tianmoy.cn/'
-  'description': '友情链接'
+  'description': '如果你自认是一位普通人,那么你就错了'
   'links': '/links.html'
   'friends':
     - 'name': '胡图图'

@@ -1,0 +1,10 @@
+site:
+  name: "Splash"
+  url: "https://solita.neocities.org/"
+  description: "Splash"
+  links: "/links"
+  friends:
+    - name: "baccyflap.com"
+      url: "https://baccyflap.com/"
+    - name: "Ethoslab"
+      url: "https://ethoslab.neocities.org/"

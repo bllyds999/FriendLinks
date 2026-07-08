@@ -1,0 +1,10 @@
+site:
+  name: "Nakolu"
+  url: "https://alignof.com/"
+  description: "The Life and Beyond"
+  links: "/links"
+  friends:
+    - name: "椒盐豆豉"
+      url: "https://blog.douchi.space/"
+    - name: "Verne in GitHub"
+      url: "https://blog.einverne.info/"

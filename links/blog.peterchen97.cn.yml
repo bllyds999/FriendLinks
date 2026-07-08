@@ -1,30 +1,36 @@
-'site':
-  'name': 'blog.peterchen97.cn'
-  'url': 'https://blog.peterchen97.cn/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 'Hi, DIYGod写代码是热爱，写到世界充满爱！'
-      'url': 'https://diygod.cc/'
-    - 'name': 'Airing 的小屋哲学硕士｜小学老师 ｜终端全栈'
-      'url': 'https://blog.ursb.me/'
-    - 'name': '静かな森致虚极，守静笃'
-      'url': 'https://innei.in'
-    - 'name': '第三夏尔认真生活，积极摸鱼'
-      'url': 'https://thirdshire.com'
-    - 'name': '🔗拾月晚来天欲雪，能饮一杯无'
-      'url': 'https://www.skyue.com'
-    - 'name': '八咫烏〜万物皆虚、诸行皆允 〜'
-      'url': 'https://www.vergilisme.com/'
-    - 'name': '📝缘生笔记'
-      'url': 'https://ysicing.me/'
-    - 'name': '👨‍💻小孙同学一个理性的浪漫主义者'
-      'url': 'https://guoqi.dev/'
-    - 'name': '愧怍在这里我会分享各类技术栈所遇到问题与解决方案，带你了解...'
-      'url': 'https://kuizuo.cn'
-    - 'name': '星辰码记星辰之间，码出新天地！'
-      'url': 'https://xinxingnet.cn'
-    - 'name': 'Jayden’s site为天地立心,为生民立命, 为往圣继绝学,为万世开太平。'
-      'url': 'https://xxu.do'
-    - 'name': 'idealcloverStay simple, stay naive.'
-      'url': 'https://idealclover.top'
+site:
+  name: "龙场茶室"
+  url: "https://blog.peterchen97.cn/"
+  description: "一只练习时长六年半的 Web 开发练习生，这是他的一些杂文，欢迎交流~"
+  links: "/links"
+  friends:
+    - name: "龙场书屋"
+      url: "https://book.hweb.peterchen97.cn/"
+    - name: "YangChen's Daily"
+      url: "https://daily.peterchen97.cn/"
+    - name: "DIYgod"
+      url: "https://diygod.cc/"
+    - name: "Airing 的博客"
+      url: "https://blog.ursb.me/"
+    - name: "Danni.cool"
+      url: "https://danni.cool/"
+    - name: "静かな森"
+      url: "https://innei.in/"
+    - name: "第三夏尔"
+      url: "https://thirdshire.com/"
+    - name: "拾月"
+      url: "https://www.skyue.com/"
+    - name: "八咫烏"
+      url: "https://www.vergilisme.com/"
+    - name: "首页"
+      url: "https://ysicing.me/"
+    - name: "pseudoyu"
+      url: "https://www.pseudoyu.com/"
+    - name: "愧怍"
+      url: "https://kuizuo.cn/"
+    - name: "Jayden's site"
+      url: "https://xxu.do/"
+    - name: "idealclover"
+      url: "https://idealclover.top/"
+    - name: "映屿"
+      url: "https://www.glowisle.me/"

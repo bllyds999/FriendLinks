@@ -1,64 +1,86 @@
-'site':
-  'name': 'imzl.com'
-  'url': 'https://imzl.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '品味清单'
-      'url': 'https://zhouliang.xyz/'
-    - 'name': '拉 图拉鼎 独立开发者，Manico、奇点等是他的作品'
-      'url': 'https://imtx.me/'
-    - 'name': 'E Eric 产品经理，前同事'
-      'url': 'https://xubihang.name'
-    - 'name': '龙 郝海龙 GRE 讲师、Podcast 主播、诗人'
-      'url': 'https://haohailong.net/'
-    - 'name': '诗 上尉诗人 文艺青年，文字有感染力'
-      'url': 'https://elizen.me/'
-    - 'name': '磊 罗磊 前端大佬'
-      'url': 'https://luolei.org/'
-    - 'name': 'S SamWanng 少数派小伙伴'
-      'url': 'https://samwanng.com/'
-    - 'name': 'S Showform 把 t.tt 卖给了老罗'
-      'url': 'https://u.sb'
-    - 'name': 'C ca110us 安全领域从业者，白帽子'
-      'url': 'https://ca110.us/'
-    - 'name': 'J Jaskni Apple 设计师，魔术师'
-      'url': 'http://jaskni.com/'
-    - 'name': '皂 皂皂 极客设计师'
-      'url': 'https://zzao.im/'
-    - 'name': 'M meditic 非主流连续创业者'
-      'url': 'https://meditic.com/'
-    - 'name': 'M Megabits iOS 独立开发者，神奇锁屏、PomoNow'
-      'url': 'https://megabits.xyz/'
-    - 'name': 'J Jake Hao Percento 开发者，iOS @Outlook'
-      'url': 'https://www.jakehao.com/'
-    - 'name': 'O oldj SwitchHosts 作者，程序员，科幻迷'
-      'url': 'https://oldj.net/'
-    - 'name': '见 见字如面 产品经理，同行，文章写得好'
-      'url': 'https://hiwannz.com/'
-    - 'name': '破 大破进击 用健康的技术思想 hack 生活'
-      'url': 'https://jesor.me/'
-    - 'name': '淼 于淼 西奈山医学院博士后'
-      'url': 'https://yufree.cn/'
-    - 'name': '方 方糖气球 Easy 同学和他做的那些东西'
-      'url': 'https://ftqq.com/'
-    - 'name': 'Z Mr.Zan 技术极客、创作者和设计师'
-      'url': 'https://mrzan.xyz/'
-    - 'name': '坛 土木坛子 科研学习、社会人文、国外见闻'
-      'url': 'https://tumutanzi.com/'
-    - 'name': '银 银河系漫游指南 能写故事能做生意'
-      'url': 'https://www.stylefanr.org/'
-    - 'name': '从 从良未遂 恶意的想象来自想象者的恶意'
-      'url': 'https://www.ithmz.com/'
-    - 'name': 'B 比尔盖子 真 · Linux 技术博客'
-      'url': 'https://tomli.blog/'
-    - 'name': '暮 暮光博客 程序员'
-      'url': 'https://muguang.me/'
-    - 'name': 'I IAN博客 iOS 开发'
-      'url': 'https://www.ianisme.com/'
-    - 'name': '阿 阿尔弗智德 高中历史教师，十年独立博客'
-      'url': 'https://japhia.cn/'
-    - 'name': '猫 猫鱼 生活博客'
-      'url': 'https://2cat.net/'
-    - 'name': '林 林三随笔 原创生活博客'
-      'url': 'https://linsanhu.com/'
+site:
+  name: "周良 Len"
+  url: "https://imzl.com/"
+  description: "由周良 Len 运营，分享个人生活感悟、科技见解及项目经验。内容涵盖 WordPress 教程技巧、SEO 优化、区块链技术、产品运营等话题，提供丰富的资源与实"
+  links: "/links"
+  friends:
+    - name: "环尾堂"
+      url: "https://haohailong.net/"
+    - name: "首页"
+      url: "https://immmmm.com/"
+    - name: "亲爱的罗伊"
+      url: "https://dearroy.com/"
+    - name: "Elizen"
+      url: "https://elizen.me/"
+    - name: "代码家"
+      url: "https://daimajia.com/"
+    - name: "罗磊的独立博客"
+      url: "https://luolei.org/"
+    - name: "I'm TualatriX"
+      url: "https://imtx.me/"
+    - name: "61’s life"
+      url: "https://61.life/"
+    - name: "首页"
+      url: "https://u.sb/"
+    - name: "ca110us"
+      url: "https://ca110.us/"
+    - name: "ZWWoOoOo | 因为喜欢所以折腾...无折腾不铁血！ZWWoOoOo"
+      url: "https://zww.me/"
+    - name: "WordPress 果酱"
+      url: "https://blog.wpjam.com/"
+    - name: "且听书吟"
+      url: "https://yufan.me/"
+    - name: "kn007的个人博客"
+      url: "https://kn007.net/"
+    - name: "IAN博客"
+      url: "https://www.ianisme.com/"
+    - name: "闪星空间"
+      url: "https://shansing.com/"
+    - name: "思章老师"
+      url: "https://lisizhang.com/"
+    - name: "暮光博客"
+      url: "https://muguang.me/"
+    - name: "WangMao's Blog"
+      url: "https://blog.wangmao.me/"
+    - name: "土木坛子"
+      url: "https://tumutanzi.com/"
+    - name: "权子的 QUANZI.DE"
+      url: "https://www.quanzi.de/"
+    - name: "Andy烧麦"
+      url: "https://4311346.com/"
+    - name: "孙老四 Lao.si"
+      url: "https://lao.si/"
+    - name: "子痕的博客-折腾无极限"
+      url: "https://www.mzihen.com/"
+    - name: "貓魚"
+      url: "https://2cat.net/"
+    - name: "forecho's Blog"
+      url: "https://blog.forecho.com/"
+    - name: "Jonty Blog"
+      url: "https://nobb.cc/"
+    - name: "三无青年"
+      url: "https://www.duanxiansen.com/"
+    - name: "FLY 视觉 可劲设计，快乐生活。"
+      url: "https://schiy.com/"
+    - name: "owlling"
+      url: "https://www.owlling.com/"
+    - name: "@meditic’s Blog (博客)"
+      url: "https://meditic.com/"
+    - name: "见字如面"
+      url: "https://hiwannz.com/"
+    - name: "KAIX.IN"
+      url: "https://kaix.in/"
+    - name: "jax"
+      url: "https://cdjax.com/"
+    - name: "大破进击"
+      url: "https://jesor.me/"
+    - name: "Megabits Studio"
+      url: "https://megabits.xyz/"
+    - name: "Jake Hao"
+      url: "https://www.jakehao.com/"
+    - name: "Miao Yu"
+      url: "https://yufree.cn/"
+    - name: "方糖气球🎈"
+      url: "https://ftqq.com/"
+    - name: "oldj's blog"
+      url: "https://oldj.net/"

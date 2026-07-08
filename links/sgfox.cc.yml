@@ -1,0 +1,8 @@
+site:
+  name: "@sgfox"
+  url: "https://sgfox.cc/"
+  description: "@sgfox"
+  links: "/links"
+  friends:
+    - name: "@sgfox"
+      url: "https://sgfox.cc/"

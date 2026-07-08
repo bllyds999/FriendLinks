@@ -1,12 +1,22 @@
-'site':
-  'name': '温柔鱼'
-  'url': 'https://blog.vrou.cn/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '香水的个人主页 他还没有自我介绍呢'
-      'url': 'https://xsui.com/'
-    - 'name': '哈喽！林墨白 沉墨满纸，一笑若白。'
-      'url': 'https://blog.lmb.blue/'
-    - 'name': '宏尘极客 他还没有自我介绍呢'
-      'url': 'https://www.hcjike.com'
+site:
+  name: "温柔鱼-vrou"
+  url: "https://blog.vrou.cn/"
+  description: "温柔鱼-vrou，困困鱼，vrou.cn，172号卡平台，奥迪odis"
+  links: "/links"
+  friends:
+    - name: "LiuShen's Blog"
+      url: "https://blog.liushen.fun/"
+    - name: "张洪Heo"
+      url: "https://blog.zhheo.com/"
+    - name: "首页"
+      url: "https://webfem.com/"
+    - name: "香水的个人主页"
+      url: "https://xsui.com/"
+    - name: "哈喽！林墨白"
+      url: "https://blog.lmb.blue/"
+    - name: "杜老师说"
+      url: "https://dusays.com/"
+    - name: "Roozen的小破站"
+      url: "https://roozen.top/"
+    - name: "Z次元"
+      url: "https://blog.ahzoo.cn/"

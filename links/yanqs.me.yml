@@ -1,0 +1,18 @@
+site:
+  name: "YanQS's Blog | 分享技术，记录生活YanQS's Blog"
+  url: "https://yanqs.me/"
+  description: "YanQS's Blog | 分享技术，记录生活YanQS's Blog"
+  links: "/links"
+  friends:
+    - name: "裴先生笔记"
+      url: "https://blog.peiluming.com/"
+    - name: "Diraw的世界"
+      url: "https://diraw.top/"
+    - name: "Mycpen"
+      url: "https://blog.cpen.top/"
+    - name: "HKK's Diary"
+      url: "https://ihkk.net/"
+    - name: "做棵大树"
+      url: "https://beatree.cn/"
+    - name: "乔人尹"
+      url: "https://underestimated.cn/"

@@ -30,16 +30,16 @@ showShortestPath 内部:
 
 | 方法 | 参数 | 返回 | 功能 |
 |------|------|------|------|
-| `find(query)` | `string` | `{id,name,url}[]` | Fuse.js 模糊搜索节点 |
-| `focusNodeById(id)` | `string` | `void` | 聚焦节点：高亮+金线+面板+相机飞行 |
+| `find(query)` | `string` | `{id,name,url}[]` | FlexSearch 模糊搜索节点（毫秒级） |
+| `focusNodeById(id)` | `string` | `void` | 聚焦节点：高亮+本色光晕连线+邻居面板+相机飞行 |
 | `highlightNodesAndNeighbors(ids)` | `string[]` | `void` | 高亮节点及其邻居 |
 | `clearHighlights()` | — | `void` | 清除高亮和聚焦 |
-| `focusByDomain(domain)` | `string` | `void` | 按域名聚焦节点 |
+| `focusByDomain(domain)` | `string` | `void` | 按域名聚焦节点（支持完整 URL） |
 | `toggleFlightMode()` | — | `boolean` | 切换飞船/球幕模式，返回当前状态 |
-| `showShortestPath(from, to)` | `string, string` | `string[] \| null` | 计算并显示最短路径(金线+橙色节点+相机飞行) |
+| `showShortestPath(from, to)` | `string, string` | `string[] \| null` | 计算并显示最短路径（贝塞尔金色管道+橙色节点+相机飞行） |
 | `stepPathNext()` | — | `boolean` | 下一步，更新颜色+相机 |
 | `stepPathPrev()` | — | `boolean` | 上一步，更新颜色+相机 |
-| `clearPath()` | — | `void` | 清除路径：清金线+恢复颜色+恢复连线 |
+| `clearPath()` | — | `void` | 清除路径：清管道+恢复颜色+恢复连线 |
 | `getPathInfo()` | — | `{path,totalSteps,currentStep,currentId} \| null` | 获取当前路径状态 |
 | `getGraphData()` | — | `{nodes, links}` | 获取全量图数据 |
 | `updateLinkOpacity(v)` | `number` | `void` | 更新连线透明度 |
@@ -64,17 +64,15 @@ showShortestPath 内部:
 | 按钮 | DOM ID | 事件 | 功能 |
 |------|--------|------|------|
 | 飞船模式 | `fly-toggle` | click | `toggleFlightMode()`，更新按钮文字 🚀↔🌐 |
-| 关于 | `about-toggle` | click | 显示/隐藏关于弹窗 |
+| 关于 | `about-toggle` | click | 显示关于弹窗 |
 | 统计信息 | `stats-toggle` | click | 显示统计弹窗(`fetch /stats.json`) |
-| 控制面板 | `opacity-toggle` | click | 显示/隐藏控制面板(连线透明度+飞船速度+标签开关) |
+| 控制面板 | `opacity-toggle` | click | 显示/隐藏控制面板（连线透明度 / 飞船速度 / 泛光强度 / 节点辉光 / 线条辉光 / 节点标签 / 自动自转） |
 | 路径查找 | `path-toggle` | click | 显示/隐藏路径栏 |
 | 路径上一步 | `path-prev-btn` | click | `stepPathPrev()` → `updatePathUI()` |
 | 路径下一步 | `path-next-btn` | click | `stepPathNext()` → `updatePathUI()` |
 | 路径清除 | `path-clear-btn` | click | `clearPathSelections()` |
 | 路径关闭 | `path-bar-close` | click | 隐藏路径栏 |
-| 统计关闭 | stats-modal `.close-btn` | click | `hideStatsModal()` |
-| 关于关闭 | about-modal `.close-btn` | click | `hideAboutModal()` |
-| 搜索输入 | `graph-search` | input | Fuse.js 搜索 → 结果列表 |
+| 搜索输入 | `graph-search` | input | FlexSearch 搜索 → 结果列表 |
 | 搜索清除 | `graph-search-clear` | click | 清空搜索+清除高亮 |
 
 ## 键盘事件
@@ -92,31 +90,31 @@ showShortestPath 内部:
 
 | 面板 | DOM ID | 定位 | 显示条件 |
 |------|--------|------|---------|
-| 邻居面板 | `neighbor-panel` | 右侧居中 | `focusNodeById()` 被调用时 |
-| 控制面板 | `graph-control-panel` | 右下 | 点击控制面板按钮 |
-| 飞行控制面板 | `fly-control-panel` | 左下 | 进入飞船模式 |
+| 邻居面板 | `neighbor-panel` | 右侧居中（移动端底部弹出） | `focusNodeById()` 被调用时 |
+| 控制面板 | `graph-control-panel` | 右下（移动端底部通栏） | 点击控制面板按钮 |
+| 飞行控制面板 | `fly-control-panel` | 左下（移动端底部通栏） | 进入飞船模式 |
 | 路径栏 | `path-bar` | 底部 | 点击路径查找按钮 |
-| 统计弹窗 | `stats-modal` | 居中遮罩 | 点击统计信息按钮 |
-| 关于弹窗 | `about-modal` | 居中遮罩 | 点击关于按钮 |
-| FPS 监控 | (动态创建) | 顶部居中 | 始终显示 |
-| Tooltip | `graph-tooltip` | 鼠标旁 | hover 节点时 |
+| 统计弹窗 | `stats-dialog` | 居中遮罩 | 点击统计信息按钮 |
+| 关于弹窗 | `about-dialog` | 居中遮罩 | 点击关于按钮 |
+| FPS 监控 | (动态创建) | 左下（移动端右下） | 始终显示 |
+| Tooltip | `graph-tooltip` | 鼠标旁（自动避让视口边界） | hover 节点时 |
 | 加载蒙版 | `loading-overlay` | 全屏 | init3d 完成前 |
 | 准星 | `fly-crosshair` | 屏幕中心 | 飞船模式 |
 
 ## 路径系统数据流
 
 ```
-用户选择起点/终点
-  → checkBothSelected()
-  → api.showShortestPath(fromId, toId)
-  → findShortestPath(neighborMap, from, to)     // BFS in pathfinder.ts
-  → if path found:
-      clearOldPathState()                        // 清旧路径
-      pathNodeIds = path; pathStepIndex = 0      // 设新路径状态 ★
-      refreshPathNodeColors()                    // 节点上色(橙色/最亮)
-      buildPathOverlay(path)                     // 金线管道
-      return path
-    else: return null
+	用户选择起点/终点
+	  → checkBothSelected()
+	  → api.showShortestPath(fromId, toId)
+	  → findShortestPath(neighborMap, from, to)     // BFS in pathfinder.ts
+	  → if path found:
+	      clearOldPathState()                        // 清旧路径
+	      pathNodeIds = path; pathStepIndex = 0      // 设新路径状态 ★
+	      refreshPathNodeColors()                    // 节点上色(橙色/最亮)
+	      buildPathOverlay(path)                     // 贝塞尔金色管道（沿曲线分段圆柱）
+	      return path
+	    else: return null
 
 步进按钮:
   → api.stepPathNext() / api.stepPathPrev()

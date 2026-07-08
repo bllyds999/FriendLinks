@@ -1,36 +1,40 @@
-'site':
-  'name': 'webfem.com'
-  'description': '友情链接'
-  'url': 'https://webfem.com/'
-  'links': '/friends'
-  'friends':
-    - 'name': '陶小桃Blog 热衷于分享日常和技术的机械专业小哥哥~'
-      'url': 'https://www.52txr.cn'
-    - 'name': '张洪Heo 分享设计与科技生活'
-      'url': 'https://blog.zhheo.com/'
-    - 'name': 'Tianli 自知之明是最可贵的知识！'
-      'url': 'https://blog.tianli0.top/'
-    - 'name': '清羽飞扬 柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜'
-      'url': 'https://blog.liushen.fun/'
-    - 'name': '马浩飞丨博客 无限进步！'
-      'url': 'https://www.mahaofei.com/'
-    - 'name': '夜法之书的Blog 深度思考，深入生活！'
-      'url': 'https://blog.17lai.fun/'
-    - 'name': '王鑫的小屋 一个玩转信用卡的招商人'
-      'url': 'https://wonse.info/'
-    - 'name': 'Sukka''s Blog 童话只美在真实却从不续写'
-      'url': 'https://blog.skk.moe'
-    - 'name': '杜老师说 师者，传道，授业，解惑！'
-      'url': 'https://dusays.com'
-    - 'name': '花非花 回首向来萧瑟处，归去，也无风雨也无晴。'
-      'url': 'https://www.941741.xyz/'
-    - 'name': '贪婪的君子 君子不器'
-      'url': 'https://iachieveall.com/'
-    - 'name': 'joojenZhou 个人网站 升级人生系统'
-      'url': 'https://joojen.com'
-    - 'name': '韩小韩博客 运气是计划之外的东西.'
-      'url': 'https://www.vvhan.com/'
-    - 'name': '雅余 茶余饭后，闲情雅致'
-      'url': 'https://yayu.net/'
-    - 'name': 'Onew 学习是进步的阶梯'
-      'url': 'https://blog.onew.us.kg/'
+site:
+  name: "首页"
+  url: "https://webfem.com/"
+  description: "webfem 做有价值的博客"
+  links: "/links"
+  friends:
+    - name: "陶小桃Blog"
+      url: "https://www.52txr.cn/"
+    - name: "张洪Heo"
+      url: "https://blog.zhheo.com/"
+    - name: "Tianli's Blog"
+      url: "https://blog.tianli0.top/"
+    - name: "LiuShen's Blog"
+      url: "https://blog.liushen.fun/"
+    - name: "马浩飞丨博客"
+      url: "https://www.mahaofei.com/"
+    - name: "Kezade"
+      url: "https://zyxelva.github.io/"
+    - name: "Lincol29"
+      url: "https://www.lincol29.cn/"
+    - name: "王鑫的小屋"
+      url: "https://wonse.info/"
+    - name: "杜老师说"
+      url: "https://dusays.com/"
+    - name: "雾非雾"
+      url: "https://www.941741.xyz/"
+    - name: "joojen Zhou 的网站"
+      url: "https://joojen.com/"
+    - name: "韩小韩博客"
+      url: "https://www.vvhan.com/"
+    - name: "御宅男の博客"
+      url: "https://blog.yzncms.com/"
+    - name: "雅余 · 茶余饭后，闲情雅致"
+      url: "https://yayu.net/"
+    - name: "微风静语｜在微风中轻语自己，在宁静中书写世界"
+      url: "https://www.webjing.cn/"
+    - name: "Changbin's Blog 我的编程学习笔记和一些计算机的实用教程"
+      url: "https://www.misterma.com/"
+    - name: "Onew`s Blog"
+      url: "https://blog.onew.us.kg/"

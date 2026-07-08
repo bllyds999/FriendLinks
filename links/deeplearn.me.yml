@@ -1,10 +1,15 @@
-'site':
-  'name': 'deeplearn.me'
-  'url': 'https://www.deeplearn.me/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': '憧憬点滴记忆'
-      'url': 'https://licoy.cn'
-    - 'name': '羽化飞翔'
-      'url': 'https://www.huazai186.com'
+site:
+  name: "算法之道"
+  url: "https://www.deeplearn.me/"
+  description: "持续关注互联网推荐算法和计算广告前沿技术"
+  links: "/友情链接"
+  friends:
+    - name: "憧憬点滴记忆"
+      url: "https://licoy.cn"
+      description: "暂无介绍"
+    - name: "羽化飞翔"
+      url: "https://www.huazai186.com"
+      description: "暂无介绍"
+    - name: "酷壳"
+      url: "http://coolshell.cn/"
+      description: "暂无介绍"

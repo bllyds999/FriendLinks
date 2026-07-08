@@ -1,48 +1,87 @@
-'site':
-  'name': '2hi5hu.cn'
-  'url': 'https://2hi5hu.cn/'
-  'description': '友情链接'
-  'links': '/friends'
-  'friends':
-    - 'name': 'SU CTF欢迎加入SU'
-      'url': 'https://su-team.cn/'
-    - 'name': 'GWHT CTF广外校队'
-      'url': 'https://gwhteam.pages.dev/'
-    - 'name': 'baozongwi Leader|Web老大！'
-      'url': 'https://baozongwi.xyz/'
-    - 'name': 'Xherlock ReRe大手子！'
-      'url': 'http://xherlock.top/'
-    - 'name': 'Mo1u Web他说他也听eason'
-      'url': 'https://blog.molulu.top/'
-    - 'name': '1ceS1amese Crypto会密码的冰🐱'
-      'url': 'https://1ces1amese.github.io/'
-    - 'name': '_sun_empty. Web属仓鼠的web手）'
-      'url': 'https://sun1028.top/'
-    - 'name': 'p3cd0wn Rep宝p宝陪你到老）'
-      'url': 'https://quietdawn.github.io/'
-    - 'name': 'Mnzn MiscUltimate Misc God'
-      'url': 'https://mnzn.me'
-    - 'name': '0ran9e Miscbro我俩真强'
-      'url': 'https://blog.0ran9e.cn'
-    - 'name': 'Sep Misc兄弟 有学霸呜呜'
-      'url': 'https://sep252.github.io/'
-    - 'name': '埃菲尔铁塔 Re铁塔神😭'
-      'url': 'https://yuhuantin.icu/'
-    - 'name': 'xrntkk Web我是您的冰啊'
-      'url': 'https://blog.xrntkk.top/'
-    - 'name': '晨曦 全栈您是我永远的哥'
-      'url': 'https://chenxi9981.github.io/'
-    - 'name': 'Weir_Su Pwn新晋小pwn爹'
-      'url': 'https://weirsu.cn/'
-    - 'name': 'LUNCHAH Re新晋小RE爹'
-      'url': 'https://lunchah.github.io/'
-    - 'name': 'yu1i Misc新晋小misc申'
-      'url': 'http://www.yu1i.cn/'
-    - 'name': 'grand ReSMUのre佬'
-      'url': 'https://bygeee.github.io/'
-    - 'name': 'PR0_M1X他说他不知道'
-      'url': 'https://nacpromix.top/'
-    - 'name': 'G3rling Misc少说话，多做事'
-      'url': 'https://g3rling.top/'
-    - 'name': 'butt3rf1y Misc感觉她什么都会'
-      'url': 'https://buutt3rf1y.github.io/'
+site:
+  name: 2hi5hu's Blog
+  url: https://2hi5hu.cn/
+  description: 友情链接
+  links: /friends
+  friends:
+    - name: SU CTF
+      url: https://su-team.cn/
+      description: 欢迎加入SU
+    - name: GWHT CTF
+      url: https://gwhteam.pages.dev/
+      description: 广外校队
+    - name: baozongwi
+      url: https://baozongwi.xyz/
+      description: Leader|Web - 老大！
+    - name: Xherlock
+      url: http://xherlock.top/
+      description: Re - Re大手子！
+    - name: Mo1u
+      url: https://blog.molulu.top/
+      description: Web - 他说他也听eason
+    - name: Link
+      url: https://li1nk3.github.io/
+      description: Pwn - SCUT的Pwn爹
+    - name: 1ceS1amese
+      url: https://1ces1amese.github.io/
+      description: Crypto - 会密码的冰🐱
+    - name: _sun_empty.
+      url: https://sun1028.top/
+      description: Web - 属仓鼠的web手）
+    - name: p3cd0wn
+      url: https://quietdawn.github.io/
+      description: Re - p宝p宝陪你到老）
+    - name: Mnzn
+      url: https://mnzn.me
+      description: Misc - Ultimate Misc God
+    - name: 0ran9e
+      url: https://blog.0ran9e.cn
+      description: Misc - bro我俩真强
+    - name: Sep
+      url: https://sep252.github.io/
+      description: Misc - 兄弟 有学霸呜呜
+    - name: 埃菲尔铁塔
+      url: https://yuhuantin.icu/
+      description: Re - 铁塔神😭
+    - name: Luc1f3r
+      url: https://blog.luc1f3r.top/zh-cn/
+      description: Web - 全栈✌️ddw
+    - name: xrntkk
+      url: https://blog.xrntkk.top/
+      description: Web - 我是您的冰啊
+    - name: 晨曦
+      url: https://chenxi9981.github.io/
+      description: 全栈 - 您是我永远的哥
+    - name: Weir_Su
+      url: https://weirsu.cn/
+      description: Pwn - 新晋小pwn爹
+    - name: LUNCHAH
+      url: https://lunchah.github.io/
+      description: Re - 新晋小RE爹
+    - name: yu1i
+      url: http://www.yu1i.cn/
+      description: Misc - 新晋小misc申
+    - name: Linkstar
+      url: https://blog.miaoaixuan.cn/
+      description: Misc - misc大手子！
+    - name: MilkteA
+      url: https://www.cnblogs.com/Mi1kTe4
+      description: 广理工ctf一把手
+    - name: Hurkin
+      url: https://www.hurkin.top/
+      description: Misc - 沾点魅魔血统的ctf佬
+    - name: grand
+      url: https://bygeee.github.io/
+      description: Re - SMUのre佬
+    - name: PR0_M1X
+      url: https://nacpromix.top/
+      description: 他说他不知道
+    - name: G3rling
+      url: https://g3rling.top/
+      description: Misc - 少说话，多做事
+    - name: butt3rf1y
+      url: https://buutt3rf1y.github.io/
+      description: Misc - 感觉她什么都会
+    - name: C3ngH
+      url: https://c3ngh.top/
+      description: Misc - wm超厉害的misc✌

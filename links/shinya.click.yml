@@ -1,14 +1,21 @@
-'site':
-  'name': 'shinya.click'
-  'url': 'https://shinya.click/'
-  'description': '友情链接'
-  'links': '/friends'
-  'friends':
-    - 'name': 'Oliver Chen互联网新星'
-      'url': 'https://oliverchen12.github.io'
-    - 'name': 'Sun Yushuo风雨湿征衣'
-      'url': 'https://yyd-piren.github.io'
-    - 'name': 'AncyCoding with love!'
-      'url': 'https://anxcye.com'
-    - 'name': 'Zwei人生如白驹过隙，历史似长河永流'
-      'url': 'https://zwei.de.eu.org'
+site:
+  name: 信也のブログ - 一写代码的
+  url: https://shinya.click/
+  description: 互联网自留地
+  links: /friends
+  friends:
+    - name: Oliver Chen
+      url: https://oliverchen12.github.io
+      description: 互联网新星
+    - name: Sun Yushuo
+      url: https://yyd-piren.github.io
+      description: 风雨湿征衣
+    - name: 子行
+      url: https://www.cnblogs.com/fallingdust
+      description: 往日痕迹
+    - name: Ancy
+      url: https://anxcye.com
+      description: Coding with love!
+    - name: Zwei
+      url: https://zwei.de.eu.org
+      description: 人生如白驹过隙，历史似长河永流

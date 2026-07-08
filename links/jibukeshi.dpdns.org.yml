@@ -1,8 +1,14 @@
-'site':
-  'name': 'jibukeshi.dpdns.org'
-  'url': 'https://jibukeshi.dpdns.org/'
-  'description': '友情链接'
-  'links': '/'
-  'friends':
-    - 'name': 'jibukeshi.66ghz.com'
-      'url': 'http://jibukeshi.66ghz.com'
+site:
+  name: "首页"
+  url: "https://jibukeshi.dpdns.org/"
+  description: "轻雨Purainity的个人网站"
+  links: "/links"
+  friends:
+    - name: "主页"
+      url: "https://docs.yyyyt.top/"
+    - name: "QL-QianLinJiaXi 的 blog"
+      url: "https://blog.qianlinjiaxi.qzz.io/"
+    - name: "Runoneall Develop"
+      url: "https://rdev.qzz.io/"
+    - name: "YingXinche的小站"
+      url: "https://www.anran.xyz/"

@@ -1,0 +1,21 @@
+site:
+  name: "LUNCHAH's Blog"
+  url: "https://lunchah.github.io/"
+  description: "逆向小手子"
+  links: "/friend"
+  friends:
+    - name: 2hi5hu
+      url: https://2hi5hu.cn/
+      description: Misc神！！！(≧∇≦)ﾉ
+    - name: Weir_Su
+      url: https://weirsu.cn/
+      description: 坚挺的Pwn后盾！！^o^/
+    - name: xrntkk
+      url: https://blog.xrntkk.top/
+      description: Web神！！！╰(*°▽°*)╯
+    - name: yu1i
+      url: http://www.yu1i.cn/
+      description: 锐利的Misc前锋！！w(ﾟДﾟ)w
+    - name: n0ne
+      url: https://n0neme.top/
+      description: Web大手子(☆▽☆)

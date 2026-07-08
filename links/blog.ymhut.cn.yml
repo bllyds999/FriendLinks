@@ -1,20 +1,24 @@
-'site':
-  'name': '弈鸣小筑'
-  'url': 'https://blog.ymhut.cn/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '小奥のblog 不经一事，不长一智。'
-      'url': 'https://www.aokaoka.top/'
-    - 'name': 'LUORUI LUORUI的小站'
-      'url': 'https://wntab.work'
-    - 'name': '胜天半子 事已至此，先吃饭吧😋'
-      'url': 'https://blog.291055.xyz/'
-    - 'name': '阿锦在线 记录生活点滴！'
-      'url': 'https://www.ajinol.com/'
-    - 'name': '卖桃翁小窝 一切向好，生活向阳'
-      'url': 'https://ayakasuki.com'
-    - 'name': '世上云川 若有韶月熹微，愿作流萤徂岁。'
-      'url': 'https://blog.ssyc.me'
-    - 'name': 'THYUU/星度'
-      'url': 'https://theme.thyuu.com'
+site:
+  name: "弈鸣小筑"
+  url: "https://blog.ymhut.cn/"
+  description: "弈鸣小筑"
+  links: "/links"
+  friends:
+    - name: "❖星港◎Star☆"
+      url: "https://blog.starsharbor.com/"
+    - name: "小亮的部落阁"
+      url: "https://blog.752132.xyz/"
+    - name: "世上云川"
+      url: "https://blog.ssyc.me/"
+    - name: "阿锦在线[ajinol.com]"
+      url: "https://www.ajinol.com/"
+    - name: "卖桃翁小窝"
+      url: "https://ayakasuki.com/"
+    - name: "Spark’s Blog"
+      url: "https://www.aspark.cc/"
+    - name: "梦爱吃鱼"
+      url: "https://blog.bsgun.cn/"
+    - name: "奥梁"
+      url: "https://www.aokaoka.top/"
+    - name: "胜天半子"
+      url: "https://blog.291055.xyz/"

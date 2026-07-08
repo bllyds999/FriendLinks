@@ -1,36 +1,51 @@
 site:
   name: 木头的小木屋
-  description: stay hungry stay foolish.
+  description: 吃饱混天黑？
   url: https://wood1314.github.io/
   links: /links
   friends:
     - name: 书鱼
       url: https://bkfish.gitee.io/
+      description: 赞神赞神！
     - name: w4rd3n
       url: https://hitworld.github.io/
+      description: pwn神
     - name: Melo
       url: https://dragonliu.tk/
+      description: drangon liu yyds
     - name: cooook
       url: https://blog.cooook.icu/
+      description: 帆鸽鸽
     - name: desperadoccy
       url: https://desperadoccy.xyz/
+      description: 四火
     - name: noname
       url: https://noname0519.com/
+      description: web小姐姐
     - name: Srin
       url: http://shiroinu.top/
+      description: 俺滴偶像
     - name: miaotony
       url: https://miaotony.xyz/
+      description: misc web大佬
     - name: daidai
       url: https://0xdaidai.github.io/
+      description: 呆呆师傅
     - name: dounine
       url: https://99mycql.github.io/
+      description: 玖哥
     - name: p1kk
       url: https://p1kk.github.io/
+      description: 艺无止境，功不唐捐
     - name: l1nk3d
       url: http://showlinkroom.me/
+      description: 耗子哥哥
     - name: Dawn_whisper
       url: https://dawn-whisper.hack.best/
+      description: 全能带师，密码带神
     - name: $2zz
       url: https://szzzy.github.io/
+      description: 人美声甜邵哥哥
     - name: LastSprinter
       url: https://www.cnblogs.com/hhh1109/
+      description: 拐走了队里的妹子

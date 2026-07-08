@@ -1,10 +1,14 @@
-'site':
-  'name': 'selfboot'
-  'url': 'https://selfboot.cn/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '全国律师执业诚信信息公式平台'
-      'url': 'https://credit.acla.org.cn/'
-    - 'name': '训练大脑, 保持聪明'
-      'url': 'https://puzzles-game.com/'
+site:
+  name: "Just For Fun"
+  url: "https://selfboot.cn/"
+  description: "Just For Fun"
+  links: "/links"
+  friends:
+    - name: "张洪Heo"
+      url: "https://blog.zhheo.com/"
+    - name: "首页"
+      url: "https://immmmm.com/"
+    - name: "杜老师说"
+      url: "https://dusays.com/"
+    - name: "二丫讲梵"
+      url: "https://wiki.eryajf.net/"

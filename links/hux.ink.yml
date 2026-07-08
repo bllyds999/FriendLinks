@@ -1,12 +1,14 @@
-'site':
-  'name': 'hux.ink'
-  'url': 'https://hux.ink/'
-  'description': '友情链接'
-  'links': '/about'
-  'friends':
-    - 'name': 'Elizen'
-      'url': 'https://elizen.me/'
-    - 'name': '木木木木木'
-      'url': 'https://immmmm.com/'
-    - 'name': 'Koobai'
-      'url': 'https://koobai.com/'
+site:
+  name: "Counting Stars💫"
+  url: "https://hux.ink/"
+  description: "Counting Stars💫"
+  links: "/links"
+  friends:
+    - name: "简介"
+      url: "https://clip.hux.ink/"
+    - name: "Workouts Page"
+      url: "https://workout.hux.ink/"
+    - name: "Elizen"
+      url: "https://elizen.me/"
+    - name: "首页"
+      url: "https://immmmm.com/"

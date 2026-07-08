@@ -1,14 +1,9 @@
-'site':
-  'name': 'jackxjz.com'
-  'url': 'https://www.jackxjz.com/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '萌番组 可能需要梯子'
-      'url': 'https://bangumi.moe/'
-    - 'name': 'ACG.RIP 可能需要梯子'
-      'url': 'https://acg.rip/'
-    - 'name': '漫猫动漫'
-      'url': 'https://www.comicat.org/'
-    - 'name': '大绵羊博客'
-      'url': 'https://dmyblog.cn/'
+site:
+  name: JACK小桔子の小屋
+  description: 本站分享生活闪念、软件资源、科技技巧、优秀源码，欢迎常来逛逛
+  url: https://www.jackxjz.com/
+  links: /friends
+  friends:
+    - name: 大绵羊博客
+      url: https://dmyblog.cn/
+      description: 聚焦于个人技术分享与生活记录的博客

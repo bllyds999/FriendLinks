@@ -3,18 +3,30 @@
 import * as THREE from "three";
 
 export const PALETTE = [
-  "#E69F00",
-  "#56B4E9",
-  "#009E73",
-  "#0072B2",
-  "#D55E00",
-  "#CC79A7",
-  "#8C564B",
-  "#E377C2",
-  "#7F7F7F",
-  "#17BECF",
-  "#4E79A7",
-  "#B1C94E",
+  "#FF6B6B", // 亮红
+  "#4ECDC4", // 青绿
+  "#45B7D1", // 天蓝
+  "#96CEB4", // 薄荷绿
+  "#FFEAA7", // 浅黄
+  "#DDA0DD", // 梅紫
+  "#98D8C8", // 浅青
+  "#F7DC6F", // 金黄
+  "#BB8FCE", // 淡紫
+  "#85C1E9", // 淡蓝
+  "#F0B27A", // 杏色
+  "#82E0AA", // 翠绿
+  "#F1948A", // 鲑红
+  "#7FB3D8", // 钢蓝
+  "#AED6F1", // 粉蓝
+  "#A3E4D7", // 海绿
+  "#FAD7A0", // 蜜橙
+  "#D2B4DE", // 薰衣草
+  "#FF8C94", // 珊瑚
+  "#96E6A1", // 嫩绿
+  "#81ECEC", // 亮青
+  "#FFA07A", // 亮鲑
+  "#C8A2C8", // 紫罗兰
+  "#87CEEB", // 天蓝
 ];
 
 /**
@@ -30,14 +42,10 @@ export function hashToIndex(s: string) {
 }
 
 /**
- * 节点度数 → 3D 节点尺寸
+ * 统一节点尺寸（与 renderer.nodeSize 一致）
  */
-export function degreeToSize(d: number, maxDegree: number) {
-  const MIN = 2;
-  const MAX = 10;
-  if (!d || d <= 1) return MIN;
-  const norm = Math.sqrt(d) / Math.sqrt(Math.max(1, maxDegree));
-  return MIN + Math.min(1, norm) * (MAX - MIN);
+export function degreeToSize(_d: number, _maxDegree: number) {
+  return 20;
 }
 
 export function hexToRgb(hex: string): [number, number, number] {
@@ -52,15 +60,44 @@ export function rgbToHex(r: number, g: number, b: number) {
 }
 
 /**
- * 按百分比调亮/调暗 hex 颜色
+ * 按百分比调亮/调暗 hex 颜色（HSL 模式，保持饱和度）
  */
 export function adjustHex(hex: string, percent: number) {
   const [r, g, b] = hexToRgb(hex);
-  const amt = Math.round(255 * (percent / 100));
-  const nr = Math.max(0, Math.min(255, r + amt));
-  const ng = Math.max(0, Math.min(255, g + amt));
-  const nb = Math.max(0, Math.min(255, b + amt));
-  return rgbToHex(nr, ng, nb);
+  // 转为 HSL
+  const rn = r / 255,
+    gn = g / 255,
+    bn = b / 255;
+  const mx = Math.max(rn, gn, bn),
+    mn = Math.min(rn, gn, bn);
+  const l = (mx + mn) / 2;
+  const s = mx === mn ? 0 : l > 0.5 ? (mx - mn) / (2 - mx - mn) : (mx - mn) / (mx + mn);
+  // 只调亮度(l)，不调饱和度(s)
+  let newL = l + percent / 100;
+  newL = Math.max(0, Math.min(1, newL));
+  // HSL → RGB
+  const hue2rgb = (p: number, q: number, t: number) => {
+    if (t < 0) t += 1;
+    if (t > 1) t -= 1;
+    if (t < 1 / 6) return p + (q - p) * 6 * t;
+    if (t < 1 / 2) return q;
+    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+    return p;
+  };
+  if (mx === mn) {
+    const gv = Math.round(newL * 255);
+    return rgbToHex(gv, gv, gv);
+  }
+  const q = newL < 0.5 ? newL * (1 + s) : newL + s - newL * s;
+  const p = 2 * newL - q;
+  const rc = hue2rgb(
+    p,
+    q,
+    rn > gn ? (rn > bn ? (gn - bn) / (mx - mn) : -1 / 3) : gn > bn ? (bn - rn) / (mx - mn) + 2 / 3 : 0,
+  );
+  const gc = hue2rgb(p, q, 1 / 3);
+  const bc = hue2rgb(p, q, 2 / 3);
+  return rgbToHex(Math.round(rc * 255), Math.round(gc * 255), Math.round(bc * 255));
 }
 
 /**

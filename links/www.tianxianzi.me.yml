@@ -1,0 +1,99 @@
+site:
+  name: 天仙子
+  url: https://www.tianxianzi.me/
+  description: 个人生活博客
+  links: /friends
+  friends:
+    - name: Homura's blog
+      url: https://homura.live/
+      description: 我们所度过的每个平凡的日常，也许就是连续发生的奇迹。
+    - name: 甜鱼/Ayu
+      url: https://ayu.land/
+      description: 三脚猫多面手，努力学习世界的一切。
+    - name: 糟
+      url: https://miyehn.me/blog/
+      description: miyehn/Rain/小雨，主职是做游戏，也自娱自乐画点画。
+    - name: Velas 电波站
+      url: https://www.velasx.com/
+      description: 欢迎来到Velas电波站！
+    - name: To the Lighthouse
+      url: https://owlswims.com/
+      description: …A Touch and yet not a Touch
+    - name: 椒盐豆豉
+      url: https://blog.douchi.space/
+      description: 喜欢就买，不行就分，多喝热水，重启电脑
+    - name: Moon in Nowhere
+      url: https://innowhere.icu/
+      description: Nowhere to go
+    - name: 一支咏叹调
+      url: https://turquoise.one/
+      description: 一位普通美女的小窝
+    - name: 小球飞鱼
+      url: https://mantyke.icu/
+      description: 我们会一起遇见鲸鱼吗？
+    - name: 枕石
+      url: https://zhen-shi.github.io/
+      description: 缓缓的漩涡中，沉重而轻柔的玫瑰。
+    - name: 谢谢所有的鱼
+      url: https://gregueria.icu/
+      description: 再会
+    - name: 山月
+      url: http://sanguok.com/
+      description: 左海逐月，雙峰遺夢
+    - name: Sleepingcat
+      url: https://sleepingcat.me/
+      description: 个人记事本
+    - name: Another Dayu
+      url: https://anotherdayu.com/
+      description: Seize the day, gather ye rosebuds while ye may.
+    - name: Sector V2
+      url: https://kumo-l.net/
+      description: Kumo の blog
+    - name: 月夜Moonlight
+      url: https://moonlt.site/
+      description: 見字如面
+    - name: Pseudoyu
+      url: https://www.pseudoyu.com/
+      description: A web3 enthusiast, blockchain developer & indie hacker.
+    - name: 雪糕
+      url: https://lyc.sh/blog/
+      description: 人對愛和永遠 應該有幻覺。
+    - name: Dasein
+      url: https://professorx8.github.io/
+      description: Someone who is looking for people to discuss thoughts.
+    - name: Airing 的小屋
+      url: https://blog.ursb.me/
+      description: 哲学硕士｜小学老师｜终端全栈
+    - name: 琴
+      url: https://spetacularll.github.io/
+      description: N/A
+    - name: yxy
+      url: https://yangxy.com/
+      description: N/A
+    - name: 長門有希
+      url: https://blog.yuki-nagato.com/
+      description: 信息统合思念体
+    - name: 云海花遥
+      url: https://www.moeyao.cn/
+      description: 白头并非雪可替,相遇已是上上签
+    - name: ahxxm's blog
+      url: https://ahxxm.com/
+      description: N/A
+    - name: Garden of Outlier
+      url: https://chlo.is
+      description: An Element-chan who writes.
+    - name: 查令十字街 84 号
+      url: https://www.javis.me/
+      description: N/A
+    - name: 崔话记
+      url: https://cuixiping.com/
+      description: 向着理想的方向，爬一会儿，躺一会儿
+    - name: 夜海行舟
+      url: https://brocalife.com/
+      description: 坎坷之路，终抵群星。夜海行舟，不知归处。
+    - name: 重生云
+      url: https://xiaochopin.github.io/
+      description: 明月装饰了你的窗，你装饰了别人的梦。
+    - name: 東雲
+      url: https://lllgoyour.com/
+      description: 一直游到海水变蓝

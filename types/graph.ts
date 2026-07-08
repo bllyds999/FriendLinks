@@ -26,4 +26,5 @@ export type GraphData = {
   links: GraphLink[];
   categories: GraphCategory[];
   adjacency: Record<string, { neighbors: string[] }>;
+  bezier?: { lseg: number[]; lpx: number[]; lpy: number[]; lpz: number[] } | null;
 };

@@ -1,12 +1,16 @@
-'site':
-  'name': 'xjq.icu'
-  'url': 'https://xjq.icu/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': '天真的小窝'
-      'url': 'http://bin.zmide.com/'
-    - 'name': 'Lexmin0412'
-      'url': 'https://lexmin.cn/'
-    - 'name': '勤为径苦作舟'
-      'url': 'https://blog.zhjh.top/'
+site:
+  name: "xjq blog"
+  url: "https://xjq.icu/"
+  description: "xjq 代码库 随手记 博客"
+  links: "/links"
+  friends:
+    - name: "xjq 的工具箱"
+      url: "https://img.xjq.icu/"
+    - name: "awesome study"
+      url: "https://tool.xjq.icu/"
+    - name: "天真的小窝"
+      url: "https://bin.zmide.com/"
+    - name: "1874's Home"
+      url: "https://1874.cool/"
+    - name: "程序员无尤"
+      url: "https://blog.zhjh.top/"

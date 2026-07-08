@@ -1,21 +1,27 @@
 /**
  * Three.js 原生渲染层
  * 替代 3d-force-graph：单层 InstancedMesh + LineSegments + OrbitControls
+ *
+ * v2: 贝塞尔曲线连线 + 流动粒子
  */
-import * as THREE from "three";
+import * as THREE from "three/webgpu";
+import { QuadraticBezierCurve3, Vector3 } from "three/webgpu";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import type { GraphNode } from "../../../types/graph";
+import { MAX_EDGE_SEGMENTS } from "../../utils/bezier";
 
 // ─── 类型 ──────────────────────────────────────────────────────────
 
 export interface RenderContext {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
-  renderer: THREE.WebGLRenderer;
+  renderer: THREE.WebGPURenderer;
   controls: OrbitControls;
   nodes: THREE.InstancedMesh;
   linkLines: THREE.LineSegments;
   dummy: THREE.Object3D;
+  /** 边数组引用 */
+  edgeRefs: EdgeData[];
 }
 
 export interface NodeState {
@@ -23,28 +29,78 @@ export interface NodeState {
   _cHover: string;
   _cFocus: string;
   _cHighlight: string;
+  _cDimmed: string;
+}
+
+/** 缓存的边几何数据（包括贝塞尔控制点） */
+interface EdgeData {
+  sx: number;
+  sy: number;
+  sz: number; // source
+  ex: number;
+  ey: number;
+  ez: number; // target
+  cx: number;
+  cy: number;
+  cz: number; // control point
 }
 
 // ─── 常量 ──────────────────────────────────────────────────────────
 
 const NODE_SEGMENTS = 6;
+const NODE_HEIGHT_SEGMENTS = 4;
 const BG_COLOR = 0x0f1115;
+/** 每条边细分为多少段线（最大，实际按边长自适应） */
+export const EDGE_SEGMENTS = MAX_EDGE_SEGMENTS;
+
+// ─── 预分配曲线采样（零GC复用） ──────────────────────────────────────
+
+const _v0 = new Vector3();
+const _v1 = new Vector3();
+const _vc = new Vector3();
+/** 共享 QuadraticBezierCurve3，通过更新引用 Vector3 来复用 */
+const _curve = new QuadraticBezierCurve3(_v0, _vc, _v1);
+/** 预分配的采样点数组 */
+const _pts: Vector3[] = [];
+for (let k = 0; k <= EDGE_SEGMENTS; k++) _pts.push(new Vector3());
+
+// ─── 贝塞尔工具 ──────────────────────────────────────────────────────
+
+/** 计算垂直于边方向的偏移方向（在 XZ 平面） */
+function calcControlOffset(dx: number, dy: number, dz: number, len: number): { ox: number; oy: number; oz: number } {
+  if (len < 0.001) return { ox: 0, oy: 0, oz: 1 };
+  const nx = dx / len,
+    ny = dy / len,
+    nz = dz / len;
+  // 叉积 (nx,ny,nz) × (0,1,0) = (nz, 0, -nx)，若边接近垂直则用 (1,0,0)
+  const up = Math.abs(ny) > 0.99 ? { x: 1, y: 0, z: 0 } : { x: 0, y: 1, z: 0 };
+  const ox = ny * up.z - nz * up.y;
+  const oy = nz * up.x - nx * up.z;
+  const oz = nx * up.y - ny * up.x;
+  const ol = Math.sqrt(ox * ox + oy * oy + oz * oz) || 1;
+  return { ox: ox / ol, oy: oy / ol, oz: oz / ol };
+}
 
 // ─── 工厂 ──────────────────────────────────────────────────────────
 
-export function createRenderer(container: HTMLElement, nodeCount: number, linkCount: number): RenderContext {
+export async function createRenderer(
+  container: HTMLElement,
+  nodeCount: number,
+  linkCount: number,
+): Promise<RenderContext> {
   const { width, height } = container.getBoundingClientRect();
 
   // Camera（far=200k 配合 maxDistance 10x，支持极远视野俯瞰博客宇宙）
   const camera = new THREE.PerspectiveCamera(75, width / height, 1, 500000);
   camera.position.set(0, 0, 1000);
 
-  // Renderer
-  const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+  // Renderer（WebGPU 优先，自动降级 WebGL）
+  const renderer = new THREE.WebGPURenderer({ antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(width, height);
   renderer.setClearColor(BG_COLOR);
   container.appendChild(renderer.domElement);
+  await renderer.init();
 
   // Scene
   const scene = new THREE.Scene();
@@ -60,27 +116,33 @@ export function createRenderer(container: HTMLElement, nodeCount: number, linkCo
   controls.minPolarAngle = 0;
   controls.maxPolarAngle = Math.PI * 2; // 上下贯通旋转
 
-  // Lights
-  scene.add(new THREE.AmbientLight(0xcccccc, Math.PI));
-  const dirLight = new THREE.DirectionalLight(0xffffff, 0.6 * Math.PI);
-  scene.add(dirLight);
+  // 无需 scene lights — InstancedMesh2 + MeshBasicMaterial，无光照更轻量
 
-  // InstancedMesh: 单层球体
-  const nodeGeom = new THREE.SphereGeometry(1, NODE_SEGMENTS, NODE_SEGMENTS);
-  const nodeMat = new THREE.MeshStandardMaterial({ roughness: 0.6, metalness: 0.1 });
+  const nodeGeom = new THREE.SphereGeometry(1, NODE_SEGMENTS, NODE_HEIGHT_SEGMENTS);
+  const nodeMat = new THREE.MeshBasicMaterial({
+    transparent: true,
+    opacity: 0.25,
+    depthWrite: false,
+    toneMapped: false,
+  });
   const nodes = new THREE.InstancedMesh(nodeGeom, nodeMat, nodeCount);
   nodes.frustumCulled = false;
   scene.add(nodes);
 
-  // 连线 (LineSegments)
+  // ── 贝塞尔曲线连线 (LineSegments) ──
+  // 每条边细分 EDGE_SEGMENTS 段，每段 2 个顶点 × 3 坐标 + 顶点颜色
+  const edgeVertsPerEdge = EDGE_SEGMENTS * 2 * 3;
   const linkGeom = new THREE.BufferGeometry();
-  const linkPositions = new Float32Array(linkCount * 6);
+  const linkPositions = new Float32Array(linkCount * edgeVertsPerEdge);
+  const linkColors = new Float32Array(linkCount * EDGE_SEGMENTS * 2 * 3);
   linkGeom.setAttribute("position", new THREE.BufferAttribute(linkPositions, 3));
+  linkGeom.setAttribute("color", new THREE.BufferAttribute(linkColors, 3));
   linkGeom.setDrawRange(0, 0);
   const linkMat = new THREE.LineBasicMaterial({
-    color: 0x555555,
+    vertexColors: true,
     transparent: true,
     opacity: 0,
+    blending: THREE.AdditiveBlending,
     depthWrite: false,
   });
   const linkLines = new THREE.LineSegments(linkGeom, linkMat);
@@ -89,17 +151,122 @@ export function createRenderer(container: HTMLElement, nodeCount: number, linkCo
 
   const dummy = new THREE.Object3D();
 
-  return { scene, camera, renderer, controls, nodes, linkLines, dummy };
+  return {
+    scene,
+    camera,
+    renderer,
+    controls,
+    nodes,
+    linkLines,
+    dummy,
+    edgeRefs: [],
+  };
+}
+
+// ─── 连线更新（贝塞尔曲线） ──────────────────────────────────────────
+
+export function updateLinkPositions(
+  ctx: RenderContext,
+  links: { source: string; target: string }[],
+  nodeIdToIndex: Map<string, number>,
+  graphNodes: GraphNode[],
+  opacity: number,
+) {
+  const pos = ctx.linkLines.geometry.attributes.position.array as Float32Array;
+  const col = ctx.linkLines.geometry.attributes.color.array as Float32Array;
+  const maxEdges = Math.min(links.length, pos.length / (EDGE_SEGMENTS * 2 * 3));
+  const edgeDataArr: EdgeData[] = [];
+
+  for (let i = 0; i < maxEdges; i++) {
+    const l = links[i];
+    const si = nodeIdToIndex.get(l.source);
+    const ti = nodeIdToIndex.get(l.target);
+    if (si == null || ti == null) {
+      edgeDataArr.push({ sx: 0, sy: 0, sz: 0, ex: 0, ey: 0, ez: 0, cx: 0, cy: 0, cz: 0 });
+      continue;
+    }
+    const sn = graphNodes[si];
+    const tn = graphNodes[ti];
+    const sx = sn.x ?? 0,
+      sy = sn.y ?? 0,
+      sz = sn.z ?? 0;
+    const ex = tn.x ?? 0,
+      ey = tn.y ?? 0,
+      ez = tn.z ?? 0;
+    const mx = (sx + ex) / 2,
+      my = (sy + ey) / 2,
+      mz = (sz + ez) / 2;
+    const dx = ex - sx,
+      dy = ey - sy,
+      dz = ez - sz;
+    const len = Math.sqrt(dx * dx + dy * dy + dz * dz) || 1;
+    const offset = calcControlOffset(dx, dy, dz, len);
+    const bend = len * 0.15;
+    const cx = mx + offset.ox * bend;
+    const cy = my + offset.oy * bend;
+    const cz = mz + offset.oz * bend;
+
+    edgeDataArr.push({ sx, sy, sz, ex, ey, ez, cx, cy, cz });
+
+    // 边颜色：源→目标渐变
+    const srcCol = new THREE.Color((sn as any)._cDefault || "#ffffff");
+    const tgtCol = new THREE.Color((tn as any)._cDefault || "#ffffff");
+
+    // 使用 Three.js QuadraticBezierCurve3 采样（零GC，复用预分配数组）
+    _v0.set(sx, sy, sz);
+    _vc.set(cx, cy, cz);
+    _v1.set(ex, ey, ez);
+    for (let k = 0; k <= EDGE_SEGMENTS; k++) {
+      _curve.getPoint(k / EDGE_SEGMENTS, _pts[k]);
+    }
+
+    for (let j = 0; j < EDGE_SEGMENTS; j++) {
+      const t0 = j / EDGE_SEGMENTS;
+      const t1 = (j + 1) / EDGE_SEGMENTS;
+      const base = (i * EDGE_SEGMENTS + j) * 6;
+      pos[base] = _pts[j].x;
+      pos[base + 1] = _pts[j].y;
+      pos[base + 2] = _pts[j].z;
+      pos[base + 3] = _pts[j + 1].x;
+      pos[base + 4] = _pts[j + 1].y;
+      pos[base + 5] = _pts[j + 1].z;
+      // 顶点颜色：按 t 在源→目标之间插值
+      col[base] = srcCol.r + (tgtCol.r - srcCol.r) * t0;
+      col[base + 1] = srcCol.g + (tgtCol.g - srcCol.g) * t0;
+      col[base + 2] = srcCol.b + (tgtCol.b - srcCol.b) * t0;
+      col[base + 3] = srcCol.r + (tgtCol.r - srcCol.r) * t1;
+      col[base + 4] = srcCol.g + (tgtCol.g - srcCol.g) * t1;
+      col[base + 5] = srcCol.b + (tgtCol.b - srcCol.b) * t1;
+    }
+  }
+
+  ctx.edgeRefs = edgeDataArr;
+  ctx.linkLines.geometry.attributes.position.needsUpdate = true;
+  ctx.linkLines.geometry.attributes.color.needsUpdate = true;
+  ctx.linkLines.geometry.setDrawRange(0, maxEdges * EDGE_SEGMENTS * 2);
+  (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = opacity;
 }
 
 // ─── 节点位置 + 颜色 ──────────────────────────────────────────────
 
-export function updateAllNodePositions(ctx: RenderContext, nodes: GraphNode[], nodeStates: NodeState[]) {
-  const m = new THREE.Matrix4();
+/** 统一节点大小，不区分度数 */
+export function nodeSize(_degree: number, _maxDegree: number): number {
+  return 40;
+}
 
+export function updateAllNodePositions(
+  ctx: RenderContext,
+  nodes: GraphNode[],
+  nodeStates: NodeState[],
+  degreeMap: Record<string, number>,
+  maxDegree: number,
+) {
+  const m = new THREE.Matrix4();
   for (let i = 0; i < nodes.length; i++) {
     const n = nodes[i];
-    m.compose(new THREE.Vector3(n.x ?? 0, n.y ?? 0, n.z ?? 0), new THREE.Quaternion(), new THREE.Vector3(15, 15, 15));
+    const deg = degreeMap[n.id] || 1;
+    const sz = nodeSize(deg, maxDegree);
+    m.compose(new THREE.Vector3(n.x ?? 0, n.y ?? 0, n.z ?? 0), new THREE.Quaternion(), new THREE.Vector3(sz, sz, sz));
     ctx.nodes.setMatrixAt(i, m);
 
     if (nodeStates[i]) {
@@ -114,40 +281,6 @@ export function updateAllNodePositions(ctx: RenderContext, nodes: GraphNode[], n
 export function setNodeColor(ctx: RenderContext, index: number, color: string) {
   ctx.nodes.setColorAt(index, new THREE.Color(color));
   if (ctx.nodes.instanceColor) ctx.nodes.instanceColor.needsUpdate = true;
-}
-
-// ─── 连线更新 ──────────────────────────────────────────────────────
-
-export function updateLinkPositions(
-  ctx: RenderContext,
-  links: { source: string; target: string }[],
-  nodeIdToIndex: Map<string, number>,
-  graphNodes: GraphNode[],
-  opacity: number,
-) {
-  const pos = ctx.linkLines.geometry.attributes.position.array as Float32Array;
-  const count = Math.min(links.length, pos.length / 6);
-
-  for (let i = 0; i < count; i++) {
-    const l = links[i];
-    const si = nodeIdToIndex.get(typeof l.source === "string" ? l.source : ((l.source as any).id ?? l.source));
-    const ti = nodeIdToIndex.get(typeof l.target === "string" ? l.target : ((l.target as any).id ?? l.target));
-    if (si == null || ti == null) continue;
-
-    const sn = graphNodes[si];
-    const tn = graphNodes[ti];
-    const j = i * 6;
-    pos[j] = sn.x ?? 0;
-    pos[j + 1] = sn.y ?? 0;
-    pos[j + 2] = sn.z ?? 0;
-    pos[j + 3] = tn.x ?? 0;
-    pos[j + 4] = tn.y ?? 0;
-    pos[j + 5] = tn.z ?? 0;
-  }
-
-  ctx.linkLines.geometry.attributes.position.needsUpdate = true;
-  ctx.linkLines.geometry.setDrawRange(0, count * 2);
-  (ctx.linkLines.material as THREE.LineBasicMaterial).opacity = opacity;
 }
 
 // ─── 相机 ──────────────────────────────────────────────────────────
@@ -175,7 +308,6 @@ export function zoomToFit(
   }
   const wCenter = new THREE.Vector3(cx / tw, cy / tw, cz / tw);
 
-  // Bounding box 用于确定视野大小
   const box = new THREE.Box3();
   for (const n of graphNodes) {
     box.expandByPoint(new THREE.Vector3(n.x ?? 0, n.y ?? 0, n.z ?? 0));

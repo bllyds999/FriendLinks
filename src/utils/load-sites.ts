@@ -2,6 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import YAML from "yaml";
 import path from "node:path";
 import type { Site } from "../../types/site";
+import { deterministicSample, isFastMode, getDevSampleSize } from "./sample";
 
 function isString(v: unknown): v is string {
   return typeof v === "string";
@@ -108,10 +109,7 @@ export function clearSiteCache() {
 
 const PARALLEL_BATCH = 128; // 并发上限，避免 fd 耗尽
 
-export async function loadSites(
-  dir?: string,
-  onProgress?: (current: number, total: number) => void,
-): Promise<Site[]> {
+export async function loadSites(dir?: string, onProgress?: (current: number, total: number) => void): Promise<Site[]> {
   const inputDir = dir ?? path.resolve("links");
 
   // 缓存命中：同目录直接返回
@@ -123,15 +121,9 @@ export async function loadSites(
   let files = await listYamlFiles(inputDir);
 
   // DEV 模式只取 100 个文件，跳过大量 IO
-  if (import.meta.env.DEV && files.length > 100) {
+  if (isFastMode() && files.length > getDevSampleSize()) {
     files.sort();
-    const seed = 42;
-    const shuffled = [...files];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = (seed * (i + 1)) % (i + 1);
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    files = shuffled.slice(0, 100);
+    files = deterministicSample(files, getDevSampleSize());
   }
 
   if (files.length === 0) {

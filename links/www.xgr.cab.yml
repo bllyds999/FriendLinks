@@ -1,0 +1,8 @@
+site:
+  name: "荣小站"
+  url: "https://www.xgr.cab/"
+  description: "荣小站"
+  links: "/links"
+  friends:
+    - name: "清梦云熙"
+      url: "https://skylan.cc/"

@@ -1,14 +1,18 @@
-'site':
-  'name': 'blog.xrntkk.top'
-  'url': 'https://blog.xrntkk.top/'
-  'description': '友情链接'
-  'links': '/links'
-  'friends':
-    - 'name': 's1mh0 前GWHT,现Xp0int的渗透,Web及Misc大手子'
-      'url': 'https://www.s1mh0.cn/'
-    - 'name': '2hi5hu MISC大手子'
-      'url': 'https://2hi5hu.cn/'
-    - 'name': '晨曦 Web神！'
-      'url': 'https://chenxi9981.github.io/'
-    - 'name': 'Luc1f3r Web大手子'
-      'url': 'http://www.ctf-blog.sbs/'
+site:
+  name: Xrntkk's Blog
+  url: https://blog.xrntkk.top/
+  description: 来自 CTF 的博客，分享网络安全与技术笔记
+  links: /links
+  friends:
+    - name: s1mh0
+      url: https://www.s1mh0.cn/
+      description: 前GWHT,现Xp0int的渗透,Web及Misc大手子
+    - name: 2hi5hu
+      url: https://2hi5hu.cn/
+      description: MISC大手子
+    - name: 晨曦
+      url: https://chenxi9981.github.io/
+      description: Web神！
+    - name: Luc1f3r
+      url: http://www.ctf-blog.sbs/
+      description: Web大手子
